@@ -1,0 +1,77 @@
+/* ═══════════════════════════════════════════════════════════════
+   SONORE — Design tokens (lecteur audio local)
+   Aucune ressource externe : Inter si installée, sinon pile système.
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  /* ── Gris (3 niveaux + bordure) ─────────────────────────── */
+  --bg-base:        #121212;   /* fond application                     */
+  --bg-elevated:    #181818;   /* sidebar, barre de lecture, panneaux  */
+  --bg-card:        #1f1f1f;   /* cartes, lignes survolées             */
+  --bg-card-hover:  #262626;   /* carte au survol                      */
+  --bg-pressed:     #2e2e2e;   /* état actif / enfoncé                 */
+  --border-subtle:  #2a2a2a;   /* séparateurs, contours discrets       */
+
+  /* ── Accent (ambre — distinct du vert Spotify et du rouge Apple) ── */
+  --accent:         #e8a33d;
+  --accent-hover:   #f2b355;
+  --accent-pressed: #cf8f2b;
+  --accent-soft:    rgba(232, 163, 61, 0.14);   /* fonds de sélection   */
+  --on-accent:      #1a1206;   /* texte sur accent (contraste > 7:1)   */
+
+  /* ── Texte ──────────────────────────────────────────────── */
+  --text-primary:   #ffffff;   /* 18.9:1 sur --bg-base                */
+  --text-secondary: #b3b3b3;   /*  7.7:1                              */
+  --text-muted:     #8a8a8a;   /*  5.0:1 — légendes uniquement        */
+  --text-disabled:  #5f5f5f;   /* état désactivé (non interactif)      */
+
+  /* ── Focus ──────────────────────────────────────────────── */
+  --focus-ring:     0 0 0 2px var(--bg-base), 0 0 0 4px var(--accent);
+
+  /* ── Typographie (Inter, SIL OFL) ───────────────────────── */
+  --font-sans: "Inter", "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --text-xs:   0.75rem;   /* 12px — légendes            */
+  --text-sm:   0.8125rem; /* 13px — métadonnées         */
+  --text-md:   0.875rem;  /* 14px — corps / lignes      */
+  --text-lg:   1rem;      /* 16px — titres de section   */
+  --text-xl:   1.25rem;   /* 20px — titre d'écran       */
+  --text-2xl:  1.5rem;    /* 24px — titre d'album       */
+  --text-3xl:  2rem;      /* 32px — hero                 */
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+
+  /* ── Espacement (base 4px) ──────────────────────────────── */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;  --space-8: 32px;  --space-12: 48px;
+
+  /* ── Rayons ─────────────────────────────────────────────── */
+  --radius-sm:   4px;    /* inputs, petits éléments        */
+  --radius-md:   8px;    /* boutons, cartes, pochettes     */
+  --radius-lg:   12px;   /* panneaux, modales              */
+  --radius-pill: 999px;  /* chips, bouton play             */
+
+  /* ── Élévation (thème sombre : ombre + fond) ────────────── */
+  --shadow-card:  0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-bar:   0 -8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-pop:   0 16px 48px rgba(0, 0, 0, 0.6);
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --motion-fast: 150ms;                 /* hover, couleurs          */
+  --motion-base: 200ms;                 /* apparition du bouton play */
+  --motion-slow: 250ms;                 /* transitions de panneau   */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ── Cibles tactiles ────────────────────────────────────── */
+  --target-min: 40px;                   /* 44px recommandé au doigt */
+
+  /* ── Dimensions structurelles ───────────────────────────── */
+  --sidebar-w:      240px;
+  --sidebar-w-min:  72px;               /* mode compact (icônes)    */
+  --playerbar-h:    84px;
+  --content-max:    1400px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --motion-fast: 0ms; --motion-base: 0ms; --motion-slow: 0ms; }
+}
