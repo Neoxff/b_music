@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Sonore</string>
+    <string name="title_activity_main">Sonore</string>
+    <string name="package_name">com.sonore.lecteur</string>
+    <string name="custom_url_scheme">com.sonore.lecteur</string>
+</resources>
