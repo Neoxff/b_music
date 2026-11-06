@@ -1,4 +1,4 @@
-Booming Music, Android için geliştirilmiş modern ve güçlü bir yerel müzik oynatıcıdır; akıcı, özelleştirilebilir ve görsel açıdan hoş bir deneyim sunmak için tasarlanmıştır. Material You tasarımıyla hazırlanmış ve Media3 ile güçlendirilmiştir; sadeliği gelişmiş oynatma özellikleriyle birleştirir.
+B Music, Android için geliştirilmiş modern ve güçlü bir yerel müzik oynatıcıdır; akıcı, özelleştirilebilir ve görsel açıdan hoş bir deneyim sunmak için tasarlanmıştır. Material You tasarımıyla hazırlanmış ve Media3 ile güçlendirilmiştir; sadeliği gelişmiş oynatma özellikleriyle birleştirir.
 
 Kelime kelime senkronize şarkı sözleri, çevrilmiş şarkı sözü desteği (TTML/LRC) ve gelişmiş görseller, akıcı geçişler ve derin özelleştirme seçenekleri sunan şık bir “Şu Anda Çalıyor” arayüzü ile favori şarkılarınızın keyfini çıkarın.
 

@@ -374,7 +374,7 @@
     <string name="profiles_exported_successfully">프로필을 성공적으로 내보냈습니다.</string>
     <string name="import_profiles">프로필 가져오기</string>
     <string name="select_profiles_to_import">가져올 프로필 선택:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Booming Music EQ 프로필이 포함된 파일을 선택하세요.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">B Music EQ 프로필이 포함된 파일을 선택하세요.</string>
     <string name="imported_x_profiles">%d개의 프로필을 가져왔습니다.</string>
     <string name="no_profile_imported">가져온 프로필이 없습니다.</string>
     <string name="import_autoeq_profile">AutoEq 프로필 가져오기</string>
@@ -486,7 +486,7 @@
     <string name="share_app">앱 공유</string>
     <string name="share_app_summary">친구들에게 이 앱을 추천해 주세요.</string>
     <string name="send_invitation_message">초대 메시지 보내기</string>
-    <string name="invitation_message_content">안녕! 로컬 음악을 듣기에 최고의 앱인 Booming Music을 확인해봐. 여기서 다운로드할 수 있어: %s</string>
+    <string name="invitation_message_content">안녕! 로컬 음악을 듣기에 최고의 앱인 B Music을 확인해봐. 여기서 다운로드할 수 있어: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">저장공간 권한 필요</string>
@@ -511,7 +511,7 @@
     <string name="advanced_summary">언어 및 고급 사용자용 설정입니다.</string>
     <string name="update_title">업데이트</string>
     <string name="about_title">정보</string>
-    <string name="about_summary">Booming Music %s, 자세한 정보 보려면 터치.</string>
+    <string name="about_summary">B Music %s, 자세한 정보 보려면 터치.</string>
     <!-- Preference headers -->
     <string name="general_header">일반</string>
     <string name="library_header">라이브러리</string>
@@ -680,7 +680,7 @@
     <string name="online_album_covers_title">누락된 앨범 커버 다운로드</string>
     <string name="online_album_covers_summary">다운로드된 이미지는 파일에 삽입되지 않으며 앱에서만 표시됩니다.</string>
     <string name="delete_downloaded_lyrics_title">다운로드된 가사 삭제</string>
-    <string name="delete_downloaded_lyrics_summary">Booming Music이 다운로드한 가사만 삭제합니다.</string>
+    <string name="delete_downloaded_lyrics_summary">B Music이 다운로드한 가사만 삭제합니다.</string>
     <string name="lyrics_cleared">가사가 삭제되었습니다.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">정렬 시 관사 무시</string>
@@ -786,7 +786,7 @@
     <string name="update_available_title">업데이트 가능</string>
     <string name="more_info_action">더 자세한 정보.</string>
     <string name="download_action">다운로드</string>
-    <string name="downloading_update">Booming Music 업데이트를 다운로드 중입니다.</string>
+    <string name="downloading_update">B Music 업데이트를 다운로드 중입니다.</string>
     <string name="uncaught_error_title">오류가 발생했습니다!</string>
     <string name="uncaught_error_message">문제가 발생하여 앱이 종료되었습니다. Telegram 그룹이나 이메일로 오류 보고서를 보내주시면 도움이 됩니다.</string>
     <string name="uncaught_error_report">오류 보고서</string>
@@ -817,7 +817,7 @@
     <string name="bit_perfect_description">시스템 리샘플링 없이 오디오 출력을 직접 USB DAC로 보냅니다.</string>
     <string name="file_lyrics">파일</string>
     <string name="undo_changes">변경사항 취소</string>
-    <string name="cannot_edit_lyrics_file">파일의 내용물을 Booming Music에서 직접 변경하는 것은 불가능합니다.</string>
+    <string name="cannot_edit_lyrics_file">파일의 내용물을 B Music에서 직접 변경하는 것은 불가능합니다.</string>
     <string name="lyrics_by_x">가사제공 %s</string>
     <string name="sign_in_to_x_title">%s 에 로그인</string>
     <string name="connected_account_label">연동된 계정:</string>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Booming" parent="Base.Theme.Booming"/>
+    <style name="Theme.BMusic" parent="Base.Theme.BMusic"/>
 
-    <style name="Theme.Booming.Light" parent="Base.Theme.Booming.Light"/>
+    <style name="Theme.BMusic.Light" parent="Base.Theme.BMusic.Light"/>
 
-    <style name="Theme.Booming.Black" parent="Base.Theme.Booming.Black"/>
+    <style name="Theme.BMusic.Black" parent="Base.Theme.BMusic.Black"/>
 
-    <style name="Theme.Booming.FollowSystem" parent="Base.Theme.Booming.Adaptive"/>
+    <style name="Theme.BMusic.FollowSystem" parent="Base.Theme.BMusic.Adaptive"/>
 
-    <style name="Theme.Booming.SplashScreen" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenAnimatedIcon">@drawable/boomingmusic_logo_splash</item>
+    <style name="Theme.BMusic.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_animated</item>
     </style>
 
-    <style name="Theme.Booming.AudioPreview" parent="Theme.Booming.FollowSystem">
+    <style name="Theme.BMusic.AudioPreview" parent="Theme.BMusic.FollowSystem">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>
@@ -21,7 +21,7 @@
         <item name="android:navigationBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="Widget.Booming.AppWidget.Preview.Control" parent="">
+    <style name="Widget.BMusic.AppWidget.Preview.Control" parent="">
         <item name="android:scaleType">center</item>
         <item name="android:background">@drawable/widget_shape_button</item>
         <item name="android:backgroundTint">?attr/colorTertiary</item>
@@ -29,16 +29,16 @@
     </style>
 
 
-    <style name="Widget.Booming.AppWidget.Preview.Accent" parent="Widget.Booming.AppWidget.Preview.Control">
+    <style name="Widget.BMusic.AppWidget.Preview.Accent" parent="Widget.BMusic.AppWidget.Preview.Control">
         <item name="android:backgroundTint">?attr/colorPrimary</item>
         <item name="android:tint">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="Widget.Booming.Expressive.Button" parent="Widget.Material3Expressive.Button">
+    <style name="Widget.BMusic.Expressive.Button" parent="Widget.Material3Expressive.Button">
         <item name="iconGravity">textStart</item>
     </style>
 
-    <style name="Widget.Booming.Expressive.Button.Tonal" parent="Widget.Material3Expressive.Button.TonalButton">
+    <style name="Widget.BMusic.Expressive.Button.Tonal" parent="Widget.Material3Expressive.Button.TonalButton">
         <item name="iconGravity">textStart</item>
     </style>
 

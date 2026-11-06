@@ -59,7 +59,7 @@
         app:isPreferenceVisible="@bool/enable_lastfm_integration"
         app:dependency="network_features">
 
-        <com.mardous.booming.ui.component.preferences.CustomDialogPreference
+        <com.bmusic.app.ui.component.preferences.CustomDialogPreference
             app:icon="@drawable/ic_person_24dp"
             app:title="@string/lastfm_login_title"
             app:summary="@string/lastfm_login_summary"
@@ -102,7 +102,7 @@
         app:layout="@layout/preference_category_title"
         app:dependency="network_features">
 
-        <com.mardous.booming.ui.component.preferences.CustomDialogPreference
+        <com.bmusic.app.ui.component.preferences.CustomDialogPreference
             app:icon="@drawable/ic_person_24dp"
             app:title="@string/listenbrainz_login_title"
             app:summary="@string/listenbrainz_login_summary"
@@ -197,7 +197,7 @@
             app:isPreferenceVisible="@bool/enable_builtin_updater"
             app:key="experimental_updates"/>
 
-        <com.mardous.booming.ui.component.preferences.ProgressIndicatorPreference
+        <com.bmusic.app.ui.component.preferences.ProgressIndicatorPreference
             app:title="@string/search_for_update_title"
             app:persistent="false"
             app:layout="@layout/list_item_view"

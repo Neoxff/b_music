@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">附近设备（可选）</string>
     <string name="permission_bluetooth_description">此应用需要附近的设备权限来检查蓝牙设备</string>
     <string name="permission_read_images_title">访问图像（可选）</string>
-    <string name="permission_read_images_summary">为了自动查找并显示歌曲的专辑封面，Booming Music 需要获取访问音乐文件夹的权限。可根据需要决定是否授予此权限。</string>
+    <string name="permission_read_images_summary">为了自动查找并显示歌曲的专辑封面，B Music 需要获取访问音乐文件夹的权限。可根据需要决定是否授予此权限。</string>
     <string name="permission_read_images_denied">需要授予访问设备中图像的权限。</string>
     <string name="permissions_denied">权限被拒绝</string>
     <string name="permissions_needed">需要权限</string>
@@ -373,7 +373,7 @@
     <string name="profiles_exported_successfully">已成功导出预设。</string>
     <string name="import_profiles">导入预设</string>
     <string name="select_profiles_to_import">选择要导入的预设：</string>
-    <string name="select_a_file_containing_booming_eq_profiles">请选择包含 Booming Music 均衡器预设的文件。</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">请选择包含 B Music 均衡器预设的文件。</string>
     <string name="imported_x_profiles">导入了 %d 个预设。</string>
     <string name="no_profile_imported">没有预设被导入。</string>
     <string name="import_autoeq_profile">导入 AutoEq 预设</string>
@@ -434,7 +434,7 @@
     <string name="synced_lyrics">同步歌词</string>
     <string name="embedded_lyrics">内嵌歌词</string>
     <string name="downloaded_lyrics">已下载</string>
-    <string name="cannot_download_lyrics">Booming Music 无法找到这首歌的歌词。要手动搜索吗？</string>
+    <string name="cannot_download_lyrics">B Music 无法找到这首歌的歌词。要手动搜索吗？</string>
     <string name="search_lyrics">搜索歌词</string>
     <string name="choose_lyrics">选择歌词类型</string>
     <string name="download_lyrics">下载歌词</string>
@@ -474,22 +474,22 @@
     <string name="mardous_summary">主要开发者</string>
     <string name="contributors">贡献者</string>
     <string name="translators_title">译者</string>
-    <string name="translators_summary">感谢那些让 Booming Music 支持多种语言的人们。</string>
+    <string name="translators_summary">感谢那些让 B Music 支持多种语言的人们。</string>
     <string name="view_profile_on_github">在 GitHub 上查看个人资料</string>
     <string name="write_an_email">写电子邮件</string>
     <string name="support_development">支持开发</string>
     <string name="help_with_translations">帮助翻译</string>
-    <string name="help_with_translations_summary">通过帮助将 Booming Music 翻译成其他语言来为项目做出贡献。</string>
+    <string name="help_with_translations_summary">通过帮助将 B Music 翻译成其他语言来为项目做出贡献。</string>
     <string name="report_bugs">反馈问题</string>
     <string name="report_bugs_summary">报告错误或请求新功能。</string>
     <string name="share_app">分享此应用</string>
-    <string name="share_app_summary">与朋友分享，让更多人使用 Booming Music。</string>
+    <string name="share_app_summary">与朋友分享，让更多人使用 B Music。</string>
     <string name="send_invitation_message">发送邀请信息</string>
-    <string name="invitation_message_content">你好，来看看 Booming Music 吧！这是 Android 平台最好的本地音乐播放器。下载链接：%s</string>
+    <string name="invitation_message_content">你好，来看看 B Music 吧！这是 Android 平台最好的本地音乐播放器。下载链接：%s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">需要存储访问</string>
-    <string name="saf_access_required_message">Booming Music 需要访问这些文件的权限。请选择存储音乐文件的根文件夹。</string>
+    <string name="saf_access_required_message">B Music 需要访问这些文件的权限。请选择存储音乐文件的根文件夹。</string>
     <string name="saf_show_files_button">显示文件</string>
     <string name="saf_error_uri">无法获取 SAF URI</string>
     <string name="saf_write_failed">文件写入失败：%s</string>
@@ -510,7 +510,7 @@
     <string name="advanced_summary">高级用户的应用内语言和其他设置。</string>
     <string name="update_title">更新</string>
     <string name="about_title">关于</string>
-    <string name="about_summary">Booming Music %s，点按以查看更多信息。</string>
+    <string name="about_summary">B Music %s，点按以查看更多信息。</string>
     <!-- Preference headers -->
     <string name="general_header">常规</string>
     <string name="library_header">曲库</string>
@@ -675,7 +675,7 @@
     <string name="online_album_covers_title">下载缺失的专辑封面</string>
     <string name="online_album_covers_summary">下载的图像不会嵌入到音频文件中，仅在本应用内可见。</string>
     <string name="delete_downloaded_lyrics_title">删除下载的歌词</string>
-    <string name="delete_downloaded_lyrics_summary">仅删除由 Booming Music 下载的歌词。不影响嵌入到 ID3v2 标签或 LRC 文件中的歌词。</string>
+    <string name="delete_downloaded_lyrics_summary">仅删除由 B Music 下载的歌词。不影响嵌入到 ID3v2 标签或 LRC 文件中的歌词。</string>
     <string name="lyrics_cleared">歌词已清除。</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">在排序时忽略冠词</string>
@@ -781,7 +781,7 @@
     <string name="update_available_title">有可用更新</string>
     <string name="more_info_action">更多信息。</string>
     <string name="download_action">下载</string>
-    <string name="downloading_update">正在下载 Booming Music 更新。</string>
+    <string name="downloading_update">正在下载 B Music 更新。</string>
     <string name="uncaught_error_title">哎呀！出现了意料之外的事！</string>
     <string name="uncaught_error_message">似乎出了些问题，导致本应用崩溃。如果你能将错误报告发到我们的 Telegram 群组或邮箱，将有助于解决。</string>
     <string name="uncaught_error_report">错误报告</string>
@@ -876,7 +876,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">撤销更改</string>
-    <string name="cannot_edit_lyrics_file">无法在 Booming Music 中直接编辑文件内容。</string>
+    <string name="cannot_edit_lyrics_file">无法在 B Music 中直接编辑文件内容。</string>
     <string name="preferred_lyrics_file_format_title">首选文件格式</string>
     <string name="preferred_lyrics_file_format_summary">如果一首歌有不同格式的歌词文件，使用本选项选择优先使用的格式。</string>
     <string name="mini_player_swipe_to_skip_title">滑动迷你播放器切歌</string>
@@ -946,7 +946,7 @@
     <string name="widget_source_title">显示内容</string>
     <string name="widget_source_recent">最近播放</string>
     <string name="app_widget_nothing_playing">未在播放</string>
-    <string name="app_widget_tap_to_play">点按打开 Booming Music</string>
+    <string name="app_widget_tap_to_play">点按打开 B Music</string>
     <string name="widget_settings_title">小组件设置</string>
     <string name="widget_show_progress_title">显示进度条</string>
     <string name="widget_show_progress_summary">显示当前曲目的播放进度。</string>
@@ -964,7 +964,7 @@
     <string name="restart_app_message">应用将重启以完成操作。</string>
     <string name="permissions_subtitle">请授予音乐文件和附近设备的访问权限，以获得最佳播放体验。</string>
     <string name="initial_configuration_title">初始设置</string>
-    <string name="initial_configuration_subtitle">在开始之前，请根据你的喜好自定义 Booming Music。</string>
+    <string name="initial_configuration_subtitle">在开始之前，请根据你的喜好自定义 B Music。</string>
     <string name="initial_configuration_note">你随时可以更改这些设置。</string>
     <string name="restore_from_backup">从备份还原</string>
     <string name="network_features_summary">启用播放记录同步与专辑封面和歌词下载。</string>
@@ -993,8 +993,8 @@
     <string name="backup_content_artist_images">艺人图像</string>
     <string name="backup_app_version">创建于</string>
     <string name="backup_warning_legacy_format">此备份为旧版格式。目前仍可还原，但日后可能不再支持。</string>
-    <string name="backup_warning_ver_newer">此备份格式过新，当前版本的 Booming Music 无法处理。</string>
-    <string name="backup_warning_app_ver_newer">此备份是在较新版本的 Booming Music 中创建的。在此版本中还原可能会导致错误或数据还原不完整。</string>
+    <string name="backup_warning_ver_newer">此备份格式过新，当前版本的 B Music 无法处理。</string>
+    <string name="backup_warning_app_ver_newer">此备份是在较新版本的 B Music 中创建的。在此版本中还原可能会导致错误或数据还原不完整。</string>
     <string name="restoring_data">正在还原数据…</string>
     <string name="action_play_x">播放“%s”</string>
     <string name="home_empty_title">暂无推荐</string>
@@ -1025,6 +1025,6 @@
     <string name="search_autoeq_placeholder">搜索耳机型号</string>
     <string name="backup_warning_database_ver">此备份中的部分数据（例如播放列表和歌词）不兼容，可能无法还原。</string>
     <string name="permission_notifications_title">通知（可选）</string>
-    <string name="permission_notifications_summary">此权限允许 Booming Music 在通知栏和锁屏界面上显示播放控制选项。</string>
+    <string name="permission_notifications_summary">此权限允许 B Music 在通知栏和锁屏界面上显示播放控制选项。</string>
     <string name="detect_instrumental_tracks_summary">根据曲名自动识别器乐曲目。</string>
 </resources>

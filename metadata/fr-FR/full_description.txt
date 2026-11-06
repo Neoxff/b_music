@@ -1,4 +1,4 @@
-Booming Music est un lecteur de musique local moderne et performant pour Android, conçu pour offrir une expérience fluide, personnalisable et visuellement attrayante. Conçu selon les principes du Material You et optimisé par Media3, il allie simplicité et fonctionnalités de lecture avancées.
+B Music est un lecteur de musique local moderne et performant pour Android, conçu pour offrir une expérience fluide, personnalisable et visuellement attrayante. Conçu selon les principes du Material You et optimisé par Media3, il allie simplicité et fonctionnalités de lecture avancées.
 
 Profitez de vos chansons préférées grâce à des paroles synchronisées mot à mot, à la prise en charge des paroles traduites (TTML/LRC) et à une superbe interface « En cours de lecture » offrant des effets visuels améliorés, des transitions fluides et des options de personnalisation avancées.
 

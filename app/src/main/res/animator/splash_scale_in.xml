@@ -1,0 +1,10 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="together">
+  <!-- Splash B Music : échelle 0,9 → 1, décélération, 350 ms -->
+  <objectAnimator android:propertyName="scaleX"
+      android:valueFrom="0.9" android:valueTo="1.0"
+      android:duration="350" android:interpolator="@android:interpolator/decelerate_cubic"/>
+  <objectAnimator android:propertyName="scaleY"
+      android:valueFrom="0.9" android:valueTo="1.0"
+      android:duration="350" android:interpolator="@android:interpolator/decelerate_cubic"/>
+</set>

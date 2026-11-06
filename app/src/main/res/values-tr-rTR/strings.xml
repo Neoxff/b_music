@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Yakındaki Cihazlar</string>
     <string name="permission_bluetooth_description">Uygulamanın bluetooth cihazlarını kontrol etmek için yakındaki cihazlar iznine ihtiyacı var</string>
     <string name="permission_read_images_title">Görselleri okuma (isteğe bağlı)</string>
-    <string name="permission_read_images_summary">Booming Music\'in müzik klasörlerinizdeki albüm kapağı dosyalarını bulabilmesi için bu izin gereklidir. Bu özelliği kullanmayı planlamıyorsanız, izin vermemeyi seçebilirsiniz.</string>
+    <string name="permission_read_images_summary">B Music\'in müzik klasörlerinizdeki albüm kapağı dosyalarını bulabilmesi için bu izin gereklidir. Bu özelliği kullanmayı planlamıyorsanız, izin vermemeyi seçebilirsiniz.</string>
     <string name="permission_read_images_denied">Cihazdan görselleri okuma izni vermelisiniz.</string>
     <string name="permissions_denied">İzinler reddedildi</string>
     <string name="permissions_needed">İzinler gerekli</string>
@@ -382,7 +382,7 @@
     <string name="profiles_exported_successfully">Profiller başarıyla dışa aktarıldı.</string>
     <string name="import_profiles">Profilleri içe aktar</string>
     <string name="select_profiles_to_import">İçe aktarılacak profilleri seçin:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Booming Music EQ Profillerini içeren bir dosya seçin.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">B Music EQ Profillerini içeren bir dosya seçin.</string>
     <string name="imported_x_profiles">İçe aktarılan %d profili.</string>
     <string name="no_profile_imported">Profil içe aktarılmadı.</string>
     <string name="import_autoeq_profile">İçe aktarılan AutoEq profili</string>
@@ -443,7 +443,7 @@
     <string name="synced_lyrics">Senkronize</string>
     <string name="embedded_lyrics">Gömülü</string>
     <string name="downloaded_lyrics">İndirilmiş</string>
-    <string name="cannot_download_lyrics">Booming Music bu şarkının sözlerini bulamadı. Manuel olarak aramak ister misiniz?</string>
+    <string name="cannot_download_lyrics">B Music bu şarkının sözlerini bulamadı. Manuel olarak aramak ister misiniz?</string>
     <string name="search_lyrics">Şarkı sözlerini ara</string>
     <string name="choose_lyrics">Şarkı sözü türünü seçin</string>
     <string name="download_lyrics">Şarkı sözlerini indir</string>
@@ -483,22 +483,22 @@
     <string name="mardous_summary">Lead Developer</string>
     <string name="contributors">Destekçiler</string>
     <string name="translators_title">Çevirmenler</string>
-    <string name="translators_summary">Booming Music\'i birçok dilde kullanılabilir hale getirenlere teşekkürler.</string>
+    <string name="translators_summary">B Music\'i birçok dilde kullanılabilir hale getirenlere teşekkürler.</string>
     <string name="view_profile_on_github">GitHub\'da profili görüntüle</string>
     <string name="write_an_email">E-posta yaz</string>
     <string name="support_development">Geliştirmeyi destekle</string>
     <string name="help_with_translations">Çevirilere yardım et</string>
-    <string name="help_with_translations_summary">Booming Music\'i diğer dillere çevirmeye yardımcı olarak projeye katkıda bulunabilirsiniz.</string>
+    <string name="help_with_translations_summary">B Music\'i diğer dillere çevirmeye yardımcı olarak projeye katkıda bulunabilirsiniz.</string>
     <string name="report_bugs">Hataları bildir</string>
     <string name="report_bugs_summary">Hataları bildirin veya yeni özellikler talep edin.</string>
     <string name="share_app">Bu uygulamayı paylaş</string>
     <string name="share_app_summary">Arkadaşlarınızla paylaşarak bu uygulamanın büyümesine yardımcı olabilirsiniz.</string>
     <string name="send_invitation_message">Davet mesajı gönder</string>
-    <string name="invitation_message_content">Merhaba. Booming Music\'e bir göz at! Android\'de yerel müzik dinlemek için en iyi uygulama. Buradan indirebilirsin: %s</string>
+    <string name="invitation_message_content">Merhaba. B Music\'e bir göz at! Android\'de yerel müzik dinlemek için en iyi uygulama. Buradan indirebilirsin: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Depolama Erişimi Gerekli</string>
-    <string name="saf_access_required_message">Booming Music\'in bu dosyalara erişmek için izne ihtiyacı var. Lütfen müzik dosyalarınızın depolandığı kök klasörü seçin.</string>
+    <string name="saf_access_required_message">B Music\'in bu dosyalara erişmek için izne ihtiyacı var. Lütfen müzik dosyalarınızın depolandığı kök klasörü seçin.</string>
     <string name="saf_show_files_button">Dosyaları göster</string>
     <string name="saf_error_uri">SAF URI\'si alınamıyor</string>
     <string name="saf_write_failed">Dosya yazma başarısız: %s</string>
@@ -519,7 +519,7 @@
     <string name="advanced_summary">Uygulama içi dil ve ileri düzey kullanıcılar için diğer ayarlar.</string>
     <string name="update_title">Güncelleme</string>
     <string name="about_title">Hakkında</string>
-    <string name="about_summary">Booming Music %s, daha fazla bilgi için dokunun.</string>
+    <string name="about_summary">B Music %s, daha fazla bilgi için dokunun.</string>
     <!-- Preference headers -->
     <string name="general_header">Genel</string>
     <string name="library_header">Kütüphane</string>
@@ -688,7 +688,7 @@
     <string name="online_album_covers_title">Eksik albüm kapaklarını indir</string>
     <string name="online_album_covers_summary">İndirilen görseller ses dosyalarına gömülmez; yalnızca uygulama içinde görünürler. Bu, üstveri indirme politikanıza bağlıdır.</string>
     <string name="delete_downloaded_lyrics_title">İndirilen şarkı sözlerini sil</string>
-    <string name="delete_downloaded_lyrics_summary">Yalnızca Booming Music tarafından indirilen şarkı sözleri. ID3v2 etiketlerine veya LRC dosyalarına gömülü şarkı sözlerini etkilemez.</string>
+    <string name="delete_downloaded_lyrics_summary">Yalnızca B Music tarafından indirilen şarkı sözleri. ID3v2 etiketlerine veya LRC dosyalarına gömülü şarkı sözlerini etkilemez.</string>
     <string name="lyrics_cleared">Şarkı sözleri temizlendi.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Sıralarken makaleleri yoksay</string>
@@ -794,7 +794,7 @@
     <string name="update_available_title">Güncelleme mevcut</string>
     <string name="more_info_action">Daha fazla bilgi.</string>
     <string name="download_action">İndir</string>
-    <string name="downloading_update">Booming Music güncellemesi indiriliyor.</string>
+    <string name="downloading_update">B Music güncellemesi indiriliyor.</string>
     <string name="uncaught_error_title">Hoppala! Böyle olmaması lazımdı!</string>
     <string name="uncaught_error_message">Bir şeyler yanlış gitti ve uygulama çöktü. Hata raporunu bize Telegram grubumuza veya e-posta ile gönderirseniz çok yardımcı olur.</string>
     <string name="uncaught_error_report">Hata raporu</string>

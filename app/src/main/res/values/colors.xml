@@ -19,7 +19,7 @@
     <color name="fifty_percent_black_overlay">#88000000</color>
     <color name="eighty_percent_black_overlay">#D0000000</color>
 
-    <color name="ic_launcher_background">#ffffff</color>
+    <color name="ic_launcher_background">#0B0B0E</color>
 
     <color name="app_shortcut_default_foreground">#2D276A</color>
     <color name="app_shortcut_default_background">@color/ic_launcher_background</color>

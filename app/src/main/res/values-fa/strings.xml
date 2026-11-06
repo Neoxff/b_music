@@ -133,7 +133,7 @@
     <string name="permission_bluetooth_title">دستگاه‌های نزدیک (اختیاری)</string>
     <string name="permission_bluetooth_description">این برنامه برای بررسی دستگاه‌های بلوتوث به مجوز دستگاه‌های اطراف نیاز دارد</string>
     <string name="permission_read_images_title">خواندن تصاویر (اختیاری)</string>
-    <string name="permission_read_images_summary">این مجوز برای Booming Music لازم است تا فایل‌های هنری آلبوم را در پوشه‌های موسیقی شما پیدا کند. اگر قصد استفاده از این ویژگی را ندارید، می توانید آن را اعطا نکنید.</string>
+    <string name="permission_read_images_summary">این مجوز برای B Music لازم است تا فایل‌های هنری آلبوم را در پوشه‌های موسیقی شما پیدا کند. اگر قصد استفاده از این ویژگی را ندارید، می توانید آن را اعطا نکنید.</string>
     <string name="permission_read_images_denied">برای خواندن تصاویر از دستگاه باید اجازه دهید.</string>
     <string name="permissions_denied">مجوزها رد شد</string>
     <string name="permissions_needed">مجوزهای مورد نیاز</string>
@@ -365,7 +365,7 @@
     <string name="profiles_exported_successfully">نمایه ها با موفقیت صادر شدند.</string>
     <string name="import_profiles">وارد کردن پروفایل ها</string>
     <string name="select_profiles_to_import">پروفایل ها را برای وارد کردن انتخاب کنید:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">یک فایل حاوی Booming Music EQ Profiles را انتخاب کنید.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">یک فایل حاوی B Music EQ Profiles را انتخاب کنید.</string>
     <string name="imported_x_profiles">نمایه های %d وارد شده است.</string>
     <string name="no_profile_imported">هیچ نمایه ای وارد نشده است.</string>
     <string name="import_autoeq_profile">نمایه AutoEq را وارد کنید</string>
@@ -433,7 +433,7 @@
     <string name="file_lyrics">فایل</string>
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
-    <string name="cannot_download_lyrics">Booming Music متن این آهنگ را پیدا نکرد. آیا می خواهید به صورت دستی جستجو کنید؟</string>
+    <string name="cannot_download_lyrics">B Music متن این آهنگ را پیدا نکرد. آیا می خواهید به صورت دستی جستجو کنید؟</string>
     <string name="undo_changes">لغو تغییرات</string>
     <string name="search_lyrics">جستجوی متن ترانه</string>
     <string name="choose_lyrics">نوع شعر را انتخاب کنید</string>
@@ -445,7 +445,7 @@
     <string name="there_are_no_changes_to_save">هیچ تغییری برای ذخیره وجود ندارد.</string>
     <string name="font_imported_successfully">فونت با موفقیت وارد شد.</string>
     <string name="could_not_import_font">فونت وارد نشد.</string>
-    <string name="cannot_edit_lyrics_file">شما نمی توانید محتوای فایل را مستقیماً از Booming Music ویرایش کنید.</string>
+    <string name="cannot_edit_lyrics_file">شما نمی توانید محتوای فایل را مستقیماً از B Music ویرایش کنید.</string>
     <string name="lyrics_by_x">متن ترانه توسط %s</string>
     <string name="sign_in_to_x_title">به %s وارد شوید</string>
     <string name="connected_account_label">حساب متصل:</string>
@@ -492,7 +492,7 @@
     <string name="mardous_summary">توسعه دهنده اصلی</string>
     <string name="contributors">مشارکت کنندگان</string>
     <string name="translators_title">مترجمان</string>
-    <string name="translators_summary">با تشکر از کسانی که Booming Music را به زبان های مختلف در دسترس قرار می دهند.</string>
+    <string name="translators_summary">با تشکر از کسانی که B Music را به زبان های مختلف در دسترس قرار می دهند.</string>
     <string name="telegram_community">انجمن تلگرام</string>
     <string name="telegram_community_summary">به انجمن تلگرام ما بپیوندید تا از اخبار و اخبار جدید با خبر شوید.</string>
     <string name="view_profile_on_github">نمایه را در GitHub مشاهده کنید</string>
@@ -500,7 +500,7 @@
     <string name="support_my_work">از کار من حمایت کنید</string>
     <string name="support_development">پشتیبانی از توسعه</string>
     <string name="help_with_translations">کمک در مورد ترجمه</string>
-    <string name="help_with_translations_summary">می‌توانید با کمک به ترجمه Booming Music به زبان‌های دیگر در این پروژه مشارکت کنید.</string>
+    <string name="help_with_translations_summary">می‌توانید با کمک به ترجمه B Music به زبان‌های دیگر در این پروژه مشارکت کنید.</string>
     <string name="report_bugs">گزارش اشکالات</string>
     <string name="report_bugs_summary">گزارش اشکالات یا درخواست ویژگی های جدید.</string>
     <string name="share_app">این برنامه را به اشتراک بگذارید</string>
@@ -508,7 +508,7 @@
     <string name="send_invitation_message">ارسال پیام دعوت</string>
     <string name="invitation_message_content">سلام موسیقی پررونق را بررسی کنید! بهترین برنامه برای گوش دادن به موسیقی محلی در اندروید. می توانید آن را از اینجا دانلود کنید: %s</string>
     <string name="saf_access_required_title">دسترسی به فضای ذخیره سازی مورد نیاز است</string>
-    <string name="saf_access_required_message">Booming Music برای دسترسی به این فایل‌ها به مجوز نیاز دارد. لطفاً پوشه ریشه ای که فایل های موسیقی شما در آن ذخیره می شوند را انتخاب کنید.</string>
+    <string name="saf_access_required_message">B Music برای دسترسی به این فایل‌ها به مجوز نیاز دارد. لطفاً پوشه ریشه ای که فایل های موسیقی شما در آن ذخیره می شوند را انتخاب کنید.</string>
     <string name="saf_show_files_button">نمایش فایل ها</string>
     <string name="saf_error_uri">نمی‌توان SAF URI را دریافت کرد</string>
     <string name="saf_write_failed">نوشتن فایل انجام نشد: %s</string>
@@ -529,7 +529,7 @@
     <string name="advanced_title">پیشرفته</string>
     <string name="advanced_summary">زبان درون برنامه ای و تنظیمات دیگر برای کاربران پیشرفته.</string>
     <string name="about_title">درباره</string>
-    <string name="about_summary">Booming Music %s، برای اطلاعات بیشتر لمس کنید.</string>
+    <string name="about_summary">B Music %s، برای اطلاعات بیشتر لمس کنید.</string>
     <string name="general_header">ژنرال</string>
     <string name="library_header">کتابخانه</string>
     <string name="album_cover_header">پوشش</string>
@@ -749,7 +749,7 @@
     <string name="use_lyrically_provider_title">از ارائه دهنده Lyrically استفاده کنید</string>
     <string name="use_lyrically_provider_summary">Rich lyrics API با کارائوکه و پشتیبانی چند نفره.</string>
     <string name="delete_downloaded_lyrics_title">اشعار دانلود شده را حذف کنید</string>
-    <string name="delete_downloaded_lyrics_summary">فقط اشعار دانلود شده توسط Booming Music. بر اشعار تعبیه شده در برچسب های ID3v2 یا فایل های LRC تأثیری نمی گذارد.</string>
+    <string name="delete_downloaded_lyrics_summary">فقط اشعار دانلود شده توسط B Music. بر اشعار تعبیه شده در برچسب های ID3v2 یا فایل های LRC تأثیری نمی گذارد.</string>
     <string name="lyrics_cleared">متن ترانه پاک شد.</string>
     <string name="app_language_title">زبان برنامه</string>
     <string name="stop_when_closed_from_recents_title">وقتی از موارد اخیر بسته شد، متوقف شود</string>
@@ -832,7 +832,7 @@
     <string name="update_available_title">به روز رسانی موجود است</string>
     <string name="more_info_action">اطلاعات بیشتر.</string>
     <string name="download_action">دانلود</string>
-    <string name="downloading_update">در حال دانلود به‌روزرسانی Booming Music.</string>
+    <string name="downloading_update">در حال دانلود به‌روزرسانی B Music.</string>
     <string name="uncaught_error_title">اوه! قرار نبود این اتفاق بیفتد!</string>
     <string name="uncaught_error_message">به نظر می رسد مشکلی رخ داده و باعث از کار افتادن برنامه شده است. اگر بتوانید گزارش خطا را به گروه تلگرام یا از طریق ایمیل برای ما ارسال کنید مفید خواهد بود.</string>
     <string name="uncaught_error_report">گزارش خطا</string>
@@ -887,7 +887,7 @@
     <string name="app_widget_library">کتابخانه</string>
     <string name="app_widget_library_desc">شبکه‌ای از جلدها بر اساس فهرستی که انتخاب می‌کنید</string>
     <string name="app_widget_nothing_playing">چیزی در حال پخش نیست</string>
-    <string name="app_widget_tap_to_play">برای بازکردن Booming Music ضربه بزنید</string>
+    <string name="app_widget_tap_to_play">برای بازکردن B Music ضربه بزنید</string>
     <string name="action_play_x">پخش %s</string>
     <string name="action_auto_fill_from_musicbrainz">تکمیل خودکار از MusicBrainz</string>
     <string name="searching">در حال جست‌وجو…</string>
@@ -898,7 +898,7 @@
     <string name="invalid_search_params">پارامترهای جست‌وجو قابل پردازش نیستند.</string>
     <string name="permissions_subtitle">برای بهترین تجربهٔ پخش، دسترسی به فایل‌های موسیقی و دستگاه‌های نزدیک را اعطا کنید.</string>
     <string name="initial_configuration_title">پیکربندی اولیه</string>
-    <string name="initial_configuration_subtitle">قبل از شروع، Booming Music را مطابق سلیقهٔ خود سفارشی کنید.</string>
+    <string name="initial_configuration_subtitle">قبل از شروع، B Music را مطابق سلیقهٔ خود سفارشی کنید.</string>
     <string name="initial_configuration_note">همیشه می‌توانید بعداً این تنظیمات را تغییر دهید.</string>
     <string name="restore_from_backup">بازیابی از پشتیبان</string>
     <string name="up_next">در ادامه</string>
@@ -1013,8 +1013,8 @@
     <string name="backup_app_version">ایجادشده در</string>
     <string name="backup_warning_database_ver">برخی داده‌های این پشتیبان، مانند فهرست‌های پخش و متن ترانه‌ها، سازگار نیستند و ممکن است بازیابی نشوند.</string>
     <string name="backup_warning_legacy_format">قالب این پشتیبان قدیمی محسوب می‌شود. فعلاً می‌توانید آن را بازیابی کنید، اما ممکن است در آینده پشتیبانی از آن متوقف شود.</string>
-    <string name="backup_warning_ver_newer">قالب پشتیبان از چیزی که این نسخهٔ Booming Music می‌تواند مدیریت کند جدیدتر است.</string>
-    <string name="backup_warning_app_ver_newer">این پشتیبان در نسخهٔ جدیدتری از Booming Music ایجاد شده است. بازیابی آن در این نسخه ممکن است باعث خطا یا بازیابی ناقص داده‌ها شود.</string>
+    <string name="backup_warning_ver_newer">قالب پشتیبان از چیزی که این نسخهٔ B Music می‌تواند مدیریت کند جدیدتر است.</string>
+    <string name="backup_warning_app_ver_newer">این پشتیبان در نسخهٔ جدیدتری از B Music ایجاد شده است. بازیابی آن در این نسخه ممکن است باعث خطا یا بازیابی ناقص داده‌ها شود.</string>
     <string name="restoring_data">در حال بازیابی داده‌های شما…</string>
     <string name="restart_app_message">برنامه برای تکمیل فرایند راه‌اندازی مجدد می‌شود.</string>
 </resources>

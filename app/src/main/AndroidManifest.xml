@@ -47,14 +47,14 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Booming.FollowSystem"
+        android:theme="@style/Theme.BMusic.FollowSystem"
         tools:ignore="UnusedAttribute">
 
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
             android:exported="true"
-            android:theme="@style/Theme.Booming.SplashScreen">
+            android:theme="@style/Theme.BMusic.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <action android:name="android.intent.action.MUSIC_PLAYER"/>
@@ -100,7 +100,7 @@
             android:exported="true"
             android:excludeFromRecents="true"
             android:noHistory="true"
-            android:theme="@style/Theme.Booming.AudioPreview">
+            android:theme="@style/Theme.BMusic.AudioPreview">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -288,7 +288,7 @@
         <!-- Android Auto -->
         <meta-data
             android:name="androidx.car.app.TintableAttributionIcon"
-            android:resource="@drawable/ic_booming_music_24dp" />
+            android:resource="@drawable/ic_bmusic_music_24dp" />
         <meta-data
             android:name="com.google.android.gms.car.application"
             android:resource="@xml/automotive_app_desc"/>

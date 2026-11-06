@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Dispositius propers</string>
     <string name="permission_bluetooth_description">Cal permís de dispositius propers per cercar dispositius bluetooth</string>
     <string name="permission_read_images_title">Cerca imatges (opcional)</string>
-    <string name="permission_read_images_summary">Cal donar permís perquè Booming Music trobi portades d\'àlbum a les vostres carpetes de música. Si no penseu fer servir aquesta funció, no cal donar-lo.</string>
+    <string name="permission_read_images_summary">Cal donar permís perquè B Music trobi portades d\'àlbum a les vostres carpetes de música. Si no penseu fer servir aquesta funció, no cal donar-lo.</string>
     <string name="permission_read_images_denied">Cal donar permís per llegir imatges del dispositiu.</string>
     <string name="permissions_denied">Permís denegat</string>
     <string name="permissions_needed">Cal permís</string>
@@ -390,7 +390,7 @@
     <string name="profiles_exported_successfully">S\'han exportat els perfils correctament.</string>
     <string name="import_profiles">Importa perfils</string>
     <string name="select_profiles_to_import">Trieu els perfils a importar:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Trieu el fitxer que contigui perfils d\'equalització de Booming Music.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Trieu el fitxer que contigui perfils d\'equalització de B Music.</string>
     <string name="imported_x_profiles">S\'han importat %d perfils.</string>
     <string name="no_profile_imported">No s\'ha importat cap perfil.</string>
     <string name="import_autoeq_profile">Importa un perfil d\'autoequalització</string>
@@ -451,7 +451,7 @@
     <string name="synced_lyrics">Sincronitzada</string>
     <string name="embedded_lyrics">Incrustada</string>
     <string name="downloaded_lyrics">Descarregada</string>
-    <string name="cannot_download_lyrics">Booming Music no ha pogut trobar la lletra d\'aquesta cançó. La voleu cercar manualment?</string>
+    <string name="cannot_download_lyrics">B Music no ha pogut trobar la lletra d\'aquesta cançó. La voleu cercar manualment?</string>
     <string name="search_lyrics">Cerca lletres</string>
     <string name="choose_lyrics">Trieu el tipus de lletra</string>
     <string name="download_lyrics">Descarrega la lletra</string>
@@ -491,18 +491,18 @@
     <string name="mardous_summary">Desenvolupador principal</string>
     <string name="contributors">Col·laboradors</string>
     <string name="translators_title">Traductors</string>
-    <string name="translators_summary">Gràcies a tothom que fa possible que Booming Music estigui disponible en tants idiomes.</string>
+    <string name="translators_summary">Gràcies a tothom que fa possible que B Music estigui disponible en tants idiomes.</string>
     <string name="view_profile_on_github">Mostra el perfil a Github</string>
     <string name="write_an_email">Escriviu un correu electrònic</string>
     <string name="support_development">Suport al desenvolupament</string>
     <string name="help_with_translations">Ajuda amb les traduccions</string>
-    <string name="help_with_translations_summary">Podeu contribuir al projecte ajudant a traduir Booming Music a altres idiomes.</string>
+    <string name="help_with_translations_summary">Podeu contribuir al projecte ajudant a traduir B Music a altres idiomes.</string>
     <string name="report_bugs">Informa d\'un error</string>
     <string name="report_bugs_summary">Informeu d\'errors o proposeu noves funcions.</string>
     <string name="share_app">Comparteix aquesta aplicació</string>
     <string name="share_app_summary">Podeu ajudar a fer créixer aquesta aplicació si la compartiu amb amics.</string>
     <string name="send_invitation_message">Envia missatge d\'invitació</string>
-    <string name="invitation_message_content">Ei. Fes un cop d\'ull a Booming Music! La millor aplicació per escoltar música sense connexió a Android. Pots descarregar-la aquí: %s</string>
+    <string name="invitation_message_content">Ei. Fes un cop d\'ull a B Music! La millor aplicació per escoltar música sense connexió a Android. Pots descarregar-la aquí: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Cal accés a l’emmagatzematge</string>
@@ -527,7 +527,7 @@
     <string name="advanced_summary">L\'idioma de l\'aplicació i altres ajustos per a usuaris avançats.</string>
     <string name="update_title">Actualitza</string>
     <string name="about_title">Quant a</string>
-    <string name="about_summary">Booming Music %s, toqueu per a més informació.</string>
+    <string name="about_summary">B Music %s, toqueu per a més informació.</string>
     <!-- Preference headers -->
     <string name="general_header">General</string>
     <string name="library_header">Biblioteca</string>
@@ -696,7 +696,7 @@
     <string name="online_album_covers_title">Descarrega portades d\'àlbum que falten</string>
     <string name="online_album_covers_summary">Les imatges descarregades no s\'integren als fitxers d\'àudio; només són visibles a l\'aplicació.</string>
     <string name="delete_downloaded_lyrics_title">Esborra les lletres descarregades</string>
-    <string name="delete_downloaded_lyrics_summary">Només lletres descarregades per Booming Music. No afecta les lletres incorporades en etiquetes ID3v2 o fitxers LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">Només lletres descarregades per B Music. No afecta les lletres incorporades en etiquetes ID3v2 o fitxers LRC.</string>
     <string name="lyrics_cleared">Lletres esborrades.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignora articles en ordenar</string>
@@ -802,7 +802,7 @@
     <string name="update_available_title">Actualització disponible</string>
     <string name="more_info_action">Més informació.</string>
     <string name="download_action">Descarrega</string>
-    <string name="downloading_update">S\'està descarregant l\'actualització de Booming Music.</string>
+    <string name="downloading_update">S\'està descarregant l\'actualització de B Music.</string>
     <string name="uncaught_error_title">Ups! Això no hauria d\'haver passat!</string>
     <string name="uncaught_error_message">Sembla que alguna cosa ha anat malament i s\'ha penjat l\'aplicació. Seria de gran ajuda si poguéssiu enviar-nos l\'informe d\'error al nostre grup de Telegram o per correu electrònic.</string>
     <string name="uncaught_error_report">Report d\'error</string>
@@ -895,7 +895,7 @@
     <string name="auto_theme_name">Auto</string>
     <string name="file_lyrics">Fitxer</string>
     <string name="undo_changes">Desfer els canvis</string>
-    <string name="cannot_edit_lyrics_file">No podeu editar el contingut del fitxer directament des de Booming Music.</string>
+    <string name="cannot_edit_lyrics_file">No podeu editar el contingut del fitxer directament des de B Music.</string>
     <string name="arranger">Organitzador</string>
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LCR</string>

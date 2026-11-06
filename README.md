@@ -1,24 +1,24 @@
 <div align="center">
 
-<img src="metadata/en-US/images/icon.png" width="160" height="160" alt="Booming Music icon">
+<img src="metadata/en-US/images/icon.png" width="160" height="160" alt="B Music icon">
 
-# Booming Music
+# B Music
 
 ### Modern design. Pure sound. Fully yours.
 
-[![Latest Release](https://img.shields.io/github/v/release/mardous/BoomingMusic?style=for-the-badge&label=Release&logo=github)](https://github.com/mardous/BoomingMusic/releases/latest)
-[![F-Droid version](https://img.shields.io/f-droid/v/com.mardous.booming?style=for-the-badge&label=F-Droid&logo=fdroid)](https://f-droid.org/packages/com.mardous.booming/)
-[![Downloads](https://img.shields.io/github/downloads/mardous/BoomingMusic/total?style=for-the-badge&logo=github&label=Downloads)](https://github.com/mardous/BoomingMusic/releases)
-[![License: GPL v3](https://img.shields.io/github/license/mardous/BoomingMusic?style=for-the-badge&color=orange&label=License&logo=gnu)](LICENSE.txt)
+[![Latest Release](https://img.shields.io/github/v/release/mardous/BMusic?style=for-the-badge&label=Release&logo=github)](https://github.com/example-bmusic/bmusic/releases/latest)
+[![F-Droid version](https://img.shields.io/f-droid/v/com.bmusic.app?style=for-the-badge&label=F-Droid&logo=fdroid)](https://f-droid.org/packages/com.bmusic.app/)
+[![Downloads](https://img.shields.io/github/downloads/mardous/BMusic/total?style=for-the-badge&logo=github&label=Downloads)](https://github.com/example-bmusic/bmusic/releases)
+[![License: GPL v3](https://img.shields.io/github/license/mardous/BMusic?style=for-the-badge&color=orange&label=License&logo=gnu)](LICENSE.txt)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor_Covenant-2.1-4baaaa.svg?style=for-the-badge&logo=contributorcovenant)](CODE_OF_CONDUCT.md)
 [![Telegram Channel](https://img.shields.io/badge/Telegram-Join_Chat-blue?style=for-the-badge&logo=telegram)](https://t.me/mardousdev)
 
-<a href="https://play.google.com/store/apps/details?id=com.mardous.booming"><img src="assets/badge-playstore.png" height="60" alt="Play Store"></a>
-<a href="https://f-droid.org/packages/com.mardous.booming/"><img src="assets/badge-fdroid.png" height="60" alt="F-Droid"></a>
-<a href="https://apt.izzysoft.de/packages/com.mardous.booming/"><img src="assets/badge-izzyondroid.png" height="60" alt="IzzyOnDroid"></a>
-<a href="https://github.com/mardous/BoomingMusic/releases"><img src="assets/badge-github.png" height="60" alt="GitHub Release"></a>
-<a href="https://www.openapk.net/boomingmusic/com.mardous.booming/"><img src="assets/badge-openapk.png" height="60" alt="OpenAPK"></a>
-<a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/mardous/BoomingMusic/"><img src="assets/badge-obtainium.png" height="60" alt="Obtainium"></a>
+<a href="https://play.google.com/store/apps/details?id=com.bmusic.app"><img src="assets/badge-playstore.png" height="60" alt="Play Store"></a>
+<a href="https://f-droid.org/packages/com.bmusic.app/"><img src="assets/badge-fdroid.png" height="60" alt="F-Droid"></a>
+<a href="https://apt.izzysoft.de/packages/com.bmusic.app/"><img src="assets/badge-izzyondroid.png" height="60" alt="IzzyOnDroid"></a>
+<a href="https://github.com/example-bmusic/bmusic/releases"><img src="assets/badge-github.png" height="60" alt="GitHub Release"></a>
+
+<a href="https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://github.com/example-bmusic/bmusic/"><img src="assets/badge-obtainium.png" height="60" alt="Obtainium"></a>
 
 </div>
 
@@ -90,7 +90,7 @@
 
 ## 🤝 Contributing
 
-Booming Music is open-source — contributions are **always welcome!**
+B Music is open-source — contributions are **always welcome!**
 Check the [Contributing Guide](CONTRIBUTING.md) for details.
 
 If you enjoy the app or want to support its development, give the repo a ⭐ — it really helps!
@@ -99,17 +99,17 @@ You can also:
 - Submit pull requests
 - Suggest new ideas
 
-**Translations:** Managed on [Hosted Weblate](https://hosted.weblate.org/projects/booming-music/).
+**Translations:** Managed on [Hosted Weblate](https://weblate.example.org/engage/bmusic/).
 
-[![Translation Status](https://hosted.weblate.org/widget/booming-music/horizontal-auto.svg)](https://hosted.weblate.org/projects/booming-music/)
+
 
 ## 💖 Support Development
 
-Booming Music is an open-source project developed and maintained with passion in my spare time.
+B Music is an open-source project developed and maintained with passion in my spare time.
 If you enjoy the app and the free features it offers, please consider supporting me to help cover
 development costs and dedicate more time to new features.
 
-Your support is greatly appreciated and keeps me motivated to continue improving Booming Music!
+Your support is greatly appreciated and keeps me motivated to continue improving B Music!
 
 <div align="center">
 
@@ -121,22 +121,22 @@ Your support is greatly appreciated and keeps me motivated to continue improving
 
 ## 🔗 Useful Links
 
-- 🔐 **[Requested Permissions](https://github.com/mardous/BoomingMusic/wiki/Advanced-Info#-permissions)**  
+- 🔐 **[Requested Permissions](https://github.com/example-bmusic/bmusic/wiki/Advanced-Info#-permissions)**  
   What the app needs and why
 
-- 🚘 **[Android Auto Setup](https://github.com/mardous/BoomingMusic/wiki/Advanced-Info#-android-auto-setup)**  
+- 🚘 **[Android Auto Setup](https://github.com/example-bmusic/bmusic/wiki/Advanced-Info#-android-auto-setup)**  
   How to enable and troubleshoot
 
-- 🎧 **[Supported Formats](https://github.com/mardous/BoomingMusic/wiki/Advanced-Info#-supported-formats)**  
+- 🎧 **[Supported Formats](https://github.com/example-bmusic/bmusic/wiki/Advanced-Info#-supported-formats)**  
   Compatible audio formats
 
-- 💬 **[Community](https://github.com/mardous/BoomingMusic/wiki/Community)**  
+- 💬 **[Community](https://github.com/example-bmusic/bmusic/wiki/Community)**  
   Users and contributors
 
-- 🌐 **[Translations](https://hosted.weblate.org/projects/booming-music/)**  
-  Help us translate Booming Music into your language
+- 🌐 **[Translations](https://weblate.example.org/engage/bmusic/)**  
+  Help us translate B Music into your language
 
-- ❓ **[FAQ](https://github.com/mardous/BoomingMusic/wiki/FAQ)**  
+- ❓ **[FAQ](https://github.com/example-bmusic/bmusic/wiki/FAQ)**  
   Common questions
 
 ## 🙌 Credits

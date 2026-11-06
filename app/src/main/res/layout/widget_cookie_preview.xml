@@ -15,7 +15,7 @@
 
 
         <ImageView
-            style="@style/Widget.Booming.AppWidget.Preview.Control"
+            style="@style/Widget.BMusic.AppWidget.Preview.Control"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_music_note_24dp"
@@ -30,7 +30,7 @@
             android:orientation="horizontal">
 
             <ImageView
-            style="@style/Widget.Booming.AppWidget.Preview.Control"
+            style="@style/Widget.BMusic.AppWidget.Preview.Control"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:src="@drawable/ic_previous_m3_24dp"
@@ -42,7 +42,7 @@
                 android:layout_height="34dp" />
 
             <ImageView
-            style="@style/Widget.Booming.AppWidget.Preview.Control"
+            style="@style/Widget.BMusic.AppWidget.Preview.Control"
                 android:layout_width="34dp"
                 android:layout_height="34dp"
                 android:src="@drawable/ic_next_m3_24dp"
@@ -51,7 +51,7 @@
         </LinearLayout>
 
         <ImageView
-            style="@style/Widget.Booming.AppWidget.Preview.Accent"
+            style="@style/Widget.BMusic.AppWidget.Preview.Accent"
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:layout_alignParentBottom="true"

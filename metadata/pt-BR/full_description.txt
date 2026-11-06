@@ -1,4 +1,4 @@
-O Booming Music é um reprodutor de música local moderno e poderoso para Android, projetado para oferecer uma experiência fluida, personalizável e visualmente atraente. Desenvolvido com o design Material You e baseado no Media3, ele combina simplicidade com recursos avançados de reprodução.
+O B Music é um reprodutor de música local moderno e poderoso para Android, projetado para oferecer uma experiência fluida, personalizável e visualmente atraente. Desenvolvido com o design Material You e baseado no Media3, ele combina simplicidade com recursos avançados de reprodução.
 
 Curta suas músicas favoritas com letras sincronizadas palavra por palavra, suporte a letras traduzidas (TTML/LRC) e uma bela interface de reprodução atual ("Now Playing") que apresenta visuais aprimorados, transições suaves e amplas opções de personalização.
 

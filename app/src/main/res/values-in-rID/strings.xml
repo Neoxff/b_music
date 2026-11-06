@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Perangkat di sekitar (opsional)</string>
     <string name="permission_bluetooth_description">Aplikasi memerlukan izin perangkat terdekat untuk memeriksa perangkat bluetooth</string>
     <string name="permission_read_images_title">Baca gambar (opsional)</string>
-    <string name="permission_read_images_summary">Izin ini diperlukan agar Booming Music dapat menemukan file sampul album di folder musik Anda. Jika Anda tidak berencana menggunakan fitur ini, Anda dapat memilih untuk tidak memberikan izin.</string>
+    <string name="permission_read_images_summary">Izin ini diperlukan agar B Music dapat menemukan file sampul album di folder musik Anda. Jika Anda tidak berencana menggunakan fitur ini, Anda dapat memilih untuk tidak memberikan izin.</string>
     <string name="permission_read_images_denied">Anda harus memberikan izin untuk membaca gambar dari perangkat.</string>
     <string name="permissions_denied">Izin ditolak</string>
     <string name="permissions_needed">Izin diperlukan</string>
@@ -373,7 +373,7 @@
     <string name="profiles_exported_successfully">Profil berhasil diekspor.</string>
     <string name="import_profiles">Impor profil</string>
     <string name="select_profiles_to_import">Pilih profil yang ingin diimpor:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Pilih file yang berisi Profil EQ Booming Music.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Pilih file yang berisi Profil EQ B Music.</string>
     <string name="imported_x_profiles">%d profil berhasil diimpor.</string>
     <string name="no_profile_imported">Tidak ada profil yang diimpor.</string>
     <string name="import_autoeq_profile">Impor profil AutoEq</string>
@@ -434,7 +434,7 @@
     <string name="synced_lyrics">Tersinkronisasi</string>
     <string name="embedded_lyrics">Tertanam</string>
     <string name="downloaded_lyrics">Diunduh</string>
-    <string name="cannot_download_lyrics">Booming Music tidak dapat menemukan lirik untuk lagu ini. Apakah Anda ingin mencari secara manual?</string>
+    <string name="cannot_download_lyrics">B Music tidak dapat menemukan lirik untuk lagu ini. Apakah Anda ingin mencari secara manual?</string>
     <string name="search_lyrics">Cari lirik</string>
     <string name="choose_lyrics">Pilih jenis lirik</string>
     <string name="download_lyrics">Unduh lirik</string>
@@ -474,22 +474,22 @@
     <string name="mardous_summary">Pengembang Utama</string>
     <string name="contributors">Kontributor</string>
     <string name="translators_title">Penerjemah</string>
-    <string name="translators_summary">Terima kasih kepada mereka yang membuat Booming Music tersedia dalam berbagai bahasa.</string>
+    <string name="translators_summary">Terima kasih kepada mereka yang membuat B Music tersedia dalam berbagai bahasa.</string>
     <string name="view_profile_on_github">Lihat profil di GitHub</string>
     <string name="write_an_email">Tulis email</string>
     <string name="support_development">Dukung pengembangan</string>
     <string name="help_with_translations">Bantu penerjemahan</string>
-    <string name="help_with_translations_summary">Anda dapat berkontribusi pada proyek ini dengan membantu menerjemahkan Booming Music ke dalam bahasa lain.</string>
+    <string name="help_with_translations_summary">Anda dapat berkontribusi pada proyek ini dengan membantu menerjemahkan B Music ke dalam bahasa lain.</string>
     <string name="report_bugs">Laporkan bug</string>
     <string name="report_bugs_summary">Laporkan bug atau minta fitur baru.</string>
     <string name="share_app">Bagikan aplikasi ini</string>
     <string name="share_app_summary">Anda dapat membantu aplikasi ini berkembang jika Anda membagikannya kepada teman-teman.</string>
     <string name="send_invitation_message">Kirim pesan undangan</string>
-    <string name="invitation_message_content">Hai. Coba Booming Music! Aplikasi terbaik untuk mendengarkan musik lokal di Android. Anda dapat mengunduhnya di sini: %s</string>
+    <string name="invitation_message_content">Hai. Coba B Music! Aplikasi terbaik untuk mendengarkan musik lokal di Android. Anda dapat mengunduhnya di sini: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Akses Penyimpanan Diperlukan</string>
-    <string name="saf_access_required_message">Booming Music memerlukan izin untuk mengakses file-file ini. Silakan pilih folder utama tempat file musik Anda disimpan.</string>
+    <string name="saf_access_required_message">B Music memerlukan izin untuk mengakses file-file ini. Silakan pilih folder utama tempat file musik Anda disimpan.</string>
     <string name="saf_show_files_button">Tampilkan file</string>
     <string name="saf_error_uri">Tidak dapat memperoleh URI SAF</string>
     <string name="saf_write_failed">Penulisan file gagal: %s</string>
@@ -510,7 +510,7 @@
     <string name="advanced_summary">Bahasa dalam aplikasi dan pengaturan lainnya untuk pengguna tingkat lanjut.</string>
     <string name="update_title">Pembaruan</string>
     <string name="about_title">Tentang</string>
-    <string name="about_summary">Booming Music %s, sentuh untuk info lebih lanjut.</string>
+    <string name="about_summary">B Music %s, sentuh untuk info lebih lanjut.</string>
     <!-- Preference headers -->
     <string name="general_header">Umum</string>
     <string name="library_header">Perpustakaan</string>
@@ -679,7 +679,7 @@
     <string name="online_album_covers_title">Unduh sampul album yang tidak tersedia</string>
     <string name="online_album_covers_summary">Gambar yang diunduh tidak tertanam ke dalam file audio; gambar hanya terlihat di dalam aplikasi.</string>
     <string name="delete_downloaded_lyrics_title">Hapus lirik yang diunduh</string>
-    <string name="delete_downloaded_lyrics_summary">Hanya lirik yang diunduh oleh Booming Music. Tidak memengaruhi lirik yang tertanam dalam tag ID3v2 atau file LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">Hanya lirik yang diunduh oleh B Music. Tidak memengaruhi lirik yang tertanam dalam tag ID3v2 atau file LRC.</string>
     <string name="lyrics_cleared">Lirik dihapus.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Abaikan artikel saat mengurutkan</string>
@@ -785,7 +785,7 @@
     <string name="update_available_title">Pembaruan tersedia</string>
     <string name="more_info_action">Info selengkapnya.</string>
     <string name="download_action">Unduh</string>
-    <string name="downloading_update">Mengunduh pembaruan Booming Music.</string>
+    <string name="downloading_update">Mengunduh pembaruan B Music.</string>
     <string name="uncaught_error_title">Ups! Ini seharusnya tidak terjadi!</string>
     <string name="uncaught_error_message">Sepertinya ada yang salah dan menyebabkan aplikasi crash. Akan sangat membantu jika Anda dapat mengirimkan laporan kesalahan ke grup Telegram kami atau melalui email.</string>
     <string name="uncaught_error_report">Laporan kesalahan</string>
@@ -877,7 +877,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Batalkan perubahan</string>
-    <string name="cannot_edit_lyrics_file">Anda tidak dapat mengedit isi berkas secara langsung dari Booming Music.</string>
+    <string name="cannot_edit_lyrics_file">Anda tidak dapat mengedit isi berkas secara langsung dari B Music.</string>
     <string name="lyrics_by_x">Lirik oleh %s</string>
     <string name="preferred_lyrics_file_format_title">Format berkas yang diutamakan</string>
     <string name="preferred_lyrics_file_format_summary">Jika sebuah lagu memiliki berkas lirik dalam format yang berbeda, opsi ini memungkinkan Anda memilih mana yang diprioritaskan.</string>
@@ -933,7 +933,7 @@
     <string name="app_widget_library">Pustaka</string>
     <string name="app_widget_library_desc">Kisi sampul dari daftar yang Anda pilih</string>
     <string name="app_widget_nothing_playing">Tidak ada yang sedang diputar</string>
-    <string name="app_widget_tap_to_play">Ketuk untuk membuka Booming Music</string>
+    <string name="app_widget_tap_to_play">Ketuk untuk membuka B Music</string>
     <string name="action_auto_fill_from_musicbrainz">Isi otomatis dari MusicBrainz</string>
     <string name="searching">Mencari…</string>
     <string name="musicbrainz_search_title">Pencarian MusicBrainz</string>
@@ -942,7 +942,7 @@
     <string name="musicbrainz_select_recording">Pilih hasil</string>
     <string name="permissions_subtitle">Berikan akses ke file musik dan perangkat di sekitar Anda untuk mendapatkan pengalaman pemutaran terbaik.</string>
     <string name="initial_configuration_title">Konfigurasi Awal</string>
-    <string name="initial_configuration_subtitle">Sesuaikan Booming Music sesuai keinginan Anda sebelum memulai.</string>
+    <string name="initial_configuration_subtitle">Sesuaikan B Music sesuai keinginan Anda sebelum memulai.</string>
     <string name="initial_configuration_note">Anda selalu dapat mengubah pengaturan ini nanti.</string>
     <string name="restore_from_backup">Pulihkan dari cadangan</string>
     <string name="sort_order_name">Nama</string>
@@ -994,8 +994,8 @@
     <string name="backup_content_artist_images">Gambar artis</string>
     <string name="backup_app_version">Dibuat di</string>
     <string name="backup_warning_legacy_format">Format cadangan ini dianggap lawas. Saat ini Anda masih dapat memulihkannya, namun kami mungkin akan menghentikan dukungannya di masa mendatang.</string>
-    <string name="backup_warning_ver_newer">Format cadangan lebih baru daripada yang dapat ditangani oleh versi Booming Music ini.</string>
-    <string name="backup_warning_app_ver_newer">Cadangan ini dibuat di versi Booming Music yang lebih baru. Memulihkannya di versi ini dapat menyebabkan kesalahan atau pemulihan data yang tidak lengkap.</string>
+    <string name="backup_warning_ver_newer">Format cadangan lebih baru daripada yang dapat ditangani oleh versi B Music ini.</string>
+    <string name="backup_warning_app_ver_newer">Cadangan ini dibuat di versi B Music yang lebih baru. Memulihkannya di versi ini dapat menyebabkan kesalahan atau pemulihan data yang tidak lengkap.</string>
     <string name="action_play_x">Putar %s</string>
     <string name="invalid_search_params">Parameter pencarian tidak dapat diproses.</string>
     <string name="home_empty_title">Tidak ada yang dapat direkomendasikan</string>
@@ -1029,5 +1029,5 @@
     <string name="restoring_data">Memulihkan data Anda…</string>
     <string name="app_widget_circle">Lingkaran</string>
     <string name="permission_notifications_title">Pemberitahuan (opsional)</string>
-    <string name="permission_notifications_summary">Izin ini memungkinkan Booming Music menampilkan tombol kontrol pemutaran di panel notifikasi dan di layar kunci.</string>
+    <string name="permission_notifications_summary">Izin ini memungkinkan B Music menampilkan tombol kontrol pemutaran di panel notifikasi dan di layar kunci.</string>
 </resources>

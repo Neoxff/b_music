@@ -185,7 +185,7 @@
     <string name="mardous_summary">Juhtiv arendaja</string>
     <string name="contributors">Kaasautorid</string>
     <string name="translators_title">Tõlkijad</string>
-    <string name="translators_summary">Tänud kõigile, kes on Booming Musicu teinud saadavaks paljudes keeltes.</string>
+    <string name="translators_summary">Tänud kõigile, kes on B Musicu teinud saadavaks paljudes keeltes.</string>
     <string name="telegram_community">Kogukond Telegramis</string>
     <string name="telegram_community_summary">Liitu meie kogukonnaga Telegramis ning näed viimaseid uudised ja teavet uute versioonide kohta.</string>
     <string name="view_profile_on_github">Vaata profiili GitHubis</string>
@@ -193,13 +193,13 @@
     <string name="support_my_work">Toeta minu tööd</string>
     <string name="support_development">Toeta arendust</string>
     <string name="help_with_translations">Aita tõlkimisel</string>
-    <string name="help_with_translations_summary">Sa võid osaleda projektis tõlkides Booming Musicut teistesse keeltesse.</string>
+    <string name="help_with_translations_summary">Sa võid osaleda projektis tõlkides B Musicut teistesse keeltesse.</string>
     <string name="report_bugs">Teata vigadest</string>
     <string name="report_bugs_summary">Teata vigadest või koosta ettepanekuid täiendavaks arenduseks.</string>
     <string name="share_app">Jaga seda rakendust</string>
     <string name="share_app_summary">Kui jagad teavet selle rakenduse kohta, siis aitad kaasa tema laiemale levikule.</string>
     <string name="send_invitation_message">Saada kutse</string>
-    <string name="invitation_message_content">Hei! Palun vaata Booming Musicut - see on parim rakendus kuulamaks Androidi nutiseadmes leiduvaid muusikafaile. Võid ta alla laadida siit: %s</string>
+    <string name="invitation_message_content">Hei! Palun vaata B Musicut - see on parim rakendus kuulamaks Androidi nutiseadmes leiduvaid muusikafaile. Võid ta alla laadida siit: %s</string>
     <string name="saf_access_required_title">Ligipääs andmeruumile on nõutav</string>
     <string name="search_for_update_title">Kontrolli uuenduste olemasolu</string>
     <string name="last_update_search_x">Viimane kontroll: %s</string>
@@ -209,7 +209,7 @@
     <string name="update_available_title">Uus versioon on saadaval</string>
     <string name="more_info_action">Lisateave.</string>
     <string name="download_action">Laadi alla</string>
-    <string name="downloading_update">Laadin Booming Musicu uuendust alla.</string>
+    <string name="downloading_update">Laadin B Musicu uuendust alla.</string>
     <string name="uncaught_error_title">Vaat kus lops! Nii poleks küll pidanud juhtuma!</string>
     <string name="similar_artists">Sarnased esitajad</string>
     <string name="label_more_from_artist">Veel samalt esitajalt</string>
@@ -373,7 +373,7 @@
     <string name="advanced_title">Täiendavad seadistused</string>
     <string name="advanced_summary">Rakenduse keel ja muud valikud oskuskasutajatele.</string>
     <string name="about_title">Rakenduse teave</string>
-    <string name="about_summary">Booming Music %s, lisateabe jaoks klõpsa.</string>
+    <string name="about_summary">B Music %s, lisateabe jaoks klõpsa.</string>
     <string name="general_header">Üldseadistused</string>
     <string name="library_header">Muusikakogu</string>
     <string name="album_cover_header">Kaanepilt</string>
@@ -487,7 +487,7 @@
     <string name="use_betterlyrics_provider_title">Kasuta BetterLyrics teenust</string>
     <string name="use_betterlyrics_provider_summary">Sõnahaaval sünkroonitud laulusõnad.</string>
     <string name="delete_downloaded_lyrics_title">Kustuta allalaaditud laulusõnad</string>
-    <string name="delete_downloaded_lyrics_summary">See käib vaid rakenduse Booming Music poolt allalaaditud laulusõnade kohta. Ei mõjuta laulusõnu, mis on lõimitud ID3v2 siltidesse või LRC-failidena.</string>
+    <string name="delete_downloaded_lyrics_summary">See käib vaid rakenduse B Music poolt allalaaditud laulusõnade kohta. Ei mõjuta laulusõnu, mis on lõimitud ID3v2 siltidesse või LRC-failidena.</string>
     <string name="lyrics_cleared">Laulusõnad on kustutatud.</string>
     <string name="app_language_title">Rakenduse keel</string>
     <string name="rotation_lock_title">Pööramise lukustus</string>
@@ -546,7 +546,7 @@
     <string name="saf_delete_failed">Faili kustutamine ei õnnestunud: %s</string>
     <string name="saf_show_files_button">Näita faile</string>
     <string name="saf_error_uri">SAF-i URI tuvastamine ei õnnestu</string>
-    <string name="saf_access_required_message">Booming Music vajab õigust lugeda neid faile. Palun vali juurkaust, kuhu sinu muusika- ja helifailid on salvestatud.</string>
+    <string name="saf_access_required_message">B Music vajab õigust lugeda neid faile. Palun vali juurkaust, kuhu sinu muusika- ja helifailid on salvestatud.</string>
     <string name="larger_header_image_title">Suurem päisepilt</string>
     <string name="larger_header_image_summary">Näita albumi, esitaja ja esitusloendi üksikasjalikus vaates suurt kaanepilti.</string>
     <string name="action_move_to_current_track">Näita praegust lugu</string>
@@ -601,7 +601,7 @@
     <string name="backup_failed">Varukoopa tegemine ei õnnestunud.</string>
     <string name="select_content_to_restore">Vali taastatav sisu:</string>
     <string name="permission_read_images_title">Pildifailide lugemise õigus (pole kohustuslik)</string>
-    <string name="permission_read_images_summary">Booming Music vajab seda õigust kaanepiltide failide leidmiseks sinu muusikakaustadest. Kui sa seda funktsionaalsust kasutada ei plaani, siis võid seda õigust eriata.</string>
+    <string name="permission_read_images_summary">B Music vajab seda õigust kaanepiltide failide leidmiseks sinu muusikakaustadest. Kui sa seda funktsionaalsust kasutada ei plaani, siis võid seda õigust eriata.</string>
     <string name="permission_read_images_denied">Sa pead andma rakendusele õiguse lugeda selles nutiseadmes pildifaile.</string>
     <string name="data_restored_successfully">Andmete taastamine õnnestus.</string>
     <string name="could_not_restore_data">Andmete taastamine ei õnnestunud. Palun kontrolli, kas kasutasid õiget varukoopiafaili ja proovi uuesti.</string>
@@ -625,7 +625,7 @@
     <string name="profiles_exported_successfully">Profiilide eksport õnnestus.</string>
     <string name="import_profiles">Impordi profiile</string>
     <string name="select_profiles_to_import">Vali imsporditavad profiilid:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Vali fail, kus leiduvad Booming Musicu ekvalaiseri EQ profiilid.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Vali fail, kus leiduvad B Musicu ekvalaiseri EQ profiilid.</string>
     <string name="imported_x_profiles">Importisin %d profiili.</string>
     <string name="select_a_file_containing_autoeq_params">Vali fail, kus leiduvad AutoEq (GraphicEq) ekvalaiseri parameetrid</string>
     <string name="no_autoeq_profiles">Ühtegi AutoEq profiili pole imporditud</string>
@@ -647,7 +647,7 @@
     <string name="action_external_eq">Väline ekvalaiser</string>
     <string name="skip_silence_title">Jäta vaikus vahele</string>
     <string name="skip_silence_description">Vaiksed lõigud tuvastatakse automaatselt ja jäetakse vahele. Sobib hästi taskuhäälingute ja muude mittemuusikaliste salvestuste jaoks.</string>
-    <string name="cannot_download_lyrics">Booming Music ei suutnud sellele laulule sõnu leida. Kas tahaksid proovida käsitsi otsingut?</string>
+    <string name="cannot_download_lyrics">B Music ei suutnud sellele laulule sõnu leida. Kas tahaksid proovida käsitsi otsingut?</string>
     <string name="hold_tab_to_search_title">Otsingu käivitamine pika vajutusega</string>
     <string name="hold_tab_to_search_summary">Alumise menüüriba ikoonidel/kaartidel pikk vajutus käivitab otsinguvaate.</string>
     <string name="select_extra_info_title">Täiendav teave</string>
@@ -863,7 +863,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Võta muudatused tagasi</string>
-    <string name="cannot_edit_lyrics_file">Selle faili sisu ei saa otse Booming Musicust muuta.</string>
+    <string name="cannot_edit_lyrics_file">Selle faili sisu ei saa otse B Musicust muuta.</string>
     <string name="preferred_lyrics_file_format_title">Eelistatud failivorming</string>
     <string name="preferred_lyrics_file_format_summary">Kui laulul leidub sõnu mitmes vormingus, siis siin saad valida neist eelistatud variandi.</string>
     <string name="lyrics_by_x">Laulusõnad teenusest %s</string>
@@ -919,7 +919,7 @@
     <string name="legal">Juriidiline teave</string>
     <string name="terms_of_service">Kasutustingimused</string>
     <string name="privacy_policy">Andmekaitsepõhimõtted</string>
-    <string name="app_widget_tap_to_play">Klõpsa Booming Musicu avamiseks</string>
+    <string name="app_widget_tap_to_play">Klõpsa B Musicu avamiseks</string>
     <string name="app_widget_nothing_playing">Mitte midagi pole esitamisel</string>
     <string name="widget_settings_title">Vidina seadistused</string>
     <string name="restore_from_backup">Taasta varukoopiast</string>
@@ -951,7 +951,7 @@
     <string name="app_widget_library_desc">Kaanepiltide ruudustik, kus saad valida</string>
     <string name="permissions_subtitle">Parima kasutuskogemuse nimel luba rakendusele ligipääs sinu muusikafailidele ja ümbruskonnas olevatele seadmetele.</string>
     <string name="initial_configuration_title">Algne seadistus</string>
-    <string name="initial_configuration_subtitle">Enne alustamist kohenda Booming Music vastavalt sinu eelistustele.</string>
+    <string name="initial_configuration_subtitle">Enne alustamist kohenda B Music vastavalt sinu eelistustele.</string>
     <string name="initial_configuration_note">Sa võid neid seadistusei alati muuta.</string>
     <string name="widget_show_navigation_title">Näita menüüriba</string>
     <string name="widget_show_navigation_summary">Näita menüüriba, mille abil saad loendi läbi lapata.</string>
@@ -978,8 +978,8 @@
     <string name="backup_content_artist_images">Esitajate pildid</string>
     <string name="backup_app_version">Loodud</string>
     <string name="backup_warning_legacy_format">See varukoopia vorming on vananenud. Hetkel saad küll sellest veel taastada, kuid selline võimalus võib tulevikus kaduda.</string>
-    <string name="backup_warning_ver_newer">See varukoopia vorming on uuem, kui Booming Music oskab seda kasutada.</string>
-    <string name="backup_warning_app_ver_newer">See varukoopia on loodud Booming Musicu uuema versiooniga. Kui kasutad seda taastamisel selles versioonis, siis võib tekkida vigu või poolikuid andmeid.</string>
+    <string name="backup_warning_ver_newer">See varukoopia vorming on uuem, kui B Music oskab seda kasutada.</string>
+    <string name="backup_warning_app_ver_newer">See varukoopia on loodud B Musicu uuema versiooniga. Kui kasutad seda taastamisel selles versioonis, siis võib tekkida vigu või poolikuid andmeid.</string>
     <string name="invalid_search_params">Otsinguparameetrite töötlemine ei õnnestunud.</string>
     <string name="permissions_needed">Õigused on vajalikud</string>
     <string name="welcome_to_x">Tere tulemast, see on %s</string>
@@ -1014,7 +1014,7 @@
     <string name="search_autoeq_placeholder">Otsi kõrvaklappide mudelit</string>
     <string name="backup_warning_database_ver">Mõned selle varukoopia andmed, näiteks esitusloendid ja laulusõnad, ei ole ühilduvad ning neid ei pruugi olla võimalik taastada.</string>
     <string name="permission_notifications_title">Teavitused (kui soovid kasutada)</string>
-    <string name="permission_notifications_summary">Selle õiguse lubamisel saab Booming Music kuvada taasesituse juhtnuppe teavituste alas ja lukustusvaates.</string>
+    <string name="permission_notifications_summary">Selle õiguse lubamisel saab B Music kuvada taasesituse juhtnuppe teavituste alas ja lukustusvaates.</string>
     <string name="detect_instrumental_tracks_title">Tuvasta instrumentaallood pealkirja alusel</string>
     <string name="detect_instrumental_tracks_summary">Tuvasta instrumentaallood automaatselt pealkirja alusel.</string>
 </resources>

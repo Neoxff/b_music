@@ -381,7 +381,7 @@
     <string name="profiles_exported_successfully">Profielen succesvol geëxporteerd.</string>
     <string name="import_profiles">Importeer profielen</string>
     <string name="select_profiles_to_import">Selecteer de profielen die u wilt importeren:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Selecteer een bestand met Booming Music EQ-profielen.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Selecteer een bestand met B Music EQ-profielen.</string>
     <string name="imported_x_profiles">%d profielen geïmporteerd.</string>
     <string name="no_profile_imported">Geen profiel geïmporteerd.</string>
     <string name="import_autoeq_profile">Importeer AutoEq profiel</string>
@@ -442,7 +442,7 @@
     <string name="synced_lyrics">Gesynchroniseerd</string>
     <string name="embedded_lyrics">Ingebouwd</string>
     <string name="downloaded_lyrics">Gedownload</string>
-    <string name="cannot_download_lyrics">Booming Music kon de songtekst van dit nummer niet vinden. Wil je handmatig zoeken?</string>
+    <string name="cannot_download_lyrics">B Music kon de songtekst van dit nummer niet vinden. Wil je handmatig zoeken?</string>
     <string name="search_lyrics">Zoek songteksten</string>
     <string name="choose_lyrics">Kies het type songtekst</string>
     <string name="download_lyrics">Download songteksten</string>
@@ -482,22 +482,22 @@
     <string name="mardous_summary">Hoofdontwikkelaar</string>
     <string name="contributors">Bijdragers</string>
     <string name="translators_title">Vertalers</string>
-    <string name="translators_summary">Dank aan degenen die Booming Music in veel talen beschikbaar maken.</string>
+    <string name="translators_summary">Dank aan degenen die B Music in veel talen beschikbaar maken.</string>
     <string name="view_profile_on_github">Bekijk profiel op GitHub</string>
     <string name="write_an_email">Schrijf een email</string>
     <string name="support_development">Ondersteun ontwikkeling</string>
     <string name="help_with_translations">Help met vertalingen</string>
-    <string name="help_with_translations_summary">Je kunt bijdragen aan het project door Booming Music naar andere talen te vertalen.</string>
+    <string name="help_with_translations_summary">Je kunt bijdragen aan het project door B Music naar andere talen te vertalen.</string>
     <string name="report_bugs">Meld bugs</string>
     <string name="report_bugs_summary">Rapporteer bugs of verzoek nieuwe functies.</string>
     <string name="share_app">Deel deze app</string>
     <string name="share_app_summary">U kunt deze app helpen groeien als u het met vrienden deelt.</string>
     <string name="send_invitation_message">Stuur uitnodigingsbericht</string>
-    <string name="invitation_message_content">Hoi. Bekijk Booming Music! De beste app om lokale muziek te beluisteren op Android. Je kunt deze hier downloaden: %s</string>
+    <string name="invitation_message_content">Hoi. Bekijk B Music! De beste app om lokale muziek te beluisteren op Android. Je kunt deze hier downloaden: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Opslagtoegang vereist</string>
-    <string name="saf_access_required_message">Booming Music vereist toestemming te krijgen tot deze bestanden. Selecteer de hoofdmap waar je muziekbestanden opgeslagen worden.</string>
+    <string name="saf_access_required_message">B Music vereist toestemming te krijgen tot deze bestanden. Selecteer de hoofdmap waar je muziekbestanden opgeslagen worden.</string>
     <string name="saf_show_files_button">Bestanden weergeven</string>
     <string name="saf_error_uri">Kan geen SAF URI verkrijgen</string>
     <string name="saf_write_failed">Bestand schrijven mislukt: %s</string>
@@ -687,7 +687,7 @@
     <string name="online_album_covers_title">Ontbrekende albumhoes downloaden</string>
     <string name="online_album_covers_summary">Gedownloade afbeeldingen zijn niet ingesloten in audiobestanden; ze zijn alleen zichtbaar binnen de app.</string>
     <string name="delete_downloaded_lyrics_title">Verwijder gedownloade songteksten</string>
-    <string name="delete_downloaded_lyrics_summary">Alleen songteksten gedownload door Booming Music. Heeft geen invloed op songteksten die zijn ingebed in ID3v2 tags of LRC bestanden.</string>
+    <string name="delete_downloaded_lyrics_summary">Alleen songteksten gedownload door B Music. Heeft geen invloed op songteksten die zijn ingebed in ID3v2 tags of LRC bestanden.</string>
     <string name="lyrics_cleared">Songteksten gewist.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Negeer artikelen bij het sorteren</string>
@@ -793,7 +793,7 @@
     <string name="update_available_title">Update beschikbaar</string>
     <string name="more_info_action">Meer informatie.</string>
     <string name="download_action">Downloaden</string>
-    <string name="downloading_update">Booming muziek update wordt gedownload.</string>
+    <string name="downloading_update">B Music muziek update wordt gedownload.</string>
     <string name="uncaught_error_title">Oeps! Dat had niet moeten gebeuren!</string>
     <string name="uncaught_error_message">Het lijkt erop dat er iets mis ging en de app crashte. Het zou handig zijn als je ons het foutmelding zou kunnen sturen naar onze Telegram-groep of via e-mail.</string>
     <string name="uncaught_error_report">Fout rapport</string>
@@ -890,7 +890,7 @@
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Ongedaan maken</string>
     <string name="preferred_lyrics_file_format_title">Voorkeurs bestandsformaat</string>
-    <string name="cannot_edit_lyrics_file">U kan de bestandsinhoud niet direct via Booming Music aanpassen.</string>
+    <string name="cannot_edit_lyrics_file">U kan de bestandsinhoud niet direct via B Music aanpassen.</string>
     <string name="preferred_lyrics_file_format_summary">Als een nummer songtekstbestanden in verschillende formaten heeft laat deze optie u kiezen welk formaat voorkeur heeft.</string>
     <string name="lyrics_by_x">Songteksten door %s</string>
     <string name="mini_player_swipe_to_skip_title">Sleep minispeler om over te slaan</string>
@@ -954,7 +954,7 @@
     <string name="app_widget_library">Bibliotheek</string>
     <string name="app_widget_library_desc">Een raster van hoezen vanuit een lijst waaruit u kan kiezen</string>
     <string name="app_widget_nothing_playing">Niets speelt</string>
-    <string name="app_widget_tap_to_play">Tik om Booming Music te openen</string>
+    <string name="app_widget_tap_to_play">Tik om B Music te openen</string>
     <string name="widget_settings_title">Widgetinstellingen</string>
     <string name="widget_show_progress_title">Toon vooruitgang</string>
     <string name="widget_show_progress_summary">Toon de vooruitgang van het huidige nummer.</string>
@@ -976,7 +976,7 @@
     <string name="widget_page_next">Volgende liedjes</string>
     <string name="permissions_subtitle">Geeft toegang tot uw muziekbestanden en nabije apparaten om de beste terugspeelervaring te beleven.</string>
     <string name="initial_configuration_title">Eerste Installatie</string>
-    <string name="initial_configuration_subtitle">Pas Booming Music naar uw smaak aan voor u begint.</string>
+    <string name="initial_configuration_subtitle">Pas B Music naar uw smaak aan voor u begint.</string>
     <string name="initial_configuration_note">U kunt deze instellingen altijd later aanpassen.</string>
     <string name="restore_from_backup">Herstel vanuit back-up</string>
     <string name="restart_app_message">De app zal herstarten om het proces te voltooien.</string>
@@ -1005,8 +1005,8 @@
     <string name="backup_content_artist_images">Afbeeldingen van artiesten</string>
     <string name="backup_app_version">Gemaakt in</string>
     <string name="backup_warning_legacy_format">Dit backupformat wordt als verouderd beschouwd. U kunt het nu herstellen maar wij stoppen misschien met deze ondersteuning in de toekomst.</string>
-    <string name="backup_warning_ver_newer">Het backupformat is nieuwer dan waar deze versie van Booming Music mee om kan gaan.</string>
-    <string name="backup_warning_app_ver_newer">Deze backup is gemaakt in een nieuwere versie van Booming Music. Herstellen in deze versie kan fouten of incompleet gegevensherstel veroorzaken.</string>
+    <string name="backup_warning_ver_newer">Het backupformat is nieuwer dan waar deze versie van B Music mee om kan gaan.</string>
+    <string name="backup_warning_app_ver_newer">Deze backup is gemaakt in een nieuwere versie van B Music. Herstellen in deze versie kan fouten of incompleet gegevensherstel veroorzaken.</string>
     <string name="restoring_data">Gegevens herstellen…</string>
     <string name="allow_lyrics_download_from">Sta download toe vanuit:</string>
     <string name="action_play_x">Speel %s</string>
@@ -1038,7 +1038,7 @@
     <string name="search_autoeq_placeholder">Zoek naar koptelefoonmodel</string>
     <string name="backup_warning_database_ver">Sommige data uit deze backup, zoals afspeellijsten en songteksten, is not compatibel en wordt mogelijk niet hersteld.</string>
     <string name="permission_notifications_title">Meldingen (optioneel)</string>
-    <string name="permission_notifications_summary">Deze toestemming laat Booming Music terugspeelbesturing tonen in uw meldingspaneel en op het vergrendelscherm.</string>
+    <string name="permission_notifications_summary">Deze toestemming laat B Music terugspeelbesturing tonen in uw meldingspaneel en op het vergrendelscherm.</string>
 
 
 </resources>

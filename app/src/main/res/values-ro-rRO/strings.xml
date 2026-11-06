@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Dispozitive în apropiere</string>
     <string name="permission_bluetooth_description">Aplicația are nevoie de permisiuni în apropiere pentru a verifica dacă există dispozitive bluetooth</string>
     <string name="permission_read_images_title">Read images (optional)</string>
-    <string name="permission_read_images_summary">This permission is required for Booming Music to find album art files in your music folders. If you don\'t plan to use this feature, you can choose not to grant it.</string>
+    <string name="permission_read_images_summary">This permission is required for B Music to find album art files in your music folders. If you don\'t plan to use this feature, you can choose not to grant it.</string>
     <string name="permission_read_images_denied">You must grant permission to read images from the device.</string>
     <string name="permissions_denied">Permisiuni refuzate</string>
     <string name="permissions_needed">Permisiuni necesare</string>
@@ -390,7 +390,7 @@
     <string name="profiles_exported_successfully">Profiles exported successfully.</string>
     <string name="import_profiles">Import profiles</string>
     <string name="select_profiles_to_import">Select profiles to import:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Select a file containing Booming Music EQ Profiles.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Select a file containing B Music EQ Profiles.</string>
     <string name="imported_x_profiles">Imported %d profiles.</string>
     <string name="no_profile_imported">No profile imported.</string>
     <string name="import_autoeq_profile">Import AutoEq profile</string>
@@ -451,7 +451,7 @@
     <string name="synced_lyrics">Sincronizat</string>
     <string name="embedded_lyrics">Embedded</string>
     <string name="downloaded_lyrics">Descărcat</string>
-    <string name="cannot_download_lyrics">Booming Music nu a putut găsi versurile acestei melodii. Vrei să cauți manual?</string>
+    <string name="cannot_download_lyrics">B Music nu a putut găsi versurile acestei melodii. Vrei să cauți manual?</string>
     <string name="search_lyrics">Caută versuri</string>
     <string name="choose_lyrics">Alege tipul de versuri</string>
     <string name="download_lyrics">Descarcă versuri</string>
@@ -491,22 +491,22 @@
     <string name="mardous_summary">Lead Developer</string>
     <string name="contributors">Contributors</string>
     <string name="translators_title">Translators</string>
-    <string name="translators_summary">Thanks to those who make Booming Music available in many languages.</string>
+    <string name="translators_summary">Thanks to those who make B Music available in many languages.</string>
     <string name="view_profile_on_github">Vezi profilul pe GitHub</string>
     <string name="write_an_email">Scrie un e-mail</string>
     <string name="support_development">Sprijină dezvoltarea</string>
     <string name="help_with_translations">Ajutor cu traducerile</string>
-    <string name="help_with_translations_summary">Poti contribui la proiect ajutand la traducerea muzicii Booming in alte limbi.</string>
+    <string name="help_with_translations_summary">Poti contribui la proiect ajutand la traducerea muzicii B Music in alte limbi.</string>
     <string name="report_bugs">Raportează erori</string>
     <string name="report_bugs_summary">Raportează erori sau cere noi caracteristici.</string>
     <string name="share_app">Distribuie această aplicație</string>
     <string name="share_app_summary">Poți ajuta această aplicație să crească dacă o împarți cu prietenii.</string>
     <string name="send_invitation_message">Trimite mesaj de invitație</string>
-    <string name="invitation_message_content">Salut. Uită-te la Booming Music! Cea mai bună aplicație pentru a asculta muzică locală pe Android. Poți să o descarci de aici: %s</string>
+    <string name="invitation_message_content">Salut. Uită-te la B Music! Cea mai bună aplicație pentru a asculta muzică locală pe Android. Poți să o descarci de aici: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Acces la stocare necesar</string>
-    <string name="saf_access_required_message">Booming Music requires permission to access these files. Please select the root folder where your music files are stored.</string>
+    <string name="saf_access_required_message">B Music requires permission to access these files. Please select the root folder where your music files are stored.</string>
     <string name="saf_show_files_button">Afișare fișiere</string>
     <string name="saf_error_uri">Nu se poate obține URL-ul SAF</string>
     <string name="saf_write_failed">Scrierea fișierului a eșuat: %s</string>
@@ -527,7 +527,7 @@
     <string name="advanced_summary">Limba aplicaţiei şi alte setări pentru utilizatorii avansaţi.</string>
     <string name="update_title">Actualizare</string>
     <string name="about_title">Despre</string>
-    <string name="about_summary">Booming Music %s, click pentru mai multe informații.</string>
+    <string name="about_summary">B Music %s, click pentru mai multe informații.</string>
     <!-- Preference headers -->
     <string name="general_header">Generalități</string>
     <string name="library_header">Bibliotecă</string>
@@ -696,7 +696,7 @@
     <string name="online_album_covers_title">Download missing album covers</string>
     <string name="online_album_covers_summary">Downloaded images aren’t embedded into audio files; they’re only visible within the app. This depends on your metadata download policy.</string>
     <string name="delete_downloaded_lyrics_title">Șterge versurile descărcate</string>
-    <string name="delete_downloaded_lyrics_summary">Doar versurile descărcate de Booming Music. Nu afectează versurile încorporate în tag-urile ID3v2 sau fişierele LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">Doar versurile descărcate de B Music. Nu afectează versurile încorporate în tag-urile ID3v2 sau fişierele LRC.</string>
     <string name="lyrics_cleared">Versuri șterse.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignore articles when sorting</string>

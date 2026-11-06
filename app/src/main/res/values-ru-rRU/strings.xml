@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Устройства поблизости (необязательно)</string>
     <string name="permission_bluetooth_description">Приложению требуется разрешение на доступ к устройствам поблизости для проверки Bluetooth-устройств</string>
     <string name="permission_read_images_title">Чтение изображений (необязательно)</string>
-    <string name="permission_read_images_summary">Это разрешение необходимо Booming Music для поиска обложек альбомов в ваших музыкальных папках. Если вы не планируете использовать эту функцию, вы можете не предоставлять его.</string>
+    <string name="permission_read_images_summary">Это разрешение необходимо B Music для поиска обложек альбомов в ваших музыкальных папках. Если вы не планируете использовать эту функцию, вы можете не предоставлять его.</string>
     <string name="permission_read_images_denied">Вы должны предоставить разрешение на чтение изображений с устройства.</string>
     <string name="permissions_denied">Разрешения отклонены</string>
     <string name="permissions_needed">Требуются разрешения</string>
@@ -397,7 +397,7 @@
     <string name="profiles_exported_successfully">Профили успешно экспортированы.</string>
     <string name="import_profiles">Импортировать профили</string>
     <string name="select_profiles_to_import">Выберите профили для импорта:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Выберите файл с профилями эквалайзера Booming Music.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Выберите файл с профилями эквалайзера B Music.</string>
     <string name="imported_x_profiles">Импортировано профилей: %d.</string>
     <string name="no_profile_imported">Ни один профиль не импортирован.</string>
     <string name="import_autoeq_profile">Импортировать профиль AutoEq</string>
@@ -458,7 +458,7 @@
     <string name="synced_lyrics">Синхронизированные</string>
     <string name="embedded_lyrics">Встроенные</string>
     <string name="downloaded_lyrics">Загруженные</string>
-    <string name="cannot_download_lyrics">Booming Music не смог найти текст песни. Хотите поискать вручную?</string>
+    <string name="cannot_download_lyrics">B Music не смог найти текст песни. Хотите поискать вручную?</string>
     <string name="search_lyrics">Поиск текстов песен</string>
     <string name="choose_lyrics">Выберите тип текста песни</string>
     <string name="download_lyrics">Загрузить текст песни</string>
@@ -498,22 +498,22 @@
     <string name="mardous_summary">Ведущий разработчик</string>
     <string name="contributors">Участники</string>
     <string name="translators_title">Переводчики</string>
-    <string name="translators_summary">Спасибо всем, кто помогает переводить Booming Music на разные языки.</string>
+    <string name="translators_summary">Спасибо всем, кто помогает переводить B Music на разные языки.</string>
     <string name="view_profile_on_github">Посмотреть профиль на GitHub</string>
     <string name="write_an_email">Написать письмо</string>
     <string name="support_development">Поддержка разработки</string>
     <string name="help_with_translations">Помощь с переводами</string>
-    <string name="help_with_translations_summary">Вы можете внести свой вклад в проект, помогая переводить Booming Music на другие языки.</string>
+    <string name="help_with_translations_summary">Вы можете внести свой вклад в проект, помогая переводить B Music на другие языки.</string>
     <string name="report_bugs">Сообщить об ошибках</string>
     <string name="report_bugs_summary">Сообщайте об ошибках или запрашивайте новые функции.</string>
     <string name="share_app">Поделиться приложением</string>
     <string name="share_app_summary">Вы можете помочь этому приложению расти, поделившись им с друзьями.</string>
     <string name="send_invitation_message">Отправить приглашение</string>
-    <string name="invitation_message_content">Привет. Попробуй Booming Music! Лучшее приложение для прослушивания локальной музыки на Android. Ты можешь скачать его здесь: %s</string>
+    <string name="invitation_message_content">Привет. Попробуй B Music! Лучшее приложение для прослушивания локальной музыки на Android. Ты можешь скачать его здесь: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Требуется доступ к хранилищу</string>
-    <string name="saf_access_required_message">Booming Music требует разрешения на доступ к этим файлам. Пожалуйста, выберите корневую папку, в которой хранятся ваши музыкальные файлы.</string>
+    <string name="saf_access_required_message">B Music требует разрешения на доступ к этим файлам. Пожалуйста, выберите корневую папку, в которой хранятся ваши музыкальные файлы.</string>
     <string name="saf_show_files_button">Показать файлы</string>
     <string name="saf_error_uri">Не удалось получить URI SAF</string>
     <string name="saf_write_failed">Ошибка записи файла: %s</string>
@@ -534,7 +534,7 @@
     <string name="advanced_summary">Язык приложения и другие настройки для опытных пользователей.</string>
     <string name="update_title">Обновление</string>
     <string name="about_title">О программе</string>
-    <string name="about_summary">Booming Music %s, нажмите для получения дополнительной информации.</string>
+    <string name="about_summary">B Music %s, нажмите для получения дополнительной информации.</string>
     <!-- Preference headers -->
     <string name="general_header">Общие положения</string>
     <string name="library_header">Библиотека</string>
@@ -703,7 +703,7 @@
     <string name="online_album_covers_title">Скачивать недостающие обложки</string>
     <string name="online_album_covers_summary">Скачанные изображения не встраиваются в файлы, а видны только в приложении.</string>
     <string name="delete_downloaded_lyrics_title">Удалить загруженные тексты песен</string>
-    <string name="delete_downloaded_lyrics_summary">Только тексты песен, загруженные Booming Music. Не влияет на тексты, встроенные в теги ID3v2 или файлы LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">Только тексты песен, загруженные B Music. Не влияет на тексты, встроенные в теги ID3v2 или файлы LRC.</string>
     <string name="lyrics_cleared">Текст песни очищен.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Игнорировать артикли при сортировке</string>
@@ -809,7 +809,7 @@
     <string name="update_available_title">Доступно обновление</string>
     <string name="more_info_action">Дополнительная информация.</string>
     <string name="download_action">Загрузить</string>
-    <string name="downloading_update">Загрузка обновления Booming Music.</string>
+    <string name="downloading_update">Загрузка обновления B Music.</string>
     <string name="uncaught_error_title">Произошла непредвиденная ошибка!</string>
     <string name="uncaught_error_message">Приносим извинения за неудобства. Вы можете просмотреть отчет об ошибке и перезапустить приложение.</string>
     <string name="uncaught_error_report">Отчет об ошибке</string>
@@ -890,7 +890,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Отменить изменения</string>
-    <string name="cannot_edit_lyrics_file">Вы не можете изменять содержимое файла напрямую из Booming Music.</string>
+    <string name="cannot_edit_lyrics_file">Вы не можете изменять содержимое файла напрямую из B Music.</string>
     <string name="lyrics_by_x">Текст сделан %s</string>
     <string name="sign_in_to_x_title">Войти в %s</string>
     <string name="connected_account_label">Соединённый аккаунт:</string>
@@ -968,7 +968,7 @@
     <string name="backup_warning_database_ver">Некоторые данные из этой резервной копии, такие как плейлисты и тексты песен, несовместимы и не могут быть восстановлены.</string>
     <string name="app_widget_library">Библиотека</string>
     <string name="app_widget_nothing_playing">Ничего не играет</string>
-    <string name="app_widget_tap_to_play">Нажмите, чтобы открыть Booming Music</string>
+    <string name="app_widget_tap_to_play">Нажмите, чтобы открыть B Music</string>
     <string name="action_play_x">Воспроизвести %s</string>
     <string name="restore_from_backup">Восстановить из резервной копии</string>
     <string name="home_artists_title">Рекомендуемые исполнители</string>

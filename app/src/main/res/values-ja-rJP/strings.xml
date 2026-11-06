@@ -374,7 +374,7 @@
     <string name="profiles_exported_successfully">プロファイルが正常にエクスポートされました。</string>
     <string name="import_profiles">インポートされたプロファイル</string>
     <string name="select_profiles_to_import">インポートするプロファイルを選択:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Booming Musicイコライザプロファイルを含むファイルを選択します。</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">B Musicイコライザプロファイルを含むファイルを選択します。</string>
     <string name="imported_x_profiles">%d プロファイルをインポートしました。</string>
     <string name="no_profile_imported">インポートされたプロファイルはありません。</string>
     <string name="import_autoeq_profile">AutoEqプロファイルのインポート</string>
@@ -475,22 +475,22 @@
     <string name="mardous_summary">Lead Developer</string>
     <string name="contributors">コントリビューター</string>
     <string name="translators_title">翻訳者</string>
-    <string name="translators_summary">Booming Musicを多くの言語で利用可能にしてくれた人たちに感謝します。</string>
+    <string name="translators_summary">B Musicを多くの言語で利用可能にしてくれた人たちに感謝します。</string>
     <string name="view_profile_on_github">GitHubでプロフィールを表示</string>
     <string name="write_an_email">メールを書く</string>
     <string name="support_development">開発を支援する</string>
     <string name="help_with_translations">翻訳を支援</string>
-    <string name="help_with_translations_summary">Booming Musicを他の言語に翻訳することで、プロジェクトに貢献できます。</string>
+    <string name="help_with_translations_summary">B Musicを他の言語に翻訳することで、プロジェクトに貢献できます。</string>
     <string name="report_bugs">バグを報告</string>
     <string name="report_bugs_summary">バグを報告するか、新機能をリクエストしてください。</string>
     <string name="share_app">このアプリを共有</string>
     <string name="share_app_summary">友達と共有すれば、このアプリの成長を助けることができます。</string>
     <string name="send_invitation_message">招待メッセージを送信</string>
-    <string name="invitation_message_content">こんにちは！ Androidでローカルミュージックを聴くのに最適なアプリ、『Booming Music』をぜひチェックしてみてください！ こちらからダウンロードできます: %s</string>
+    <string name="invitation_message_content">こんにちは！ Androidでローカルミュージックを聴くのに最適なアプリ、『B Music』をぜひチェックしてみてください！ こちらからダウンロードできます: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">ストレージアクセスが必要です</string>
-    <string name="saf_access_required_message">Booming Musicはこれらのファイルへのアクセス許可を必要としています。音楽ファイルが保存されているルートフォルダを選択してください。</string>
+    <string name="saf_access_required_message">B Musicはこれらのファイルへのアクセス許可を必要としています。音楽ファイルが保存されているルートフォルダを選択してください。</string>
     <string name="saf_show_files_button">ファイルを表示</string>
     <string name="saf_error_uri">SAF URIを取得できません</string>
     <string name="saf_write_failed">ファイルの書き込みに失敗しました: %s</string>
@@ -511,7 +511,7 @@
     <string name="advanced_summary">アプリ内の言語や上級ユーザー向けのその他の設定。</string>
     <string name="update_title">更新</string>
     <string name="about_title">情報</string>
-    <string name="about_summary">Booming Music %s、タッチして詳細を確認してください。</string>
+    <string name="about_summary">B Music %s、タッチして詳細を確認してください。</string>
     <!-- Preference headers -->
     <string name="general_header">全般</string>
     <string name="library_header">ライブラリ</string>
@@ -647,7 +647,7 @@
     <string name="ignore_audio_focus_title">オーディオフォーカスを無視</string>
     <string name="ignore_audio_focus_summary">他の再生に関係なく、常にバックグラウンドでオーディオを再生します。</string>
     <string name="pause_on_zero_volume_title">音量ゼロで一時停止</string>
-    <string name="pause_on_zero_volume_summary">音量がゼロになると自動的に音楽が一時停止し、再び音量を上げると音楽が再生されます。あなたがアプリ外で音量を上げると、Booming Musicも再生を開始します。</string>
+    <string name="pause_on_zero_volume_summary">音量がゼロになると自動的に音楽が一時停止し、再び音量を上げると音楽が再生されます。あなたがアプリ外で音量を上げると、B Musicも再生を開始します。</string>
     <string name="mp3_index_seeking_title">MP3インデックス検索</string>
     <string name="mp3_index_seeking_summary">Xingヘッダーに依存せず、シークをするためにMP3ファイル全体をメモリに読み込みます。 一部の可変ビットレート（VBR）ファイルでシークが失敗する場合にのみ使用してください。 アプリの再起動が必要です。</string>
     <string name="play_option_always_visible_title">\"再生\" オプションを表示</string>
@@ -680,7 +680,7 @@
     <string name="online_album_covers_title">不足しているアルバムカバーをダウンロード</string>
     <string name="online_album_covers_summary">ダウンロードした画像はオーディオファイルに埋め込まれていません。ダウンロードした画像はアプリ内でのみ表示されます。これはメタデータのダウンロードポリシーによって異なります。</string>
     <string name="delete_downloaded_lyrics_title">ダウンロードした歌詞を削除</string>
-    <string name="delete_downloaded_lyrics_summary">Booming Musicによってダウンロードされた歌詞のみ。ID3v2タグまたはLRCファイルに埋め込まれた歌詞には影響しません。</string>
+    <string name="delete_downloaded_lyrics_summary">B Musicによってダウンロードされた歌詞のみ。ID3v2タグまたはLRCファイルに埋め込まれた歌詞には影響しません。</string>
     <string name="lyrics_cleared">歌詞を消去しました。</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">並べ替え時に冠詞を無視</string>
@@ -786,7 +786,7 @@
     <string name="update_available_title">アップデートがあります</string>
     <string name="more_info_action">もっと詳しく。</string>
     <string name="download_action">ダウンロード</string>
-    <string name="downloading_update">Booming Musicのアップデートをダウンロードしています。</string>
+    <string name="downloading_update">B Musicのアップデートをダウンロードしています。</string>
     <string name="uncaught_error_title">おっと！起きるはずのないことが起きています！</string>
     <string name="uncaught_error_message">何か問題が発生し、アプリがクラッシュしたようです。 私達のTelegramグループまたはEメールでエラーレポートをお送りいただけると助かります。</string>
     <string name="uncaught_error_report">エラーレポート</string>
@@ -811,7 +811,7 @@
     <string name="lastfm_login_toggle_password_visibility">パスワードを表示</string>
     <string name="error_lastfm_auth">セッションの証明書が期限切れか無効です。もう一度ログインしてください。</string>
     <string name="error_lastfm_credentials">証明書が無効です。もう一度確認し、お試しください。</string>
-    <string name="error_lastfm_params">不正なパラメーターです。Booming Musicの不具合の可能性があります。</string>
+    <string name="error_lastfm_params">不正なパラメーターです。B Musicの不具合の可能性があります。</string>
     <string name="error_lastfm_service">Last.fmは一時的に利用できません。後ほどお試しください。</string>
     <string name="error_lastfm_rate_limit">リクエストが多すぎます。スクロブルする前に、しばらくお待ちください。</string>
     <string name="error_lastfm_generic">Last.fmで予期せぬエラーが発生しました。もう一度お試しください。</string>

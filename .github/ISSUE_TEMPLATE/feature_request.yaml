@@ -1,5 +1,5 @@
 name: Feature Request
-description: Suggest an idea or improvement for Booming Music
+description: Suggest an idea or improvement for B Music
 title: "[Feature] "
 labels: [enhancement]
 body:
@@ -12,7 +12,7 @@ body:
     id: source
     attributes:
       label: Download source
-      description: From which source did you download Booming Music?
+      description: From which source did you download B Music?
       options:
         - GitHub
         - F-Droid/IzzyOnDroid
@@ -26,7 +26,7 @@ body:
     id: version
     attributes:
       label: App version
-      description: What version of Booming Music are you using?
+      description: What version of B Music are you using?
       placeholder: e.g. v1.3.0
     validations:
       required: true

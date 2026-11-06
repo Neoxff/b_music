@@ -1,4 +1,4 @@
-Booming Music on kaasaegne ja võimas kohalik muusikaesitaja Androidile, mis on loodud sujuva, kohandatava ja visuaalselt meeldiva kasutuskogemuse jaoks. Rakendus on loodud Material You kujunduskeele alusel ja töötab Media3 platvormil, ühendades endas lihtsuse ja täiustatud taasesitusfunktsioonid.
+B Music on kaasaegne ja võimas kohalik muusikaesitaja Androidile, mis on loodud sujuva, kohandatava ja visuaalselt meeldiva kasutuskogemuse jaoks. Rakendus on loodud Material You kujunduskeele alusel ja töötab Media3 platvormil, ühendades endas lihtsuse ja täiustatud taasesitusfunktsioonid.
 
 Naudi oma lemmiklaule sõna-sõnalt sünkroniseeritud laulusõnadega, tõlgitud laulusõnade toega (TTML/LRC) ja ilusa „Hetkel esitamisel“ liidesega, milles leidub täiustatud välimus, sujuvad üleminekud ja rohkem kohandamisvõimalusi.
 

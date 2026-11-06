@@ -11,6 +11,6 @@
     android:targetCellWidth="2"
     android:targetCellHeight="2"
     android:updatePeriodMillis="0"
-    android:configure="com.mardous.booming.ui.screen.widgets.WidgetSettingsActivity"
+    android:configure="com.bmusic.app.ui.screen.widgets.WidgetSettingsActivity"
     android:widgetFeatures="reconfigurable|configuration_optional"
     android:widgetCategory="home_screen" />

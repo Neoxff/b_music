@@ -70,23 +70,23 @@
 -keep class com.google.android.material.bottomsheet.** { *; }
 -keep class com.google.android.material.transition.** { *; }
 
--keep class com.mardous.booming.ui.component.base.** { *; }
--keep class com.mardous.booming.ui.screen.player.styles.** { *; }
+-keep class com.bmusic.app.ui.component.base.** { *; }
+-keep class com.bmusic.app.ui.screen.player.styles.** { *; }
 
--keep class com.mardous.booming.core.model.** { *; }
--keep class com.mardous.booming.data.local.room.LyricsEntity { *; }
--keep class com.mardous.booming.data.local.backup.** { *; }
--keep class com.mardous.booming.data.remote.deezer.model.** { *; }
--keep class com.mardous.booming.data.remote.lastfm.model.** { *; }
--keep class com.mardous.booming.data.remote.listenbrainz.model.** { *; }
--keep class com.mardous.booming.data.remote.lyrics.model.** { *; }
--keep class com.mardous.booming.data.local.search.** { *; }
--keep class com.mardous.booming.data.model.search.** { *; }
--keep class com.mardous.booming.data.model.replaygain.** { *; }
+-keep class com.bmusic.app.core.model.** { *; }
+-keep class com.bmusic.app.data.local.room.LyricsEntity { *; }
+-keep class com.bmusic.app.data.local.backup.** { *; }
+-keep class com.bmusic.app.data.remote.deezer.model.** { *; }
+-keep class com.bmusic.app.data.remote.lastfm.model.** { *; }
+-keep class com.bmusic.app.data.remote.listenbrainz.model.** { *; }
+-keep class com.bmusic.app.data.remote.lyrics.model.** { *; }
+-keep class com.bmusic.app.data.local.search.** { *; }
+-keep class com.bmusic.app.data.model.search.** { *; }
+-keep class com.bmusic.app.data.model.replaygain.** { *; }
 
 # Hide an annoying compilation warning
 # http://stackoverflow.com/questions/3308010/what-is-the-ignoring-innerclasses-attribute-warning-output-during-compilation
 -keepattributes EnclosingMethod
 
 # Prevent R8 from merging widget classes and mixing their IDs.
--keepnames class com.mardous.booming.core.appwidgets.widget.**
+-keepnames class com.bmusic.app.core.appwidgets.widget.**

@@ -27,7 +27,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/playerAlbumCoverFragment"
-        android:name="com.mardous.booming.ui.screen.player.cover.CoverPagerFragment"
+        android:name="com.bmusic.app.ui.screen.player.cover.CoverPagerFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
@@ -132,7 +132,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/playbackControlsFragment"
-        android:name="com.mardous.booming.ui.screen.player.styles.expressivestyle.ExpressivePlayerControlsFragment"
+        android:name="com.bmusic.app.ui.screen.player.styles.expressivestyle.ExpressivePlayerControlsFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constrainedHeight="true"

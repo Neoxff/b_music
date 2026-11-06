@@ -1,6 +1,6 @@
 # Requested permissions
 
-Booming Music requests the following permissions:
+B Music requests the following permissions:
 
 | Permission                               | Description                                                                                 | Android version |
 |------------------------------------------|---------------------------------------------------------------------------------------------|-----------------|
@@ -18,4 +18,4 @@ Booming Music requests the following permissions:
 | **ACCESS\_NETWORK\_STATE**               | Checks internet connection status before downloading content.                               | All             |
 | **WAKE\_LOCK**                           | Prevents the device from sleeping during playback.                                          | All             |
 
-If you still have questions about the permissions requested by the app, or if we have missed placing any on this list, feel free to contact us through this email: support@boomingmusic.org
+If you still have questions about the permissions requested by the app, or if we have missed placing any on this list, feel free to contact us through this email: support@bmusic.app

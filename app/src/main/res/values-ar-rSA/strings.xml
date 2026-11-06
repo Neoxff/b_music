@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">الأجهزة القريبة</string>
     <string name="permission_bluetooth_description">يحتاج التطبيق إلى إذن الأجهزة القريبة للتحقق من أجهزة البلوتوث</string>
     <string name="permission_read_images_title">قراءة الصور (اختياري)</string>
-    <string name="permission_read_images_summary">هذا الإذن مطلوب كي يتمكن Booming Music من العثور على ملفات صور أغلفة الألبومات في مجلدات موسيقاك. إذا كنت لا تنوي استخدام هذه الميزة، يمكنك اختيار عدم منحه.</string>
+    <string name="permission_read_images_summary">هذا الإذن مطلوب كي يتمكن B Music من العثور على ملفات صور أغلفة الألبومات في مجلدات موسيقاك. إذا كنت لا تنوي استخدام هذه الميزة، يمكنك اختيار عدم منحه.</string>
     <string name="permission_read_images_denied">يجب منح إذن قراءة الصور من الجهاز.</string>
     <string name="permissions_denied">تم رفض الأذونات</string>
     <string name="permissions_needed">الأذونات المطلوبة</string>
@@ -414,7 +414,7 @@
     <string name="profiles_exported_successfully">تم تصدير ملفات التعريف بنجاح.</string>
     <string name="import_profiles">استيراد ملفات التعريف</string>
     <string name="select_profiles_to_import">اختر ملفات التعريف المراد استيرادها:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">اختر ملفًا يحتوي على ملفات تعريف معادل Booming Music.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">اختر ملفًا يحتوي على ملفات تعريف معادل B Music.</string>
     <string name="imported_x_profiles">تم استيراد %d ملف تعريف.</string>
     <string name="no_profile_imported">لم يُستورد أي ملف تعريف.</string>
     <string name="import_autoeq_profile">استيراد ملف تعريف المعادلة التلقائية</string>
@@ -475,7 +475,7 @@
     <string name="synced_lyrics">متزامنة</string>
     <string name="embedded_lyrics">مضمَّنة</string>
     <string name="downloaded_lyrics">منزَّلة</string>
-    <string name="cannot_download_lyrics">تعذّر على Booming Music العثور على كلمات هذه الأغنية. هل تريد البحث يدويًا؟</string>
+    <string name="cannot_download_lyrics">تعذّر على B Music العثور على كلمات هذه الأغنية. هل تريد البحث يدويًا؟</string>
     <string name="search_lyrics">البحث عن الكلمات</string>
     <string name="choose_lyrics">اختر نوع الكلمات</string>
     <string name="download_lyrics">تنزيل الكلمات</string>
@@ -515,22 +515,22 @@
     <string name="mardous_summary">المطوّر الرئيسي</string>
     <string name="contributors">المساهمون</string>
     <string name="translators_title">المترجمون</string>
-    <string name="translators_summary">شكرًا لكل من ساهم في إتاحة Booming Music بلغات عديدة.</string>
+    <string name="translators_summary">شكرًا لكل من ساهم في إتاحة B Music بلغات عديدة.</string>
     <string name="view_profile_on_github">عرض الملف الشخصي على GitHub</string>
     <string name="write_an_email">إرسال بريد إلكتروني</string>
     <string name="support_development">دعم التطوير</string>
     <string name="help_with_translations">المساعدة في الترجمة</string>
-    <string name="help_with_translations_summary">يمكنك المساهمة في المشروع بالمساعدة في ترجمة Booming Music إلى لغات أخرى.</string>
+    <string name="help_with_translations_summary">يمكنك المساهمة في المشروع بالمساعدة في ترجمة B Music إلى لغات أخرى.</string>
     <string name="report_bugs">الإبلاغ عن الأعطال</string>
     <string name="report_bugs_summary">أبلِغ عن عطل أو اقترح ميزة جديدة.</string>
     <string name="share_app">مشاركة هذا التطبيق</string>
     <string name="share_app_summary">يمكنك مساعدة هذا التطبيق على الانتشار بمشاركته مع أصدقائك.</string>
     <string name="send_invitation_message">إرسال رسالة دعوة</string>
-    <string name="invitation_message_content">مرحبًا. جرّب Booming Music! أفضل تطبيق للاستماع إلى الموسيقى المحلية على أندرويد. يمكنك تنزيله من هنا: %s</string>
+    <string name="invitation_message_content">مرحبًا. جرّب B Music! أفضل تطبيق للاستماع إلى الموسيقى المحلية على أندرويد. يمكنك تنزيله من هنا: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">الوصول إلى التخزين مطلوب</string>
-    <string name="saf_access_required_message">يحتاج Booming Music إلى إذن الوصول إلى هذه الملفات. يُرجى تحديد المجلد الجذر حيث تُخزَّن ملفات موسيقاك.</string>
+    <string name="saf_access_required_message">يحتاج B Music إلى إذن الوصول إلى هذه الملفات. يُرجى تحديد المجلد الجذر حيث تُخزَّن ملفات موسيقاك.</string>
     <string name="saf_show_files_button">إظهار الملفات</string>
     <string name="saf_error_uri">تعذّر الحصول على عنوان SAF</string>
     <string name="saf_write_failed">فشلت كتابة الملف: %s</string>
@@ -551,7 +551,7 @@
     <string name="advanced_summary">لغة التطبيق وإعدادات أخرى للمستخدمين المتقدمين.</string>
     <string name="update_title">التحديث</string>
     <string name="about_title">حول</string>
-    <string name="about_summary">Booming Music %s، اضغط لمزيد من المعلومات.</string>
+    <string name="about_summary">B Music %s، اضغط لمزيد من المعلومات.</string>
     <!-- Preference headers -->
     <string name="general_header">عام</string>
     <string name="library_header">المكتبة</string>
@@ -720,7 +720,7 @@
     <string name="online_album_covers_title">تنزيل أغلفة الألبومات المفقودة</string>
     <string name="online_album_covers_summary">الصور المُنزَّلة غير مضمَّنة في الملفات الصوتية؛ تكون مرئية داخل التطبيق فقط.</string>
     <string name="delete_downloaded_lyrics_title">حذف الكلمات المنزَّلة</string>
-    <string name="delete_downloaded_lyrics_summary">الكلمات التي نزّلها Booming Music فقط. لا يؤثر هذا على الكلمات المضمَّنة في وسوم ID3v2 أو ملفات LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">الكلمات التي نزّلها B Music فقط. لا يؤثر هذا على الكلمات المضمَّنة في وسوم ID3v2 أو ملفات LRC.</string>
     <string name="lyrics_cleared">تم مسح الكلمات.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">تجاهل أدوات التعريف عند الترتيب</string>
@@ -826,7 +826,7 @@
     <string name="update_available_title">يتوفر تحديث</string>
     <string name="more_info_action">مزيد من المعلومات.</string>
     <string name="download_action">تنزيل</string>
-    <string name="downloading_update">جارٍ تنزيل تحديث Booming Music.</string>
+    <string name="downloading_update">جارٍ تنزيل تحديث B Music.</string>
     <string name="uncaught_error_title">عذرًا! لم يكن ينبغي أن يحدث هذا!</string>
     <string name="uncaught_error_message">يبدو أن خطأ ما حدث تسبَّب في تعطّل التطبيق. سيكون من المفيد لو أرسلت لنا تقرير الخطأ عبر مجموعتنا على تيليجرام أو بالبريد الإلكتروني.</string>
     <string name="uncaught_error_report">تقرير الخطأ</string>
@@ -896,7 +896,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">تراجع عن التغييرات</string>
-    <string name="cannot_edit_lyrics_file">لا يمكنك تعديل محتوى الملف مباشرة من Booming Music.</string>
+    <string name="cannot_edit_lyrics_file">لا يمكنك تعديل محتوى الملف مباشرة من B Music.</string>
     <string name="lyrics_by_x">كلمات: %s</string>
     <string name="sign_in_to_x_title">تسجيل الدخول إلى %s</string>
     <string name="connected_account_label">الحساب المتصل:</string>

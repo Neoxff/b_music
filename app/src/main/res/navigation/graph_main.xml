@@ -7,47 +7,47 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.mardous.booming.ui.screen.library.home.HomeFragment"
+        android:name="com.bmusic.app.ui.screen.library.home.HomeFragment"
         android:label="HomeFragment"/>
 
     <fragment
         android:id="@+id/nav_songs"
-        android:name="com.mardous.booming.ui.screen.library.songs.SongListFragment"
+        android:name="com.bmusic.app.ui.screen.library.songs.SongListFragment"
         android:label="SongsFragment"/>
 
     <fragment
         android:id="@+id/nav_albums"
-        android:name="com.mardous.booming.ui.screen.library.albums.AlbumListFragment"
+        android:name="com.bmusic.app.ui.screen.library.albums.AlbumListFragment"
         android:label="AlbumsFragment"/>
 
     <fragment
         android:id="@+id/nav_artists"
-        android:name="com.mardous.booming.ui.screen.library.artists.ArtistListFragment"
+        android:name="com.bmusic.app.ui.screen.library.artists.ArtistListFragment"
         android:label="ArtistsFragment"/>
 
     <fragment
         android:id="@+id/nav_genres"
-        android:name="com.mardous.booming.ui.screen.library.genres.GenresListFragment"
+        android:name="com.bmusic.app.ui.screen.library.genres.GenresListFragment"
         android:label="GenresFragment"/>
 
     <fragment
         android:id="@+id/nav_years"
-        android:name="com.mardous.booming.ui.screen.library.years.YearsListFragment"
+        android:name="com.bmusic.app.ui.screen.library.years.YearsListFragment"
         android:label="YearsFragment"/>
 
     <fragment
         android:id="@+id/nav_playlists"
-        android:name="com.mardous.booming.ui.screen.library.playlists.PlaylistListFragment"
+        android:name="com.bmusic.app.ui.screen.library.playlists.PlaylistListFragment"
         android:label="PlaylistsFragment"/>
 
     <fragment
         android:id="@+id/nav_folders"
-        android:name="com.mardous.booming.ui.screen.library.folders.FoldersListFragment"
+        android:name="com.bmusic.app.ui.screen.library.folders.FoldersListFragment"
         android:label="FoldersFragment"/>
 
     <fragment
         android:id="@+id/nav_search"
-        android:name="com.mardous.booming.ui.screen.library.search.SearchFragment"
+        android:name="com.bmusic.app.ui.screen.library.search.SearchFragment"
         android:label="SearchFragment">
         <argument
             android:name="query"
@@ -55,18 +55,18 @@
             app:nullable="true"/>
         <argument
             android:name="filter"
-            app:argType="com.mardous.booming.data.SearchFilter"
+            app:argType="com.bmusic.app.data.SearchFilter"
             app:nullable="true"/>
     </fragment>
 
     <dialog
         android:id="@+id/nav_queue"
-        android:name="com.mardous.booming.ui.screen.queue.QueueFragment"
+        android:name="com.bmusic.app.ui.screen.queue.QueueFragment"
         android:label="QueueFragment"/>
 
     <fragment
         android:id="@+id/nav_album_detail"
-        android:name="com.mardous.booming.ui.screen.library.albums.AlbumDetailFragment"
+        android:name="com.bmusic.app.ui.screen.library.albums.AlbumDetailFragment"
         android:label="AlbumDetailFragment">
         <argument
             android:name="album_id"
@@ -75,7 +75,7 @@
 
     <fragment
         android:id="@+id/nav_artist_detail"
-        android:name="com.mardous.booming.ui.screen.library.artists.ArtistDetailFragment"
+        android:name="com.bmusic.app.ui.screen.library.artists.ArtistDetailFragment"
         android:label="ArtistDetailFragment">
         <argument
             android:name="artist_id"
@@ -88,7 +88,7 @@
 
     <fragment
         android:id="@+id/nav_playlist_detail"
-        android:name="com.mardous.booming.ui.screen.library.playlists.PlaylistDetailFragment"
+        android:name="com.bmusic.app.ui.screen.library.playlists.PlaylistDetailFragment"
         android:label="PlaylistDetailFragment">
         <argument
             android:name="playlistId"
@@ -97,16 +97,16 @@
 
     <fragment
         android:id="@+id/nav_genre_detail"
-        android:name="com.mardous.booming.ui.screen.library.genres.GenreDetailFragment"
+        android:name="com.bmusic.app.ui.screen.library.genres.GenreDetailFragment"
         android:label="GenreDetailFragment">
         <argument
             android:name="extraGenre"
-            app:argType="com.mardous.booming.data.model.Genre"/>
+            app:argType="com.bmusic.app.data.model.Genre"/>
     </fragment>
 
     <fragment
         android:id="@+id/nav_year_detail"
-        android:name="com.mardous.booming.ui.screen.library.years.YearDetailFragment"
+        android:name="com.bmusic.app.ui.screen.library.years.YearDetailFragment"
         android:label="YearDetailFragment">
         <argument
             android:name="extraYear"
@@ -115,7 +115,7 @@
 
     <fragment
         android:id="@+id/nav_folder_detail"
-        android:name="com.mardous.booming.ui.screen.library.folders.FolderDetailFragment"
+        android:name="com.bmusic.app.ui.screen.library.folders.FolderDetailFragment"
         android:label="FolderDetailFragment">
         <argument
             android:name="extraFolderPath"
@@ -124,45 +124,45 @@
 
     <fragment
         android:id="@+id/nav_detail_list"
-        android:name="com.mardous.booming.ui.screen.other.DetailListFragment"
+        android:name="com.bmusic.app.ui.screen.other.DetailListFragment"
         android:label="DetailListFragment">
         <argument
             android:name="type"
-            app:argType="com.mardous.booming.data.model.ContentType"/>
+            app:argType="com.bmusic.app.data.model.ContentType"/>
     </fragment>
 
     <fragment
         android:id="@+id/nav_lyrics"
-        android:name="com.mardous.booming.ui.screen.lyrics.LyricsFragment"
+        android:name="com.bmusic.app.ui.screen.lyrics.LyricsFragment"
         android:label="LyricsFragment"/>
 
     <fragment
         android:id="@+id/nav_lyrics_editor"
-        android:name="com.mardous.booming.ui.screen.lyrics.LyricsEditorFragment"
+        android:name="com.bmusic.app.ui.screen.lyrics.LyricsEditorFragment"
         android:label="LyricsEditorFragment">
         <argument
             android:name="extraSong"
-            app:argType="com.mardous.booming.data.model.Song" />
+            app:argType="com.bmusic.app.data.model.Song" />
     </fragment>
 
     <dialog
         android:id="@+id/nav_song_details"
-        android:name="com.mardous.booming.ui.screen.info.SongDetailFragment"
+        android:name="com.bmusic.app.ui.screen.info.SongDetailFragment"
         android:label="SongDetailFragment">
         <argument
             android:name="extraSong"
-            app:argType="com.mardous.booming.data.model.Song" />
+            app:argType="com.bmusic.app.data.model.Song" />
     </dialog>
 
     <dialog
         android:id="@+id/nav_sleep_timer"
-        android:name="com.mardous.booming.ui.screen.sleeptimer.SleepTimerFragment"
+        android:name="com.bmusic.app.ui.screen.sleeptimer.SleepTimerFragment"
         android:label="SleepTimerFragment">
     </dialog>
 
     <fragment
         android:id="@+id/nav_play_info"
-        android:name="com.mardous.booming.ui.screen.info.PlayInfoFragment"
+        android:name="com.bmusic.app.ui.screen.info.PlayInfoFragment"
         android:label="PlayInfoFragment">
         <argument
             android:name="isArtist"
@@ -178,7 +178,7 @@
 
     <fragment
         android:id="@+id/nav_equalizer"
-        android:name="com.mardous.booming.ui.screen.equalizer.EqualizerFragment"
+        android:name="com.bmusic.app.ui.screen.equalizer.EqualizerFragment"
         android:label="EqualizerFragment">
         <argument
             android:name="from_player"
@@ -188,17 +188,17 @@
 
     <fragment
         android:id="@+id/nav_settings"
-        android:name="com.mardous.booming.ui.screen.settings.SettingsFragment"
+        android:name="com.bmusic.app.ui.screen.settings.SettingsFragment"
         android:label="SettingsFragment"/>
 
     <dialog
         android:id="@+id/nav_sound_settings"
-        android:name="com.mardous.booming.ui.screen.sound.SoundSettingsFragment"
+        android:name="com.bmusic.app.ui.screen.sound.SoundSettingsFragment"
         android:label="SoundSettingsFragment"/>
 
     <fragment
         android:id="@+id/nav_about"
-        android:name="com.mardous.booming.ui.screen.about.AboutFragment"
+        android:name="com.bmusic.app.ui.screen.about.AboutFragment"
         android:label="AboutFragment"/>
 
 </navigation>

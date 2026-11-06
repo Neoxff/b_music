@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Dispositivi nelle vicinanze (opzionale)</string>
     <string name="permission_bluetooth_description">L\'app ha bisogno dell\'autorizzazione per i dispositivi nelle vicinanze per controllare i dispositivi bluetooth</string>
     <string name="permission_read_images_title">Lettura immagini (opzionale)</string>
-    <string name="permission_read_images_summary">Questa autorizzazione è richiesta da Booming Music per trovare i file di copertina degli album nelle tue cartelle musicali. Se non hai intenzione di utilizzare questa funzione, puoi scegliere di non concederla.</string>
+    <string name="permission_read_images_summary">Questa autorizzazione è richiesta da B Music per trovare i file di copertina degli album nelle tue cartelle musicali. Se non hai intenzione di utilizzare questa funzione, puoi scegliere di non concederla.</string>
     <string name="permission_read_images_denied">Devi concedere i permessi di lettura delle immagini dal tuo dispositivo.</string>
     <string name="permissions_denied">Permessi negati</string>
     <string name="permissions_needed">Permessi necessari</string>
@@ -381,7 +381,7 @@
     <string name="profiles_exported_successfully">Profili esportati con successo.</string>
     <string name="import_profiles">Importa profili</string>
     <string name="select_profiles_to_import">Seleziona i profili da importare:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Seleziona un file contenente dei profili EQ di Booming Music.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Seleziona un file contenente dei profili EQ di B Music.</string>
     <string name="imported_x_profiles">%d profili importati.</string>
     <string name="no_profile_imported">Nessun profilo importato.</string>
     <string name="import_autoeq_profile">Importa profilo AutoEq</string>
@@ -442,7 +442,7 @@
     <string name="synced_lyrics">Sincronizzato</string>
     <string name="embedded_lyrics">Incorporato</string>
     <string name="downloaded_lyrics">Scaricato</string>
-    <string name="cannot_download_lyrics">Booming Music non ha trovato il testo di questa canzone. Vuoi cercare manualmente?</string>
+    <string name="cannot_download_lyrics">B Music non ha trovato il testo di questa canzone. Vuoi cercare manualmente?</string>
     <string name="search_lyrics">Cerca testo</string>
     <string name="choose_lyrics">Scegli il tipo di testo</string>
     <string name="download_lyrics">Scarica testo</string>
@@ -482,22 +482,22 @@
     <string name="mardous_summary">Sviluppatore principale</string>
     <string name="contributors">Collaboratori</string>
     <string name="translators_title">Traduttori</string>
-    <string name="translators_summary">Grazie a coloro che rendono Booming Music disponibile in tante lingue.</string>
+    <string name="translators_summary">Grazie a coloro che rendono B Music disponibile in tante lingue.</string>
     <string name="view_profile_on_github">Visualizza il profilo su GitHub</string>
     <string name="write_an_email">Scrivi un\'email</string>
     <string name="support_development">Sosteni lo sviluppo</string>
     <string name="help_with_translations">Contribuisci alle traduzioni</string>
-    <string name="help_with_translations_summary">Puoi contribuire al progetto aiutando a tradurre Booming Music in altre lingue.</string>
+    <string name="help_with_translations_summary">Puoi contribuire al progetto aiutando a tradurre B Music in altre lingue.</string>
     <string name="report_bugs">Segnala bug</string>
     <string name="report_bugs_summary">Segnala bug o richiedi nuove funzionalità.</string>
     <string name="share_app">Condividi questa app</string>
     <string name="share_app_summary">Puoi aiutare questa app a crescere se la condividi con gli amici.</string>
     <string name="send_invitation_message">Invia messaggio di invito</string>
-    <string name="invitation_message_content">Ciao. Da\' un\'occhiata a Booming Music! La migliore app per ascoltare musica in locale su Android. Puoi scaricarla da qui: %s</string>
+    <string name="invitation_message_content">Ciao. Da\' un\'occhiata a B Music! La migliore app per ascoltare musica in locale su Android. Puoi scaricarla da qui: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Accesso all\'Archiviazione Richiesto</string>
-    <string name="saf_access_required_message">Booming Music necessita del permessi per accedere a questi file. Cortesemente selezione la cartella che contiene i tuoi file musicali.</string>
+    <string name="saf_access_required_message">B Music necessita del permessi per accedere a questi file. Cortesemente selezione la cartella che contiene i tuoi file musicali.</string>
     <string name="saf_show_files_button">Mostra file</string>
     <string name="saf_error_uri">Impossibile ottenere SAF URI</string>
     <string name="saf_write_failed">Scrittura del file non riuscita: %s</string>
@@ -518,7 +518,7 @@
     <string name="advanced_summary">Lingua dell\'applicazione e altre impostazioni per gli utenti avanzati.</string>
     <string name="update_title">Aggiorna</string>
     <string name="about_title">Informazioni</string>
-    <string name="about_summary">Booming Music %s, tocca per ulteriori informazioni.</string>
+    <string name="about_summary">B Music %s, tocca per ulteriori informazioni.</string>
     <!-- Preference headers -->
     <string name="general_header">Generale</string>
     <string name="library_header">Libreria</string>
@@ -687,7 +687,7 @@
     <string name="online_album_covers_title">Scarica copertine album mancanti</string>
     <string name="online_album_covers_summary">Le immagini scaricate non sono incorporate nei file audio; sono visibili solo nell\'app.</string>
     <string name="delete_downloaded_lyrics_title">Elimina i testi scaricati</string>
-    <string name="delete_downloaded_lyrics_summary">Solo i testi scaricati da Booming Music. Non influiscono sui testi incorporati nei tag ID3v2 o nei file LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">Solo i testi scaricati da B Music. Non influiscono sui testi incorporati nei tag ID3v2 o nei file LRC.</string>
     <string name="lyrics_cleared">Testo cancellato.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignora articoli durante l\'ordinamento dei brani</string>
@@ -793,7 +793,7 @@
     <string name="update_available_title">Aggiornamento disponibile</string>
     <string name="more_info_action">Maggiori informazioni.</string>
     <string name="download_action">Scarica</string>
-    <string name="downloading_update">Scaricamento dell\'aggiornamento di Booming Music.</string>
+    <string name="downloading_update">Scaricamento dell\'aggiornamento di B Music.</string>
     <string name="uncaught_error_title">Ops! Non sarebbe dovuto succedere!</string>
     <string name="uncaught_error_message">Sembra che qualcosa sia andato storto e abbia causato un crash. Sarebbe utile se ci potessi inviare il report dell\'errore sul nostro gruppo Telegram o via email.</string>
     <string name="uncaught_error_report">Error report</string>
@@ -835,7 +835,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Ripristina modifiche</string>
-    <string name="cannot_edit_lyrics_file">Non è possibile modificare il contenuto del file direttamente da Booming Music.</string>
+    <string name="cannot_edit_lyrics_file">Non è possibile modificare il contenuto del file direttamente da B Music.</string>
     <string name="sign_in_to_x_title">Connettiti a %s</string>
     <string name="connected_account_label">Account Connessi:</string>
     <string name="login_action">Log In</string>
@@ -944,7 +944,7 @@
     <string name="app_widget_library">Libreria</string>
     <string name="app_widget_library_desc">Una griglia con copertine da un elenco da te selezionato</string>
     <string name="app_widget_nothing_playing">Nulla in riproduzione</string>
-    <string name="app_widget_tap_to_play">Tocca per aprire Booming Music</string>
+    <string name="app_widget_tap_to_play">Tocca per aprire B Music</string>
     <string name="action_auto_fill_from_musicbrainz">Riempi automaticamente da MusicBrainz</string>
     <string name="searching">Ricerca…</string>
     <string name="musicbrainz_search_title">Ricerca MusicBrainz</string>
@@ -953,7 +953,7 @@
     <string name="musicbrainz_select_recording">Seleziona un risultato</string>
     <string name="permissions_subtitle">Concedi l\'accesso ai tuoi file musiciali e ai dispositivi vicini per ottenere la migliore esperienza di riproduzione.</string>
     <string name="initial_configuration_title">Configurazione iniziale</string>
-    <string name="initial_configuration_subtitle">Personalizza Booming Music a tuo piacimento prima di iniziare.</string>
+    <string name="initial_configuration_subtitle">Personalizza B Music a tuo piacimento prima di iniziare.</string>
     <string name="initial_configuration_note">Puoi sempre cambiare queste impostazioni successivamente.</string>
     <string name="restore_from_backup">Ripristina da un backup</string>
     <string name="sort_order_name">Nome</string>
@@ -1006,8 +1006,8 @@
     <string name="backup_content_artist_images">Immagini artisti</string>
     <string name="backup_app_version">Creato in</string>
     <string name="backup_warning_legacy_format">Questo formato di backup è considerato legacy. Per ora è possibile ripristinarlo, ma in futuro potremmo smettere di supportarlo.</string>
-    <string name="backup_warning_ver_newer">Il formato di backup è più recente di quello che questa versione di Booming Music può gestire.</string>
-    <string name="backup_warning_app_ver_newer">Questo backup è stato creato in una versione più recente di Booming Music. Ripristinarlo in questa versione potrebbe comportare errori o un ripristino parziale dei dati.</string>
+    <string name="backup_warning_ver_newer">Il formato di backup è più recente di quello che questa versione di B Music può gestire.</string>
+    <string name="backup_warning_app_ver_newer">Questo backup è stato creato in una versione più recente di B Music. Ripristinarlo in questa versione potrebbe comportare errori o un ripristino parziale dei dati.</string>
     <string name="restoring_data">Ripristino dei tuoi dati…</string>
     <string name="allow_lyrics_download_from">Consenti il download da:</string>
     <string name="action_play_x">Riproduci %s</string>
@@ -1039,5 +1039,5 @@
     <string name="search_autoeq_placeholder">Cerca modello delle cuffie</string>
     <string name="backup_warning_database_ver">Alcuni dati di questo backup, come le playlist e i testi, non sono compatibili e potrebbero non essere ripristinati.</string>
     <string name="permission_notifications_title">Notifiche (opzionale)</string>
-    <string name="permission_notifications_summary">Questa autorizzazione consente a Booming Musica di mostrare i controlli di riproduzione nella sezione notifiche e nella schermata di blocco.</string>
+    <string name="permission_notifications_summary">Questa autorizzazione consente a B Musica di mostrare i controlli di riproduzione nella sezione notifiche e nella schermata di blocco.</string>
 </resources>

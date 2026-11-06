@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Base.Theme.Booming" parent="Theme.Material3Expressive.Dark.NoActionBar">
+    <style name="Base.Theme.BMusic" parent="Theme.Material3Expressive.Dark.NoActionBar">
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
@@ -54,12 +54,12 @@
         <item name="popupMenuBackground">@drawable/popupmenu_background</item>
         <item name="popupMenuStyle">@style/MaterialPopupMenuStyle</item>
         <item name="popupWindowStyle">@style/MaterialPopupMenuStyle</item>
-        <item name="materialButtonStyle">@style/Widget.Booming.Expressive.Button</item>
-        <item name="materialButtonTonalStyle">@style/Widget.Booming.Expressive.Button.Tonal</item>
+        <item name="materialButtonStyle">@style/Widget.BMusic.Expressive.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.BMusic.Expressive.Button.Tonal</item>
         <item name="homeAsUpIndicator">@drawable/ic_back_24dp</item>
     </style>
 
-    <style name="Base.Theme.Booming.Light" parent="Theme.Material3Expressive.Light.NoActionBar">
+    <style name="Base.Theme.BMusic.Light" parent="Theme.Material3Expressive.Light.NoActionBar">
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
@@ -112,12 +112,12 @@
         <item name="popupMenuBackground">@drawable/popupmenu_background</item>
         <item name="popupMenuStyle">@style/MaterialPopupMenuStyle</item>
         <item name="popupWindowStyle">@style/MaterialPopupMenuStyle</item>
-        <item name="materialButtonStyle">@style/Widget.Booming.Expressive.Button</item>
-        <item name="materialButtonTonalStyle">@style/Widget.Booming.Expressive.Button.Tonal</item>
+        <item name="materialButtonStyle">@style/Widget.BMusic.Expressive.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.BMusic.Expressive.Button.Tonal</item>
         <item name="homeAsUpIndicator">@drawable/ic_back_24dp</item>
     </style>
 
-    <style name="Base.Theme.Booming.Adaptive" parent="Theme.Material3Expressive.DayNight.NoActionBar">
+    <style name="Base.Theme.BMusic.Adaptive" parent="Theme.Material3Expressive.DayNight.NoActionBar">
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>
@@ -170,12 +170,12 @@
         <item name="popupMenuBackground">@drawable/popupmenu_background</item>
         <item name="popupMenuStyle">@style/MaterialPopupMenuStyle</item>
         <item name="popupWindowStyle">@style/MaterialPopupMenuStyle</item>
-        <item name="materialButtonStyle">@style/Widget.Booming.Expressive.Button</item>
-        <item name="materialButtonTonalStyle">@style/Widget.Booming.Expressive.Button.Tonal</item>
+        <item name="materialButtonStyle">@style/Widget.BMusic.Expressive.Button</item>
+        <item name="materialButtonTonalStyle">@style/Widget.BMusic.Expressive.Button.Tonal</item>
         <item name="homeAsUpIndicator">@drawable/ic_back_24dp</item>
     </style>
 
-    <style name="Base.Theme.Booming.Black">
+    <style name="Base.Theme.BMusic.Black">
         <item name="colorSurface">@android:color/black</item>
         <item name="colorSurfaceContainer">@color/surfaceContainerBlack</item>
         <item name="colorSurfaceContainerLow">@color/surfaceContainerLowBlack</item>

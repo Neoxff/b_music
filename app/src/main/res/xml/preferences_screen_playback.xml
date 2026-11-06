@@ -27,7 +27,7 @@
             app:layout="@layout/list_item_view"
             app:key="queue_next_mode"/>
 
-        <com.mardous.booming.ui.component.preferences.CustomDialogPreference
+        <com.bmusic.app.ui.component.preferences.CustomDialogPreference
             app:icon="@drawable/ic_touch_app_24dp"
             app:title="@string/on_song_click_title"
             app:useSimpleSummaryProvider="false"
@@ -35,7 +35,7 @@
             app:layout="@layout/list_item_view"
             app:key="on_song_click_action"/>
 
-        <com.mardous.booming.ui.component.preferences.CustomDialogPreference
+        <com.bmusic.app.ui.component.preferences.CustomDialogPreference
             app:icon="@drawable/ic_clear_all_24dp"
             app:title="@string/on_clear_queue_title"
             app:useSimpleSummaryProvider="false"

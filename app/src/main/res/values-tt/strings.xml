@@ -133,7 +133,7 @@
     <string name="permission_bluetooth_title">Якын-тирәдәге җайланмалар (мөмкинлекле)</string>
     <string name="permission_bluetooth_description">Кушымта Bluetooth-җайланмаларны тикшерү өчен якын-тирәдәге җайланмаларга керү өчен рөхсәт таләп ителә</string>
     <string name="permission_read_images_title">Сурәтләр уку (мөмкинлекле)</string>
-    <string name="permission_read_images_summary">Бу рөхсәт сезнең музыкаль папкаларыгызда альбомнар тышлыгын эзләү өчен Booming Music кирәк. Әгәр дә сез бу функцияне кулланырга җыенмыйсыз икән, сез аны тәкъдим итә аласыз.</string>
+    <string name="permission_read_images_summary">Бу рөхсәт сезнең музыкаль папкаларыгызда альбомнар тышлыгын эзләү өчен B Music кирәк. Әгәр дә сез бу функцияне кулланырга җыенмыйсыз икән, сез аны тәкъдим итә аласыз.</string>
     <string name="permission_read_images_denied">Сез җайланмадан сурәтләр укырга рөхсәт бирергә тиешсез.</string>
     <string name="permissions_denied">Рөхсәтләр кире кагылды</string>
     <string name="permissions_needed">Рөхсәт таләп ителә</string>
@@ -220,7 +220,7 @@
     <string name="view_type_image">Сурәт</string>
     <string name="are_you_sure_you_want_to_reset_the_equalizer">Сез эквалайзерның көйләүләре ташларга телисез дип ышанасызмы?\n\nБу сезнең барлык профильләрегезне бетерәчәк.</string>
     <string name="help_with_translations">Тәрҗемә белән ярдәм</string>
-    <string name="help_with_translations_summary">Booming Musicны башка телләргә тәрҗемә итеп, сез проектка үз өлешегезне кертә аласыз.</string>
+    <string name="help_with_translations_summary">B Musicны башка телләргә тәрҗемә итеп, сез проектка үз өлешегезне кертә аласыз.</string>
     <string name="lyrics_show_translation_title">Тәрҗемә күрсәтергә</string>
     <string name="action_grid_size">Челтәр күләме</string>
     <string name="action_grid_size_land">Челтәр күләме (ландшафт)</string>
@@ -362,7 +362,7 @@
     <string name="more_contributors_title">Башка катнашучылар</string>
     <string name="more_contributors_summary">Катнашучыларның тулы исемлеген GitHubта карарга мөмкин.</string>
     <string name="translators_title">Тәрҗемәчеләр</string>
-    <string name="translators_summary">Booming Musicны төрле телләргә тәрҗемә итәргә ярдәм итүчеләрнең барсына да бик зур рәхмәт.</string>
+    <string name="translators_summary">B Musicны төрле телләргә тәрҗемә итәргә ярдәм итүчеләрнең барсына да бик зур рәхмәт.</string>
     <string name="telegram_community">Telegram җәмгыят</string>
     <string name="telegram_community_summary">Безнең Telegram җәгыятка яңа релизлар һәм яңалыклар курсында булу өчен кушылыгыз.</string>
     <string name="view_profile_on_github">GitHub профиль карарга</string>
@@ -396,7 +396,7 @@
     <string name="profiles_exported_successfully">Профильләр уңышлы экспортланган.</string>
     <string name="import_profiles">Профильләр импортлау</string>
     <string name="select_profiles_to_import">Импортка профильләр сайлагыз:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Booming Music эквалайзерның профильләр белән файл сайлагыз.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">B Music эквалайзерның профильләр белән файл сайлагыз.</string>
     <string name="imported_x_profiles">Профильләр импортланган: %d.</string>
     <string name="no_profile_imported">Импортланган профильләр юк.</string>
     <string name="import_autoeq_profile">AutoEq профильне импортлау</string>
@@ -484,12 +484,12 @@
     <string name="file_lyrics">Файл</string>
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
-    <string name="cannot_download_lyrics">Booming Music җырның тексты тапмады. Үзенең кулын белән эзләргә телисезме?</string>
+    <string name="cannot_download_lyrics">B Music җырның тексты тапмады. Үзенең кулын белән эзләргә телисезме?</string>
     <string name="undo_changes">Үзгәрешләрне кире кагу</string>
     <string name="search_lyrics">Җырларның текст эзләү</string>
     <string name="choose_lyrics">Текстның төр сайлау</string>
     <string name="download_lyrics">Җырның текст йөкләнергә</string>
-    <string name="cannot_edit_lyrics_file">Сез файлның эчтәлеген турыдан туры Booming Musicтан үзгәртә алмыйсыз.</string>
+    <string name="cannot_edit_lyrics_file">Сез файлның эчтәлеген турыдан туры B Musicтан үзгәртә алмыйсыз.</string>
     <string name="lyrics_by_x">Текст %s эше</string>
     <string name="sign_in_to_x_title">%s керү</string>
     <string name="connected_account_label">Берләштерелгән аккаунт:</string>
@@ -529,14 +529,14 @@
     <string name="app_shortcut_favorites_short">Сайланма</string>
     <string name="action_about">Программа турында</string>
     <string name="send_invitation_message">Чакыру җибәрү</string>
-    <string name="invitation_message_content">Исәнме. Booming Music эшләп кара! Androidта локаль музыканы тыңлау өчен иң яхшы кушымта. Син аны монда күчереп куя аласың: %s</string>
+    <string name="invitation_message_content">Исәнме. B Music эшләп кара! Androidта локаль музыканы тыңлау өчен иң яхшы кушымта. Син аны монда күчереп куя аласың: %s</string>
     <string name="contributor_dawid_description">Төп эшләүчеләрнең берсе һәм кушымтаның төп функцияләрен проектлаучы.</string>
     <string name="contributor_ray_description">Кайбер мөһим һәм кызыклы функцияләрне гамәлгә ашыруга зур өлеш кертте.</string>
     <string name="contributor_ttop_description">Проектның иң беренче катнашучы һәм тестировщик.</string>
     <string name="contributor_lenard_description">Кушымтаны эшләүче һәм проектны катнашучы.</string>
     <string name="contributor_alex_description">Проектның мөһим APIга керү мөмкинлеген биргән күптәнге дусты.</string>
     <string name="saf_access_required_title">Саклауханәгә керү мөмкинлеге кирәк</string>
-    <string name="saf_access_required_message">Booming Music бу файлларга рөхсәт таләп итә. Зинһар өчен, сезнең музыкаль файлларыгыз сакланган тамыр папкасын сайлагыз.</string>
+    <string name="saf_access_required_message">B Music бу файлларга рөхсәт таләп итә. Зинһар өчен, сезнең музыкаль файлларыгыз сакланган тамыр папкасын сайлагыз.</string>
     <string name="saf_show_files_button">Файллар күрсәтү</string>
     <string name="saf_error_uri">SAF URI алып булмады</string>
     <string name="saf_write_failed">Файл уку ялгыш: %s</string>
@@ -556,7 +556,7 @@
     <string name="network_summary">Сетьнең функцияләре тәэсире: Last.fm белән интеграция, җыр текстлары алу, метамәгълүматлар йөкләнеше.</string>
     <string name="advanced_title">Күбрәк</string>
     <string name="about_title">Программа турында</string>
-    <string name="about_summary">Booming Music %s, өстәмә мәгълүмат алу өчен, басыгыз.</string>
+    <string name="about_summary">B Music %s, өстәмә мәгълүмат алу өчен, басыгыз.</string>
     <string name="general_header">Гомуми нигезләмәләр</string>
     <string name="library_header">Саклауханә</string>
     <string name="album_cover_header">Тышлык</string>
@@ -625,7 +625,7 @@
     <string name="app_widget_grid">Челтәр</string>
     <string name="app_widget_library">Саклауханә</string>
     <string name="app_widget_nothing_playing">Бәрнәрсә уйнамый</string>
-    <string name="app_widget_tap_to_play">Booming Music ачылу өчен басыгыз</string>
+    <string name="app_widget_tap_to_play">B Music ачылу өчен басыгыз</string>
     <string name="action_play_x">Уйнау %s</string>
     <string name="action_auto_fill_from_musicbrainz">MusicBrainzдан автомат рәвештә тутыру</string>
     <string name="searching">Эзлибез…</string>
@@ -658,7 +658,7 @@
         <item quantity="other">%d плейлист сайлаган</item>
     </plurals>
     <string name="initial_configuration_title">Башлангыч конфигурациясы</string>
-    <string name="initial_configuration_subtitle">Эш башланыр алдыннан Booming Musicны үзегезнең зәвыгыгыз белән көйләгез.</string>
+    <string name="initial_configuration_subtitle">Эш башланыр алдыннан B Musicны үзегезнең зәвыгыгыз белән көйләгез.</string>
     <string name="initial_configuration_note">Сез һәрвакыт бу көйләүләрне соңрак үзгәртә аласыз.</string>
     <string name="restore_from_backup">Бекапдан торгызырга</string>
     <string name="sort_order_name">Исем</string>

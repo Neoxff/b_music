@@ -402,7 +402,7 @@
     <string name="profiles_exported_successfully">சுயவிவரங்கள் வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டன.</string>
     <string name="import_profiles">சுயவிவரங்களை இறக்குமதி செய்யவும்</string>
     <string name="select_profiles_to_import">இறக்குமதி செய்ய சுயவிவரங்களைத் தேர்ந்தெடுக்கவும்:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">பூமிங் மியூசிக் ஈக்யூ சுயவிவரங்களைக் கொண்ட கோப்பைத் தேர்ந்தெடுக்கவும்.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">பூமிங் மியூசிக் ஈக்யூ சுயவிவரங்களைக் கொண்ட கோப்பைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="imported_x_profiles">%d சுயவிவரங்கள் இறக்குமதி செய்யப்பட்டன.</string>
     <string name="no_profile_imported">சுயவிவரம் இறக்குமதி செய்யப்படவில்லை.</string>
     <string name="import_autoeq_profile">AutoEq சுயவிவரத்தை இறக்குமதி செய்யவும்</string>

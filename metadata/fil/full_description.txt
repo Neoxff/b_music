@@ -1,4 +1,4 @@
-Ang Booming Music ay isang moderno at makapangyarihang local music player para sa Android, na idinisenyo para sa maayos, nako-customize, at kaakit-akit na karanasan. Binuo gamit ang Material You na disenyo at pinapagana ng Media3, pinagsasama nito ang pagiging simple at mga advanced na feature sa pag-playback.
+Ang B Music ay isang moderno at makapangyarihang local music player para sa Android, na idinisenyo para sa maayos, nako-customize, at kaakit-akit na karanasan. Binuo gamit ang Material You na disenyo at pinapagana ng Media3, pinagsasama nito ang pagiging simple at mga advanced na feature sa pag-playback.
 
 Tangkilikin ang iyong mga paboritong kanta na may lyrics na naka-sync bawat salita, suporta para sa mga isinaling lyrics (TTML/LRC), at magandang "Now Playing" interface na nagtatampok ng pinahusay na visuals, maayos na transitions, at malawak na opsyon sa pag-customize.
 

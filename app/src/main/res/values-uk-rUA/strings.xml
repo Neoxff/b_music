@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Пристрої поблизу (необов’язково)</string>
     <string name="permission_bluetooth_description">Застосунку потрібен дозвіл на доступ до пристроїв поблизу для перевірки Bluetooth-пристроїв</string>
     <string name="permission_read_images_title">Читання зображень (необов\'язково)</string>
-    <string name="permission_read_images_summary">Цей дозвіл потрібен для Booming музики, щоб знайти файли обкладинок альбому у ваших теках. Якщо ви не плануєте використовувати цю функцію, ви можете не надавати дозволу.</string>
+    <string name="permission_read_images_summary">Цей дозвіл потрібен для B Music музики, щоб знайти файли обкладинок альбому у ваших теках. Якщо ви не плануєте використовувати цю функцію, ви можете не надавати дозволу.</string>
     <string name="permission_read_images_denied">Ви повинні надати дозвіл на читання зображень з пристрою.</string>
     <string name="permissions_denied">Дозволи відхилено</string>
     <string name="permissions_needed">Потрібні дозволи</string>
@@ -397,7 +397,7 @@
     <string name="profiles_exported_successfully">Профілі успішно експортовано.</string>
     <string name="import_profiles">Імпортувати профілі</string>
     <string name="select_profiles_to_import">Виберіть профілі для імпорту:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Виберіть файл, що містить профілі еквалайзера Booming Music.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Виберіть файл, що містить профілі еквалайзера B Music.</string>
     <string name="imported_x_profiles">Імпортовано %d профілів.</string>
     <string name="no_profile_imported">Жодного профілю не імпортовано.</string>
     <string name="import_autoeq_profile">Імпортувати профіль автоеквалайзера</string>
@@ -458,7 +458,7 @@
     <string name="synced_lyrics">Синхронізовані</string>
     <string name="embedded_lyrics">Вбудовані</string>
     <string name="downloaded_lyrics">Завантажені</string>
-    <string name="cannot_download_lyrics">Booming Music не зміг знайти текст пісні. Бажаєте пошукати вручну?</string>
+    <string name="cannot_download_lyrics">B Music не зміг знайти текст пісні. Бажаєте пошукати вручну?</string>
     <string name="search_lyrics">Пошук текстів пісень</string>
     <string name="choose_lyrics">Виберіть тип тексту пісні</string>
     <string name="download_lyrics">Завантажити текст пісні</string>
@@ -498,7 +498,7 @@
     <string name="mardous_summary">Провідний розробник</string>
     <string name="contributors">Співавтори</string>
     <string name="translators_title">Перекладачі</string>
-    <string name="translators_summary">Дякуємо тим, хто робить Booming Music доступним багатьма мовами.</string>
+    <string name="translators_summary">Дякуємо тим, хто робить B Music доступним багатьма мовами.</string>
     <string name="view_profile_on_github">Переглянути профіль на GitHub</string>
     <string name="write_an_email">Написати листа</string>
     <string name="support_development">Підтримка розробки</string>
@@ -509,11 +509,11 @@
     <string name="share_app">Поділитися додатком</string>
     <string name="share_app_summary">Ви можете допомогти цьому додатку рости, поділившись ним з друзями.</string>
     <string name="send_invitation_message">Надіслати запрошення</string>
-    <string name="invitation_message_content">Привіт. Спробуй Booming Music! Найкращий додаток для прослуховування локальної музики на Android. Ти можеш завантажити його тут: %s</string>
+    <string name="invitation_message_content">Привіт. Спробуй B Music! Найкращий додаток для прослуховування локальної музики на Android. Ти можеш завантажити його тут: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Потрібен доступ до сховища</string>
-    <string name="saf_access_required_message">Booming Music потрібен доступ до цих файлів. Виберіть кореневу теку, де зберігаються ваші музичні файли.</string>
+    <string name="saf_access_required_message">B Music потрібен доступ до цих файлів. Виберіть кореневу теку, де зберігаються ваші музичні файли.</string>
     <string name="saf_show_files_button">Показати файли</string>
     <string name="saf_error_uri">Не вдалося отримати URI SAF</string>
     <string name="saf_write_failed">Помилка запису файлу: %s</string>
@@ -534,7 +534,7 @@
     <string name="advanced_summary">Мова програми та інші розширені налаштування.</string>
     <string name="update_title">Оновлення</string>
     <string name="about_title">Про програму</string>
-    <string name="about_summary">Booming Music %s, торкніться для отримання додаткової інформації.</string>
+    <string name="about_summary">B Music %s, торкніться для отримання додаткової інформації.</string>
     <!-- Preference headers -->
     <string name="general_header">Загальні налаштування</string>
     <string name="library_header">Бібліотека</string>
@@ -703,7 +703,7 @@
     <string name="online_album_covers_title">Завантажити відсутні обкладинки альбомів</string>
     <string name="online_album_covers_summary">Завантажені зображення не вбудовуються в аудіофайли; їх видно лише всередині застосунку.</string>
     <string name="delete_downloaded_lyrics_title">Видалити завантажені тексти пісень</string>
-    <string name="delete_downloaded_lyrics_summary">Лише тексти пісень, завантажені Booming Music. Не впливає на тексти, вбудовані в теги ID3v2 або файли LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">Лише тексти пісень, завантажені B Music. Не впливає на тексти, вбудовані в теги ID3v2 або файли LRC.</string>
     <string name="lyrics_cleared">Текст пісні очищено.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ігнорувати артиклі при сортуванні</string>
@@ -809,7 +809,7 @@
     <string name="update_available_title">Доступне оновлення</string>
     <string name="more_info_action">Більше інформації.</string>
     <string name="download_action">Завантажити</string>
-    <string name="downloading_update">Завантаження оновлення Booming Music.</string>
+    <string name="downloading_update">Завантаження оновлення B Music.</string>
     <string name="uncaught_error_title">Йойки! Сталася неочікувана помилка!</string>
     <string name="uncaught_error_message">Перепрошуємо за незручності. Ви можете переглянути звіт про помилку та перезапустити програму.</string>
     <string name="uncaught_error_report">Error report</string>
@@ -852,7 +852,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Скасувати зміни</string>
-    <string name="cannot_edit_lyrics_file">Ви не можете редагувати вміст файлу безпосередньо з Booming Music.</string>
+    <string name="cannot_edit_lyrics_file">Ви не можете редагувати вміст файлу безпосередньо з B Music.</string>
     <string name="sign_in_to_x_title">Увійти в %s</string>
     <string name="connected_account_label">Пов’язаний обліковий запис:</string>
     <string name="login_action">Увійти</string>
@@ -972,7 +972,7 @@
     <string name="app_widget_library">Бібліотека</string>
     <string name="app_widget_library_desc">Сітка обкладинок зі списку, який ви оберете</string>
     <string name="app_widget_nothing_playing">Нічого не відтворюється</string>
-    <string name="app_widget_tap_to_play">Торкніться, щоб відкрити Booming Music</string>
+    <string name="app_widget_tap_to_play">Торкніться, щоб відкрити B Music</string>
     <string name="widget_settings_title">Налаштування віджета</string>
     <string name="widget_show_progress_title">Показувати прогрес</string>
     <string name="widget_show_progress_summary">Показує поступ поточного треку.</string>
@@ -994,7 +994,7 @@
     <string name="widget_page_next">Наступні пісні</string>
     <string name="permissions_subtitle">Надайте доступ до своїх музичних файлів і пристроїв поблизу, щоб отримати найкращу якість відтворення.</string>
     <string name="initial_configuration_title">Початкова конфігурація</string>
-    <string name="initial_configuration_subtitle">Налаштуйте Booming Music на свій смак перед початком.</string>
+    <string name="initial_configuration_subtitle">Налаштуйте B Music на свій смак перед початком.</string>
     <string name="initial_configuration_note">Ви завжди зможете змінити ці налаштування пізніше.</string>
     <string name="restore_from_backup">Відновити з резервної копії</string>
     <string name="restart_app_message">Застосунок перезапуститься для завершення процесу.</string>
@@ -1024,8 +1024,8 @@
     <string name="backup_content_artist_images">Зображення виконавця</string>
     <string name="backup_app_version">Дата створення</string>
     <string name="backup_warning_legacy_format">Цей формат резервного копіювання вважається застарілим. Наразі ви можете його відновити, але в майбутньому ми можемо припинити його підтримку.</string>
-    <string name="backup_warning_ver_newer">Формат резервної копії новіший, ніж той, який підтримує ця версія Booming Music.</string>
-    <string name="backup_warning_app_ver_newer">Ця резервна копія була створена в новішій версії Booming Music. Відновлення її в цій версії може призвести до помилок або неповного відновлення даних.</string>
+    <string name="backup_warning_ver_newer">Формат резервної копії новіший, ніж той, який підтримує ця версія B Music.</string>
+    <string name="backup_warning_app_ver_newer">Ця резервна копія була створена в новішій версії B Music. Відновлення її в цій версії може призвести до помилок або неповного відновлення даних.</string>
     <string name="restoring_data">Відновлення ваших даних…</string>
     <string name="action_play_x">Відтворити %s</string>
     <string name="home_empty_title">Нічого рекомендувати</string>
@@ -1056,7 +1056,7 @@
     <string name="search_autoeq_placeholder">Пошук моделі навушників</string>
     <string name="backup_warning_database_ver">Деякі дані з цієї резервної копії, як-от списки відтворення та тексти пісень, несумісні й можуть бути не відновлені.</string>
     <string name="permission_notifications_title">Сповіщення (необов’язково)</string>
-    <string name="permission_notifications_summary">Цей дозвіл дозволяє Booming Music показувати елементи керування відтворенням у шторці сповіщень та на екрані блокування.</string>
+    <string name="permission_notifications_summary">Цей дозвіл дозволяє B Music показувати елементи керування відтворенням у шторці сповіщень та на екрані блокування.</string>
 
 
 </resources>

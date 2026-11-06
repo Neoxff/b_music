@@ -18,7 +18,7 @@
         android:background="@drawable/rect_selector_strong"
         tools:ignore="UnusedAttribute,UselessParent">
 
-        <com.mardous.booming.ui.component.views.WidthFitSquareLayout
+        <com.bmusic.app.ui.component.views.WidthFitSquareLayout
             android:id="@+id/image_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -42,7 +42,7 @@
                 app:iconTint="?colorOnSurface"
                 app:icon="@drawable/ic_play_24dp" />
 
-        </com.mardous.booming.ui.component.views.WidthFitSquareLayout>
+        </com.bmusic.app.ui.component.views.WidthFitSquareLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

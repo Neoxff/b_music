@@ -70,25 +70,22 @@ sealed class Version(
         }
 }
 
-val currentVersion: Version = Version.Stable(
-    versionMajor = 1,
-    versionMinor = 4,
-    versionPatch = 2
-)
-val currentVersionCode = currentVersion.code
+val currentVersionName = "1.0.0"
 
 android {
     compileSdk = 37
-    namespace = "com.mardous.booming"
+    base {
+        archivesName.set("B-Music")
+    }
+    namespace = "com.bmusic.app"
 
     defaultConfig {
         minSdk = 26
         targetSdk = 36
 
         applicationId = namespace
-        versionCode = 1420300
-        versionName = currentVersion.name
-        check(versionCode == currentVersionCode)
+        versionCode = 1
+        versionName = currentVersionName
     }
 
     flavorDimensions += "version"
@@ -251,7 +248,16 @@ androidComponents {
         variant.outputs.forEach { output ->
             val filter = output.filters.joinToString("-") { it.identifier }
             val abi = filter.ifEmpty { "universal" }
-            output.outputFileName = "BoomingMusic-${output.versionName.get()}-${variant.flavorName}-$abi.apk"
+            output.outputFileName = if (variant.flavorName == "fdroid") {
+                // B-Music-<abi>.apk ; universal release -> B-Music.apk (debug -> B-Music-debug.apk)
+                when {
+                    abi == "universal" && variant.buildType == "release" -> "B-Music.apk"
+                    abi == "universal" -> "B-Music-debug.apk"
+                    else -> "B-Music-$abi.apk"
+                }
+            } else {
+                "BMusic-${output.versionName.get()}-${variant.flavorName}-$abi.apk"
+            }
         }
     }
 }

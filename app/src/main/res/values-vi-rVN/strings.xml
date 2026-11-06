@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Các thiết bị lân cận</string>
     <string name="permission_bluetooth_description">Ứng dụng cần quyền truy cập các thiết bị lân cận để kiểm tra các thiết bị Bluetooth</string>
     <string name="permission_read_images_title">Truy cập hình ảnh (tùy chọn)</string>
-    <string name="permission_read_images_summary">Quyền này là bắt buộc để Booming Music tìm các tệp ảnh bìa album trong thư mục nhạc của mày. Nếu bạn không định dùng tính năng này, bạn có thể chọn không cấp quyền.</string>
+    <string name="permission_read_images_summary">Quyền này là bắt buộc để B Music tìm các tệp ảnh bìa album trong thư mục nhạc của mày. Nếu bạn không định dùng tính năng này, bạn có thể chọn không cấp quyền.</string>
     <string name="permission_read_images_denied">Bạn phải cấp quyền truy cập hình ảnh từ thiết bị.</string>
     <string name="permissions_denied">Quyền truy cập bị từ chối</string>
     <string name="permissions_needed">Cần có quyền tuy cập</string>
@@ -374,7 +374,7 @@
     <string name="profiles_exported_successfully">Cấu hình đã được xuất thành công.</string>
     <string name="import_profiles">Nhập cấu hình</string>
     <string name="select_profiles_to_import">Chọn cấu hình để nhập:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Chọn một tệp chứa các cấu hình EQ của Booming Music.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Chọn một tệp chứa các cấu hình EQ của B Music.</string>
     <string name="imported_x_profiles">Imported %d profiles.</string>
     <string name="no_profile_imported">No profile imported.</string>
     <string name="import_autoeq_profile">Import AutoEq profile</string>
@@ -435,7 +435,7 @@
     <string name="synced_lyrics">Đã đồng bộ</string>
     <string name="embedded_lyrics">Đã nhúng</string>
     <string name="downloaded_lyrics">Đã tải xuống</string>
-    <string name="cannot_download_lyrics">Booming Music không thể tìm thấy lời bài hát này. Bạn có muốn tìm kiếm thủ công không?</string>
+    <string name="cannot_download_lyrics">B Music không thể tìm thấy lời bài hát này. Bạn có muốn tìm kiếm thủ công không?</string>
     <string name="search_lyrics">Tìm kiếm lời bài hát</string>
     <string name="choose_lyrics">Chọn loại lời bài hát</string>
     <string name="download_lyrics">Tải xuống lời bài hát</string>
@@ -475,22 +475,22 @@
     <string name="mardous_summary">Nhà phát triển chính</string>
     <string name="contributors">Người đóng góp</string>
     <string name="translators_title">Người dịch</string>
-    <string name="translators_summary">Cảm ơn những người đã giúp Booming Music hỗ trợ nhiều ngôn ngữ.</string>
+    <string name="translators_summary">Cảm ơn những người đã giúp B Music hỗ trợ nhiều ngôn ngữ.</string>
     <string name="view_profile_on_github">Xem hồ sơ trên GitHub</string>
     <string name="write_an_email">Viết một email</string>
     <string name="support_development">Hỗ trợ phát triển</string>
     <string name="help_with_translations">Hỗ trợ dịch thuật</string>
-    <string name="help_with_translations_summary">Bạn có thể đóng góp cho dự án bằng cách hỗ trợ dịch thuật Booming Music sang các ngôn ngữ khác.</string>
+    <string name="help_with_translations_summary">Bạn có thể đóng góp cho dự án bằng cách hỗ trợ dịch thuật B Music sang các ngôn ngữ khác.</string>
     <string name="report_bugs">Báo cáo lỗi</string>
     <string name="report_bugs_summary">Báo cáo lỗi hoặc yêu cầu tính năng mới.</string>
     <string name="share_app">Chia sẻ ứng dụng này</string>
     <string name="share_app_summary">Bạn có thể giúp ứng dụng này phát triển bằng cách chia sẻ với bạn bè.</string>
     <string name="send_invitation_message">Gửi lời mời</string>
-    <string name="invitation_message_content">Xin chào. Hãy thử Booming Music! Ứng dụng nghe nhạc ngoại tuyến tốt nhất trên Android. Bạn có thể tải xuống từ: %s</string>
+    <string name="invitation_message_content">Xin chào. Hãy thử B Music! Ứng dụng nghe nhạc ngoại tuyến tốt nhất trên Android. Bạn có thể tải xuống từ: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Yêu cầu quyền truy cập bộ nhớ</string>
-    <string name="saf_access_required_message">Booming Music cần quyền truy cập vào các tệp này. Vui lòng chọn thư mục gốc nơi lưu trữ các tệp nhạc của bạn.</string>
+    <string name="saf_access_required_message">B Music cần quyền truy cập vào các tệp này. Vui lòng chọn thư mục gốc nơi lưu trữ các tệp nhạc của bạn.</string>
     <string name="saf_show_files_button">Hiển thị tệp</string>
     <string name="saf_error_uri">Can\'t get SAF URI</string>
     <string name="saf_write_failed">File write failed: %s</string>
@@ -511,7 +511,7 @@
     <string name="advanced_summary">In-app language and other settings for advanced users.</string>
     <string name="update_title">Update</string>
     <string name="about_title">About</string>
-    <string name="about_summary">Booming Music %s, bấm để tìm hiểu thêm.</string>
+    <string name="about_summary">B Music %s, bấm để tìm hiểu thêm.</string>
     <!-- Preference headers -->
     <string name="general_header">Chung</string>
     <string name="library_header">Thư viện</string>
@@ -680,7 +680,7 @@
     <string name="online_album_covers_title">Tải xuống ảnh bìa album bị thiếu</string>
     <string name="online_album_covers_summary">Downloaded images aren’t embedded into audio files; they’re only visible within the app. This depends on your metadata download policy.</string>
     <string name="delete_downloaded_lyrics_title">Delete downloaded lyrics</string>
-    <string name="delete_downloaded_lyrics_summary">Only lyrics downloaded by Booming Music. Does not affect lyrics embedded in ID3v2 tags or LRC files.</string>
+    <string name="delete_downloaded_lyrics_summary">Only lyrics downloaded by B Music. Does not affect lyrics embedded in ID3v2 tags or LRC files.</string>
     <string name="lyrics_cleared">Lyrics cleared.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignore articles when sorting</string>
@@ -786,7 +786,7 @@
     <string name="update_available_title">Đã có bản cập nhật</string>
     <string name="more_info_action">Tìm hiểu thêm.</string>
     <string name="download_action">Tải xuống</string>
-    <string name="downloading_update">Downloading Booming Music update.</string>
+    <string name="downloading_update">Downloading B Music update.</string>
     <string name="uncaught_error_title">Oops! That wasn\'t supposed to happen!</string>
     <string name="uncaught_error_message">It seems something went wrong and caused the app to crash. It would be helpful if you could send us the error report to our Telegram group or via email.</string>
     <string name="uncaught_error_report">Báo cáo lỗi</string>

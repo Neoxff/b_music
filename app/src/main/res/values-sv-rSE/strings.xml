@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Enheter i närheten (valfritt)</string>
     <string name="permission_bluetooth_description">Appen behöver åtkomst till enheter i närheten för att söka efter bluetooth-enheter</string>
     <string name="permission_read_images_title">Läs bilder (valfritt)</string>
-    <string name="permission_read_images_summary">Denna behörighet krävs för att Booming Music ska kunna hitta skivomslagsfiler i dina musikmappar. Om du inte planerar att använda den här funktionen kan du välja att inte bevilja den.</string>
+    <string name="permission_read_images_summary">Denna behörighet krävs för att B Music ska kunna hitta skivomslagsfiler i dina musikmappar. Om du inte planerar att använda den här funktionen kan du välja att inte bevilja den.</string>
     <string name="permission_read_images_denied">Du måste ge behörighet att läsa bilder från enheten.</string>
     <string name="permissions_denied">Åtkomst nekad</string>
     <string name="grant_access_action">Bevilja åtkomst</string>
@@ -379,7 +379,7 @@
     <string name="profiles_exported_successfully">Profilerna har exporterats.</string>
     <string name="import_profiles">Importera profiler</string>
     <string name="select_profiles_to_import">Välj profiler att importera:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Välj en fil som innehåller Booming Music EQ-profiler.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Välj en fil som innehåller B Music EQ-profiler.</string>
     <string name="imported_x_profiles">%d profiler har importerats.</string>
     <string name="no_profile_imported">Ingen profil importerad.</string>
     <string name="import_autoeq_profile">Importera AutoEq-profil</string>
@@ -440,7 +440,7 @@
     <string name="synced_lyrics">Synkroniserad</string>
     <string name="embedded_lyrics">Inbäddad</string>
     <string name="downloaded_lyrics">Nedladdad</string>
-    <string name="cannot_download_lyrics">Booming Music kunde inte hitta texten till den här låten. Vill du söka manuellt?</string>
+    <string name="cannot_download_lyrics">B Music kunde inte hitta texten till den här låten. Vill du söka manuellt?</string>
     <string name="search_lyrics">Sök låttext</string>
     <string name="choose_lyrics">Välj typ av låttext</string>
     <string name="download_lyrics">Hämta låttexter</string>
@@ -480,22 +480,22 @@
     <string name="mardous_summary">Huvudutvecklare</string>
     <string name="contributors">Bidragsgivare</string>
     <string name="translators_title">Översättare</string>
-    <string name="translators_summary">Tack till dem som gör Booming Music tillgänglig på många språk.</string>
+    <string name="translators_summary">Tack till dem som gör B Music tillgänglig på många språk.</string>
     <string name="view_profile_on_github">Visa profil på GitHub</string>
     <string name="write_an_email">Skriv en e-postadress</string>
     <string name="support_development">Stöd utvecklingen</string>
     <string name="help_with_translations">Hjälp med översättningar</string>
-    <string name="help_with_translations_summary">Du kan bidra till projektet genom att hjälpa till att översätta Booming Music till andra språk.</string>
+    <string name="help_with_translations_summary">Du kan bidra till projektet genom att hjälpa till att översätta B Music till andra språk.</string>
     <string name="report_bugs">Rapportera buggar</string>
     <string name="report_bugs_summary">Rapportera buggar eller begär nya funktioner.</string>
     <string name="share_app">Dela denna app</string>
     <string name="share_app_summary">Du kan hjälpa denna app växa om du delar den med vänner.</string>
     <string name="send_invitation_message">Skicka inbjudningsmeddelande</string>
-    <string name="invitation_message_content">Hej. Kolla in Booming Music! Den bästa appen för att lyssna på lokal musik på Android. Du kan ladda ner den här: %s</string>
+    <string name="invitation_message_content">Hej. Kolla in B Music! Den bästa appen för att lyssna på lokal musik på Android. Du kan ladda ner den här: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Tillgång till lagring krävs</string>
-    <string name="saf_access_required_message">Booming Music kräver behörighet att komma åt dessa filer. Välj rotmappen där dina musikfiler lagras.</string>
+    <string name="saf_access_required_message">B Music kräver behörighet att komma åt dessa filer. Välj rotmappen där dina musikfiler lagras.</string>
     <string name="saf_show_files_button">Visa filer</string>
     <string name="saf_error_uri">Kan inte hämta SAF URI</string>
     <string name="saf_write_failed">Filskrivning misslyckades: %s</string>
@@ -516,7 +516,7 @@
     <string name="advanced_summary">In-app språk och andra inställningar för avancerade användare.</string>
     <string name="update_title">Uppdatera</string>
     <string name="about_title">Om</string>
-    <string name="about_summary">Booming Music %s, tryck för mer info.</string>
+    <string name="about_summary">B Music %s, tryck för mer info.</string>
     <!-- Preference headers -->
     <string name="general_header">Allmänt</string>
     <string name="library_header">Bibliotek</string>
@@ -681,7 +681,7 @@
     <string name="online_album_covers_title">Ladda ner saknade albumomslag</string>
     <string name="online_album_covers_summary">Nedladdade bilder är inte inbäddade i ljudfiler, de är bara synliga i appen.</string>
     <string name="delete_downloaded_lyrics_title">Ta bort hämtade låttexter</string>
-    <string name="delete_downloaded_lyrics_summary">Endast låttexter hämtade av Booming Music. Påverkar inte låttexter inbäddade i ID3v2-taggar eller LRC-filer.</string>
+    <string name="delete_downloaded_lyrics_summary">Endast låttexter hämtade av B Music. Påverkar inte låttexter inbäddade i ID3v2-taggar eller LRC-filer.</string>
     <string name="lyrics_cleared">Låttexter rensade.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignorera artiklar vid sortering</string>
@@ -787,7 +787,7 @@
     <string name="update_available_title">Uppdatering tillgänglig</string>
     <string name="more_info_action">Mer information.</string>
     <string name="download_action">Hämta</string>
-    <string name="downloading_update">Laddar ner Booming Music uppdatering.</string>
+    <string name="downloading_update">Laddar ner B Music uppdatering.</string>
     <string name="uncaught_error_title">Hoppsan! Det var inte tänkt att hända!</string>
     <string name="uncaught_error_message">Det verkar som om något gick fel och fick appen att krascha. Det skulle vara bra om du kunde skicka felrapporten till vår Telegram grupp eller via e-post.</string>
     <string name="uncaught_error_report">Felrapport</string>
@@ -883,7 +883,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Ångra ändringar</string>
-    <string name="cannot_edit_lyrics_file">Du kan ej redigera filens innehåll direkt från Booming Music.</string>
+    <string name="cannot_edit_lyrics_file">Du kan ej redigera filens innehåll direkt från B Music.</string>
     <string name="preferred_lyrics_file_format_title">Föredraget filformat</string>
     <string name="preferred_lyrics_file_format_summary">Om en låt har textfiler i olika format kan du välja vilket som prioriteras med denna inställning.</string>
     <string name="lyrics_by_x">Sångtext av %s</string>
@@ -937,7 +937,7 @@
     <string name="app_widget_library">Bibliotek</string>
     <string name="app_widget_library_desc">Ett rutnät av omslag från en lista du väljer</string>
     <string name="app_widget_nothing_playing">Inget spelar</string>
-    <string name="app_widget_tap_to_play">Tryck för att öppna Booming Music</string>
+    <string name="app_widget_tap_to_play">Tryck för att öppna B Music</string>
     <string name="action_auto_fill_from_musicbrainz">Autofyll från MusicBrainz</string>
     <string name="searching">Söker…</string>
     <string name="musicbrainz_search_title">MusicBrainz-sökning</string>
@@ -946,7 +946,7 @@
     <string name="musicbrainz_select_recording">Välj ett resultat</string>
     <string name="permissions_subtitle">Ge åtkomst till dina musikfiler och närliggande enheter för att få den bästa uppspelningsupplevelsen.</string>
     <string name="initial_configuration_title">Initial konfiguration</string>
-    <string name="initial_configuration_subtitle">Anpassa Booming Music efter dina önskemål innan du börjar.</string>
+    <string name="initial_configuration_subtitle">Anpassa B Music efter dina önskemål innan du börjar.</string>
     <string name="initial_configuration_note">Du kan alltid ändra dessa inställningar senare.</string>
     <string name="restore_from_backup">Återställ från säkerhetskopia</string>
     <string name="sort_order_name">Namn</string>
@@ -1022,8 +1022,8 @@
     <string name="backup_content_artist_images">Artistbilder</string>
     <string name="backup_app_version">Skapad i</string>
     <string name="backup_warning_legacy_format">Detta säkerhetskopieringsformat betraktas som föråldrat. För närvarande går det att återställa det, men vi kan komma att upphöra med stödet för det i framtiden.</string>
-    <string name="backup_warning_ver_newer">Säkerhetskopieringsformatet är nyare än vad den här versionen av Booming Music klarar av.</string>
-    <string name="backup_warning_app_ver_newer">Denna säkerhetskopia skapades i en nyare version av Booming Music. Om du återställer den i den här versionen kan det leda till fel eller att data inte återställs fullständigt.</string>
+    <string name="backup_warning_ver_newer">Säkerhetskopieringsformatet är nyare än vad den här versionen av B Music klarar av.</string>
+    <string name="backup_warning_app_ver_newer">Denna säkerhetskopia skapades i en nyare version av B Music. Om du återställer den i den här versionen kan det leda till fel eller att data inte återställs fullständigt.</string>
     <string name="restoring_data">Återställer dina data…</string>
     <string name="import_or_sync_autoeq_database">Importera en profil eller synkronisera databasen för att se tillgängliga profiler</string>
     <string name="import_or_type_to_search_autoeq_profiles">Importera en profil eller sök efter din enhets namn bland %d profiler</string>
@@ -1034,7 +1034,7 @@
     <string name="search_autoeq_placeholder">Sök efter hörlursmodell</string>
     <string name="backup_warning_database_ver">Vissa data från denna säkerhetskopia, till exempel spellistor och sångtexter, är inte kompatibla och kan eventuellt inte återställas.</string>
     <string name="permission_notifications_title">Meddelanden (valfritt)</string>
-    <string name="permission_notifications_summary">Denna behörighet gör det möjligt för Booming Music att visa uppspelningskontroller i meddelandefältet och på låsskärmen.</string>
+    <string name="permission_notifications_summary">Denna behörighet gör det möjligt för B Music att visa uppspelningskontroller i meddelandefältet och på låsskärmen.</string>
     <string name="detect_instrumental_tracks_title">Identifiera instrumentalspår utifrån titeln</string>
     <string name="detect_instrumental_tracks_summary">Identifiera instrumentala spår automatiskt baserat på deras titel.</string>
 </resources>

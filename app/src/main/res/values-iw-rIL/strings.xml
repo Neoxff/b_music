@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">מכשירים בקרבת מקום</string>
     <string name="permission_bluetooth_description">האפליקציה זקוקה להרשאה מכשירים בקרבת מקום כדי לבדוק אם יש מכשירי בלוטות\'</string>
     <string name="permission_read_images_title">קריאת תמונות (אופציונלי)</string>
-    <string name="permission_read_images_summary">הרשאה זו נדרשת כדי ש־Booming Music תוכל למצוא קובצי עטיפות אלבומים בתיקיות המוזיקה שלך. אם אינך מתכנן להשתמש בפונקציה זו, אפשר לבחור לא לאשר אותה.</string>
+    <string name="permission_read_images_summary">הרשאה זו נדרשת כדי ש־B Music תוכל למצוא קובצי עטיפות אלבומים בתיקיות המוזיקה שלך. אם אינך מתכנן להשתמש בפונקציה זו, אפשר לבחור לא לאשר אותה.</string>
     <string name="permission_read_images_denied">עליך להעניק הרשאה לקריאת תמונות מהמכשיר.</string>
     <string name="permissions_denied">הרשאות נדחו</string>
     <string name="permissions_needed">הרשאות נדרשות</string>
@@ -390,7 +390,7 @@
     <string name="profiles_exported_successfully">הפרופילים יוצאו בהצלחה.</string>
     <string name="import_profiles">ייבוא פרופילים</string>
     <string name="select_profiles_to_import">נא לבחור פרופילים לייבוא:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Select a file containing Booming Music EQ Profiles.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Select a file containing B Music EQ Profiles.</string>
     <string name="imported_x_profiles">יובאו %d פרופילים.</string>
     <string name="no_profile_imported">לא יובאו פרופילים.</string>
     <string name="import_autoeq_profile">ייבוא פרופיל AutoEq</string>
@@ -451,7 +451,7 @@
     <string name="synced_lyrics">מסונכרן</string>
     <string name="embedded_lyrics">מוטבע</string>
     <string name="downloaded_lyrics">הורד</string>
-    <string name="cannot_download_lyrics">Booming Music לא מצאה את מילות השיר הזה. לחפש ידנית?</string>
+    <string name="cannot_download_lyrics">B Music לא מצאה את מילות השיר הזה. לחפש ידנית?</string>
     <string name="search_lyrics">חפש מילות שיר</string>
     <string name="choose_lyrics">בחר את סוג מילות השיר</string>
     <string name="download_lyrics">הורד מילים</string>
@@ -491,22 +491,22 @@
     <string name="mardous_summary">מפתח ראשי</string>
     <string name="contributors">תורמים</string>
     <string name="translators_title">מתרגמים</string>
-    <string name="translators_summary">תודה לאלו שעוזרים להפוך את Booming Music לזמין בשפות רבות.</string>
+    <string name="translators_summary">תודה לאלו שעוזרים להפוך את B Music לזמין בשפות רבות.</string>
     <string name="view_profile_on_github">צפה בפרופיל ב-GitHub</string>
     <string name="write_an_email">כתוב אימייל</string>
     <string name="support_development">תמיכה בפיתוח</string>
     <string name="help_with_translations">עזרה בתרגומים</string>
-    <string name="help_with_translations_summary">תרגום Booming Music לשפות אחרות הוא דרך נהדרת לתרום למיזם.</string>
+    <string name="help_with_translations_summary">תרגום B Music לשפות אחרות הוא דרך נהדרת לתרום למיזם.</string>
     <string name="report_bugs">דווח על באגים</string>
     <string name="report_bugs_summary">דווח על באגים או בקש פיצ\'רים חדשים.</string>
     <string name="share_app">שיתוף יישומון זה</string>
     <string name="share_app_summary">תוכל לעזור לאפליקציה הזו לצמוח על ידי שיתוף לחברים.</string>
     <string name="send_invitation_message">שלח הודעת הזמנה</string>
-    <string name="invitation_message_content">אהלן. למה לא לבדוק את Booming Music! זה היישום הכי טוב להאזנה למוזיקה מקומית במכשירי אנדרואיד. אפשר להוריד אותו מכאן: %s</string>
+    <string name="invitation_message_content">אהלן. למה לא לבדוק את B Music! זה היישום הכי טוב להאזנה למוזיקה מקומית במכשירי אנדרואיד. אפשר להוריד אותו מכאן: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">נדרש גישה לאחסון</string>
-    <string name="saf_access_required_message">האפליקציה Booming Music דורשת הרשאה לגישה לקבצים אלו. אנא בחר את התיקייה הראשית שבה מאוחסנים קבצי המוזיקה שלך.</string>
+    <string name="saf_access_required_message">האפליקציה B Music דורשת הרשאה לגישה לקבצים אלו. אנא בחר את התיקייה הראשית שבה מאוחסנים קבצי המוזיקה שלך.</string>
     <string name="saf_show_files_button">הצג קבצים</string>
     <string name="saf_error_uri">לא ניתן לקבל את מזהה ה-SAF</string>
     <string name="saf_write_failed">כתיבת הקובץ נכשלה: ‎%s</string>
@@ -527,7 +527,7 @@
     <string name="advanced_summary">הגדרות שפה ואחרות באפליקציה למשתמשים מתקדמים.</string>
     <string name="update_title">עדכן</string>
     <string name="about_title">אודות</string>
-    <string name="about_summary">Booming Music %s, גע לקבלת מידע נוסף.</string>
+    <string name="about_summary">B Music %s, גע לקבלת מידע נוסף.</string>
     <!-- Preference headers -->
     <string name="general_header">כללי</string>
     <string name="library_header">ספרייה</string>
@@ -696,7 +696,7 @@
     <string name="online_album_covers_title">הורד עטיפות אלבומים חסרות</string>
     <string name="online_album_covers_summary">התמונות שהורדו אינן משובצות בקובצי השמע; הן מוצגות רק בתוך האפליקציה. הפעולה תלויה במדיניות הורדת המטא־דאטה שלך.</string>
     <string name="delete_downloaded_lyrics_title">מחק מילים שהורדו</string>
-    <string name="delete_downloaded_lyrics_summary">רק מילות שיר שהורדו על ידי Booming Music. אינו משפיע על מילות שיר המשובצות בתגי ID3v2 או בקבצי LRC.</string>
+    <string name="delete_downloaded_lyrics_summary">רק מילות שיר שהורדו על ידי B Music. אינו משפיע על מילות שיר המשובצות בתגי ID3v2 או בקבצי LRC.</string>
     <string name="lyrics_cleared">מילות השיר נוקו.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">התעלם ממילות יידוע בעת מיון</string>
@@ -802,7 +802,7 @@
     <string name="update_available_title">עדכון זמין</string>
     <string name="more_info_action">מידע נוסף.</string>
     <string name="download_action">הורד</string>
-    <string name="downloading_update">מוריד את עדכון Booming Music.</string>
+    <string name="downloading_update">מוריד את עדכון B Music.</string>
     <string name="uncaught_error_title">אופס! זה לא אמור היה לקרות!</string>
     <string name="uncaught_error_message">נראה שמשהו השתבש וגרם לקריסת האפליקציה. יהיה מועיל אם תוכל לשלוח לנו את דוח השגיאה לקבוצת הטלגרם שלנו או בדוא\"ל.</string>
     <string name="uncaught_error_report">דוח שגיאה</string>

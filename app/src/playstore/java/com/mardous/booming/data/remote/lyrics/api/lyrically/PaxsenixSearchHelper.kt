@@ -15,9 +15,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.mardous.booming.data.remote.lyrics.api.lyrically
+package com.bmusic.app.data.remote.lyrics.api.lyrically
 
-import com.mardous.booming.data.remote.lyrics.model.ITunesSearchResponse
+import com.bmusic.app.data.remote.lyrics.model.ITunesSearchResponse
 import io.ktor.client.HttpClient
 
 class PaxsenixSearchHelper(

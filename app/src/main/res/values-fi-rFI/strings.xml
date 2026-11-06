@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Lähellä Olevat Laitteet</string>
     <string name="permission_bluetooth_description">Sovellus tarvitsee pääsyn lähistöllä oleviin laitteisiin, jotta se voi tarkistaa bluetooth-laitteita</string>
     <string name="permission_read_images_title">Lue kuvia (valinnainen)</string>
-    <string name="permission_read_images_summary">Tämä lupa tarvitaan Booming Musiikkia varten löytääksesi albumin taidetiedostoja musiikkikansiostasi. Jos et aio käyttää tätä ominaisuutta, voit päättää olla myöntämättä sitä.</string>
+    <string name="permission_read_images_summary">Tämä lupa tarvitaan B Music Musiikkia varten löytääksesi albumin taidetiedostoja musiikkikansiostasi. Jos et aio käyttää tätä ominaisuutta, voit päättää olla myöntämättä sitä.</string>
     <string name="permission_read_images_denied">Sinun on myönnettävä lupa lukea kuvia laitteesta.</string>
     <string name="permissions_denied">Oikeudet evätty</string>
     <string name="grant_access_action">Anna käyttöoikeus</string>
@@ -380,7 +380,7 @@
     <string name="profiles_exported_successfully">Profiilit viety onnistuneesti.</string>
     <string name="import_profiles">Tuo profiileja</string>
     <string name="select_profiles_to_import">Valitse tuotavat profiilit:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Valitse Booming Music EQ Profiileja sisältävän tiedoston.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Valitse B Music EQ Profiileja sisältävän tiedoston.</string>
     <string name="imported_x_profiles">Tuotu %d profiileja.</string>
     <string name="no_profile_imported">Ei profiileja tuotu.</string>
     <string name="import_autoeq_profile">Tuo AutoEq profiili</string>
@@ -481,22 +481,22 @@
     <string name="mardous_summary">Lead Developer</string>
     <string name="contributors">Avustajat</string>
     <string name="translators_title">Kääntäjät</string>
-    <string name="translators_summary">Kiitos niille, jotka tekevät Booming musiikkia saatavilla monilla kielillä.</string>
+    <string name="translators_summary">Kiitos niille, jotka tekevät B Music musiikkia saatavilla monilla kielillä.</string>
     <string name="view_profile_on_github">Näytä profiili GitHubissa</string>
     <string name="write_an_email">Kirjoita sähköposti</string>
     <string name="support_development">Tue kehitystä</string>
     <string name="help_with_translations">Auta käännösten kanssa</string>
-    <string name="help_with_translations_summary">Voit osallistua projektiin auttamalla kääntämään Booming Music muille kielille.</string>
+    <string name="help_with_translations_summary">Voit osallistua projektiin auttamalla kääntämään B Music muille kielille.</string>
     <string name="report_bugs">Ilmoita virheistä</string>
     <string name="report_bugs_summary">Ilmoita virheistä tai pyydä uusia ominaisuuksia.</string>
     <string name="share_app">Jaa tämä sovellus</string>
     <string name="share_app_summary">Voit auttaa tätä sovellusta kasvamaan, jos jaat sen ystäviesi kanssa.</string>
     <string name="send_invitation_message">Lähetä kutsu viesti</string>
-    <string name="invitation_message_content">Hei. Tsekkaa Booming Music! Paras sovellus kuunnella paikallista musiikkia Androidissa. Voit ladata sen täältä: %s</string>
+    <string name="invitation_message_content">Hei. Tsekkaa B Music! Paras sovellus kuunnella paikallista musiikkia Androidissa. Voit ladata sen täältä: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Tallennustilan Käyttö Vaaditaan</string>
-    <string name="saf_access_required_message">Booming Music vaatii luvan käyttää näitä tiedostoja. Valitse pääkansio johon musiikkitiedostot on tallennettu.</string>
+    <string name="saf_access_required_message">B Music vaatii luvan käyttää näitä tiedostoja. Valitse pääkansio johon musiikkitiedostot on tallennettu.</string>
     <string name="saf_show_files_button">Näytä tiedostot</string>
     <string name="saf_error_uri">SAF URI ei saa</string>
     <string name="saf_write_failed">Tiedoston kirjoittaminen epäonnistui: %s</string>
@@ -686,7 +686,7 @@
     <string name="online_album_covers_title">Lataa puuttuvat albumin kannet</string>
     <string name="online_album_covers_summary">Ladattuja kuvia ei ole upotettu äänitiedostoihin, ne näkyvät vain sovelluksessa. Tämä riippuu metadatan latauskäytännöstäsi.</string>
     <string name="delete_downloaded_lyrics_title">Poista ladatut sanoitukset</string>
-    <string name="delete_downloaded_lyrics_summary">Vain Booming Musicin lataamat sanoitukset. Ei vaikuta sanoituksiin, jotka on upotettu ID3v2-tageihin tai LRC-tiedostoihin.</string>
+    <string name="delete_downloaded_lyrics_summary">Vain B Musicin lataamat sanoitukset. Ei vaikuta sanoituksiin, jotka on upotettu ID3v2-tageihin tai LRC-tiedostoihin.</string>
     <string name="lyrics_cleared">Sanoitukset tyhjennetty.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ohita artikkelit lajiteltaessa</string>
@@ -809,7 +809,7 @@
     <string name="app_widget_library">Kirjasto</string>
     <string name="app_widget_library_desc">Kansikuvien ruudukko listasta, jonka valitset</string>
     <string name="app_widget_nothing_playing">Mitään ei soi</string>
-    <string name="app_widget_tap_to_play">Aukaise Booming Music napauttamalla</string>
+    <string name="app_widget_tap_to_play">Aukaise B Music napauttamalla</string>
     <string name="app_widget_card">Kortti</string>
     <string name="app_widget_card_desc">Minimalistinen ja yksinkertainen tyyli</string>
     <string name="search_playlists">Etsi soittolistoja</string>
@@ -826,7 +826,7 @@
     <string name="musicbrainz_select_recording">Valitse tulos</string>
     <string name="permissions_subtitle">Anna oikeus käyttää musiikkitiedostoja ja läheisiä laitteita parhaan soittokokemuksen takaamiseen.</string>
     <string name="initial_configuration_title">Ensimmäinen Konfiguraatio</string>
-    <string name="initial_configuration_subtitle">Mukauta Booming Music makuusesi, ennen kuin aloitat.</string>
+    <string name="initial_configuration_subtitle">Mukauta B Music makuusesi, ennen kuin aloitat.</string>
     <string name="initial_configuration_note">Voit aina muuttaa näitä asetuksia myöhemmin.</string>
     <string name="restore_from_backup">Palauta varmuuskopiosta</string>
     <string name="up_next">Seuraavaksi</string>
@@ -900,7 +900,7 @@
     <string name="ttml_file_lyrics">TTML</string>
     <string name="lrc_file_lyrics">LRC</string>
     <string name="undo_changes">Peruuta muutokset</string>
-    <string name="cannot_edit_lyrics_file">Et voi suoraan muokata tiedostoa Booming Music:sta.</string>
+    <string name="cannot_edit_lyrics_file">Et voi suoraan muokata tiedostoa B Music:sta.</string>
     <string name="preferred_lyrics_file_format_title">Suosittu tiedostomuoto</string>
     <string name="lyrics_by_x">Sanoitusten tarjoaja %s</string>
     <string name="mini_player_swipe_to_skip_title">Ohita pyyhkäisemällä minisoitinta</string>

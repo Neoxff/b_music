@@ -1,4 +1,4 @@
-El Booming Music és un reproductor de música local modern i potent per a l'Android, dissenyat per oferir una experiència fluida, personalitzable i visualment atractiva. Creat amb el disseny Material You i amb tecnologia Media3, combina la simplicitat amb funcions de reproducció avançades.
+El B Music és un reproductor de música local modern i potent per a l'Android, dissenyat per oferir una experiència fluida, personalitzable i visualment atractiva. Creat amb el disseny Material You i amb tecnologia Media3, combina la simplicitat amb funcions de reproducció avançades.
 
 Gaudiu de les vostres cançons preferides amb lletres sincronitzades paraula per paraula, compatibilitat amb lletres traduïdes (TTML/LRC) i una interfície d'«Ara sona» renovada preciosa que inclou gràfics millorats, transicions fluides i moltes opcions de personalització.
 

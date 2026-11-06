@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Nearby Devices</string>
     <string name="permission_bluetooth_description">The app needs nearby devices permission to check for bluetooth devices</string>
     <string name="permission_read_images_title">Read images (optional)</string>
-    <string name="permission_read_images_summary">This permission is required for Booming Music to find album art files in your music folders. If you don\'t plan to use this feature, you can choose not to grant it.</string>
+    <string name="permission_read_images_summary">This permission is required for B Music to find album art files in your music folders. If you don\'t plan to use this feature, you can choose not to grant it.</string>
     <string name="permission_read_images_denied">You must grant permission to read images from the device.</string>
     <string name="permissions_denied">Permissions denied</string>
     <string name="permissions_needed">Permissions needed</string>
@@ -382,7 +382,7 @@
     <string name="profiles_exported_successfully">Profiles exported successfully.</string>
     <string name="import_profiles">Import profiles</string>
     <string name="select_profiles_to_import">Select profiles to import:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Select a file containing Booming Music EQ Profiles.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Select a file containing B Music EQ Profiles.</string>
     <string name="imported_x_profiles">Imported %d profiles.</string>
     <string name="no_profile_imported">No profile imported.</string>
     <string name="import_autoeq_profile">Import AutoEq profile</string>
@@ -443,7 +443,7 @@
     <string name="synced_lyrics">Synced</string>
     <string name="embedded_lyrics">Embedded</string>
     <string name="downloaded_lyrics">Downloaded</string>
-    <string name="cannot_download_lyrics">Booming Music couldn\'t find the lyrics for this song. Do you want to search manually?</string>
+    <string name="cannot_download_lyrics">B Music couldn\'t find the lyrics for this song. Do you want to search manually?</string>
     <string name="search_lyrics">Search lyrics</string>
     <string name="choose_lyrics">Choose the type of lyrics</string>
     <string name="download_lyrics">Download lyrics</string>
@@ -483,22 +483,22 @@
     <string name="mardous_summary">Lead Developer</string>
     <string name="contributors">Contributors</string>
     <string name="translators_title">Translators</string>
-    <string name="translators_summary">Thanks to those who make Booming Music available in many languages.</string>
+    <string name="translators_summary">Thanks to those who make B Music available in many languages.</string>
     <string name="view_profile_on_github">View profile on GitHub</string>
     <string name="write_an_email">Write an email</string>
     <string name="support_development">Support development</string>
     <string name="help_with_translations">Help with translations</string>
-    <string name="help_with_translations_summary">You can contribute to the project by helping translate Booming Music into other languages.</string>
+    <string name="help_with_translations_summary">You can contribute to the project by helping translate B Music into other languages.</string>
     <string name="report_bugs">Report bugs</string>
     <string name="report_bugs_summary">Report bugs or request new features.</string>
     <string name="share_app">Share this app</string>
     <string name="share_app_summary">You can help this app grow if you share it with friends.</string>
     <string name="send_invitation_message">Send invitation message</string>
-    <string name="invitation_message_content">Hi. Check out Booming Music! The best app to listen local music on Android. You can download it from here: %s</string>
+    <string name="invitation_message_content">Hi. Check out B Music! The best app to listen local music on Android. You can download it from here: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Storage Access Required</string>
-    <string name="saf_access_required_message">Booming Music requires permission to access these files. Please select the root folder where your music files are stored.</string>
+    <string name="saf_access_required_message">B Music requires permission to access these files. Please select the root folder where your music files are stored.</string>
     <string name="saf_show_files_button">Show files</string>
     <string name="saf_error_uri">Can\'t get SAF URI</string>
     <string name="saf_write_failed">File write failed: %s</string>
@@ -519,7 +519,7 @@
     <string name="advanced_summary">In-app language and other settings for advanced users.</string>
     <string name="update_title">Update</string>
     <string name="about_title">About</string>
-    <string name="about_summary">Booming Music %s, touch for more info.</string>
+    <string name="about_summary">B Music %s, touch for more info.</string>
     <!-- Preference headers -->
     <string name="general_header">General</string>
     <string name="library_header">Library</string>
@@ -688,7 +688,7 @@
     <string name="online_album_covers_title">Download missing album covers</string>
     <string name="online_album_covers_summary">Downloaded images aren’t embedded into audio files; they’re only visible within the app. This depends on your metadata download policy.</string>
     <string name="delete_downloaded_lyrics_title">Delete downloaded lyrics</string>
-    <string name="delete_downloaded_lyrics_summary">Only lyrics downloaded by Booming Music. Does not affect lyrics embedded in ID3v2 tags or LRC files.</string>
+    <string name="delete_downloaded_lyrics_summary">Only lyrics downloaded by B Music. Does not affect lyrics embedded in ID3v2 tags or LRC files.</string>
     <string name="lyrics_cleared">Lyrics cleared.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignore articles when sorting</string>
@@ -794,7 +794,7 @@
     <string name="update_available_title">Update available</string>
     <string name="more_info_action">More info.</string>
     <string name="download_action">Download</string>
-    <string name="downloading_update">Downloading Booming Music update.</string>
+    <string name="downloading_update">Downloading B Music update.</string>
     <string name="uncaught_error_title">Oops! That wasn\'t supposed to happen!</string>
     <string name="uncaught_error_message">It seems something went wrong and caused the app to crash. It would be helpful if you could send us the error report to our Telegram group or via email.</string>
     <string name="uncaught_error_report">Error report</string>

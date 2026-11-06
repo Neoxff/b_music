@@ -28,8 +28,8 @@
         <attr name="android:fontFamily" />
     </declare-styleable>
 
-    <declare-styleable name="BoomingShapeableImageView">
-        <attr name="boomingCornerSize" format="dimension" />
+    <declare-styleable name="BMusicShapeableImageView">
+        <attr name="bmusicCornerSize" format="dimension" />
         <attr name="circleShape" format="boolean" />
     </declare-styleable>
 

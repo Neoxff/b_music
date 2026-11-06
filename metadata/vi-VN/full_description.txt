@@ -1,4 +1,4 @@
-Booming Music là trình phát nhạc ngoại tuyến hiện đại và mạnh mẽ dành cho Android, được thiết kế để mang lại trải nghiệm mượt mà, khả năng tùy biến cao và giao diện bắt mắt. Với ngôn ngữ thiết kế Material You và nền tảng Media3, ứng dụng là sự kết hợp hoàn hảo giữa sự đơn giản và các tính năng phát nhạc nâng cao.
+B Music là trình phát nhạc ngoại tuyến hiện đại và mạnh mẽ dành cho Android, được thiết kế để mang lại trải nghiệm mượt mà, khả năng tùy biến cao và giao diện bắt mắt. Với ngôn ngữ thiết kế Material You và nền tảng Media3, ứng dụng là sự kết hợp hoàn hảo giữa sự đơn giản và các tính năng phát nhạc nâng cao.
 
 Thưởng thức các bài hát yêu thích của bạn với lời bài hát đồng bộ từng chữ, hỗ trợ dịch lời bài hát (TTML/LRC), và một giao diện Đang Phát (Now Playing) được thiết kế lại với hình ảnh được nâng cấp, các chuyển cảnh mượt mà hơn và nhiều tùy chọn tùy chỉnh hơn.
 

@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Blízká zařízení</string>
     <string name="permission_bluetooth_description">Aplikace potřebuje oprávnění zařízení v blízkosti pro kontrolu bluetooth zařízení</string>
     <string name="permission_read_images_title">Číst obrázky (volitelné)</string>
-    <string name="permission_read_images_summary">Toto oprávnění je vyžadováno pro Booming Music pro nalezení souborů s obaly alba ve vašich hudebních složkách. Pokud neplánujete používat tuto funkci, můžete se rozhodnout, že ji neudělíte.</string>
+    <string name="permission_read_images_summary">Toto oprávnění je vyžadováno pro B Music pro nalezení souborů s obaly alba ve vašich hudebních složkách. Pokud neplánujete používat tuto funkci, můžete se rozhodnout, že ji neudělíte.</string>
     <string name="permission_read_images_denied">Musíte udělit oprávnění ke čtení obrázků ze zařízení.</string>
     <string name="permissions_denied">Oprávnění odepřena</string>
     <string name="permissions_needed">Potřebná oprávnění</string>
@@ -398,7 +398,7 @@
     <string name="profiles_exported_successfully">Profiles exported successfully.</string>
     <string name="import_profiles">Import profiles</string>
     <string name="select_profiles_to_import">Select profiles to import:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Select a file containing Booming Music EQ Profiles.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Select a file containing B Music EQ Profiles.</string>
     <string name="imported_x_profiles">Imported %d profiles.</string>
     <string name="no_profile_imported">No profile imported.</string>
     <string name="import_autoeq_profile">Import AutoEq profile</string>
@@ -459,7 +459,7 @@
     <string name="synced_lyrics">Synchronizováno</string>
     <string name="embedded_lyrics">Embedded</string>
     <string name="downloaded_lyrics">Staženo</string>
-    <string name="cannot_download_lyrics">Booming hudba nenalezla text pro tuto skladbu. Chcete hledat ručně?</string>
+    <string name="cannot_download_lyrics">B Music hudba nenalezla text pro tuto skladbu. Chcete hledat ručně?</string>
     <string name="search_lyrics">Hledat texty</string>
     <string name="choose_lyrics">Vyberte typ textů</string>
     <string name="download_lyrics">Stáhnout texty</string>
@@ -499,22 +499,22 @@
     <string name="mardous_summary">Lead Developer</string>
     <string name="contributors">Přispěvatelé</string>
     <string name="translators_title">Překladatelé</string>
-    <string name="translators_summary">Díky těm, kteří zpřístupňují Booming Music v mnoha jazycích.</string>
+    <string name="translators_summary">Díky těm, kteří zpřístupňují B Music v mnoha jazycích.</string>
     <string name="view_profile_on_github">Zobrazit profil na GitHub</string>
     <string name="write_an_email">Napsat e-mail</string>
     <string name="support_development">Podpořte vývoj</string>
     <string name="help_with_translations">Pomoc s překlady</string>
-    <string name="help_with_translations_summary">Můžete přispět k projektu tím, že pomůžete přeložit hudbu Booming do jiných jazyků.</string>
+    <string name="help_with_translations_summary">Můžete přispět k projektu tím, že pomůžete přeložit hudbu B Music do jiných jazyků.</string>
     <string name="report_bugs">Nahlásit chyby</string>
     <string name="report_bugs_summary">Nahlásit chyby nebo požádat o nové funkce.</string>
     <string name="share_app">Sdílet tuto aplikaci</string>
     <string name="share_app_summary">Můžete pomoci této aplikaci růst, pokud ji sdílíte s přáteli.</string>
     <string name="send_invitation_message">Odeslat pozvánku</string>
-    <string name="invitation_message_content">Ahoj. Podívejte se na Booming Musice! Nejlepší aplikace pro poslech místní hudby na Android. Můžete si ji stáhnout zde: %s</string>
+    <string name="invitation_message_content">Ahoj. Podívejte se na B Musice! Nejlepší aplikace pro poslech místní hudby na Android. Můžete si ji stáhnout zde: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Vyžadován přístup k úložišti</string>
-    <string name="saf_access_required_message">Booming Music vyžaduje oprávnění pro přístup k těmto souborům. Prosím vyberte kořenovou složku, kde jsou vaše hudební soubory uloženy.</string>
+    <string name="saf_access_required_message">B Music vyžaduje oprávnění pro přístup k těmto souborům. Prosím vyberte kořenovou složku, kde jsou vaše hudební soubory uloženy.</string>
     <string name="saf_show_files_button">Zobrazit soubory</string>
     <string name="saf_error_uri">Nelze získat SAF URI</string>
     <string name="saf_write_failed">Zápis souboru se nezdařil: %s</string>
@@ -704,7 +704,7 @@
     <string name="online_album_covers_title">Stáhnout chybějící obaly alba</string>
     <string name="online_album_covers_summary">Stažené obrázky nejsou vloženy do zvukových souborů; jsou viditelné pouze v aplikaci. To závisí na zásadách stahování metadat.</string>
     <string name="delete_downloaded_lyrics_title">Odstranit stažené texty</string>
-    <string name="delete_downloaded_lyrics_summary">Pouze texty stažené z Booming Music. Nemá vliv na texty vložené do ID3v2 značek nebo LRC souborů.</string>
+    <string name="delete_downloaded_lyrics_summary">Pouze texty stažené z B Music. Nemá vliv na texty vložené do ID3v2 značek nebo LRC souborů.</string>
     <string name="lyrics_cleared">Texty vymazány.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignorovat články při třídění</string>
@@ -810,7 +810,7 @@
     <string name="update_available_title">K dispozici je aktualizace</string>
     <string name="more_info_action">Další informace.</string>
     <string name="download_action">Stáhnout</string>
-    <string name="downloading_update">Stahování Booming aktualizace hudby.</string>
+    <string name="downloading_update">Stahování B Music aktualizace hudby.</string>
     <string name="uncaught_error_title">Jejda! To se nepředpokládalo!</string>
     <string name="uncaught_error_message">Zdá se, že se něco pokazilo a způsobilo pád aplikace. Bylo by užitečné, kdybyste nám mohli poslat chybové hlášení naší skupině Telegram, nebo e-mailem.</string>
     <string name="uncaught_error_report">Hlášení chyb</string>

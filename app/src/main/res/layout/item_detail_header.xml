@@ -93,7 +93,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/playAction"
         app:layout_constraintEnd_toStartOf="@+id/playAction"/>
 
-    <com.mardous.booming.ui.component.views.MorphicIconButton
+    <com.bmusic.app.ui.component.views.MorphicIconButton
         android:id="@+id/playAction"
         android:layout_width="80dp"
         android:layout_height="80dp"

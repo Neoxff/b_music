@@ -125,7 +125,7 @@
     <string name="permission_bluetooth_title">Nærliggende enheter</string>
     <string name="permission_bluetooth_description">Appen trenger nærliggende enheter tillatelse til å sjekke etter bluetooth-enheter</string>
     <string name="permission_read_images_title">Read images (optional)</string>
-    <string name="permission_read_images_summary">This permission is required for Booming Music to find album art files in your music folders. If you don\'t plan to use this feature, you can choose not to grant it.</string>
+    <string name="permission_read_images_summary">This permission is required for B Music to find album art files in your music folders. If you don\'t plan to use this feature, you can choose not to grant it.</string>
     <string name="permission_read_images_denied">You must grant permission to read images from the device.</string>
     <string name="permissions_denied">Tillatelser avvist</string>
     <string name="permissions_needed">Tillatelser nødvendig</string>
@@ -382,7 +382,7 @@
     <string name="profiles_exported_successfully">Profiles exported successfully.</string>
     <string name="import_profiles">Import profiles</string>
     <string name="select_profiles_to_import">Select profiles to import:</string>
-    <string name="select_a_file_containing_booming_eq_profiles">Select a file containing Booming Music EQ Profiles.</string>
+    <string name="select_a_file_containing_bmusic_eq_profiles">Select a file containing B Music EQ Profiles.</string>
     <string name="imported_x_profiles">Imported %d profiles.</string>
     <string name="no_profile_imported">No profile imported.</string>
     <string name="import_autoeq_profile">Import AutoEq profile</string>
@@ -443,7 +443,7 @@
     <string name="synced_lyrics">Synkronisert</string>
     <string name="embedded_lyrics">Embedded</string>
     <string name="downloaded_lyrics">Nedlastet</string>
-    <string name="cannot_download_lyrics">Booming Music kunne ikke finne sangteksten for denne sangen. Vil du søke manuelt?</string>
+    <string name="cannot_download_lyrics">B Music kunne ikke finne sangteksten for denne sangen. Vil du søke manuelt?</string>
     <string name="search_lyrics">Søk etter tekster</string>
     <string name="choose_lyrics">Velg type tekst</string>
     <string name="download_lyrics">Last ned tekster</string>
@@ -483,22 +483,22 @@
     <string name="mardous_summary">Lead Developer</string>
     <string name="contributors">Contributors</string>
     <string name="translators_title">Translators</string>
-    <string name="translators_summary">Thanks to those who make Booming Music available in many languages.</string>
+    <string name="translators_summary">Thanks to those who make B Music available in many languages.</string>
     <string name="view_profile_on_github">Vis profil på GitHub</string>
     <string name="write_an_email">Stuur een email</string>
     <string name="support_development">Støtt utviklingen</string>
     <string name="help_with_translations">Hjelp med oversettelser</string>
-    <string name="help_with_translations_summary">Du kan bidra til prosjektet ved å hjelpe til med å oversette Booming Music til andre språk.</string>
+    <string name="help_with_translations_summary">Du kan bidra til prosjektet ved å hjelpe til med å oversette B Music til andre språk.</string>
     <string name="report_bugs">Rapporter feil</string>
     <string name="report_bugs_summary">Rapportere feil eller foreslå nye funksjoner.</string>
     <string name="share_app">Del denne appen</string>
     <string name="share_app_summary">Du kan hjelpe denne appen med å vokse hvis du deler den med venner.</string>
     <string name="send_invitation_message">Send invitasjons melding</string>
-    <string name="invitation_message_content">Hi. Sjekk ut Booming Music! Den beste appen for å høre lokal musikk på Android. Du kan laste den ned her: %s</string>
+    <string name="invitation_message_content">Hi. Sjekk ut B Music! Den beste appen for å høre lokal musikk på Android. Du kan laste den ned her: %s</string>
     <!-- Bug report -->
     <!-- SAF -->
     <string name="saf_access_required_title">Lagringstilgang kreves</string>
-    <string name="saf_access_required_message">Booming Music requires permission to access these files. Please select the root folder where your music files are stored.</string>
+    <string name="saf_access_required_message">B Music requires permission to access these files. Please select the root folder where your music files are stored.</string>
     <string name="saf_show_files_button">Vis filer</string>
     <string name="saf_error_uri">Kan ikke motta AF-URI</string>
     <string name="saf_write_failed">Filskrivingen mislyktes: %s</string>
@@ -519,7 +519,7 @@
     <string name="advanced_summary">I app-språk og andre innstillinger for avanserte brukere.</string>
     <string name="update_title">Oppdater</string>
     <string name="about_title">Om</string>
-    <string name="about_summary">Booming Music %s, trykk for mer info.</string>
+    <string name="about_summary">B Music %s, trykk for mer info.</string>
     <!-- Preference headers -->
     <string name="general_header">Generelt</string>
     <string name="library_header">Bibliotek</string>
@@ -688,7 +688,7 @@
     <string name="online_album_covers_title">Download missing album covers</string>
     <string name="online_album_covers_summary">Downloaded images aren’t embedded into audio files; they’re only visible within the app. This depends on your metadata download policy.</string>
     <string name="delete_downloaded_lyrics_title">Slett nedlastede tekster</string>
-    <string name="delete_downloaded_lyrics_summary">Bare tekster lastet ned av Booming Music. Påvirker ikke tekster innebygd i ID3v2 tagger eller LRC-filer.</string>
+    <string name="delete_downloaded_lyrics_summary">Bare tekster lastet ned av B Music. Påvirker ikke tekster innebygd i ID3v2 tagger eller LRC-filer.</string>
     <string name="lyrics_cleared">Teksten er tømt.</string>
     <!-- Library preferences -->
     <string name="ignore_articles_when_sorting_title">Ignore articles when sorting</string>
@@ -794,7 +794,7 @@
     <string name="update_available_title">Oppdatering tilgjengelig</string>
     <string name="more_info_action">Mer info.</string>
     <string name="download_action">Nedlasting</string>
-    <string name="downloading_update">Laster ned Booming Music update.</string>
+    <string name="downloading_update">Laster ned B Music update.</string>
     <string name="uncaught_error_title">Oops! That wasn\'t supposed to happen!</string>
     <string name="uncaught_error_message">It seems something went wrong and caused the app to crash. It would be helpful if you could send us the error report to our Telegram group or via email.</string>
     <string name="uncaught_error_report">Error report</string>

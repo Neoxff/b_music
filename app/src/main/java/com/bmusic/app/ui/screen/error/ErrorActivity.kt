@@ -1,0 +1,86 @@
+package com.bmusic.app.ui.screen.error
+
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.os.Bundle
+import androidx.core.app.ShareCompat
+import androidx.core.content.getSystemService
+import cat.ereza.customactivityoncrash.CustomActivityOnCrash
+import com.bmusic.app.R
+import com.bmusic.app.databinding.ActivityErrorBinding
+import com.bmusic.app.extensions.applyWindowInsets
+import com.bmusic.app.extensions.files.asFormattedFileTime
+import com.bmusic.app.extensions.files.getFileProviderUri
+import com.bmusic.app.extensions.openUrl
+import com.bmusic.app.extensions.showToast
+import com.bmusic.app.ui.component.base.AbsThemeActivity
+import com.bmusic.app.util.Constants.ISSUE_TRACKER_LINK
+import java.io.File
+
+/**
+ * @author Christians M. A. (mardous)
+ */
+class ErrorActivity : AbsThemeActivity() {
+
+    private var _binding: ActivityErrorBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val config = CustomActivityOnCrash.getConfigFromIntent(intent)
+        if (config == null) {
+            finish()
+            return
+        }
+        val errorReport = CustomActivityOnCrash.getAllErrorDetailsFromIntent(this, intent)
+        val nameFromTime = System.currentTimeMillis().asFormattedFileTime()
+        val logsDir = File(filesDir, "logs").apply { if (!exists()) mkdirs() }
+        val errorReportFile = File(logsDir, "Crash_${nameFromTime}.log")
+        if (!errorReportFile.exists() || errorReportFile.delete()) {
+            errorReportFile.writeText(errorReport)
+        }
+
+        _binding = ActivityErrorBinding.inflate(layoutInflater)
+        binding.root.applyWindowInsets(top = true, left = true, right = true, bottom = true)
+        binding.errorReportText.text = errorReport
+        binding.openGithub.setOnClickListener {
+            openGithub(errorReport)
+        }
+        binding.sendReport.setOnClickListener {
+            sendFile(errorReportFile)
+        }
+        binding.restartApp.setOnClickListener {
+            CustomActivityOnCrash.restartApplication(this, config)
+        }
+        setContentView(binding.root)
+    }
+
+    private fun openGithub(report: String) {
+        val clipboardManager = getSystemService<ClipboardManager>()
+        val clipData = ClipData.newPlainText(getString(R.string.uncaught_error_report), report)
+        clipboardManager?.setPrimaryClip(clipData)
+        openUrl(CREATE_ISSUE_URL)
+        showToast(R.string.uncaught_error_report_copied)
+    }
+
+    private fun sendFile(file: File) {
+        val intent = ShareCompat.IntentBuilder(this)
+            .setSubject("${getString(R.string.app_name)} - crash log")
+            .setText("Please, add a description of the problem")
+            .setType("*/*")
+            .setStream(file.getFileProviderUri(this))
+            .setChooserTitle(R.string.uncaught_error_send)
+            .createChooserIntent()
+
+        startActivity(intent)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    companion object {
+        private const val CREATE_ISSUE_URL = "${ISSUE_TRACKER_LINK}/new?template=bug_report.yaml"
+    }
+}
