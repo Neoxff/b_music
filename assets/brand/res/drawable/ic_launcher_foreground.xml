@@ -1,0 +1,11 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <!-- Zone de sécurité 66 dp : barres confinées à x∈[23,85), y∈[32,76), centrées sur 54 -->
+  <path android:fillColor="#E8862E" android:pathData="M23,48.5 a5.5,5.5 0 0 1 11,0 V59.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+  <path android:fillColor="#E8862E" android:pathData="M40,37.5 a5.5,5.5 0 0 1 11,0 V70.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+  <path android:fillColor="#E8862E" android:pathData="M57,44.5 a5.5,5.5 0 0 1 11,0 V63.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+  <path android:fillColor="#E8862E" android:pathData="M74,40.5 a5.5,5.5 0 0 1 11,0 V67.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+</vector>

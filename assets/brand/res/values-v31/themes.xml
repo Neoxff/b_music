@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- B Music — Splash API 31+ (Android 12+). Parent remplacé par le thème du fork.
+     Fond uni #0B0B0E, icône animée (échelle 0,9→1 + fondu 350 ms), durée ≤ 400 ms. -->
+<resources>
+    <style name="Theme.BMusic.Splash" parent="android:Theme.Material.NoActionBar.Fullscreen">
+        <item name="android:windowSplashScreenBackground">#0B0B0E</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_splash_animated</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">#0B0B0E</item>
+        <item name="android:windowSplashScreenAnimationDuration">400</item>
+    </style>
+</resources>

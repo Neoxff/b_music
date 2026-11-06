@@ -1,0 +1,13 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+  <!-- Icône splash B Music — barres #E8862E sur transparent (fond uni #0B0B0E derrière) -->
+  <group android:name="root" android:pivotX="54" android:pivotY="54">
+    <path android:fillColor="#E8862E" android:pathData="M23,48.5 a5.5,5.5 0 0 1 11,0 V59.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+    <path android:fillColor="#E8862E" android:pathData="M40,37.5 a5.5,5.5 0 0 1 11,0 V70.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+    <path android:fillColor="#E8862E" android:pathData="M57,44.5 a5.5,5.5 0 0 1 11,0 V63.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+    <path android:fillColor="#E8862E" android:pathData="M74,40.5 a5.5,5.5 0 0 1 11,0 V67.5 a5.5,5.5 0 0 1 -11,0 Z"/>
+  </group>
+</vector>
