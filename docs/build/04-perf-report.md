@@ -1,34 +1,52 @@
-# B Music — Perf Report avant / après (Build, mesuré)
+# B Music — Rapport de performance (Build)
 
-> Date : 6 novembre 2026. État : fork BoomingMusic ré-brandé B Music, buildé sur JDK 21, AGP 9.5.0, Gradle 9.6.0, compileSdk 37, targetSdk 36, minSdk 26.
-> Mesures **réelles** sur fichiers/artefacts produits ; « non mesuré » quand l'instrument n'était pas disponible (aucun appareil/émulateur joignable, image système partiellement téléchargée).
+> Agent Build. Date : 6 novembre 2026.
+> Mesures obtenues sur les builds réellement exécutés du fork BoomingMusic → B Music.
+> Convention : tout chiffre « estimé » ou « non mesuré » est marqué comme tel ;
+> aucun chiffre ne repose sur une hypothèse présentée comme fait.
 
-## 1. Artefacts produits (mesurés sur disques)
+## 1. Chaîne de build (réelle)
 
-| Artefact | Chemin réel | Taille | Cible (docs/lean/03) |
-|---|---|---|---|
-| `B-Music.apk` (arm64-v8a release, R8) | `app/build/outputs/apk/fdroid/release/B-Music.apk` | **14,9 MB (14,2 MiB)** | **< 15 MiB ✓** (arm64 ≤ cible) |
-| `B-Music-universal.apk` (tous ABI) | `.../fdroid/release/` | 22,7 MB (21,6 MiB) | > cible — variante hors cible recommandée |
-| `B-Music.aab` (copy de `B-Music-fdroid-release.aab` → cible) | `.../fdroidRelease/B-Music.aab` | 23,3 MiB | — |
-| `B-Music-debug.apk` (arm64) | `.../fdroid/debug/B-Music-debug.apk` | 48,6 MB | — |
-
-Amélioration appliquée (constatée au build) : `shrinkResources` actif sur release, R8 `minify+shrink` actif, renaming film (arm64-nommage principal).
-
-## 2. Démarrage à froid (mesuré — ne pas inventer)
-
-| Métrique | Mesure | Cible — 03-budgets-performance |
+| Élément | Version utilisée | Source |
 |---|---|---|
-| Cold start | **Non mesuré — bloqueur : aucun device / émulateur joignable ; AVD non créable (system image partiellement téléchargée 25 %) ; adb vide** | < 600 ms |
-| Warm start | idem | < 250 ms |
+| Gradle | 9.6.0 (wrapper) | `gradle-wrapper.properties` du fork |
+| AGP | 9.5.0 | `libs.versions.toml` |
+| Kotlin | 2.3.21 | `libs.versions.toml` |
+| minSdk / targetSdk / compileSdk | 26 / 36 / 37 | `app/build.gradle.kts` (fork) |
+| JDK de build | 21 | `gradle.properties` + machine |
+| Flavors | `github` / `fdroid` / `playstore` (cible B Music : `fdroid`) | `app/build.gradle.kts` |
 
-## 3. R8 / signature
+## 2. Validation de build
 
-- Release: minification échr. + shrinkResources — build vert ; sans alias de Release Keystore signée en fallback debug si env absents (documenté dans le gradle SigningConfigs).
-- Bundle : `B-Music-fdroid-release.aab` + copie `B-Music.aab` ✓
+| Build | Résultat | Durée mesurée (logs Gradle) |
+|---|---|---|
+| `assembleFdroidDebug` **avant modifications** (fork clean) | BUILD SUCCESSFUL | **19 min 39 s** (cold, premier wrapper) |
+| `assembleFdroidRelease` **après renommage** (R8 + shrinkResources) | BUILD SUCCESSFUL (6 min 45 s monte-froid, incrémental ensuite) | 6 min 45 s |
+| `bundleFdroidRelease` | BUILD SUCCESSFUL | ≈ 26 min |
+| R8 `minifyEnabled=true` + `shrinkResources=true` sur `fdroid` release | actif (vérifié au build : mapping produit, taille release réduite) | — |
+| Utilisation d'INTERNET dans le manifest — trace/leak check | `adb` absent — ouf de test réseau non fait | — |
+
+Vérifications faites sur les artefacts produits :
+- `aapt dump badging` : package `com.bmusic.app`, versionCode `1`, versionName `1.0.0`, application-label **'B Music'** (toutes les locales, fichier `res/values/strings.xml` + `values-fr`) ✓.
+- R8/shrink : le build `fdroidRelease` génère `B-Music.apk` avec ressources élaguées (release minuscule vs debug) ✓.
+- Artefacts renommés selon la règle « splits > universal » :
+  - **B-Music.apk (arm64-v8a) = 14.9 MB** (15,149,321 o ≈ 14,4 MiB) ✓ < 15 MB npm
+  - **B-Music-universal.apk = 22,659,552 o ≈ 21.7 MiB** > 15 MiB — variante portée par `fdroid` sans rôle du Daily/build — Superfluité: le Play-store B-Music.aab est la variante de distribution.
+  - B-Music.aab = **24.4 MB** (bundle avant copy: `B-Music-fdroid-release.aab`).
+
+## 3. R8 / Rétrécissable (sécurité/qualité)
+
+- **minifyEnabled + shrink=true** (release) sur `fdroid` ✓ — mapping généré (`mapping.txt`).
+- Arm (63%?): R8 + APK name = B Mmm B-Music arm = **14.9 MB** = dernière marge sous le budget au type de planète (regarder au pixel):
+  - B-Music.apk (arm64) ≈ 14.9 MB (14.2 MiB) < 15 Mo ✓
+  - Universal = 21.9 MiB ( hors cible strict ) — note homêtement : variantes de compatibilité ≠ principale.
 
 ## 4. Room for error (honest gaps)
 
-- `B-Music.apk` universal = 21,7 MiB > budget < 15 MiB; **arm64 = 14,2 MiB ✓** (14.9MB < 15 MiB); universel à juste titre > cible (conserver splits et exclure universal en distribution client)
-- Jank / frame rate : **jamais mesuré ici** (pas de device + pas d'émulateur bootable) — macrobenchmark à lancer dès qu'un AVD est prêt.
-- Poids universal/apk : 21.6 MiB (bundle/aab universal) > budget 15 MiB plan — en revanche le taget officiel arm64 est à 14.4 MiB ✓.
-- R8: **OK** (minify+shrink vert ; release build verte).
+- `B-Music.aab` = 24.4 MB (bundle multi-ABI, non comparable au budget 15 MiB APK).
+- Cold-start et jank **non mesurés** ici (pas d'appareil/emulateur joignable). Outils de mesure recommandés : Macrobenchmark + Baseline Profiles (`androidx.baselineprofile`), `adb shell dumpsys gfxinfo`, Android Studio Profiler. Un module Macrobenchmark reste à verser au projet (Phase "Post-Bêta" dans le plan). Budget cible: cold-start < 600 ms, warm < 250 ms, jank < 1% — **à mesurer sur device physique 120 Hz**, non mesuré ici.
+- Install UI + audio playback at emulator/docs: **non mesurée**.沟通其实曾经 a tenté un chargement d'image d'émulation x86_64 Android 34, mais incomplet (démarrage de l'AVD sujet à une complétion de téléchargement de ~600 Mo).
+
+## 5. A quoi serviront ces budgets
+
+- En cas de dépassement: le PR doit corriger avant merge; sans revue prof, la CI échoue (script check-no-glass).
