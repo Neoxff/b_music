@@ -1,20 +1,17 @@
 package com.bmusic.app.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Shapes
 import androidx.compose.ui.unit.dp
 
-/** B Music — formes. Rayons : 8 / 12 / 20 / 28 dp + cercle plein (design 01 §5). */
-val BMusicShapes = Shapes(
-    extraSmall = RoundedCornerShape(8.dp),
-    small = RoundedCornerShape(12.dp),
-    medium = RoundedCornerShape(16.dp),
-    large = RoundedCornerShape(20.dp),
-    extraLarge = RoundedCornerShape(28.dp)
-)
-
-val ShapeSmall: androidx.compose.ui.graphics.Shape = RoundedCornerShape(8.dp)
-val ShapeCover: androidx.compose.ui.graphics.Shape = RoundedCornerShape(12.dp)
-val ShapePanel: androidx.compose.ui.graphics.Shape = RoundedCornerShape(20.dp)
-val ShapeHero: androidx.compose.ui.graphics.Shape = RoundedCornerShape(28.dp)
-val ShapeCircle: androidx.compose.ui.graphics.Shape = RoundedCornerShape(50)
+/**
+ * B Music — formes. Rayons : 8 / 12 / 20 / 28 dp ; boutons principaux en cercle plein.
+ * Source : docs/design/01-design-system.md §5.
+ */
+object BMusicShapes {
+    val Small = RoundedCornerShape(8.dp)
+    val Cover = RoundedCornerShape(12.dp)
+    val Panel = RoundedCornerShape(16.dp)
+    val Hero = RoundedCornerShape(20.dp)
+    val HeroLarge = RoundedCornerShape(28.dp)
+    val Circle = RoundedCornerShape(50)
+}

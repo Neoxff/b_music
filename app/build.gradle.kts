@@ -248,14 +248,17 @@ androidComponents {
         variant.outputs.forEach { output ->
             val filter = output.filters.joinToString("-") { it.identifier }
             val abi = filter.ifEmpty { "universal" }
-            output.outputFileName = when {
+            output.outputFileName = if (variant.flavorName == "fdroid") {
+                // B-Music.apk = artifact principal Release arm64-v8a (< 15 MiB). Universal et autres ABI suffixes.
+                when {
                     variant.buildType == "release" && abi == "arm64-v8a" -> "B-Music.apk"
                     variant.buildType == "release" && abi == "universal" -> "B-Music-universal.apk"
                     variant.buildType == "release" -> "B-Music-$abi.apk"
                     abi == "arm64-v8a" -> "B-Music-debug.apk"
                     abi == "universal" -> "B-Music-debug-universal.apk"
                     else -> "B-Music-debug-$abi.apk"
-                } else {
+                }
+            } else {
                 "BMusic-${output.versionName.get()}-${variant.flavorName}-$abi.apk"
             }
         }
