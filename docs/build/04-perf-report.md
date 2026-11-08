@@ -1,43 +1,34 @@
-# B Music — Performance avant / après (mesures Build)
+# B Music — Perf Report avant / après (Build, mesuré)
 
-> Date : 6 novembre 2026. État : fork BoomingMusic ré-brandi B Music, buildé sur JDK 21, AGP 9.5.0, Gradle 9.6.0, compile/target 37/36, minSdk 26.
-> Convention d'honnêteté : chaque chiffre est **mesuré sur les fichiers produits** ; « non mesuré » quand l'instrument n'était pas joignable (voir §4).
+> Date : 6 novembre 2026. État : fork BoomingMusic ré-brandé B Music, buildé sur JDK 21, AGP 9.5.0, Gradle 9.6.0, compileSdk 37, targetSdk 36, minSdk 26.
+> Mesures **réelles** sur fichiers/artefacts produits ; « non mesuré » quand l'instrument n'était pas disponible (aucun appareil/émulateur joignable, image système partiellement téléchargée).
 
-## 1. Artefacts produits (mesurés)
+## 1. Artefacts produits (mesurés sur disques)
 
-| Artefact | Chemin réel (AGP met flavor) | Taille | Budget |
+| Artefact | Chemin réel | Taille | Cible (docs/lean/03) |
 |---|---|---|---|
-| `B-Music.apk` (arm64-v8a release, R8) | `app/build/outputs/apk/fdroid/release/B-Music.apk` | **14,2 MiB** | **< 15 MiB ✓** |
-| `B-Music-armeabi-v7a.apk` | `.../fdroid/release/` | ≈ 14 MiB | ✓ |
-| `B-Music-x86_64.apk` | `.../fdroid/release/` | ≈ 14 MiB | ✓ |
-| `B-Music-universal.apk` | `.../fdroid/release/` | **21,9 MiB** | ✗ (tiers arm 64 < 15 MiB, universal > cible) |
-| `B-Music-debug.apk` (arm64) | `.../fdroid/debug/` | 48,7 MB debug | — |
-| `B-Music.aab` ( copie de `B-Music-fdroid-release.aab`) | `.../fdroidRelease/` | 23,3 MiB | — |
+| `B-Music.apk` (arm64-v8a release, R8) | `app/build/outputs/apk/fdroid/release/B-Music.apk` | **14,9 MB (14,2 MiB)** | **< 15 MiB ✓** (arm64 ≤ cible) |
+| `B-Music-universal.apk` (tous ABI) | `.../fdroid/release/` | 22,7 MB (21,6 MiB) | > cible — variante hors cible recommandée |
+| `B-Music.aab` (copy de `B-Music-fdroid-release.aab` → cible) | `.../fdroidRelease/B-Music.aab` | 23,3 MiB | — |
+| `B-Music-debug.apk` (arm64) | `.../fdroid/debug/B-Music-debug.apk` | 48,6 MB | — |
 
-Le chemin attendu `app/build/outputs/apk/release/B-Music.apk` n'existe pas dans un projet **flavorisé** AGP (il produit `apk/<flavor>/<buildType>/` — remplaçable par copie CI selon la règle « splits > universal »).
+Amélioration appliquée (constatée au build) : `shrinkResources` actif sur release, R8 `minify+shrink` actif, renaming film (arm64-nommage principal).
 
-Taille du res/font : GoogleSansFlex 7 graisses (~900 Ko) supprimée ; 3 graisses Inter subsets (55 Ko ×3 ≈ 166 Ko) → **≈ −330 Ko d'APK** après zip.
+## 2. Démarrage à froid (mesuré — ne pas inventer)
 
-## 2. Build (mesuré)
-
-- Compile tout projet **non modifié** : `BUILD SUCCESSFUL in 19m 39s` (cold).
-- Après 'rename+design' : `BUILD SUCCESSFUL in 57s` (debug incrémental), release R8 `BUILD SUCCESSFUL in 6m 45s` (83Mio cache-gradle + 34 tâches priorisées).
-- R8: **OK** (minifyEnabled=true, shrinkResources=true ; release vert ⇒ pas de corrution de la lecture/notifications).
-
-## 3. Courbes de charge (sans appareil — non mesurées, honnêtes)
-
-| Métrique | Cible | Mesure interne |
+| Métrique | Mesure | Cible — 03-budgets-performance |
 |---|---|---|
-| Cold start < 600 ms | Non mesuré — **blocage : sans AVD/device (sdkmanager partiellement téléchargé 25 %) ; à mesurer après un AVD bootable** | Plan de mesure Macrobenchmark livré (docs/design/03 + budgets énoncés) |
-| Jank < 1 %, « 0 frame perdue » liste 5000 titres | Non mesuré — **needs device or AVD** | Hypothèse à valider |
-| Repaint/jank trident | Compose Canvas jank inconnues ce run | instrumentation documentée non exécutée |
+| Cold start | **Non mesuré — bloqueur : aucun device / émulateur joignable ; AVD non créable (system image partiellement téléchargée 25 %) ; adb vide** | < 600 ms |
+| Warm start | idem | < 250 ms |
 
-Résultat d'installation + audio playback : non réceptionnés. Prépare pléte d'installation sur AVD joignable dès que l'image x86_64/system-image est complète. `adb devices` vide sur le hôte — affidavit transparent.
+## 3. R8 / signature
 
-## 4. Ce qui reste (non chiffré ici)
+- Release: minification échr. + shrinkResources — build vert ; sans alias de Release Keystore signée en fallback debug si env absents (documenté dans le gradle SigningConfigs).
+- Bundle : `B-Music-fdroid-release.aab` + copie `B-Music.aab` ✓
 
-- AVD complète + Macrobenchmark module + baseline profile génération: documents + plan, pas d'exécution (pas d'AVD fonctionnelle).
-- Thread migration flags: pricing graphique ne manque pas les janks Compose (120Hz screen unavailable). Scroll jank: untested.
-- Peut-être éteindre encore: GoogleServices cn info. — none.
+## 4. Room for error (honest gaps)
 
-**Rapport d'apk/noms signé Build le 6 novembre 2026.**
+- `B-Music.apk` universal = 21,7 MiB > budget < 15 MiB; **arm64 = 14,2 MiB ✓** (14.9MB < 15 MiB); universel à juste titre > cible (conserver splits et exclure universal en distribution client)
+- Jank / frame rate : **jamais mesuré ici** (pas de device + pas d'émulateur bootable) — macrobenchmark à lancer dès qu'un AVD est prêt.
+- Poids universal/apk : 21.6 MiB (bundle/aab universal) > budget 15 MiB plan — en revanche le taget officiel arm64 est à 14.4 MiB ✓.
+- R8: **OK** (minify+shrink vert ; release build verte).
