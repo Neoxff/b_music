@@ -248,14 +248,14 @@ androidComponents {
         variant.outputs.forEach { output ->
             val filter = output.filters.joinToString("-") { it.identifier }
             val abi = filter.ifEmpty { "universal" }
-            output.outputFileName = if (variant.flavorName == "fdroid") {
-                // B-Music-<abi>.apk ; universal release -> B-Music.apk (debug -> B-Music-debug.apk)
-                when {
-                    abi == "universal" && variant.buildType == "release" -> "B-Music.apk"
-                    abi == "universal" -> "B-Music-debug.apk"
-                    else -> "B-Music-$abi.apk"
-                }
-            } else {
+            output.outputFileName = when {
+                    variant.buildType == "release" && abi == "arm64-v8a" -> "B-Music.apk"
+                    variant.buildType == "release" && abi == "universal" -> "B-Music-universal.apk"
+                    variant.buildType == "release" -> "B-Music-$abi.apk"
+                    abi == "arm64-v8a" -> "B-Music-debug.apk"
+                    abi == "universal" -> "B-Music-debug-universal.apk"
+                    else -> "B-Music-debug-$abi.apk"
+                } else {
                 "BMusic-${output.versionName.get()}-${variant.flavorName}-$abi.apk"
             }
         }

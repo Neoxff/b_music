@@ -94,9 +94,9 @@ private val darkScheme = darkColorScheme(
 
 @Composable
 fun BMusicTheme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
+    darkTheme: Boolean = true,
     blackTheme: Boolean = Preferences.blackTheme,
-    dynamicColor: Boolean = Preferences.isMaterialYouTheme,
+    dynamicColor: Boolean = false,
     customFont: Boolean = Preferences.isCustomFont,
     content: @Composable () -> Unit
 ) {
