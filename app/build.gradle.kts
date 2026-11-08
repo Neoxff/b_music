@@ -258,6 +258,7 @@ androidComponents {
                     abi == "universal" -> "B-Music-debug-universal.apk"
                     else -> "B-Music-debug-$abi.apk"
                 }
+                // note: quand fdroidOnlyOutput/YAQU un output arm64-v8a existe déjà? pas de collision
             } else {
                 "BMusic-${output.versionName.get()}-${variant.flavorName}-$abi.apk"
             }

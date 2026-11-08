@@ -9,6 +9,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import android.provider.Settings
 
+/**
+ * B Music — motion tokens (docs/design/02-animations.md). Single source of truth for all
+ * durations/springs/curves used by the app. No magic numbers in UI code.
+ */
 object Motion {
     val DurationShort = 120
     val DurationBase = 220
@@ -26,9 +30,10 @@ object Motion {
     val FastOutSlowIn = CubicBezierEasing(0.4f, 0.0f, 0.2f, 1.0f)
     val tweenStd = tween<Int>(durationMillis = DurationBase, easing = EmphasizedDecelerate)
     fun springTuning(damping: Float, stiffness: Float) = spring<Float>(dampingRatio = damping, stiffness = stiffness)
-    fun springSoft(damping: Float, dampingSelector: Float, stiffness: Float) = spring<Float>(dampingRatio = damping, stiffness = Spring.StiffnessHigh)
+    fun scaleDuration(ms: Int, reduced: Boolean): Int = if (reduced) 0 else ms
 }
 
+/** Accessibilité : « Supprimer les animations » (ANIMATOR_DURATION_SCALE == 0) → durées à 0. */
 @Composable
 fun rememberReducedMotion(): Boolean {
     val ctx = LocalContext.current
