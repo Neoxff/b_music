@@ -425,6 +425,11 @@ object Preferences : KoinComponent {
     val experimentalUpdates: Boolean
         get() = preferences.getBoolean(EXPERIMENTAL_UPDATES, false)
 
+    /** Step 1 (downloader): internal feature flag, default OFF. No UI yet. */
+    var downloaderEnabled: Boolean
+        get() = preferences.getBoolean(DOWNLOADER_ENABLED, false)
+        set(value) = preferences.edit { putBoolean(DOWNLOADER_ENABLED, value) }
+
     var lastUpdateSearch: Long
         get() = preferences.getLong(LAST_UPDATE_SEARCH, -1)
         set(value) = preferences.edit { putLong(LAST_UPDATE_SEARCH, value) }
@@ -624,6 +629,7 @@ const val AUTO_LANGUAGE = "auto"
 const val LAST_UPDATE_SEARCH = "last_update_search"
 const val LAST_UPDATE_ID = "last_update_id"
 const val EXPERIMENTAL_UPDATES = "experimental_updates"
+const val DOWNLOADER_ENABLED = "downloader_enabled"
 const val START_DIRECTORY = "start_directory"
 const val INITIALIZED_BLACKLIST = "initialized_blacklist"
 const val HIERARCHY_FOLDER_VIEW = "hierarchy_folder_view"
