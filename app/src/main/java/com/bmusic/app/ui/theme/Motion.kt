@@ -1,0 +1,38 @@
+package com.bmusic.app.ui.theme
+
+import androidx.compose.animation.core.CubicBezierEasing
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalContext
+import android.provider.Settings
+
+object Motion {
+    val DurationShort = 120
+    val DurationBase = 220
+    val DurationLong = 300
+    val DurationXLong = 420
+    val DurationSkeleton = 1200
+
+    val SpringSoft = spring<Float>(dampingRatio = 0.86f, stiffness = 380f)
+    val SpringBounce = spring<Float>(dampingRatio = 0.5f, stiffness = 550f)
+    val SpringSnappy = spring<Float>(dampingRatio = 0.55f, stiffness = 700f)
+    const val StaggerMs = 24
+    const val MaxStaggerItems = 8
+    val EmphasizedDecelerate = CubicBezierEasing(0.05f, 0.7f, 0.1f, 1.0f)
+    val EmphasizedAccelerate = CubicBezierEasing(0.3f, 0.0f, 0.8f, 0.15f)
+    val FastOutSlowIn = CubicBezierEasing(0.4f, 0.0f, 0.2f, 1.0f)
+    val tweenStd = tween<Int>(durationMillis = DurationBase, easing = EmphasizedDecelerate)
+    fun springTuning(damping: Float, stiffness: Float) = spring<Float>(dampingRatio = damping, stiffness = stiffness)
+    fun springSoft(damping: Float, dampingSelector: Float, stiffness: Float) = spring<Float>(dampingRatio = damping, stiffness = Spring.StiffnessHigh)
+}
+
+@Composable
+fun rememberReducedMotion(): Boolean {
+    val ctx = LocalContext.current
+    return remember {
+        Settings.Global.getFloat(ctx.contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f) == 0f
+    }
+}

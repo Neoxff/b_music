@@ -39,7 +39,6 @@ object Motion {
 
 /** Système : "Supprimer les animations" (ANIMATOR_DURATION_SCALE == 0). */
 @Composable
-@ReadOnlyComposable
 fun rememberReducedMotion(): Boolean {
     val ctx = LocalContext.current
     return remember {
