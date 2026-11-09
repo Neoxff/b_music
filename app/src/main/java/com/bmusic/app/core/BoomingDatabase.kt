@@ -19,6 +19,8 @@ import com.bmusic.app.data.local.room.PlaylistEntity
 import com.bmusic.app.data.local.room.QueueDao
 import com.bmusic.app.data.local.room.QueueEntity
 import com.bmusic.app.data.local.room.SongEntity
+import com.bmusic.app.downloader.data.DownloadDao
+import com.bmusic.app.downloader.data.DownloadEntity
 
 @Database(
     entities = [
@@ -29,10 +31,11 @@ import com.bmusic.app.data.local.room.SongEntity
         QueueEntity::class,
         InclExclEntity::class,
         LyricsEntity::class,
-        AutoEqEntity::class
+        AutoEqEntity::class,
+        DownloadEntity::class
     ],
     version = BMusicDatabase.VERSION,
-    exportSchema = false
+    exportSchema = true
 )
 abstract class BMusicDatabase : RoomDatabase() {
     abstract fun playlistDao(): PlaylistDao
@@ -42,6 +45,7 @@ abstract class BMusicDatabase : RoomDatabase() {
     abstract fun inclExclDao(): InclExclDao
     abstract fun lyricsDao(): LyricsDao
     abstract fun autoEqDao(): AutoEqDao
+    abstract fun downloadDao(): DownloadDao
 
     companion object {
         /**
@@ -50,7 +54,7 @@ abstract class BMusicDatabase : RoomDatabase() {
          * When increasing this value, we must ensure we also make any necessary
          * changes in [com.bmusic.app.data.local.backup.BackupManager].
          */
-        const val VERSION = 8
+        const val VERSION = 9
 
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
@@ -131,6 +135,37 @@ abstract class BMusicDatabase : RoomDatabase() {
 
                 db.execSQL("DROP TABLE LyricsEntity")
                 db.execSQL("ALTER TABLE _new_LyricsEntity RENAME TO LyricsEntity")
+            }
+        }
+
+        /** Étape 3 — migration ADDITIVE uniquement : crée `DownloadEntity`, ne touche aucune entité existante. */
+        val MIGRATION_8_9 = object : Migration(8, 9) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `DownloadEntity` (
+                        `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        `source_url` TEXT NOT NULL,
+                        `platform_id` TEXT NOT NULL,
+                        `dedup_hash` TEXT NOT NULL,
+                        `title` TEXT NOT NULL,
+                        `author` TEXT NOT NULL,
+                        `state` TEXT NOT NULL,
+                        `progress_bytes` INTEGER NOT NULL,
+                        `total_bytes` INTEGER NOT NULL,
+                        `final_path` TEXT,
+                        `created_at` INTEGER NOT NULL,
+                        `updated_at` INTEGER NOT NULL,
+                        `error` TEXT,
+                        `format` TEXT NOT NULL,
+                        `stream_url` TEXT NOT NULL,
+                        `is_video` INTEGER NOT NULL
+                    )
+                    """.trimIndent()
+                )
+                db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_DownloadEntity_dedup_hash` ON `DownloadEntity` (`dedup_hash`)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS `index_DownloadEntity_state` ON `DownloadEntity` (`state`)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS `index_DownloadEntity_platform_id` ON `DownloadEntity` (`platform_id`)")
             }
         }
     }

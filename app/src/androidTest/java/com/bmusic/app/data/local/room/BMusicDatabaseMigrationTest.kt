@@ -4,6 +4,7 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import com.bmusic.app.core.BMusicDatabase
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -13,15 +14,9 @@ import org.junit.runner.RunWith
 import java.io.File
 
 /**
- * Non-regression (step 0 baseline): data written under schema v8 survives a
- * close/reopen cycle. The migration 8 → 9 (downloader) must reuse this test:
- * create a v8 file with data via SQL, open it with the v9 Room builder and
- * assert playlists/history/play counts/queue are intact.
- *
- * NOTE: Room schema export is disabled in production code
- * (exportSchema = false in BMusicDatabase), so table SQL below mirrors the
- * v8 entities; when migration 8 → 9 lands, replace [openV8WithData] by a
- * MigrationTestHelper run against the exported v8 schema.
+ * Non-regression (step 0 baseline) + étape 3 : data written under schema v8
+ * survives a close/reopen cycle; la migration 8 → 9 est additive
+ * (crée `DownloadEntity` sans toucher l'existant).
  */
 @RunWith(AndroidJUnit4::class)
 class BMusicDatabaseMigrationTest {
@@ -73,5 +68,30 @@ class BMusicDatabaseMigrationTest {
         cursor.moveToFirst()
         assertEquals("Baseline playlist", cursor.getString(0))
         cursor.close()
+    }
+
+    @Test
+    fun v8Data_migratesToV9_withoutLoss() {
+        // Base remplie lue comme v8 (DownloadEntity retirée, user_version 8),
+        // puis ouverte en v9 avec la migration additive 8→9.
+        db = openDb()
+        val sql = db.openHelper.writableDatabase
+        sql.execSQL("INSERT INTO PlaylistEntity (playlist_name) VALUES ('v8 playlist')")
+        sql.execSQL("INSERT INTO QueueEntity (id, order) VALUES ('9', 0)")
+        db.close()
+
+        val raw = SQLiteDatabase.openDatabase(
+            dbFile.absolutePath, null, SQLiteDatabase.OPEN_READWRITE
+        )
+        raw.execSQL("DROP TABLE IF EXISTS `DownloadEntity`")
+        raw.version = 8
+        raw.close()
+
+        db = Room.databaseBuilder(context, BMusicDatabase::class.java, dbFile.absolutePath)
+            .addMigrations(BMusicDatabase.MIGRATION_8_9)
+            .build()
+        assertEquals(1L, count(db, "PlaylistEntity"))
+        assertEquals(1L, count(db, "QueueEntity"))
+        assertEquals(0L, count(db, "DownloadEntity"))
     }
 }

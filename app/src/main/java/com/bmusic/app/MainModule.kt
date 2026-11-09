@@ -162,7 +162,8 @@ private val roomModule = module {
                 BMusicDatabase.MIGRATION_4_5,
                 BMusicDatabase.MIGRATION_5_6,
                 BMusicDatabase.MIGRATION_6_7,
-                BMusicDatabase.MIGRATION_7_8
+                BMusicDatabase.MIGRATION_7_8,
+                BMusicDatabase.MIGRATION_8_9
             )
             .build()
     }
@@ -185,6 +186,10 @@ private val roomModule = module {
 
     factory {
         get<BMusicDatabase>().inclExclDao()
+    }
+
+    factory {
+        get<BMusicDatabase>().downloadDao()
     }
 
     factory {

@@ -25,6 +25,7 @@ shapes = "1.1.0"
 accompanist = "0.37.3"
 lifecycle = "2.11.0"
 room = "2.8.5"
+work = "2.10.5"
 navigation = "2.10.1"
 compose = "2026.09.00"
 composeM3 = "1.5.0-alpha28"
@@ -89,6 +90,7 @@ media3-ui-compose = { module = "androidx.media3:media3-ui-compose", version.ref 
 
 room = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+workmanager = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
 
 navigation-common = { module = "androidx.navigation:navigation-common-ktx", version.ref = "navigation" }
 navigation-runtime = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "navigation" }

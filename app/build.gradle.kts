@@ -201,6 +201,10 @@ android {
     }
 }
 
+ksp {
+    arg("room.schemaLocation", "$projectDir/schemas")
+}
+
 androidComponents {
     onVariants { variant ->
         val gitHash = runGitCommand("git rev-parse --short=7 HEAD")
@@ -312,6 +316,7 @@ dependencies {
 
     implementation(libs.room)
     ksp(libs.room.compiler)
+    implementation(libs.workmanager)
 
     implementation(libs.m3color)
     implementation(libs.coil.transformations)
