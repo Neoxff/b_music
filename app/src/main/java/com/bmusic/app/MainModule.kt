@@ -298,6 +298,15 @@ private val viewModule = module {
     }
 
     viewModel {
+        com.bmusic.app.ui.screen.downloader.DownloadViewModel(
+            engine = get(),
+            downloadManager = get(),
+            dao = get(),
+            prefs = get(),
+        )
+    }
+
+    viewModel {
         HomeViewModel(repository = get(), eventBus = get())
     }
 

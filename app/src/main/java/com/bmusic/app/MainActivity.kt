@@ -161,6 +161,8 @@ class MainActivity : AbsSlidingMusicPanelActivity(), MediaController.Listener {
 
         navController.graph = navGraph
         navigationView.setupWithNavController(navController)
+        // Étape 5 : entrée Télécharger visible SEULEMENT si le flag est actif.
+        navigationView.menu.findItem(R.id.nav_download).isVisible = Preferences.downloaderEnabled
         // Scroll Fragment to top
         navigationView.setOnItemReselectedListener {
             currentFragment(R.id.fragment_container).apply {
@@ -257,6 +259,33 @@ class MainActivity : AbsSlidingMusicPanelActivity(), MediaController.Listener {
                         Bundle().apply { putString(SearchFragment.QUERY, query) }
                     )
                 setIntent(Intent())
+            }
+
+            Intent.ACTION_SEND -> {
+                // Étape 5/6 : partage — flag off = ignoré, jamais d'action automatique.
+                if (!Preferences.downloaderEnabled) {
+                    setIntent(Intent())
+                } else {
+                    val text = intent.getStringExtra(Intent.EXTRA_TEXT)?.trim().orEmpty()
+                    if (text.isNotEmpty()) {
+                        val isUrl = text.startsWith("http://", ignoreCase = true) ||
+                            text.startsWith("https://", ignoreCase = true)
+                        val nc = whichFragment<NavHostFragment>(R.id.fragment_container).navController
+                        if (isUrl) {
+                            nc.navigate(
+                                R.id.nav_download,
+                                Bundle().apply { putString("download_prefill_url", text) }
+                            )
+                        } else {
+                            // Texte libre → Recherche pré-remplie sans lancer la recherche.
+                            nc.navigate(
+                                R.id.nav_download,
+                                Bundle().apply { putString("download_prefill_query", text) }
+                            )
+                        }
+                    }
+                    setIntent(Intent())
+                }
             }
 
             MediaStore.INTENT_ACTION_MEDIA_SEARCH,

@@ -20,4 +20,8 @@
         android:id="@+id/nav_playlists"
         android:title="@string/playlists_label"
         android:icon="@drawable/icon_playlist"/>
+    <item
+        android:id="@+id/nav_download"
+        android:title="Télécharger"
+        android:icon="@drawable/icon_home"/>
 </menu>
