@@ -1,13 +1,13 @@
 package com.bmusic.app.downloader.security
 
 /**
- * Step 1 minimal policy: http/https only. Full SSRF defence (private-IP
- * blocking per redirect hop, hostname resolution checks) lands in step 6.
+ * Compatibilité : point d'entrée historique du module.
+ * La politique complète vit désormais dans [UrlValidator] + [SsrfGuard].
  */
 object UrlPolicy {
     fun isSupportedScheme(url: String): Boolean {
-        val lower = url.trim().lowercase()
-        return lower.startsWith("http://") || lower.startsWith("https://")
+        val validation = UrlValidator.validate(url)
+        return validation is UrlValidator.Validation.Valid
     }
 
     fun isHttpsPreferred(url: String): Boolean =
