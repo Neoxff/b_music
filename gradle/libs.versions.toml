@@ -49,6 +49,7 @@ customactivityoncrash = "2.4.0"
 keyboardvisibilityevent = "3.0.0-RC3"
 taglib = "1.0.6"
 jaudiotagger = "2.3.16"
+newpipeextractor = "0.27.0"
 versioncompare = "1.5.0"
 commons-text = "1.15.0"
 
@@ -141,6 +142,7 @@ keyboardvisibilityevent = { module = "net.yslibrary.keyboardvisibilityevent:keyb
 
 taglib = { module = "io.github.kyant0:taglib", version.ref = "taglib" }
 jaudiotagger = { module = "com.github.mardous:jaudiotagger", version.ref = "jaudiotagger" }
+newpipeextractor = { module = "com.github.TeamNewPipe:NewPipeExtractor", version.ref = "newpipeextractor" }
 
 versioncompare = { module = "io.github.g00fy2:versioncompare", version.ref = "versioncompare" }
 commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text" }

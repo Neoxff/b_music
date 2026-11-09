@@ -12,3 +12,11 @@ itself a fork of **Retro Music Player** (https://github.com/RetroMusicPlayer/Ret
 
 > This product is a modified fork published under the same GPL-3.0 terms.
 > Sources: B Music repository (voir le README du fork). See LICENSE.txt for the full text.
+
+- Moteur d'extraction de médias (téléchargeur, v1.1) : **NewPipeExtractor**
+  (https://github.com/TeamNewPipe/NewPipeExtractor), version **0.27.0**
+  (via JitPack `com.github.TeamNewPipe:NewPipeExtractor:0.27.0`).
+- Licence de NewPipeExtractor : **GNU General Public License v3.0** — même
+  licence que le fork ; l’œuvre combinée est distribuée sous GPL-3.0
+  (voir `LICENSE.txt`). Aucun code supplémentaire sous licence incompatible
+  n’a été introduit.

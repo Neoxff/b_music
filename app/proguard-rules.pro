@@ -90,3 +90,13 @@
 
 # Prevent R8 from merging widget classes and mixing their IDs.
 -keepnames class com.bmusic.app.core.appwidgets.widget.**
+
+# NewPipeExtractor (downloader): services are registered statically and
+# accessed via reflection-free APIs, but keep the public surface intact.
+-keep class org.schabi.newpipe.** { *; }
+-dontwarn org.schabi.newpipe.**
+-dontwarn com.github.TeamNewPipe.**
+# Rhino (transitive via NewPipeExtractor) references desktop-only java.beans
+# APIs; they are never used on Android.
+-dontwarn java.beans.**
+-dontwarn org.mozilla.javascript.**

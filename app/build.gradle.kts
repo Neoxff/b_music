@@ -333,6 +333,7 @@ dependencies {
 
     implementation(libs.taglib)
     implementation(libs.jaudiotagger)
+    implementation(libs.newpipeextractor)
 
     implementation(libs.versioncompare)
     implementation(libs.commons.text)

@@ -1,7 +1,7 @@
 package com.bmusic.app.downloader
 
 import com.bmusic.app.downloader.engine.MediaExtractorEngine
-import com.bmusic.app.downloader.extractor.StubExtractorEngine
+import com.bmusic.app.downloader.extractor.NewPipeExtractorEngine
 import com.bmusic.app.downloader.manager.DownloadManager
 import com.bmusic.app.downloader.manager.DownloaderHttpClient
 import org.koin.dsl.module
@@ -14,6 +14,6 @@ import org.koin.dsl.module
  */
 val downloaderModule = module {
     factory { DownloaderHttpClient() }
-    factory<MediaExtractorEngine> { StubExtractorEngine() }
+    factory<MediaExtractorEngine> { NewPipeExtractorEngine(get()) }
     factory { DownloadManager(get(), get()) }
 }
