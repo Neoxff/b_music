@@ -195,6 +195,11 @@ android {
         abortOnError = true
         warning += listOf("ImpliedQuantity", "Instantiatable", "MissingQuantity", "MissingTranslation")
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
     dependenciesInfo {
         includeInApk = false
         includeInBundle = false
@@ -344,7 +349,13 @@ dependencies {
     implementation(libs.commons.text)
     implementation(libs.juniversalchardet)
 
+    debugImplementation(libs.androidx.metrics.performance)
+
     testImplementation("junit:junit:4.13.2")
+    testImplementation(libs.robolectric)
+    testImplementation(libs.room.testing)
+    testImplementation(libs.compose.ui.test.junit4)
+    testImplementation("androidx.test:core:1.7.0")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:runner:1.7.0")
     androidTestImplementation("androidx.test:rules:1.7.0")

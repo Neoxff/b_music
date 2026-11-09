@@ -192,6 +192,23 @@ open class PreferenceScreenFragment : PreferenceFragmentCompat(),
     fun preparePreferences() {
         findPreference<Preference>("about")?.summary =
             getString(R.string.about_summary, BuildConfig.VERSION_NAME)
+        // Accès debug (étape 0, sans adb) : appui long sur le numéro de version
+        // ouvre l'écran Diagnostics. Présent uniquement en buildType debug
+        // (la classe DiagnosticsActivity n'existe que dans src/debug).
+        if (BuildConfig.DEBUG) {
+            val about = findPreference<Preference>("about")
+            about?.setOnPreferenceClickListener { pref ->
+                // Ouverture via Intent class name pour ne pas référencer la
+                // classe debug depuis le code de production (release-safe).
+                try {
+                    val intent = Intent().setClassName(requireContext().packageName, "com.bmusic.app.diagnostics.DiagnosticsActivity")
+                    startActivity(intent)
+                    true
+                } catch (e: Exception) {
+                    super.onPreferenceTreeClick(pref)
+                }
+            }
+        }
 
         findPreference<ThemePreference>(GENERAL_THEME)?.apply {
             customCallback = object : ThemePreference.Callback {
