@@ -43,6 +43,31 @@ class DownloadManagerTest {
         assertTrue(h.all { it in "0123456789abcdef" })
     }
 
+    @Test fun forceDedupHash_neverCollidesWithBase() {
+        val base = DownloadManager.dedupHash("id1", "m4a")
+        val f1 = DownloadManager.forceDedupHash(base, nonce = 1L)
+        val f2 = DownloadManager.forceDedupHash(base, nonce = 1L)
+        val f3 = DownloadManager.forceDedupHash(base, nonce = 2L)
+        // E1 : le forcer contourne l'index unique dedupHash sans collision
+        assertFalse(f1 == base)
+        assertFalse(f1 == f3)
+        assertEquals(f1, f2) // déterministe à nonce fixe
+        assertTrue(f1.startsWith(base))
+    }
+
+    @Test fun enqueueResult_accepteDoublonEtForce() {
+        val existing = com.bmusic.app.downloader.data.DownloadEntity(
+            sourceUrl = "https://x", platformId = "p", dedupHash = "h",
+            title = "t", author = "a", state = com.bmusic.app.downloader.data.DownloadState.QUEUED,
+            streamUrl = "https://s", format = "m4a", isVideo = false,
+        )
+        val dup = DownloadManager.EnqueueResult(existing, duplicate = true)
+        assertTrue(dup.duplicate)
+        val fresh = DownloadManager.EnqueueResult(existing.copy(dedupHash = "h2"), duplicate = false)
+        assertFalse(fresh.duplicate)
+        assertFalse(dup.entity?.dedupHash == fresh.entity?.dedupHash)
+    }
+
     @Test fun storage_audioDir() {
         assertEquals("Music/B Music", DownloadStorage.AUDIO_RELATIVE_DIR)
     }

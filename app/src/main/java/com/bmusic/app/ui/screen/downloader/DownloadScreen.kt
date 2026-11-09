@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -200,7 +201,18 @@ private fun LienTab(state: DownloadViewModel.LinkState, vm: DownloadViewModel, c
                         modifier = Modifier.fillMaxWidth().height(56.dp)
                     ) { Text("Télécharger") }
                     if (state.duplicate) {
-                        Text("Déjà en cours — téléchargez ne re-téléchargera pas automatiquement.")
+                        // E1 : doublon signalé + bouton Forcer (était silencieux).
+                        AlertDialog(
+                            onDismissRequest = vm::dismissDuplicate,
+                            title = { Text("Déjà téléchargé") },
+                            text = { Text("Ce titre est déjà dans la file. Voulez-vous le retélécharger ?") },
+                            confirmButton = {
+                                TextButton(onClick = vm::forceDownload) { Text("Forcer") }
+                            },
+                            dismissButton = {
+                                TextButton(onClick = vm::dismissDuplicate) { Text("Annuler") }
+                            },
+                        )
                     }
                 }
             }

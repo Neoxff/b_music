@@ -116,7 +116,11 @@ class DownloadViewModel(
 
     fun selectQuality(format: String) { _link.value = _link.value.copy(quality = format) }
 
-    fun enqueue() {
+    fun enqueue() = enqueue(force = false)
+
+    fun forceDownload() = enqueue(force = true)
+
+    private fun enqueue(force: Boolean) {
         val s = _link.value
         val info = s.info ?: return
         if (!prefs.downloaderEnabled) return
@@ -126,7 +130,8 @@ class DownloadViewModel(
             .maxByOrNull { it.bitrateKbps ?: 0 } ?: return
         val platformId = url.extractId()
         viewModelScope.launch {
-            val entity = downloadManager.enqueue(
+            // E1 : duplicate propagé depuis EnqueueResult (était silencieux, flag toujours vrai).
+            val result = downloadManager.enqueue(
                 info = info,
                 platformId = platformId,
                 sourceUrl = url,
@@ -134,10 +139,15 @@ class DownloadViewModel(
                 format = stream.format.substringBefore(' ').take(10),
                 isVideo = kind == StreamKind.VIDEO,
                 wifiOnly = false,
+                force = force,
             )
-            _link.value = _link.value.copy(queuedId = entity?.id, duplicate = (entity != null))
+            _link.value = _link.value.copy(queuedId = result?.entity?.id, duplicate = result?.duplicate ?: false)
             refreshDownloads()
         }
+    }
+
+    fun dismissDuplicate() {
+        _link.value = _link.value.copy(duplicate = false)
     }
 
     private fun refreshDownloads() {

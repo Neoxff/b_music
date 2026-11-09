@@ -191,6 +191,7 @@ class SearchViewModel(
         val info = engine.resolve(item.url)
         val stream = info.streams.filter { it.kind == StreamKind.AUDIO }.maxByOrNull { it.bitrateKbps ?: 0 }
             ?: return
+        // E1 : EnqueueResult.duplicate=true => doublon ignoré côté recherche (pas de forcer depuis la feuille).
         downloadManager.enqueue(
             info = info,
             platformId = item.id,

@@ -35,9 +35,16 @@ class DownloadManager(
 
     suspend fun probe(url: String): MediaInfo = engine.resolve(url)
 
+    data class EnqueueResult(val entity: DownloadEntity?, val duplicate: Boolean)
+
     /**
      * Enfile un téléchargement.
-     * @return l'entité créée/réutilisée, ou `null` si le flag est off.
+     * E1 (recette v1.1) : doublon auparavant silencieux (`DownloadManager.kt:53`
+     * retournait `existing` sans signal). On retourne désormais
+     * [EnqueueResult.duplicate] pour signaler le doublon à l'UI (dialogue +
+     * bouton Forcer) et [force] insère une nouvelle ligne même si le
+     * `dedupHash` existe (hash suffixé force, unique index respecté).
+     * @return [EnqueueResult] (entité réutilisée/créée, `duplicate` si déjà présent), ou `null` si le flag est off.
      */
     suspend fun enqueue(
         info: MediaInfo,
@@ -48,13 +55,17 @@ class DownloadManager(
         isVideo: Boolean = false,
         wifiOnly: Boolean = false,
         maxConcurrent: Int = DownloadWorker.DEFAULT_MAX_CONCURRENT,
-    ): DownloadEntity? = withContext(Dispatchers.IO) {
+        force: Boolean = false,
+    ): EnqueueResult? = withContext(Dispatchers.IO) {
         if (!prefs.downloaderEnabled) return@withContext null
-        val dedup = dedupHash(platformId, format)
-        dao.getByDedupHash(dedup)?.let { existing ->
-            // Déduplication : proposer de ne pas retélécharger.
-            return@withContext existing
+        val baseDedup = dedupHash(platformId, format)
+        if (!force) {
+            dao.getByDedupHash(baseDedup)?.let { existing ->
+                // Doublon signalé à l'UI : pas de re-téléchargement silencieux.
+                return@withContext EnqueueResult(existing, duplicate = true)
+            }
         }
+        val dedup = if (force) forceDedupHash(baseDedup) else baseDedup
         val entity = DownloadEntity(
             sourceUrl = sourceUrl,
             platformId = platformId,
@@ -69,7 +80,7 @@ class DownloadManager(
         val id = dao.insert(entity)
         val stored = dao.getById(id) ?: entity
         DownloadWorker.enqueue(appContext, stored, wifiOnly, maxConcurrent)
-        stored
+        EnqueueResult(stored, duplicate = false)
     }
 
     suspend fun pause(id: Long) = withContext(Dispatchers.IO) {
@@ -98,6 +109,13 @@ class DownloadManager(
             val bytes = MessageDigest.getInstance("SHA-256").digest(input.toByteArray())
             return bytes.joinToString("") { "%02x".format(it) }
         }
+
+        /**
+         * E1 (forcer) : hash distinct pour contourner l'index unique
+         * `dedupHash` tout en traçant le doublon forcé.
+         */
+        fun forceDedupHash(baseDedup: String, nonce: Long = System.nanoTime()): String =
+            "$baseDedup:force:$nonce"
 
         fun streamIsVideo(kind: StreamKind): Boolean = kind == StreamKind.VIDEO
     }
