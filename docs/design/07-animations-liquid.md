@@ -42,7 +42,7 @@
 
 - **Déclencheur** : nouveau `song.id` / palette (`Palette`).
 - **Éléments** : fond pré-flouté (cache dédié `AudioCoverFetcher.kt:26`, réduction 64 px puis flou en mémoire).
-- **Propriétés** : **fondu croisé uniquement** (`Crossfade`), `≈ 400 ms` (`DurationLong` 300 ms + `EmphasizedDecelerate`) — **démaquillage** conservateur.
+- **Propriétés** : **fondu croisé uniquement** (`Crossfade`), `≈ 400 ms` (token `DurationCrossfade = 400` + `EmphasizedDecelerate`, à centraliser) — conserve la cohérence du fond pré-flouté sans flou image par image.
 - **Annulation** : transition interrompue par un nouveau titre suivant → **restart Crossfade à 0 ms** (nouveau fondu).
 
 ### 1.6 Pression sur un bouton — micro-échelle tactile
@@ -83,4 +83,4 @@
 | **Listes échelonnées** | scroll / toggle onglet | alpha + translation (corte 32 dp) | `DurationLong` 300 ms | `StaggerMs=24` (≤8) | scroll annulé |
 | **Animations réduites** | `ANIMATOR_DURATION_SCALE=0` | opaque seul | `scaleDuration(ms,true)=0` | 0 ms | pas de ressort |
 
-**Tokens à centraliser** : **aucun nouveau token** nécessaire — `SpringSoft`/`SpringBounce`/`SpringSnappy`/`tweenStd`/`StaggerMs` de `Motion.kt` réutilisés ; *ajout justifié* if `Crossfade400` souhaité (≈400 ms palette) — **justification** : `DurationLong` 300 ms trop court pour un fondu de couleur (justification de divergence ici).
+**Tokens à centraliser** : `SpringSoft`/`SpringBounce`/`SpringSnappy`/`tweenStd`/`StaggerMs` de `Motion.kt` réutilisés. **Un seul token ajouté, justifié** : `val DurationCrossfade = 400` dans `Motion.kt`, car `DurationLong (300 ms)` est trop court pour un fondu de fond pré-flouté lisible (≈ 400 ms spécifiés) et `DurationXLong (420 ms)` est réservé aux transitions longues. `tweenCrossfade = tween(400, EmphasizedDecelerate)` ; en `reducedMotion`, `scaleDuration(400, true) = 0`.

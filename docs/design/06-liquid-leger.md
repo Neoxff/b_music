@@ -33,7 +33,7 @@ Interdit >24 dp, rayon animé image par image interdit.
 | **Standard** (barre du bas, barre supérieure) | 0,83 | 0,87 | Cohérence sur Album |
 | **Prominent** (feuille) | 0,88 | 0,92 | Max lisibilité (feuille contenante) |
 
-Chaîne mesurée : à 0,78 sombre, `onSurfaceDark F2F2F0 /lele F2F2F0` contraste AA sur fond album `#FF4444` (saturé) et pochette `#FFFFFF` (claire) : ratio ≈ 4,7:1 (AA ≥ 4,5:1, ≥ 3:1 texte large). `sur face` opaque 1,0 = ancrage maximal.
+Contraste mesuré (méthode WCAG 2.1, `MiniPlayerGlassTest` en JVM, fond = `surface` fondue à l'opacité du niveau sur fond extrême) : à 0,78 sombre, `onSurface #FFFFFF` atteint ≥ 4,5:1 sur noir et sur pochette claire atténuée ; à 0,82 clair, `onSurface #121212` atteint ≥ 4,5:1 sur blanc ; pochette saturée (#FF0000) atténuée par 0,78 sombre : ≥ 4,5:1 en sombre. `surface` opaque 1,0 = ancrage maximal (repli §6). Seuils : texte ≥ 4,5:1, texte large et icônes ≥ 3:1.
 
 ### 2.4 Teinte et contour
 
@@ -63,7 +63,7 @@ Tous ces effets sont **interdits** dans le rendu ; seuls doivent disparaître `s
 
 ## 4. Maquettes des surfaces (clair/sombre, fonds)
 
-Correction nécessaire (contraste) : en clair, vérifier aussi le texte sur fond clair 95 %/noir (0,82) — ajustement d'opacité suggéré en clair pour « fond saturé » de dimanche.
+Correspondance aux captures (voir §Comparaison dans `docs/design/08-ecarts-liquid.md`) : les maquettes de référence de la spec sont les fichiers `docs/baseline/captures/{mini-player,barre-navigation,feuille-apercu,lecteur-plein-ecran,liste-albums,reglages}-{light,dark}.png` et `glass-{minimal,standard,prominent}-{light,dark}.png`. **À compléter sur téléphone** (voir §Captures manquantes ci-dessous) : chaque surface sur fond uni, sur liste d'albums colorée, et sur pochettes très claire / très sombre / très saturée — aucun appareil n'était disponible côté agent.
 
 | Surface | Clair (clear fond + dossier + pochette claire/sombre/saturée) | Sombre |
 |---|---|---|
@@ -123,28 +123,32 @@ Surfaces identiques en géométrie (dimensions, padding, rayons 12/4/8 dp) mais 
 ## Tokens Kotlin/XML (`GlassTokens`)
 
 ```kotlin
-// GlassTokens
-object GlassDepth {
-    const val Minimal = 16
-    const val Standard = 20
-    const val Prominent = 24
+// GlassTokens — source de vérité : app/src/main/java/com/bmusic/app/ui/theme/GlassTokens.kt
+object GlassTokens {
+    const val RadiusMinimal = 16   // mini-player, feuille faible tolérance
+    const val RadiusStandard = 20  // barre du bas, barre supérieure
+    const val RadiusProminent = 24 // feuille, fond lecteur pré-flouté (§5)
+    const val EdgePercent = 8 // 8 %, 12 % sur Prominent
+
+    val EdgeDark = Color(0x14FFFFFF)        // 8 % blanc (sombre)
+    val EdgeLight = Color(0x14000000)       // 8 % noir (clair)
+    val EdgeProminentDark = Color(0x1EFFFFFF)
+    val EdgeProminentLight = Color(0x1E000000)
+
+    enum class Level { Minimal, Standard, Prominent }
+    fun radius(level: Level): Dp = when (level) {
+        Level.Minimal -> RadiusMinimal.dp
+        Level.Standard -> RadiusStandard.dp
+        Level.Prominent -> RadiusProminent.dp
+    }
+    fun opacity(level: Level, dark: Boolean): Float = when (level) {
+        Level.Minimal -> if (dark) 0.78f else 0.82f
+        Level.Standard -> if (dark) 0.83f else 0.87f
+        Level.Prominent -> if (dark) 0.88f else 0.92f
+    }
 }
-
-data class GlassSpec(val blurRadiusDp: Int, val alphaDark: Float, val alphaLight: Float)
-
-val Minimal = GlassSpec(16, 0.78f, 0.82f)
-val Standard = GlassSpec(20, 0.83f, 0.87f)
-val Prominent = GlassSpec(24, 0.88f, 0.92f)
-
-// contour lucide : 1 dp, 8-12 % blanc/noir (bord tactile)
-val EdgeDark = Color(0x14FFFFFF)      // 8% blanc sombre
-val EdgeLight = Color(0x14000000)     // 8% noir clair
-val EdgeProminentDark = Color(0x1EFFFFFF) // 12% > Standard
-val EdgeProminentLight = Color(0x1E000000)
-
-// opaque fallback
-val OpaqueFallbackInfo = Color(0xFF000000) // surface pleine design system
-val OpaqueFallback0 = Color(0xFF000000)
+// XML : surface = ?colorSurface (aucune nouvelle couleur),
+// diamants existants : miniatures 12 dp, badge 4 dp, segmented 8 dp.
 ```
 
 **Tableau récapitulatif** : Rayon (3 niveaux, usage §2.2), Opacité (par élévation §2.3), Teinte (0 nouveau couleur), Contour (1 dp 8 % / 12 % selon promiscuité), Ombre (aucune), Repli (5 cas §6), Animations (`Motion` uniquement, jamais le rayon).
