@@ -30,7 +30,7 @@ import java.io.FileOutputStream
  */
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-@Config(sdk = [34], qualifiers = "w400dp-h800dp")
+@Config(sdk = [34], qualifiers = "w400dp-h800dp", application = com.bmusic.app.test.EmptyTestApplication::class)
 class ScreenshotBaselineTest {
 
     @get:Rule
