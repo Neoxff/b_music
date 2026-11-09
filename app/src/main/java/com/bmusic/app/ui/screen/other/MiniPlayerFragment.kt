@@ -18,7 +18,13 @@
 package com.bmusic.app.ui.screen.other
 
 import android.annotation.SuppressLint
+import android.app.ActivityManager
+import android.content.res.Configuration
+import android.graphics.drawable.GradientDrawable
+import android.os.Build
 import android.os.Bundle
+import android.os.PowerManager
+import android.provider.Settings
 import android.text.style.ForegroundColorSpan
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -39,6 +45,8 @@ import com.bmusic.app.ui.component.base.SkipButtonTouchHandler
 import com.bmusic.app.ui.component.base.SkipButtonTouchHandler.Companion.DIRECTION_NEXT
 import com.bmusic.app.ui.component.base.SkipButtonTouchHandler.Companion.DIRECTION_PREVIOUS
 import com.bmusic.app.ui.screen.player.PlayerViewModel
+import com.bmusic.app.ui.theme.GlassPolicy
+import com.bmusic.app.ui.theme.GlassTokens
 import com.bmusic.app.util.Preferences
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.combine
@@ -70,6 +78,7 @@ class MiniPlayerFragment : Fragment(R.layout.fragment_mini_player),
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentMiniPlayerBinding.bind(view)
+        applyMiniPlayerGlass(view)
         binding.progressBar.installWavyAnimatorCleanup()
         viewLifecycleOwner.launchAndRepeatWithViewLifecycle {
             playerViewModel.currentSongFlow.collect { currentSong ->
@@ -177,6 +186,53 @@ class MiniPlayerFragment : Fragment(R.layout.fragment_mini_player),
         setUpProgressStyle()
     }
 
+    /**
+     * Surface (1) mini-player — Étape 3, View XML (sans réécrire la navigation).
+     * Solution validée par le plan : pas de flou temps-réel en View (le flou
+     * temps-réel vit uniquement dans GlassSurface Compose). On applique les
+     * tokens GlassTokens exactement : nég fond = couleur `surface` du thème
+     * avec opacité Minimal (0,78 sombre / 0,82 clair) si GlassPolicy active,
+     * sinon `surface` opaque (Désactivé = rendu identique, mise en page
+     * inchangée). Rayon 16 dp, contour 1 dp côté bas, 2 surfaces simultanées
+     * max par construction. TalkBack inchangé (sémantique View inchangée).
+     */
+    private fun applyMiniPlayerGlass(view: View) {
+        val dark = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+            Configuration.UI_MODE_NIGHT_YES
+        val signals = GlassPolicy.Signals(
+            mode = GlassPolicy.fromPreference(Preferences.blurEffects),
+            apiLevel = Build.VERSION.SDK_INT,
+            isLowRamDevice = (requireContext().getSystemService(ActivityManager::class.java)?.isLowRamDevice ?: false),
+            isPowerSaveMode = (requireContext().getSystemService(PowerManager::class.java)?.isPowerSaveMode ?: false),
+            reducedMotion = Settings.Global.getFloat(requireContext().contentResolver, Settings.Global.ANIMATOR_DURATION_SCALE, 1.0f) == 0f,
+        )
+        val active = GlassPolicy.isActive(signals)
+        val alpha = glassBackgroundAlpha(active = active, dark = dark)
+        val density = resources.displayMetrics.density
+        val base = surfaceColor()
+        val argb = android.graphics.Color.argb(
+            (alpha * 255).toInt(),
+            android.graphics.Color.red(base),
+            android.graphics.Color.green(base),
+            android.graphics.Color.blue(base),
+        )
+        val edgeCompose = if (dark) GlassTokens.EdgeDark else GlassTokens.EdgeLight
+        val edge = android.graphics.Color.argb(
+            (edgeCompose.alpha * 255).toInt(),
+            (edgeCompose.red * 255).toInt(),
+            (edgeCompose.green * 255).toInt(),
+            (edgeCompose.blue * 255).toInt(),
+        )
+        val drawable = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            cornerRadius = GlassViewTokens.radiusDp(GlassTokens.Level.Minimal) * density
+            setColor(argb)
+            setStroke((1 * density).toInt(), edge)
+            gradientType = GradientDrawable.RECTANGLE
+        }
+        view.background = drawable
+    }
+
     private var flingPlayBackController = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
             override fun onFling(e1: MotionEvent?, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
                 if (abs(velocityX) > abs(velocityY)) {
@@ -191,4 +247,21 @@ class MiniPlayerFragment : Fragment(R.layout.fragment_mini_player),
                 return false
             }
         })
+}
+
+/**
+ * Étape 3, surface (1) : alpha du fond de surface View.
+ * Active (AUTO nominal) = tokens Minimal (0,78 sombre / 0,82 clair) ;
+ * sinon (opaque / Désactivé) = 1,0 → rendu v1.1.x, mise en page inchangée.
+ */
+internal fun glassBackgroundAlpha(active: Boolean, dark: Boolean): Float =
+    if (active) GlassTokens.opacity(GlassTokens.Level.Minimal, dark) else 1f
+
+/** Tokens View (miroir des tokens Compose, pour GradientDrawable). */
+internal object GlassViewTokens {
+    fun radiusDp(level: GlassTokens.Level): Float = when (level) {
+        GlassTokens.Level.Minimal -> GlassTokens.RadiusMinimal.toFloat()
+        GlassTokens.Level.Standard -> GlassTokens.RadiusStandard.toFloat()
+        GlassTokens.Level.Prominent -> GlassTokens.RadiusProminent.toFloat()
+    }
 }
