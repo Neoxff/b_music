@@ -163,7 +163,8 @@ private val roomModule = module {
                 BMusicDatabase.MIGRATION_5_6,
                 BMusicDatabase.MIGRATION_6_7,
                 BMusicDatabase.MIGRATION_7_8,
-                BMusicDatabase.MIGRATION_8_9
+                BMusicDatabase.MIGRATION_8_9,
+                BMusicDatabase.MIGRATION_9_10
             )
             .build()
     }
@@ -304,6 +305,19 @@ private val viewModule = module {
             dao = get(),
             prefs = get(),
         )
+    }
+
+    viewModel {
+        com.bmusic.app.ui.screen.downloader.SearchViewModel(
+            engine = get(),
+            downloadManager = get(),
+            historyDao = get(),
+            prefs = get(),
+        )
+    }
+
+    factory {
+        get<BMusicDatabase>().searchHistoryDao()
     }
 
     viewModel {

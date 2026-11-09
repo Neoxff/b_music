@@ -100,7 +100,8 @@ fun DownloadScreen(
     ) { padding ->
         Column(Modifier.fillMaxSize().padding(padding)) {
             if (tab == 0) {
-                PlaceholderRecherche()
+                val searchVm: SearchViewModel = org.koin.compose.viewmodel.koinViewModel()
+                SearchTab(searchVm)
             } else {
                 LienTab(state, vm, clipboard)
             }

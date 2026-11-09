@@ -14,7 +14,35 @@ interface MediaExtractorEngine {
      * protected/private content, source unavailable, network).
      */
     suspend fun resolve(url: String): MediaInfo
+
+    /**
+     * YouTube search (étape 6). Default stub throws Unsupported on engines
+     * that do not support search; [com.bmusic.app.downloader.extractor.NewPipeExtractorEngine]
+     * overrides with the real implementation.
+     */
+    suspend fun search(
+        query: String,
+        filter: SearchFilter = SearchFilter.ALL,
+        pageIndex: Int = 0,
+    ): SearchPage = throw ExtractorError.Unsupported("search not supported")
 }
+
+enum class SearchFilter { ALL, MUSIC }
+
+data class SearchResultItem(
+    val id: String,
+    val url: String,
+    val title: String,
+    val channel: String,
+    val durationMs: Long,
+    val thumbnailUrl: String?,
+    val viewCount: Long? = null,
+)
+
+data class SearchPage(
+    val items: List<SearchResultItem>,
+    val nextPageIndex: Int? = null,
+)
 
 data class MediaInfo(
     val title: String,
@@ -42,4 +70,5 @@ sealed class ExtractorError(message: String) : Exception(message) {
     class ProtectedContent : ExtractorError("Content is protected or private")
     class SourceUnavailable(reason: String) : ExtractorError("Source unavailable: $reason")
     class Network(cause: String) : ExtractorError("Network error: $cause")
+    class QueryInvalid(reason: String) : ExtractorError("Invalid query: $reason")
 }

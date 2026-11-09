@@ -21,6 +21,8 @@ import com.bmusic.app.data.local.room.QueueEntity
 import com.bmusic.app.data.local.room.SongEntity
 import com.bmusic.app.downloader.data.DownloadDao
 import com.bmusic.app.downloader.data.DownloadEntity
+import com.bmusic.app.downloader.data.SearchHistoryDao
+import com.bmusic.app.downloader.data.SearchHistoryEntity
 
 @Database(
     entities = [
@@ -32,7 +34,8 @@ import com.bmusic.app.downloader.data.DownloadEntity
         InclExclEntity::class,
         LyricsEntity::class,
         AutoEqEntity::class,
-        DownloadEntity::class
+        DownloadEntity::class,
+        SearchHistoryEntity::class
     ],
     version = BMusicDatabase.VERSION,
     exportSchema = true
@@ -46,6 +49,7 @@ abstract class BMusicDatabase : RoomDatabase() {
     abstract fun lyricsDao(): LyricsDao
     abstract fun autoEqDao(): AutoEqDao
     abstract fun downloadDao(): DownloadDao
+    abstract fun searchHistoryDao(): SearchHistoryDao
 
     companion object {
         /**
@@ -54,7 +58,7 @@ abstract class BMusicDatabase : RoomDatabase() {
          * When increasing this value, we must ensure we also make any necessary
          * changes in [com.bmusic.app.data.local.backup.BackupManager].
          */
-        const val VERSION = 9
+        const val VERSION = 10
 
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
@@ -166,6 +170,22 @@ abstract class BMusicDatabase : RoomDatabase() {
                 db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_DownloadEntity_dedup_hash` ON `DownloadEntity` (`dedup_hash`)")
                 db.execSQL("CREATE INDEX IF NOT EXISTS `index_DownloadEntity_state` ON `DownloadEntity` (`state`)")
                 db.execSQL("CREATE INDEX IF NOT EXISTS `index_DownloadEntity_platform_id` ON `DownloadEntity` (`platform_id`)")
+            }
+        }
+
+        /** Étape 6 — migration ADDITIVE uniquement : crée `SearchHistory`, ne touche aucune entité existante. */
+        val MIGRATION_9_10 = object : Migration(9, 10) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    """
+                    CREATE TABLE IF NOT EXISTS `SearchHistory` (
+                        `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        `normalized_query` TEXT NOT NULL,
+                        `date` INTEGER NOT NULL
+                    )
+                    """.trimIndent()
+                )
+                db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_SearchHistory_normalized_query` ON `SearchHistory` (`normalized_query`)")
             }
         }
     }
