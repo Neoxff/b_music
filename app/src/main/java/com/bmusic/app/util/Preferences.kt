@@ -113,6 +113,11 @@ object Preferences : KoinComponent {
     val isCustomFont: Boolean
         get() = preferences.getBoolean(USE_CUSTOM_FONT, true)
 
+    /** Réglage Étape 2 "Effets de flou" : auto/on/off, défaut auto. */
+    var blurEffects: String
+        get() = preferences.getString(BLUR_EFFECTS, "auto") ?: "auto"
+        set(value) = preferences.edit { putString(BLUR_EFFECTS, value) }
+
     val appBarMode: TopAppBarLayout.AppBarMode
         get() = when (preferences.requireString(APPBAR_MODE, AppBarMode.COMPACT)) {
             AppBarMode.COMPACT -> TopAppBarLayout.AppBarMode.SIMPLE
@@ -549,6 +554,7 @@ const val BLACK_THEME = "black_theme"
 const val MATERIAL_YOU = "material_you"
 const val USE_CUSTOM_FONT = "use_custom_font"
 const val APPBAR_MODE = "appbar_mode"
+const val BLUR_EFFECTS = "blur_effects"
 const val GENERAL_THEME = "general_theme"
 const val LIBRARY_CATEGORIES = "library_categories"
 const val REMEMBER_LAST_PAGE = "remember_last_page"

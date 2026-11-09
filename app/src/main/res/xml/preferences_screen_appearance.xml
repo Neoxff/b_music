@@ -45,6 +45,17 @@
         app:layout="@layout/list_item_view"
         app:key="appbar_mode"/>
 
+    <ListPreference
+        app:iconSpaceReserved="true"
+        app:title="@string/blur_effects_title"
+        app:summary="@string/blur_effects_summary"
+        app:entries="@array/pref_blur_effects_entries"
+        app:entryValues="@array/pref_blur_effects_values"
+        app:useSimpleSummaryProvider="true"
+        app:defaultValue="auto"
+        app:layout="@layout/list_item_view"
+        app:key="blur_effects"/>
+
     <PreferenceCategory
         app:title="@string/library_header"
         app:layout="@layout/preference_category_title">

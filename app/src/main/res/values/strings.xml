@@ -706,6 +706,11 @@
     <string name="material_you_title">Material You</string>
     <string name="use_custom_font_title">Use custom font</string>
     <string name="appbar_mode_title">Header style</string>
+    <string name="blur_effects_title">Effets de flou</string>
+    <string name="blur_effects_summary">Flou des surfaces en arrière-plan. Automatique désactive le flou sur les appareils à faibles ressources.</string>
+    <string name="blur_auto">Automatique</string>
+    <string name="blur_on">Activé</string>
+    <string name="blur_off">Désactivé</string>
     <string name="library_categories_title">Library categories</string>
     <string name="library_categories_summary">Configure visibility and order of library categories.</string>
     <string name="remember_last_page_title">Remember last page</string>

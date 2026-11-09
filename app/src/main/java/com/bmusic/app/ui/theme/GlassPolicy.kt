@@ -38,6 +38,24 @@ object GlassPolicy {
         return true
     }
 
+    /** Raison lisible (exposée à l'écran Diagnostics debug). */
+    fun reason(signals: Signals): String = when {
+        signals.mode == GlassMode.OFF -> "Désactivé (réglage)"
+        signals.mode == GlassMode.ON -> "Activé (réglage)"
+        signals.apiLevel < 31 -> "API < 31"
+        signals.isLowRamDevice -> "low RAM device"
+        signals.isPowerSaveMode -> "économiseur de batterie"
+        signals.reducedMotion -> "animations réduites"
+        signals.degraded -> "dégradé (JankStats persistant)"
+        else -> "AUTO : aucun signal dégradant"
+    }
+
+    fun fromPreference(value: String?): GlassMode = when (value) {
+        "on" -> GlassMode.ON
+        "off" -> GlassMode.OFF
+        else -> GlassMode.AUTO
+    }
+
     @Composable
     fun isActiveComposed(
         mode: GlassMode,
