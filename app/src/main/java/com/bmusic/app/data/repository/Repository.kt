@@ -109,6 +109,7 @@ interface Repository {
     suspend fun yearById(year: Int): ReleaseYear
     suspend fun songsByYear(year: Int): List<Song>
     suspend fun folderByPath(path: String): Folder
+    suspend fun downloadsFolder(): Folder?
     suspend fun songsByUri(uri: Uri): List<Song>
     suspend fun songsByMediaItems(mediaItems: List<MediaItem>, ignoreBlacklist: Boolean): Pair<List<Song>, List<MediaItem>>
     suspend fun songByMediaItem(mediaItem: MediaItem?, ignoreBlacklist: Boolean): Song
@@ -326,6 +327,8 @@ class RealRepository(
     override suspend fun songsByYear(year: Int): List<Song> = specialRepository.songsByYear(year, null)
 
     override suspend fun folderByPath(path: String): Folder = specialRepository.folderByPath(path)
+
+    override suspend fun downloadsFolder(): Folder? = specialRepository.downloadsFolder()
 
     override suspend fun songsByUri(uri: Uri): List<Song> = songRepository.songsByUri(uri)
 

@@ -26,6 +26,8 @@ import com.bmusic.app.core.sort.sortingCollator
 import com.bmusic.app.data.model.Folder
 import com.bmusic.app.data.model.ReleaseYear
 import com.bmusic.app.data.model.Song
+import com.bmusic.app.downloader.storage.DownloadStorage
+import com.bmusic.app.util.Preferences
 import com.bmusic.app.util.StorageUtil
 
 interface SpecialRepository {
@@ -37,6 +39,8 @@ interface SpecialRepository {
     suspend fun songsByFolder(path: String, includeSubfolders: Boolean): List<Song>
     suspend fun songsByFolder(path: String, query: String): List<Song>
     suspend fun musicFilesInPath(path: String, recursiveSubfolders: Boolean = true): FileSystemQuery
+    /** Étape 4 : filtre automatique "Téléchargements" sur le dossier Music/B Music. */
+    suspend fun downloadsFolder(): Folder?
 }
 
 class RealSpecialRepository(private val songRepository: RealSongRepository) : SpecialRepository {
@@ -168,6 +172,22 @@ class RealSpecialRepository(private val songRepository: RealSongRepository) : Sp
         )
 
         return FileSystemQuery(name, path, parentPath, children)
+    }
+
+    /** Étape 4 : filtre "Téléchargements" sur Music/B Music, seulement si le flag est actif. */
+    override suspend fun downloadsFolder(): Folder? {
+        if (!Preferences.downloaderEnabled) return null
+        val audioDirSuffix = DownloadStorage.AUDIO_RELATIVE_DIR
+        val songs = songRepository.songs().filter { song ->
+            // `data` est un chemin MediaStore (ex. .../Music/B Music/xxx.m4a).
+            song.data.endsWith("/$audioDirSuffix/x") || song.data.contains("/$audioDirSuffix/")
+        }
+        if (songs.isEmpty()) return null
+        // Nom d'affichage automatique : réutilise le mécanisme Folder existant.
+        val sorted = with(SongSortMode.FolderSongs) { songs.sorted() }
+        // folderPath réel du dossier pour naviguer via Dossiers.
+        val realPath = sorted.first().folderPath()
+        return Folder(realPath, sorted)
     }
 
     private fun Song.folderPath() = data.substringBeforeLast("/", missingDelimiterValue = "")
