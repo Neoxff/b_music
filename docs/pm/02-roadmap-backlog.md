@@ -130,3 +130,20 @@ fork + ID-1 (renommage)
 **Obligatoire v1.0** (les items marqués [v1.0] ci-dessus) : renommage + icône, design system complet (sombre/clair), animations essentielles, mini-player → plein écran, notification média + lockscreen, lecture/file/favoris/playlists/recherche, accessibilité AA + TalkBack + FR/EN, budgets performance (< 15 Mo, < 600 ms, < 200 Mo, < 1 % jank), sécurité zéro-réseau validée, publication `B-Music.apk` + sources.
 
 **Après v1.0** (hors v1.0, reporté) : EQ/AutoEq, widgets écran d'accueil, éditeur de tags, paroles locales (.lrc), Android Auto, Genres (LB-6), listes blanches/noires (LB-7), fondu enchaîné/saut de silence (ST-3), mode conduite, recommandation. Justification collective : `01-perimetre-mvp.md` §4/§7 (la règle du tiers).
+
+## 5. Ligne v1.2 — « Explorer » et « Liens » (ajout du 13 novembre 2026)
+
+Complément de périmètre décidé après l'audit d'architecture du 13 novembre 2026. **Le périmètre v1.0 ci-dessus n'est pas modifié** : cette ligne est distincte, conditionnée à un variant réseau et à deux arbitrages de sécurité (D1, D2).
+
+| Bloc | Contenu | Stories | MVP | Secondaire | Spécification |
+|---|---|---|---|---|---|
+| EX | Onglet **Explorer** : recherche YouTube, résultats (vignette/titre/chaîne/durée), pagination, fiche de détail, ouverture externe | EX-1 → EX-11 | 10 | 1 | `05-spec-explorer-liens.md` |
+| LI | Onglet **Liens** : saisie multiple (un lien par ligne), détection de plateforme, validation, déduplication, aperçu, repli externe | LI-1 → LI-10 | 8 | 2 | `05-spec-explorer-liens.md` |
+
+**Le RICE n'est pas appliqué à cette ligne**, et le motif est explicite : le produit est « zéro télémétrie » par construction (`SEC-2`, `SEC-3`), donc le facteur **Reach n'est pas mesurable** — tout score chiffré serait inventé. La priorisation est faite par raisonnement explicite sur quatre axes (valeur utilisateur, risque, coût, dépendances) dans `05-spec-explorer-liens.md` §10.
+
+**Conditions d'entrée** : D1 actée (source de recherche non officielle, écart assumé) · D2 actée (aucune lecture intégrée) · permissions réseau séparées par variant, le variant `fdroid` restant strictement hors-ligne · table de détection de plateforme en place.
+
+**Non-régression** : le téléchargement reste derrière son option et son écran ; les composants d'interface sont **extraits**, jamais dupliqués ; la promesse « zéro réseau » du variant `fdroid` reste vérifiable par `aapt dump permissions`.
+
+Documents liés : `05-spec-explorer-liens.md` (spécification) · `06-matrice-plateformes.md` (compatibilité) · `07-criteres-acceptation-explorer-liens.md` (critères + DoD) · `08-recette-fonctionnelle-explorer-liens.md` (plan de recette).

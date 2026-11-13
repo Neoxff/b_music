@@ -5,6 +5,7 @@
 > Format : « En tant que … » + **Given/When/Then** vérifiables. Chaque story : **Priorité** (P0 v1.0 / P1 v1.x), **Effort** (S ≤ 1 j · M 2–5 j · L ≥ 5 j), **Agent** (PM/BIZ/DSG/LNA/SEC/REL).
 > Renvois : budgets `docs/lean/03-budgets-performance.md` · animations `docs/design/02-animations.md` · design system `docs/design/01-design-system.md` · audit `docs/lean/02-audit-gaspillage.md` · roadmap RICE `02-roadmap-backlog.md`.
 > Total : **50 stories** (P0 = obligatoire v1.0).
+> **Complément (13 novembre 2026)** : les onglets **Explorer** et **Liens** (ligne v1.2) sont spécifiés à part — `docs/pm/05-spec-explorer-liens.md` (21 stories, dont 18 MVP) et leurs critères dans `docs/pm/07-criteres-acceptation-explorer-liens.md`. Le décompte « 50 stories » ci-dessus reste le périmètre **v1.0**.
 
 ---
 
