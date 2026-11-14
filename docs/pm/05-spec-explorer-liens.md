@@ -3,6 +3,7 @@
 > Agent Product Manager B Music. Date : 13 novembre 2026.
 > Base : audit d'architecture du 13 novembre 2026 (`docs/architecture/` à créer) + état réel du produit (branche `fix/stabilite-1.2`, HEAD `2377fe02`) + corpus PM existant (`01-vision.md`, `02-roadmap-backlog.md`, `03-user-stories.md`, `04-acceptation-lancement.md`).
 > Renvois : `docs/pm/06-matrice-plateformes.md` (compatibilité) · `docs/pm/07-criteres-acceptation-explorer-liens.md` (critères Given/When/Then) · `docs/pm/08-recette-fonctionnelle-explorer-liens.md` (recette) · `docs/security/01-modele-menaces.md` · `docs/design/03-ecrans.md`.
+> Livrables design de la ligne v1.2 : `docs/design/09-audit-et-direction-artistique-v1.2.md` (audit + direction « Mat & Signal ») · `10-navigation-et-icones.md` (barre, loupe, chaîne à deux maillons) · `11-maquettes-explorer-et-liens.md` (maquettes et états) · `12-tokens-composants-et-motion.md` (tokens, composants, mouvement) · `13-responsive-accessibilite-et-checklist.md` (responsive, accessibilité, revue avant merge).
 > Format : règles métier numérotées et vérifiables · états explicites · microcopies paramétrées · séparation **MVP obligatoire / secondaire**.
 
 ## 0. Statut, portée et quatre avertissements
