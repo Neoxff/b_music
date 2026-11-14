@@ -23,13 +23,14 @@ Le socle de sécurité des URL est corrigé et prouvé (SEC-001/002/003), les 5 
 
 | Commit | Contenu |
 |---|---|
+| `c488d525` | **Squelettes de chargement + réduction des mouvements** (BUILD-14) + 13 tests de transitions d'état (BUILD-15) |
 | `748c3f1e` | **Onglets Explorer et Liens** : navigation + budget Material + écrans Liens/Explorer + icône chaîne · 8 cas de navigation ajoutés |
 | `89b772b8` | **Registre de fournisseurs + analyse de lot de liens** (BUILD-06/07) · 48 tests ajoutés |
 | `cdea200c` | **Correctif Koin** : `Preferences` liée (bug de production) + arrêt de Koin après les tests |
 | `41839ee8` | **Correctif sécurité** : SSRF fermé (`GuardedDns`), IPv6 canonique, hôtes ASCII · 11 tests de non-régression |
 | `2377fe02` | lint (déjà en place) |
 
-**État de la suite** : `./gradlew --offline :app:testFdroidDebugUnitTest` → **180 tests, 0 échec** ; `:app:lintFdroidDebug` propre ; `check-glass-policy.sh` OK.
+**État de la suite** : `./gradlew --offline :app:testFdroidDebugUnitTest` → **193 tests, 0 échec** ; `:app:lintFdroidDebug` propre ; `check-glass-policy.sh` OK.
 
 **Commits du dépôt de livraison** : `5145a19` (sécurité) et le commit de cette phase (architecture + registre).
 
