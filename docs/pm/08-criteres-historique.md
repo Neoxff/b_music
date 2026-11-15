@@ -312,16 +312,20 @@ En tant que **Léa**, je veux que mes téléchargements existants soient conserv
 
 ## 8. Récapitulatif
 
-| Bloc | Stories | Critères Given/When/Then | Type de preuve principal |
-|------|---------|-------------------------|-------------------------|
-| Affichage et regroupement | AH-1 → AH-5 (5) | 20 | capture |
-| Contenu de ligne | AL-1 → AL-5 (5) | 20 | capture |
-| Actions par ligne | AC-1 → AC-7 (7) | 28 | vérification manuelle / test JVM |
-| Balayage et filtres | SW-1 → FL-2 (4) | 16 | capture / test JVM |
-| Téléchargements en cours | DL-1 → DL-2 (2) | 8 | vérification manuelle / capture |
-| Volumétrie et performance | VO-1 → VO-2 (2) | 8 | capture / test JVM |
-| Flag et mise à jour | FL-3 → FL-4 (2) | 8 | test JVM / vérification manuelle |
-| **Total** | **27 stories** | **108 assertions** | — |
+Deux métriques sont distinguées : les **critères** (lignes Étant donné / Quand / Alors / Et) et les **observables** (lignes Alors / Et — ce que le test asserte effectivement).
+
+| Bloc | Stories | Critères | Observables | Type de preuve principal |
+|------|---------|----------|------------|-------------------------|
+| Affichage et regroupement | AH-1 → AH-5 (5) | 22 | 12 | capture |
+| Contenu de ligne | AL-1 → AL-5 (5) | 26 | 14 | capture |
+| Actions par ligne | AC-1 → AC-7 (7) | 27 | 12 | vérification manuelle / test JVM |
+| Balayage et filtres | SW-1 → FL-2 (4) | 18 | 9 | capture / test JVM |
+| Téléchargements en cours | DL-1 → DL-2 (2) | 11 | 5 | vérification manuelle / capture |
+| Volumétrie et performance | VO-1 → VO-2 (2) | 8 | 4 | capture / test JVM |
+| Flag et mise à jour | FL-3 → FL-4 (2) | 18 | 9 | test JVM / vérification manuelle |
+| **Total** | **27 stories** | **125 critères** | **62 observables** | — |
+
+> Compteurs recalculés automatiquement depuis le corps du document (chaque ligne `### XX-n` et chaque puce `**Étant donné** / **Quand** / **Alors** / **Et**`). Les 14 scénarios exigés sont couverts : téléchargement terminé en tête (AH-2), regroupement par date (AH-3), filtre site + état (FL-1), lire (AC-1), retélécharger (AC-2), copier le lien (AC-3), partager (AC-4), supprimer de l'historique sans effacer le fichier (AC-5), supprimer le fichier avec confirmation (AC-6), fichier supprimé hors de l'app (AL-5), tout effacer (SW-2), en cours avec pause/reprise/annulation (DL-2), 1 000 entrées fluides (VO-1), zéro requête réseau (VO-2), flag désactivé (FL-3), mise à jour par-dessus sans perte (FL-4).
 
 ---
 

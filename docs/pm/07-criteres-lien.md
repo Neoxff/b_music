@@ -114,7 +114,7 @@ En tant que **Léa**, je veux que le bouton « Coller » ne soit pas cliquable q
 
 ---
 
-## 3. Détection de site et nettoyage (8 stories — un par site de la liste)
+## 3. Détection de site et nettoyage (12 stories — un par site de la liste)
 
 ### DS-1 — YouTube, lien standard (P0 · M · REL · test JVM)
 
@@ -173,13 +173,50 @@ En tant que **Léa**, je veux que B Music reconnaisse un lien SoundCloud.
 - **Quand** l'analyse est déclenchée
 - **Alors** l'entrée porte l'étiquette « SoundCloud »
 
-### DS-8 — Bandcamp, Vimeo, Dailymotion, Reddit, Twitch (P2 · M · REL · test JVM)
+### DS-8 — Bandcamp (P2 · M · REL · test JVM)
 
-En tant que **Léa**, je veux que B Music reconnaisse les autres plateformes de la liste.
+En tant que **Léa**, je veux que B Music reconnaisse un lien Bandcamp.
 
-- **Étant donné** je colle l'un des liens suivants : `bandcamp.com`, `vimeo.com`, `dailymotion.com`, `reddit.com`, `twitch.tv`
+- **Étant donné** je colle `https://artist.bandcamp.com/track/titre`
 - **Quand** l'analyse est déclenchée
-- **Alors** l'entrée porte l'étiquette de la plateforme correspondante
+- **Alors** l'entrée porte l'étiquette « Bandcamp »
+- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+
+### DS-9 — Vimeo (P2 · M · REL · test JVM)
+
+En tant que **Léa**, je veux que B Music reconnaisse un lien Vimeo.
+
+- **Étant donné** je colle `https://vimeo.com/123456789`
+- **Quand** l'analyse est déclenchée
+- **Alors** l'entrée porte l'étiquette « Vimeo »
+- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+
+### DS-10 — Dailymotion (P2 · M · REL · test JVM)
+
+En tant que **Léa**, je veux que B Music reconnaisse un lien Dailymotion.
+
+- **Étant donné** je colle `https://www.dailymotion.com/video/x8abcde`
+- **Quand** l'analyse est déclenchée
+- **Alors** l'entrée porte l'étiquette « Dailymotion »
+- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+
+### DS-11 — Reddit (P2 · M · REL · test JVM)
+
+En tant que **Léa**, je veux que B Music reconnaisse un lien Reddit.
+
+- **Étant donné** je colle `https://www.reddit.com/r/videos/comments/abc123/titre/`
+- **Quand** l'analyse est déclenchée
+- **Alors** l'entrée porte l'étiquette « Reddit »
+- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+
+### DS-12 — Twitch (P2 · M · REL · test JVM)
+
+En tant que **Léa**, je veux que B Music reconnaisse un lien Twitch.
+
+- **Étant donné** je colle `https://www.twitch.tv/videos/123456789`
+- **Quand** l'analyse est déclenchée
+- **Alors** l'entrée porte l'étiquette « Twitch »
+- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
 
 ---
 
@@ -410,17 +447,21 @@ En tant que **Léa**, je veux que tout le parcours fonctionne sur l'APK release 
 
 ## 9. Récapitulatif
 
-| Bloc | Stories | Critères Given/When/Then | Type de preuve principal |
-|------|---------|-------------------------|-------------------------|
-| Zone de saisie — centrage | ZS-1 → ZS-5 (5) | 20 | capture |
-| Coller / effacer | CP-1 → CP-4 (4) | 16 | test JVM |
-| Détection de site | DS-1 → DS-8 (8) | 32 | test JVM |
-| Formats de lien | LP-1 → LP-5 (5) | 20 | test JVM |
-| États d'erreur | ER-1 → ER-9 (9) | 36 | test JVM / vérification manuelle |
-| Journal d'étapes | JE-1 → JE-4 (4) | 16 | journal exporté / test JVM |
-| Partage | SH-1 → SH-3 (3) | 12 | vérification manuelle / test JVM |
-| Bout en bout release | E2E-1 (1) | 6 | journal exporté |
-| **Total** | **39 stories** | **178 assertions** | — |
+Deux métriques sont distinguées : les **critères** (lignes Étant donné / Quand / Alors / Et) et les **observables** (lignes Alors / Et — ce que le test asserte effectivement).
+
+| Bloc | Stories | Critères | Observables | Type de preuve principal |
+|------|---------|----------|------------|-------------------------|
+| Zone de saisie — centrage | ZS-1 → ZS-5 (5) | 23 | 13 | capture |
+| Coller / effacer | CP-1 → CP-4 (4) | 16 | 8 | test JVM |
+| Détection de site | DS-1 → DS-12 (12) | 42 | 18 | test JVM |
+| Formats de lien | LP-1 → LP-5 (5) | 19 | 9 | test JVM |
+| États d'erreur | ER-1 → ER-9 (9) | 41 | 23 | test JVM / vérification manuelle |
+| Journal d'étapes | JE-1 → JE-4 (4) | 16 | 8 | journal exporté / test JVM |
+| Partage | SH-1 → SH-3 (3) | 12 | 6 | vérification manuelle / test JVM |
+| Bout en bout release | E2E-1 (1) | 7 | 5 | journal exporté |
+| **Total** | **43 stories** | **176 critères** | **90 observables** | — |
+
+> Compteurs recalculés automatiquement depuis le corps du document (chaque ligne `### XX-n` et chaque puce `**Étant donné** / **Quand** / **Alors** / **Et**`). Les 12 sites de la liste ont chacun une story dédiée (DS-1 → DS-12).
 
 ---
 
