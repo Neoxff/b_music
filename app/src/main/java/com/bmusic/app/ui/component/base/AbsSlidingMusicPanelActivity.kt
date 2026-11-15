@@ -472,6 +472,16 @@ abstract class AbsSlidingMusicPanelActivity : AbsBaseActivity(),
                     .setIcon(menu.iconRes)
             }
         }
+        // Entrée « Télécharger » : le `menu.clear()` ci-dessus ne laisse que
+        // les catégories de bibliothèque, donc `nav_download` est absent du menu
+        // reconstruit. Il faut le ré-ajouter quand le flag est actif, sinon
+        // `findItem(R.id.nav_download)` renvoie null — c'est l'origine du NPE au
+        // lancement corrigé dans MainActivity.
+        // Flag OFF : rien n'est ajouté, le menu est strictement identique à v1.0.0.
+        if (Preferences.downloaderEnabled) {
+            navigationView.menu.add(0, R.id.nav_download, 0, R.string.download_label)
+                .setIcon(R.drawable.ic_download_24dp)
+        }
         setupNavigationViewGestures()
         if (navigationView.menu.size == 1) {
             isInOneTabMode = true

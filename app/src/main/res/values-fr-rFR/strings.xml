@@ -343,6 +343,7 @@
     </plurals>
     <!-- Home -->
     <string name="home_label">Accueil</string>
+    <string name="download_label">Télécharger</string>
     <string name="shuffle_action">Mélanger</string>
     <string name="top_artists">Meilleurs artistes</string>
     <string name="top_albums">Meilleurs albums</string>

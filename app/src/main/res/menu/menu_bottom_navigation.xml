@@ -22,6 +22,6 @@
         android:icon="@drawable/icon_playlist"/>
     <item
         android:id="@+id/nav_download"
-        android:title="Télécharger"
-        android:icon="@drawable/icon_home"/>
+        android:title="@string/download_label"
+        android:icon="@drawable/ic_download_24dp"/>
 </menu>

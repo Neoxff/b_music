@@ -162,7 +162,11 @@ class MainActivity : AbsSlidingMusicPanelActivity(), MediaController.Listener {
         navController.graph = navGraph
         navigationView.setupWithNavController(navController)
         // Étape 5 : entrée Télécharger visible SEULEMENT si le flag est actif.
-        navigationView.menu.findItem(R.id.nav_download).isVisible = Preferences.downloaderEnabled
+        // Appel sûr obligatoire : `updateTabs()` fait `menu.clear()` puis ne
+        // ré-ajoute que les catégories de bibliothèque, donc `nav_download`
+        // peut être absent du menu reconstruit → `findItem()` renvoie null et
+        // l'écriture `.isVisible` levait un NullPointerException au lancement.
+        navigationView.menu.findItem(R.id.nav_download)?.isVisible = Preferences.downloaderEnabled
         // Scroll Fragment to top
         navigationView.setOnItemReselectedListener {
             currentFragment(R.id.fragment_container).apply {

@@ -396,6 +396,7 @@
 
     <!-- Home -->
     <string name="home_label">Home</string>
+    <string name="download_label">Download</string>
     <string name="shuffle_action">Shuffle</string>
     <string name="top_artists">Top artists</string>
     <string name="top_albums">Top albums</string>
