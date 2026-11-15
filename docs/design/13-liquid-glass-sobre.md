@@ -218,6 +218,49 @@ Si le contraste est insuffisant sur un fond donné :
 └─────────────────────────────────────────────────────────┘
 ```
 
+### 7.4 Schéma ASCII — Écran Lien, thème clair, verre activé
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Lien ▮  Historique                    ← verre 16 dp   │  opacité 0,90
+├─────────────────────────────────────────────────────────┤  contour 1 dp 12 %
+│                                                         │
+│              ┌─────────────────────────┐               │
+│              │   ⛓  Coller un lien     │               │  surface
+│              │  [____________________]  │  [ Coller ]  │  #FFFFFF
+│              │  [    Analyser    ]     │               │  à 90 %
+│              └─────────────────────────┘               │
+│                                                         │
+│  Collez un lien YouTube, TikTok, Instagram…             │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 7.5 Schéma ASCII — Écran Lien, thème clair, repli opaque
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  Lien ▮  Historique                    ← opaque         │  #FFFFFF
+├─────────────────────────────────────────────────────────┤  contour 1 dp 12 %
+│                                                         │
+│              ┌─────────────────────────┐               │
+│              │   ⛓  Coller un lien     │               │  opaque
+│              │  [____________________]  │  [ Coller ]  │  (aucun
+│              │  [    Analyser    ]     │               │   flou)
+│              └─────────────────────────┘               │
+│                                                         │
+│  Collez un lien YouTube, TikTok, Instagram…             │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### 7.6 Rappel des couleurs opaques de repli
+
+| Thème | Surface opaque de repli | Hex | Contour |
+|---|---|---|---|
+| Sombre | `surface1` | `#131318` | 1 dp `outline` `#2A2A34` |
+| Clair | `surface1` | `#FFFFFF` | 1 dp `outline` `#E4E4EA` |
+
 ---
 
 ## 8. Captures que Build doit produire (Paparazzi/Roborazzi)

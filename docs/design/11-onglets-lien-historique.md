@@ -45,6 +45,7 @@ Toute la mise en page, les couleurs, la typographie, les formes et les mouvement
 | Labels | FR « Lien » / « Historique » · EN « Link » / « History » · Micro 11/16 |
 | État actif | Icône + label `primary` (`#E8862E` sombre / `#A85B0B` clair) |
 | État inactif | Icône + label `onSurfaceVariant` (`#B8B8C0` sombre / `#4A4A52` clair) |
+| État pressé (onglet) | L'onglet pressé garde sa couleur d'état (active ou inactive) ; fond `surfaceContainerLow` (`#16161C` sombre / `#F5F5F7` clair), coins 8 dp, hauteur 40 dp — **pas** de changement de couleur d'icône |
 | Indicateur de sélection | Barre 3 dp de hauteur, couleur `primary`, glisse en ressort (`SpringSnappy`) entre les onglets |
 | Durée de glissement | 300 ms · `EmphasizedDecelerate` |
 | Changement de contenu | Glissement court (24 dp horizontal) + fondu (`FastOutSlowIn`, 300 ms) |
@@ -292,7 +293,208 @@ Tous les écrans existent en deux thèmes. Les valeurs exactes sont dans `12-tok
 
 ---
 
-## 10. Critères de conformité (vérifiables)
+## 10. États interactifs (normal / pressé / désactivé / focus)
+
+Ces états s'appliquent à **tous** les éléments interactifs des deux onglets. Ils sont issus de `01-design-system.md` §6 ; aucune couleur ni durée nouvelle n'est introduite.
+
+### 10.1 Onglets (Lien / Historique)
+
+| État | Fond | Icône + label | Élévation |
+|---|---|---|---|
+| **Normal** | transparent | actif : `primary` · inactif : `onSurfaceVariant` | 0 dp |
+| **Pressé** | `surfaceContainerLow` (`#16161C` sombre / `#F5F5F7` clair), coins 8 dp | **inchangé** (la couleur d'état est conservée) | 0 dp |
+| **Désactivé** | transparent | `outline` (`#6E6E78` sombre / `#C4C4CC` clair), opacité 38 % | 0 dp |
+| **Focus** | transparent | inchangé | anneau 2 dp `primary`, offset 2 dp |
+
+### 10.2 Bouton principal « Analyser » / « Télécharger »
+
+| État | Fond | Texte | Élévation |
+|---|---|---|---|
+| **Normal** | `primary` (`#E8862E` sombre / `#A85B0B` clair) | `onPrimary` | 0 dp |
+| **Pressé** | `primary` à 88 % d'opacité | `onPrimary` | 0 dp |
+| **Désactivé** | `surfaceContainerHigh` | `onSurfaceVariant` à 38 % | 0 dp |
+| **Focus** | inchangé | inchangé | anneau 2 dp `primary`, offset 2 dp |
+
+### 10.3 Champ de saisie
+
+| État | Contour | Fond | Texte |
+|---|---|---|---|
+| **Normal** | 1 dp `outline` (`#2A2A34` sombre / `#E4E4EA` clair) | `surfaceContainer` (`#1A1A21` sombre) | `onSurface` |
+| **Pressé** | 1 dp `outline` | inchangé | inchangé |
+| **Désactivé** | 1 dp `outline` à 38 % | `surfaceContainer` à 38 % | `onSurfaceVariant` à 38 % |
+| **Focus** | 2 dp `primary` | inchangé | inchangé |
+| **Erreur** (lien invalide) | 1 dp `error` (`#FFB4AB` sombre / `#BA1A1A` clair) | inchangé | inchangé |
+
+### 10.4 Boutons secondaires (« Coller », « effacer », puces, actions de ligne)
+
+| État | Fond | Contenu |
+|---|---|---|
+| **Normal** | transparent | `primary` (texte) ou `onSurfaceVariant` (icône) |
+| **Pressé** | `surfaceContainerHigh`, coins 8 dp | inchangé |
+| **Désactivé** | transparent | 38 % d'opacité |
+| **Focus** | transparent | anneau 2 dp `primary`, offset 2 dp |
+
+### 10.5 Ligne d'historique
+
+| État | Fond |
+|---|---|
+| **Normal** | `surface` (opaque — jamais de verre, cf. `13-liquid-glass-sobre.md` §1) |
+| **Pressé** | `surfaceContainerLow` |
+| **Désactivé** | `surface` à 38 % |
+| **Focus** | `surface` + anneau 2 dp `primary`, offset 2 dp |
+| **Balayée** (suppression) | `error` à 12 % |
+
+---
+
+## 11. Schémas ASCII
+
+### 11.1 Onglet LIEN — portrait, thème sombre, clavier fermé (état vide)
+
+```
+┌──────────────────────────────────────────────┐  360 dp
+│  Lien ▮  Historique                          │  barre d'onglets 56 dp
+├──────────────────────────────────────────────┤  séparateur 1 dp outline
+│                                              │
+│                                              │
+│                 ⛓  (48 dp)                  │
+│              Coller un lien                  │  titleMedium 16/24
+│                                              │
+│      ┌────────────────────────────────┐      │
+│      │ 🔍  lien…            [Coller] │      │  champ 56 dp · rayon 28 dp
+│      └────────────────────────────────┘      │  marge 20 dp
+│                                              │
+│           [    Analyser    ]                 │  primary · hauteur 40 dp
+│                                              │
+│    Collez un lien YouTube, TikTok,           │  bodySmall 13/18
+│    Instagram…                                 │
+│                                              │
+│   (YT) (IG) (TT) (FB) (X)  →                │  puces 24 dp
+│                                              │
+└──────────────────────────────────────────────┘  bloc centré H+V
+                     largeur max 560 dp
+```
+
+### 11.2 Onglet LIEN — portrait, thème clair, clavier fermé (état vide)
+
+Identique à §11.1, avec : fond `#FFFFFF`, champ `#F5F5F7`, contour `#E4E4EA`, texte `#1A1A1C`, accent `#A85B0B`.
+
+### 11.3 Onglet LIEN — portrait, clavier ouvert
+
+```
+┌──────────────────────────────────────────────┐
+│  Lien ▮  Historique                          │
+├──────────────────────────────────────────────┤
+│                                              │
+│                 ⛓  (48 dp)                  │  ← le bloc est remonté
+│              Coller un lien                  │    juste assez pour
+│                                              │    ne pas être recouvert
+│      ┌────────────────────────────────┐      │
+│      │ 🔍  lien…            [Coller] │      │
+│      └────────────────────────────────┘      │
+│           [    Analyser    ]                 │
+│                                              │
+└──────────────────────────────────────────────┘
+╔══════════════════════════════════════════════╗
+║  AZERTY                                        ║  clavier (imePadding
+╚══════════════════════════════════════════════╝   appliqué)
+```
+
+### 11.4 Onglet LIEN — après analyse (remontée en ressort + carte d'aperçu)
+
+```
+┌──────────────────────────────────────────────┐
+│  Lien ▮  Historique                          │
+├──────────────────────────────────────────────┤
+│  ┌────────────────────────────────┐          │
+│  │ 🔍  https://youtu.be/… [Coller]│          │  bloc remonté
+│  └────────────────────────────────┘          │  en haut
+│  ┌────────────────────────────────────────┐  │
+│  │ ┌──────┐  Titre de la vidéo            │  │
+│  │ │      │  Auteur · 3:42 · (YT)        │  │  carte d'aperçu
+│  │ │ poch │  [Audio] [Vidéo]  [720p ▾]   │  │
+│  │ └──────┘  [    Télécharger    ]        │  │
+│  └────────────────────────────────────────┘  │
+└──────────────────────────────────────────────┘
+   pochette 96 dp (rayon 12 dp)
+```
+
+### 11.5 Onglet LIEN — paysage et tablette (même centrage, largeur plafonnée)
+
+```
+Paysage (800×360 dp)              Tablette (1280×800 dp)
+┌────────────────────────────────┐  ┌──────────────────────────────────────────┐
+│ Lien ▮ Historique               │  │ Lien ▮ Historique                       │
+├────────────────────────────────┤  ├──────────────────────────────────────────┤
+│                                │  │                                          │
+│      ┌──────────────────┐      │  │          ┌──────────────────┐            │
+│      │ ⛓ Coller un lien │      │  │          │ ⛓ Coller un lien │            │
+│      │ [    Analyser   ]│      │  │          │ [    Analyser   ]│            │
+│      └──────────────────┘      │  │          └──────────────────┘            │
+│           560 dp max            │  │                 560 dp max              │
+└────────────────────────────────┘  └──────────────────────────────────────────┘
+   bloc centré H+V                    bloc centré H+V
+```
+
+### 11.6 Onglet HISTORIQUE — portrait, thème sombre
+
+```
+┌──────────────────────────────────────────────┐
+│  Lien   Historique ▮                         │
+├──────────────────────────────────────────────┤
+│  ┌────────────────────────────────┐          │  champ de filtre 56 dp
+│  │ 🔍  Filtrer…                   │          │  rayon 28 dp
+│  └────────────────────────────────┘          │
+│   (YT) (IG) (TT)   [Tous ▾] [Tous ▾]         │  puces de filtre
+├──────────────────────────────────────────────┤
+│  AUJOURD'HUI                    (collant)    │  Légende 11/16
+│  ┌────┐  Titre de la vidéo                   │
+│  │min │  YouTube · MP3 · 4,2 Mo · 14:32      │  miniature 96×54 dp
+│  └────┘  ● Terminé                           │
+│  ┌────┐  Autre titre                         │
+│  │min │  TikTok · MP4 · 12,1 Mo · 14:30      │
+│  └────┘  ▓▓▓▓▓▓░░░░ 62 %  En cours…        │  barre 4 dp
+│  ┌────┐  Troisième titre                     │
+│  │min │  Vimeo · MP4 · 8,0 Mo · hier        │
+│  └────┘  ● Fichier supprimé                 │
+├──────────────────────────────────────────────┤
+│  ⬇ Téléchargements                            │  barre basse
+└──────────────────────────────────────────────┘
+```
+
+### 11.7 Onglet HISTORIQUE — état vide
+
+```
+┌──────────────────────────────────────────────┐
+│  Lien   Historique ▮                         │
+├──────────────────────────────────────────────┤
+│                                              │
+│                 🕐  (48 dp)                  │
+│          Aucun téléchargement                │
+│             pour l'instant                    │  titleMedium
+│                                              │
+│           [    Coller un lien   ]            │  primary
+│              (bascule vers Lien)             │
+│                                              │
+└──────────────────────────────────────────────┘
+```
+
+### 11.8 Barre de confirmation après balayage
+
+```
+┌──────────────────────────────────────────────┐
+│  ⬇ Téléchargements                            │
+├──────────────────────────────────────────────┤
+│  ┌────┐  Titre de la vidéo                   │
+│  │min │  YouTube · MP3 · 4,2 Mo · 14:32      │
+│  └────┘  ● Terminé                           │
+├──────────────────────────────────────────────┤
+│  Entrée supprimée       [   Annuler   ]      │  barre 48 dp
+└──────────────────────────────────────────────┘
+```
+
+---
+
+## 12. Critères de conformité (vérifiables)
 
 | # | Critère | Vérification |
 |---|---|---|
@@ -308,7 +510,7 @@ Tous les écrans existent en deux thèmes. Les valeurs exactes sont dans `12-tok
 
 ---
 
-## 11. Fichiers associés
+## 13. Fichiers associés
 
 | Fichier | Rôle |
 |---|---|
