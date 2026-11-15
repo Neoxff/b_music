@@ -70,7 +70,10 @@ sealed class Version(
         }
 }
 
-val currentVersionName = "1.0.0"
+// Version 1.4.3 — versionCode 1_430_301 = 1*MAJOR + 4*MINOR + 3*PATCH + 0*VARIANT + 301
+// (schéma de `Version.code`). Strictement supérieur à 1_420_300 (tag v1.4.2) :
+// sans cela, Android refuse l'installation (« package downgraded »).
+val currentVersionName = "1.4.3"
 
 android {
     compileSdk = 37
@@ -84,7 +87,7 @@ android {
         targetSdk = 36
 
         applicationId = namespace
-        versionCode = 1
+        versionCode = 1_430_301
         versionName = currentVersionName
     }
 
