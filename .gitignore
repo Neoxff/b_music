@@ -79,3 +79,5 @@ local.properties
 /.kotlin/
 
 get_weblate_translators.*
+# Artefacts de release locaux (APK + sommes) : hors dépôt, la note de release est dans docs/release/
+/release/
