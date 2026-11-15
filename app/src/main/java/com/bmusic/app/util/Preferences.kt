@@ -425,10 +425,27 @@ object Preferences : KoinComponent {
     val experimentalUpdates: Boolean
         get() = preferences.getBoolean(EXPERIMENTAL_UPDATES, false)
 
-    /** Step 1 (downloader): internal feature flag, default OFF. No UI yet. */
+    /**
+     * Feature flag du téléchargeur (onglet **Lien** / onglet **Historique**).
+     *
+     * Défaut **ON** depuis la v1.4.3 : l'onglet Lien doit être visible par
+     * l'utilisateur (livrable « Lien en premier / par défaut »). Repasser le
+     * défaut à `false` masque à nouveau l'onglet, sans autre effet.
+     */
     var downloaderEnabled: Boolean
-        get() = preferences.getBoolean(DOWNLOADER_ENABLED, false)
+        get() = preferences.getBoolean(DOWNLOADER_ENABLED, true)
         set(value) = preferences.edit { putBoolean(DOWNLOADER_ENABLED, value) }
+
+    /**
+     * Effets de transparence (liquid glass) : `auto` | `on` | `off`.
+     *
+     * Défaut AUTO : le verre suit `GlassPolicy` (API 31+, RAM faible, économiseur
+     * de batterie, animations réduies) et bascule en surface opaque.
+     * `off` force l'opaque, `on` force le verre.
+     */
+    var blurEffects: String
+        get() = preferences.getString(BLUR_EFFECTS, BLUR_EFFECTS_AUTO) ?: BLUR_EFFECTS_AUTO
+        set(value) = preferences.edit { putString(BLUR_EFFECTS, value) }
 
     var lastUpdateSearch: Long
         get() = preferences.getLong(LAST_UPDATE_SEARCH, -1)
@@ -630,6 +647,10 @@ const val LAST_UPDATE_SEARCH = "last_update_search"
 const val LAST_UPDATE_ID = "last_update_id"
 const val EXPERIMENTAL_UPDATES = "experimental_updates"
 const val DOWNLOADER_ENABLED = "downloader_enabled"
+const val BLUR_EFFECTS = "blur_effects"
+const val BLUR_EFFECTS_AUTO = "auto"
+const val BLUR_EFFECTS_ON = "on"
+const val BLUR_EFFECTS_OFF = "off"
 const val START_DIRECTORY = "start_directory"
 const val INITIALIZED_BLACKLIST = "initialized_blacklist"
 const val HIERARCHY_FOLDER_VIEW = "hierarchy_folder_view"

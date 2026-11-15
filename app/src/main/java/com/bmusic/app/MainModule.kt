@@ -307,15 +307,6 @@ private val viewModule = module {
         )
     }
 
-    viewModel {
-        com.bmusic.app.ui.screen.downloader.SearchViewModel(
-            engine = get(),
-            downloadManager = get(),
-            historyDao = get(),
-            prefs = get(),
-        )
-    }
-
     factory {
         get<BMusicDatabase>().searchHistoryDao()
     }

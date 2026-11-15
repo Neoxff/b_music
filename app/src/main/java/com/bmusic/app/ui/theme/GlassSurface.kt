@@ -28,12 +28,13 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun GlassSurface(
     level: GlassTokens.Level = GlassTokens.Level.Standard,
+    mode: GlassMode = GlassMode.AUTO,
     modifier: Modifier = Modifier,
     content: @Composable BoxScope.() -> Unit,
 ) {
     val dark = isSystemInDarkTheme()
     val active = GlassPolicy.isActiveComposed(
-        mode = GlassMode.AUTO,
+        mode = mode,
         context = LocalContext.current,
     )
     val alpha = GlassTokens.opacity(level, dark)

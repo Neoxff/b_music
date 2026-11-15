@@ -45,7 +45,7 @@ class DownloadViewModel(
     private val _downloads = MutableStateFlow<List<DownloadEntity>>(emptyList())
     val downloads: StateFlow<List<DownloadEntity>> = _downloads.asStateFlow()
 
-    private val _tab = MutableStateFlow(0) // 0 = Recherche, 1 = Lien
+    private val _tab = MutableStateFlow(0) // 0 = Lien (défaut), 1 = Historique
     val tab: StateFlow<Int> = _tab.asStateFlow()
 
     val isEnabled: Boolean get() = prefs.downloaderEnabled
@@ -59,14 +59,14 @@ class DownloadViewModel(
     fun onUrlChange(u: String) { _link.value = _link.value.copy(url = u, error = null) }
 
     fun prefill(url: String, toLink: Boolean) {
-        _tab.value = if (toLink) 1 else 0
+        // L'onglet Lien est le seul onglet de saisie (index 0) : tout partage
+        // atterrit dessus. La recherche YouTube n'existe plus.
+        _tab.value = 0
         _link.value = _link.value.copy(url = if (toLink) url else _link.value.url, error = null)
         if (toLink) {
             _link.value = _link.value.copy(url = url)
             // Aucun démarrage automatique (règle du plan).
         }
-        // Texte libre -> Recherche pré-remplie sans recherche : géré par
-        // l'étape 6 via l'état partagé (ici on garde l'URL en Recherche future).
     }
 
     fun resolveLink() {
