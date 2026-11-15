@@ -146,18 +146,22 @@
 
 ## Budgets de référence (docs/lean/budgets-v3.md)
 
+Budgets **recalés sur mesures** (apkanalyzer sur APK release arm64) — voir `docs/lean/budgets-v3.md` §1.
+
 | Indicateur | Budget |
 |---|---|
-| APK arm64-v8a release | ≤ 12 Mo |
+| APK arm64-v8a release | ≤ 16,5 Mo (mesuré : 15,40 Mo) |
+| Dex total décompressé | ≤ 10,5 Mo (mesuré : 10,14 Mo) |
 | Cold start (flag OFF et ON) | < 600 ms |
 | Warm start | < 250 ms |
 | Images lentes (janky) | < 1 % |
 | Frame > 16 ms (60 Hz) / > 8 ms (120 Hz) | interdite |
 | Mémoire pic RSS | < 200 Mo |
-| Cache de miniatures bornée | ≤ 16 Mo |
+| Cache de miniatures bornée | ≤ 16 Mo (un seul ImageLoader Coil) |
 | Batterie, 30 min téléchargements | ≤ +5 % |
 | Délai « lien collé → aperçu » (Wi-Fi) | < 800 ms |
 | Requêtes réseau à l'ouverture Historique | 0 |
+| Requêtes réseau de recherche YouTube | 0 (moteur sans `search()`) |
 
 ---
 
@@ -165,7 +169,8 @@
 
 | Budget | Valeur observée | Statut (GO / NO-GO / Valeur manquante) | Commentaire |
 |---|---|---|---|
-| APK ≤ 12 Mo | | | |
+| APK ≤ 16,5 Mo | | | |
+| Dex total ≤ 10,5 Mo | | | |
 | Cold start OFF < 600 ms | | | |
 | Cold start ON < 600 ms | | | |
 | Warm start < 250 ms | | | |
