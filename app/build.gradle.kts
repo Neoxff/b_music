@@ -195,6 +195,16 @@ android {
         abortOnError = true
         warning += listOf("ImpliedQuantity", "Instantiatable", "MissingQuantity", "MissingTranslation")
     }
+    testOptions {
+        unitTests {
+            // Nécessaire pour que Robolectric charge les ressources Android
+            // mergées (APK). Sans cela, les ressources de bibliothèques
+            // (ex. `abc_vector_test` de `appcompat-resources`, drawable de
+            // sonde d'AppCompat) sont introuvables et le lancement de
+            // MainActivity échoue avec `Resources$NotFoundException`.
+            isIncludeAndroidResources = true
+        }
+    }
     dependenciesInfo {
         includeInApk = false
         includeInBundle = false
@@ -345,6 +355,15 @@ dependencies {
     implementation(libs.juniversalchardet)
 
     testImplementation("junit:junit:4.13.2")
+    // Robolectric 4.16.1 : 4.12.2 ne résout pas `abc_vector_test` (drawable de
+    // sonde d'AppCompat, absent de l'AAR appcompat 1.7.1) et échoue dans
+    // `AppCompatDelegateImpl.attachToWindow` au lancement de MainActivity.
+    testImplementation("org.robolectric:robolectric:4.16.1")
+    testImplementation("androidx.test:core:1.7.0")
+    // Test Compose JVM (Robolectric) : assertions de l'écran Lien
+    // (onglet par défaut, centrage de la zone de saisie mesuré au dp).
+    testImplementation(platform(libs.compose.bom))
+    testImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:runner:1.7.0")
     androidTestImplementation("androidx.test:rules:1.7.0")

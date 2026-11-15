@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      Activité de test Compose (variante debug uniquement).
+      Non exportée : elle n'est atteignable que depuis le processus de l'application.
+      Absente du build release (le jeu de sources `debug` n'est pas inclus dans `release`).
+    -->
+    <application>
+        <activity
+            android:name="com.bmusic.app.test.TestComposeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.BMusic" />
+    </application>
+
+</manifest>
