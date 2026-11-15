@@ -174,6 +174,10 @@ private val roomModule = module {
     }
 
     factory {
+        get<BMusicDatabase>().downloadDao()
+    }
+
+    factory {
         get<BMusicDatabase>().playCountDao()
     }
 
