@@ -510,7 +510,128 @@ Paysage (800×360 dp)              Tablette (1280×800 dp)
 
 ---
 
-## 13. Fichiers associés
+## 13. Compléments v1.3 (issus de la revue d'implémentation)
+
+> Ces sections complètent le document **sans le réécrire** : elles couvrent ce que la revue
+> (`12-revue-lien-historique.md`, v1.3) a relevé comme manquant ou non spécifié.
+
+### 13.1 Icônes à créer (4 vecteurs manquants)
+
+Viewport **24×24 dp**, trait **1,75 dp**, extrémités et jointures **arrondies**, aucun logo de marque.
+
+| Icône | Fichier cible | Géométrie | Couleurs (N / P / D / F) | Tailles à vérifier |
+|---|---|---|---|---|
+| `ic_resume` | `ic_resume_24dp.xml` | triangle plein, base 8 dp, hauteur 9 dp, pointe à droite, centré (12,12) | N `onSurface` · P `primary` · D `outline` · F `primary` | 24 / 32 / 48 dp |
+| `ic_copy_link` | `ic_copy_link_24dp.xml` | deux rectangles 10×12 dp décalés de 2 dp (droite en bas, gauche en haut), trait 1,75 dp | idem | 24 dp |
+| `ic_paste` | `ic_paste_24dp.xml` | rectangle 14×16 dp + bandeau supérieur 8×3 dp | idem | 24 dp |
+| `ic_site_generic` | `ic_site_generic_24dp.xml` | cercle Ø 20 dp **vide** (monogramme injecté par texte, pas un tracé) | `surfaceContainerHigh` + `onSurfaceVariant` | 40 dp (badge) |
+
+**Protocole de vérification** : rendu à 24, 32 et 48 dp · thèmes clair **et** sombre · sur fond `surface` et
+`surfaceContainer` · trait effectif ≥ 1,75 dp · coupure de `ic_link` ≥ 2,5 dp à 24 dp · **aucune** marque,
+**aucun** glyphe de marque (le badge est un monogramme de lettre).
+
+### 13.2 Puces des sites pris en charge et badge de détection en direct
+
+| Élément | Spécification |
+|---|---|
+| Source | `SiteRegistry` (13 sites : YouTube, SoundCloud, Bandcamp, PeerTube **pris en charge** ; Vimeo, Dailymotion, TikTok, Instagram, Facebook, X, Snapchat, Reddit, Twitch **non pris en charge**) |
+| Puce | hauteur 24 dp, rayon 8 dp, padding 8 dp, monogramme `labelMedium` + **point de statut** Ø 6 dp |
+| Point « pris en charge » | `primary` · « partiel » `onSurfaceVariant` · « non pris en charge » `outline` |
+| Ordre | sites pris en charge d'abord (ordre alphabétique), puis les autres (grisés, `onSurfaceVariant` 60 %) |
+| Défilement | horizontal ; 4 puces visibles en portrait, 6 en paysage / tablette ; 13 au total |
+| **Badge en direct** | à droite du champ (16 dp de marge) : nom du site + point de statut, apparaît **à partir de 8 caractères** saisis (évite le clignotement) ; disparaît si le domaine est inconnu |
+
+### 13.3 Textes FR/EN complémentaires (clés à ajouter à `strings.xml`)
+
+| Clé | FR | EN |
+|---|---|---|
+| `downloader_first_use` | Ne télécharge que ce que tu as le droit de télécharger. B Music ne contourne aucune protection. | Only download what you are allowed to download. B Music does not bypass any protection. |
+| `downloader_error_protected` | Ce contenu est protégé et ne peut pas être téléchargé | This content is protected and cannot be downloaded |
+| `downloader_error_storage` | Impossible d'écrire le fichier sur l'appareil | Could not write the file to the device |
+| `downloader_error_notifications` | Notifications bloquées : le téléchargement continue, sans suivi | Notifications blocked: the download continues, without tracking |
+| `downloader_error_generic` | Impossible de lire ce lien | Could not read this link |
+| `downloader_action_notifications` | Activer les notifications | Enable notifications |
+| `downloader_sites_supported` | Pris en charge | Supported |
+| `downloader_sites_partial` | Partiel | Partial |
+| `downloader_sites_unsupported` | Non pris en charge | Not supported |
+| `downloader_multi_title` | Liens détectés | Links found |
+| `downloader_multi_select_all` | Tout télécharger | Download all |
+| `downloader_history_group_today` | Aujourd'hui | Today |
+| `downloader_history_group_yesterday` | Hier | Yesterday |
+| `downloader_history_group_week` | Cette semaine | This week |
+| `downloader_history_group_older` | Plus ancien | Older |
+| `downloader_history_play` | Lire | Play |
+| `downloader_history_redownload` | Retélécharger | Download again |
+| `downloader_history_copy_link` | Copier le lien | Copy link |
+| `downloader_history_share` | Partager | Share |
+| `downloader_history_file_missing` | Fichier supprimé | File deleted |
+| `downloader_a11y_tab` | Onglet %1$s | %1$s tab |
+| `downloader_a11y_clear` | Effacer le lien | Clear the link |
+| `downloader_a11y_sites` | Sites pris en charge | Supported sites |
+
+> Le message `downloader_first_use` s'affiche **une seule fois**, la première ouverture de l'onglet Lien
+> (drapeau `downloader_first_use_shown` dans les préférences), en un bandeau de 2 lignes au-dessus du bloc.
+
+### 13.4 Correspondance code typé → texte → action (11 codes)
+
+| Code | Texte affiché (FR) | Action |
+|---|---|---|
+| `LIEN_INVALIDE` | Ce n'est pas un lien valide | **Réessayer** |
+| `SITE_NON_PRIS_EN_CHARGE` | Ce site n'est pas encore pris en charge | **Voir les sites pris en charge** |
+| `CONTENU_PRIVE` | Ce contenu est privé, supprimé ou inaccessible | **Réessayer** |
+| `CONNEXION_REQUISE` | Ce contenu demande une connexion, qui n'est pas supportée | aucune |
+| `CONTENU_PROTEGE` | Ce contenu est protégé et ne peut pas être téléchargé | aucune |
+| `MOTEUR_A_METTRE_A_JOUR` | Ce site a changé : le moteur doit être mis à jour | **Voir les sites pris en charge** |
+| `HORS_LIGNE` | Aucun réseau disponible | **Réessayer** |
+| `ECHEC_EXTRACTION` | Impossible de lire ce lien | **Ouvrir le journal** |
+| `PERMISSION_NOTIFICATIONS` | Notifications bloquées : le téléchargement continue, sans suivi | **Activer les notifications** |
+| `STOCKAGE_INDISPONIBLE` | Impossible d'écrire le fichier sur l'appareil | **Ouvrir le journal** |
+| `TELECHARGEMENT_ECHEC` | Le téléchargement a échoué | **Ouvrir le journal** |
+
+Règles : une seule action par erreur · l'action est **un bouton** sous le message (jamais une icône seule) ·
+le message est posé sur **fond opaque**, jamais sur le verre de la zone de saisie.
+
+### 13.5 État « plusieurs liens » (texte collé)
+
+| Élément | Spécification |
+|---|---|
+| Détection | 10 liens maximum, extraits du texte collé ; **aucun lien n'est exécuté** à la détection |
+| Champ | reste **vide** ; la liste apparaît sous le bloc |
+| Liste | une case à cocher par lien (case 28 dp, cible 48 dp) + domaine + extrait de 48 caractères |
+| Doublon | case cochée **désactivée**, badge « Déjà en cours », action « Voir dans l'historique » |
+| Pied | bouton « Tout télécharger » (`primary`), 40 dp de haut, rayon 8 dp |
+| Annulation | « Effacer » efface la liste **et** le champ |
+
+### 13.6 Historique — regroupement par date et actions
+
+| Élément | Spécification |
+|---|---|
+| Groupes | **Aujourd'hui** (0–24 h) · **Hier** (24–48 h) · **Cette semaine** (2–7 j) · **Plus ancien** (> 7 j) |
+| En-tête de groupe | collant, verre `Minimal` (0,78 / 0,82), 32 dp de haut, `labelMedium` |
+| Ligne | hauteur **constante 72 dp**, miniature 48 dp (cache borné 20 Mo, éviction LRU), titre 1 ligne `ellipsis`, site · format · taille · état |
+| Clé de composition | `key = "dl-<id>"` (**jamais** l'index) — évite la réutilisation de composition au défilement |
+| 6 actions | **Lire** (passe le titre au lecteur existant, **sans modifier `playback/`**) · **Retélécharger** · **Copier le lien** · **Supprimer de l'historique** · **Supprimer le fichier** (confirmation) · **Partager** |
+| Fichier disparu | état « Fichier supprimé » + action « Retélécharger » ; vérification **paresseuse à l'affichage**, jamais au démarrage |
+| Téléchargements en cours | en **tête** de liste, avec progression, Pause, Reprendre, Annuler |
+
+### 13.7 Animations complémentaires (tokens `Motion.kt`)
+
+| Moment | Animation | Durée / courbe | Mouvement réduit |
+|---|---|---|---|
+| Apparition de la carte d'aperçu | glissement 8 dp + fondu | 220 ms · `SpringSoft` (0,86/380) | fondu 150 ms |
+| Badge / pastille de site | fondu + échelle 0,96 → 1 | 150 ms · `FastOutSlowIn` | fondu seul |
+| Apparition échelonnée des lignes | **24 ms d'écart, 8 lignes max** | 220 ms · `SpringSoft` par ligne | fondu simultané 150 ms |
+| Suppression par balayage | fond suit le doigt (1:1), action révélée | 220 ms · `SpringSoft` | apparition sans glissement |
+| Progression | barre mise à jour **par pas de 120 ms** (jamais d'animation continue du texte) | 120 ms · `FastOutSlowIn` | pas d'animation |
+| Indicateur d'onglet | glisse en ressort | 220 ms · `SpringSnappy` (0,55/700) | glissement immédiat |
+| Remontée de la zone de saisie | ressort, −120 dp | 220 ms · `SpringSnappy` | translation immédiate |
+
+**Interdits (absolus)** : animation du rayon de flou · animation de l'opacité de surface pendant un défilement ·
+`rememberInfiniteTransition` sur une surface verre.
+
+---
+
+## 14. Fichiers associés
 
 | Fichier | Rôle |
 |---|---|
@@ -519,6 +640,7 @@ Paysage (800×360 dp)              Tablette (1280×800 dp)
 | `docs/design/12-tokens-composants-et-motion.md` | Tokens et mouvement (durées, springs, composants) |
 | `bmusic/app/src/main/java/com/bmusic/app/ui/theme/Motion.kt` | Tokens de mouvement implémentés |
 | `docs/design/12-revue-lien-historique.md` | Revue d'implémentation (écarts, captures manquantes) |
+| `docs/design/13-liquid-glass-sobre-global.md` | Verre global v1.3 (toute l'app) + « Rendu iPhone récent » |
 
 ---
 

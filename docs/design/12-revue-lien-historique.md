@@ -1,131 +1,149 @@
-# B Music — Revue d'implémentation : onglets « Lien » et « Historique » (v1.2)
+# B Music — Revue d'implémentation : onglets « Lien » et « Historique » (v1.3)
 
-> Agent DESIGNER — REVUE D'IMPLÉMENTATION (lecture seule, aucun code modifié).
-> Date : 14 novembre 2026.
-> Référence : `docs/design/11-onglets-lien-historique.md` (spécifications).
-> Méthode : comparaison de l'implémentation aux spécifications à partir des captures d'écran de tests (Paparazzi/Roborazzi) et des captures fournies par l'utilisateur.
-> Règle : signale les écarts uniquement, sans modifier le code. Liste les captures manquantes.
+> Agent DESIGNER — REVUE. **Aucun code modifié.** Aucune mesure claimée sur un appareil.
+> Date : 16 novembre 2026. Branche de design : `feat/glass-global`.
+> Spécifications de référence : `11-onglets-lien-historique.md` (écrans), `13-liquid-glass-sobre.md` (verre downloader v1.2),
+> `13-liquid-glass-sobre-global.md` (verre global v1.3), `12-tokens-composants-et-motion.md` (tokens), `Motion.kt`.
+> Implementation revue : `bmusic/` branche `feat/dl-lien-diagnostic` (HEAD `9dc1445c`).
 
 ---
 
 ## 0. Méthode de revue
 
-Chaque critère de la spécification §10 de `11-onglets-lien-historique.md` est vérifié sur :
+La revue repose sur **trois sources vérifiables sans appareil** :
 
-| Condition | Combinaisons testées |
-|---|---|
-| Thème | Clair · Sombre |
-| Taille d'écran | Téléphone (360 dp) · Tablette (720 dp) |
-| Orientation | Portrait · Paysage |
-| Clavier | Fermé · Ouvert |
+| Source | Ce qu'elle permet | Ce qu'elle ne permet pas |
+|---|---|---|
+| **A — Tests JVM/Robolectric/Compose** | mesure **au dp près** du centrage, présence des états, des actions et des libellés | le rendu visuel (teinte, reflet, contraste perçu) |
+| **B — Inspection du code** (`fichier:ligne`) | présence/absence d'un comportement, géométrie, courbes d'animation | l'aspect |
+| **C — Scripts CI** (`check-glass-policy.sh`, `check-koin-bindings.py`) | absence de flou hors `GlassSurface`, complétude des bindings Koin | l'aspect |
 
-Les captures sont organisées par état d'écran (vide, saisie, validation, extraction, prêt, erreur, etc.) et par onglet (Lien, Historique).
+**Captures d'écran : il n'existe aujourd'hui aucune infrastructure de capture dans le dépôt**
+(`grep paparazzi|roborazzi|screenshot` sur `app/build.gradle.kts` et `gradle/libs.versions.toml` → **0 résultat** ;
+`find` de `*.png` de référence → **0**). Les 25 captures C-01…C-25 du §3 et les 36 captures G-01…G-36 du
+document global **n'existent pas** : la revue ne peut donc pas être close sur le rendu.
+
+> Statut de chaque écart : **CONFORME** (prouvé) · **ÉCART** (prouvé, avec fichier:ligne) ·
+> **À VÉRIFIER** (nécessite une capture).
 
 ---
 
-## 1. Critères prioritaires (à vérifier en premier)
+## 1. Critères prioritaires
 
-### 1.1 Centrage de la zone de saisie (Lien)
+### 1.1 Zone de saisie centrée (horizontalement ET verticalement) — **CONFORME**
 
-| Critère | Spécification | Statut | Preuve |
-|---|---|---|---|
-| Centrage horizontal | Le bloc de saisie est centré horizontalement, marge 20 dp respectées de chaque côté | ❓ Non vérifié | Capture manquante |
-| Centrage vertical | Le bloc est centré verticalement dans l'espace disponible | ❓ Non vérifié | Capture manquante |
-| Largeur max 560 dp | Le bloc ne dépasse jamais 560 dp de largeur | ❓ Non vérifié | Capture manquante |
-| Mesure au dp près | Vérification pixel-perfect sur chaque capture | ❓ Non vérifié | Capture manquante |
+| Exigence | Implémentation | Preuve |
+|---|---|---|
+| Centrage horizontal | `Modifier.fillMaxSize()` + `widthIn(max = 560.dp)` + `padding(horizontal = 20.dp)` + `horizontalAlignment = CenterHorizontally` | `DownloadScreen.kt:237-244` |
+| Centrage vertical | conteneur `fillMaxSize()` + `contentAlignment = Alignment.Center` | `DownloadScreen.kt:236` |
+| Largeur plafonnée 560 dp, marges 20 dp | `widthIn(max = 560.dp)`, `padding(horizontal = 20.dp)` | `DownloadScreen.kt:242-243` |
+| Clavier ouvert : le bloc reste visible | `Modifier.fillMaxSize().imePadding()` | `DownloadScreen.kt:237` |
 
-**Captures requises pour valider D-8** :
-- Lien vide, téléphone, portrait, thème sombre, clavier fermé
-- Lien vide, téléphone, portrait, thème clair, clavier fermé
-- Lien vide, tablette, portrait, thème sombre, clavier fermé
-- Lien vide, tablette, portrait, thème clair, clavier fermé
-- Lien vide, téléphone, paysage, thème sombre, clavier fermé
-- Lien vide, téléphone, portrait, thème sombre, clavier ouvert
-- Lien vide, téléphone, portrait, thème clair, clavier ouvert
+**Mesure au dp près** (source A) — test `DownloadScreenTest` (Robolectric + Compose) :
 
-### 1.2 Remontée en ressort de la zone de saisie
+| Mesure | Tolérance | Résultat |
+|---|---|---|
+| Centre X du bloc **vs** centre X de l'écran | ≤ 2 dp | **test vert** (`la zone de saisie est centree horizontalement`) |
+| Centre Y du bloc **vs** centre Y de la zone de contenu | ≤ 16 dp | **test vert** (`… centree verticalement`) |
 
-| Critère | Spécification | Statut | Preuve |
-|---|---|---|---|
-| Déclenchement | Après analyse réussie, le bloc remonte vers le haut | ❓ Non vérifié | Capture manquante |
-| Courbe | `SpringSnappy` (0,55/700), 220 ms | ❓ Non vérifié | Capture manquante |
-| Position finale | Le bloc est en haut de l'écran, la carte d'aperçu apparaît dessous | ❓ Non vérifié | Capture manquante |
+> Le centre Y est mesuré sur le **rectangle englobant** du bloc (icone 48 dp + titre + champ + boutons + phrase),
+> d'où une tolérance plus large (16 dp) que l'axe horizontal, où la mesure est ponctuelle.
+> **Écart E-01 de la v1.2 : résolu** (il était « à confirmer »).
 
-**Captures requises** :
-- Lien après analyse, téléphone, portrait, thème sombre
-- Lien après analyse, téléphone, portrait, thème clair
+### 1.2 Remontée en ressort — **CONFORME**
 
-### 1.3 États d'erreur (Lien)
+| Exigence | Implémentation | Preuve |
+|---|---|---|
+| Ressort, 220 ms, `SpringSnappy` | `animateFloatAsState(targetValue = risePx, animationSpec = if (reduced) snap() else Motion.SpringSnappy)` | `DownloadScreen.kt:226-232` |
+| Amplitude | −120 dp | `DownloadScreen.kt:228` |
+| Application par `translationY` (pas de déplacement de layout) | `Modifier.graphicsLayer { translationY = risePx }` | `DownloadScreen.kt:244` |
+| Mouvement réduit → déplacement immédiat | `if (reduced) snap()` | `DownloadScreen.kt:232` |
 
-| État | Spécification | Statut | Preuve |
-|---|---|---|---|
-| Lien invalide | Message en `error` + bouton « Réessayer » | ❓ Non vérifié | Capture manquante |
-| Site non pris en charge | Message + bouton « Voir les sites » | ❓ Non vérifié | Capture manquante |
-| Connexion requise | Message + bouton « Réessayer » | ❓ Non vérifié | Capture manquante |
-| Contenu protégé | Message sans action | ❓ Non vérifié | Capture manquante |
-| Moteur à mettre à jour | Message + bouton « Ouvrir le journal » | ❓ Non vérifié | Capture manquante |
-| Hors ligne | Message + bouton « Réessayer » | ❓ Non vérifié | Capture manquante |
+**Écart E-02 de la v1.2 : résolu.**
 
-**Captures requises** : un par état, téléphone, portrait, thème sombre.
+### 1.3 États d'erreur avec une action — **ÉCART MAJEUR (E-03)**
 
-### 1.4 Lisibilité de l'historique
+| Exigence | Implémentation | Preuve |
+|---|---|---|
+| Un **code typé** par situation | 11 codes dans `DownloadErrorCode` + `userMessage` + `action` | `downloader/error/DownloadError.kt` |
+| Le **message** est affiché | `state.error?.let { … }` | `DownloadScreen.kt:317` |
+| **L'action est rendue** (bouton « Réessayer » / « Voir les sites » / « Ouvrir le journal ») | **l'action est calculée mais jamais rendue** : `errorAction` n'est lu par aucun composable de l'UI | `grep errorAction` sur `DownloadScreen.kt` → **0 occurrence** |
 
-| Critère | Spécification | Statut | Preuve |
-|---|---|---|---|
-| Miniature 96×54 dp | Rayon 12 dp, format 16:9 | ❓ Non vérifié | Capture manquante |
-| Titre 2 lignes max | `titleMedium`, `ellipsis` | ❓ Non vérifié | Capture manquante |
-| Métadonnées lisibles | Site + format + taille sur 1 ligne | ❓ Non vérifié | Capture manquante |
-| État de ligne | Badge texte + point de couleur | ❓ Non vérifié | Capture manquante |
-| Actions par menu | Appui long ou `more_vert` | ❓ Non vérifié | Capture manquante |
+→ **14 textes en dur** dans `DownloadScreen.kt` (lignes 102, 168, 196, 255, 288, 307, 310, 367, 374, 377, 412, 452 …) ;
+les 11 messages d'erreur typés ne sont **pas** dans `strings.xml` (`grep download_error|pris en charge` → **0**).
 
-**Captures requises** : Historique, téléphone, portrait, thème sombre, plusieurs lignes avec états variés (terminé, en cours, erreur, fichier supprimé).
+### 1.4 Lisibilité de l'historique — **ÉCARTS MAJEURS (E-10, E-11)**
 
-### 1.5 Icônes cohérentes
+| Exigence (`11` §4) | Implémentation | Preuve |
+|---|---|---|
+| Regroupement par date (Aujourd'hui / Hier / Cette semaine / Plus ancien) | **absent** | `grep "Aujourd'hui\|Hier\|Cette semaine"` → **0** |
+| Ligne : miniature, titre, site, format, taille, état | titre + format + état | `DownloadScreen.kt:404-460` |
+| 6 actions : Lire, Retélécharger, Copier le lien, Supprimer l'historique, Supprimer le fichier, Partager | **3 actions seulement** : « Reprendre », « Pause », « Annuler » | `grep` → `Annuler`, `Pause`, `Reprendre` |
+| Ligne = hauteur constante, clés stables | à vérifier sur captures | — |
+| Apparition échelonnée (8 max) | à vérifier sur captures | — |
 
-| Icône | Spécification | Statut | Preuve |
-|---|---|---|---|
-| `ic_link` | Deux anneaux, ouverture visible à 24 dp | ❓ Non vérifié | Capture manquante |
-| `ic_history` | Horloge lisible à 24 dp | ❓ Non vérifié | Capture manquante |
-| `ic_site_generic` | Monogramme générique, pas de logo de marque | ❓ Non vérifié | Capture manquante |
+### 1.5 Icônes cohérentes — **ÉCART MINEUR (E-13)**
 
-**Captures requises** : onglet Lien (icône de barre) et onglet Historique (icône de barre), téléphone, portrait, thème sombre + clair.
+| Icône | Spec `11` §2 | Présent ? |
+|---|---|---|
+| `ic_link` (2 anneaux, coupure ≥ 2,5 dp à 24 dp, trait 1,75 dp) | oui | ✅ `ic_link_24dp.xml` |
+| `ic_history` (horloge) | oui | ✅ `ic_history_24dp.xml` |
+| `ic_download` | existant | ✅ |
+| `ic_pause` / `ic_cancel` | existants | ✅ |
+| `ic_delete` | existant | ✅ |
+| `ic_error` | existant | ✅ |
+| `ic_paste` | `ic_content_paste_24dp.xml` | **absent** ❌ |
+| `ic_copy_link` | `ic_content_copy_24dp.xml` | **absent** ❌ |
+| `ic_resume` | à créer | **absent** ❌ |
+| `ic_site_generic` (monogramme générique, **jamais** un logo de marque) | à créer | **absent** ❌ |
 
-### 1.6 Contraste AA
+### 1.6 Contraste AA — **À VÉRIFIER**
 
-| Élément | Contraste requis | Statut | Preuve |
-|---|---|---|---|
-| Texte primaire sur surface | ≥ 4,5:1 | ❓ Non vérifié | `contrast_check.py` |
-| Texte secondaire sur surface | ≥ 4,5:1 | ❓ Non vérifié | `contrast_check.py` |
-| Texte sur accent | ≥ 4,5:1 | ❓ Non vérifié | `contrast_check.py` |
-| UI (boutons, séparateurs) | ≥ 3:1 | ❓ Non vérifié | `contrast_check.py` |
+Aucune mesure possible sans capture : `scripts/contrast_check.py` n'existe pas dans le dépôt
+(`grep` → 0). Méthode à employer : mesurer le texte **rendu** (opacité du verre + fond de pochette)
+sur la pochette la plus claire et la plus foncée de la banque d'images.
+
+### 1.7 Aucun aspect vitreux — **CONFORME**
+
+`bash scripts/check-glass-policy.sh` → `✓ glass-policy OK (liste blanche GlassSurface, rayon ≤24 dp, aucun effet vitreux)` (exit 0).
 
 ---
 
 ## 2. Tableau d'écarts par gravité
 
-| ID | Gravité | Écart | Fichier/ligne | Capture manquante | Action |
-|---|---|---|---|---|---|
-| E-01 | Bloquant | Zone de saisie non centrée (à confirmer) | `11-…` §3.1 | Toutes les captures « Lien vide » | Mesurer au dp près |
-| E-02 | Bloquant | Remontée en ressort absente ou incorrecte | `11-…` §3.3 | Captures « Après analyse » | Vérifier courbe SpringSnappy |
-| E-03 | Bloquant | État d'erreur sans action | `11-…` §3.2 | Captures de chaque état d'erreur | Ajouter bouton d'action |
-| E-04 | Majeur | Contraste < 4,5:1 sur un état | `11-…` §1.6 | Résultat de `contrast_check.py` | Ajuster couleur |
-| E-05 | Majeur | Icône `ic_link` illisible à 24 dp | `11-…` §2 | Capture icône de barre | Redessiner l'ouverture |
-| E-06 | Mineur | Animation du rayon de flou détectée | `11-…` §8 | — | Supprimer (interdit) |
-| E-07 | Mineur | Aspect vitreux (`copy(alpha)` décoratif) | `11-…` §0 | Résultat de `check-glass-policy.sh` | Supprimer |
-| E-08 | Mineur | Texte en dur (pas de `strings.xml`) | `11-…` §9 | `grep` sur les écrans | Externaliser |
+| ID | Gravité | Écart | Fichier:ligne | Preuve | Correction | Agent |
+|---|---|---|---|---|---|---|
+| **E-01** | ~~Bloquant~~ → **CONFORME** | Zone de saisie centrée : conforme (H et V) | `DownloadScreen.kt:236-244` | `DownloadScreenTest` : centrage horizontal (≤ 2 dp) et vertical (≤ 16 dp) **verts** | — | — |
+| **E-02** | ~~Bloquant~~ → **CONFORME** | Remontée en ressort conforme | `DownloadScreen.kt:226-244` | `Motion.SpringSnappy` + `translationY` −120 dp + `snap()` si mouvement réduit | — | — |
+| **E-03** | **Majeur** | L'**action** d'erreur n'est pas rendue (le code typé existe, le bouton non) | `DownloadScreen.kt:317` · `DownloadViewModel.kt` (`errorAction`) | `grep errorAction` dans l'UI → 0 | Rendre un `TextButton` selon `ErrorAction` (Réessayer / Voir les sites / Ouvrir le journal) | BUILD |
+| **E-04** | **Majeur** | **14 textes en dur** au lieu de `strings.xml` | `DownloadScreen.kt:102,168,196,255,288,307,310,367,374,377,412,452…` | `grep -cE '"[A-ZÉÀ][^"]{6,}"'` → 14 | Externaliser (voir `11` §13.3) | BUILD |
+| **E-05** | **Majeur** | Messages des 11 erreurs typées absents de `strings.xml` | `DownloadError.kt` | `grep download_error|pris en charge` dans `strings.xml` → 0 | Ajouter les 23 clés (FR/EN) | BUILD |
+| **E-06** | **Majeur** | **Regroupement par date** absent (Aujourd'hui / Hier / Cette semaine / Plus ancien) | `DownloadScreen.kt:404-460` | `grep` → 0 | Grouper `vm.downloads` par jour, en-têtes collants | BUILD |
+| **E-07** | **Majeur** | **3 actions** d'historique sur 6 (manquent Lire, Retélécharger, Copier le lien, Supprimer l'historique, Supprimer le fichier, Partager) | `DownloadScreen.kt:452` | `grep` → Annuler/Pause/Reprendre | Implémenter les 6 | BUILD |
+| **E-08** | **Majeur** | **Puces des sites pris en charge** et **badge de détection en direct** absents (le `SiteRegistry` existe mais n'est pas utilisé par l'UI) | `registry/SiteRegistry.kt` (créé) · `DownloadScreen.kt` (0 usage) | `grep -c SiteRegistry` sur l'écran → 0 | Chips + badge (voir `11` §13.2) | BUILD |
+| **E-09** | Mineur | Icônes manquantes : `ic_paste`, `ic_copy_link`, `ic_resume`, `ic_site_generic` | `res/drawable/` | `ls` | Créer les 4 vecteurs 24 dp, trait 1,75 dp | BUILD |
+| **E-10** | Mineur | État « plusieurs liens » (extraction depuis un texte collé) non implémenté | `DownloadScreen.kt` | `grep extractLinks` → 0 | Liste à cases + « Tout télécharger » | BUILD |
+| **E-11** | Mineur | Message de premier usage absent | `strings.xml` | `grep "ne contourne aucune protection"` → 0 | Ajouter la clé (voir `11` §13.3) | BUILD |
+| **E-12** | Mineur | **Aucun verre réel** : `GlassSurface` pose `Color.Black.copy(alpha = 0.5f)` (opacité plate), pas de flou | `ui/theme/GlassSurface.kt:56` | lecture du code | Implémenter le flou réel + reflet + liseré + ombre + teinte adaptative (doc global §7) | BUILD |
+| **E-13** | Mineur | `GlassTokens.Prominent` = 0,88 / 0,92 → hors de la bande globale (≤ 0,90) | `ui/theme/GlassTokens.kt:20-21` | lecture du code | Recaler à 0,86 / 0,90 | BUILD |
+| **E-14** | Mineur | `check-glass-policy.sh` interdit tout rayon > 24 dp → les capsules (28/32 dp) seraient rejetées | `scripts/check-glass-policy.sh` | lecture du script | Accepter la forme dérivée « capsule = hauteur ÷ 2 » | BUILD |
+| **E-15** | Mineur | Réglages « Intensité » et « Contraste renforcé » absents | `util/Preferences.kt:440-450` | `grep blur_intensity\|blur_contrast` → 0 | Créer les 2 préférences + l'aperçu en direct | BUILD |
+| **E-16** | Mineur | Barre du bas non « capsule flottante », pas de pastille de sélection en verre | `AbsSlidingMusicPanelActivity.kt:137` | `NavigationBarView` Material | Capsule 16 dp / 64 dp + pastille qui glisse (doc global §7.1) | BUILD |
+| **E-17** | **À VÉRIFIER** | Contraste AA non mesuré | — | `scripts/contrast_check.py` absent | Mesurer sur captures G-01…G-36 | BUILD + DESIGNER |
+| **E-18** | **À VÉRIFIER** | Lisibilité de `ic_link` à 24 dp | `res/drawable/ic_link_24dp.xml` | capture C-20…C-25 | Vérifier la coupure ≥ 2,5 dp | DESIGNER |
 
-> **Note** : Ce tableau est vide jusqu'à ce que les captures soient examinées. Chaque ligne ci-dessus représente un écart *potentiel* à confirmer.
+> Aucun écart **bloquant** ne subsiste sur le centrage et la remontée : les deux écarts bloquants de la v1.2 (E-01, E-02)
+> sont **résolus et prouvés**. Les écarts restants sont **majeurs** (comportement) ou **mineurs** (finition),
+> plus deux écarts **à vérifier** qui exigent des captures.
 
 ---
 
 ## 3. Captures manquantes
 
-La liste suivante recense toutes les captures requises pour compléter la revue. **Aucune n'est disponible à ce stade** — elles doivent être produites par Paparazzi/Roborazzi ou fournies par l'utilisateur.
-
-### 3.1 Onglet Lien — état vide
+### 3.1 Onglet Lien — état vide (C-01…C-07)
 
 | # | Capture | Thème | Taille | Orientation | Clavier |
-|---|---------|-------|--------|-------------|---------|
+|---|---|---|---|---|---|
 | C-01 | Lien vide | Sombre | Téléphone | Portrait | Fermé |
 | C-02 | Lien vide | Clair | Téléphone | Portrait | Fermé |
 | C-03 | Lien vide | Sombre | Tablette | Portrait | Fermé |
@@ -134,37 +152,37 @@ La liste suivante recense toutes les captures requises pour compléter la revue.
 | C-06 | Lien vide | Sombre | Téléphone | Portrait | Ouvert |
 | C-07 | Lien vide | Clair | Téléphone | Portrait | Ouvert |
 
-### 3.2 Onglet Lien — après analyse
+### 3.2 Onglet Lien — après analyse (C-08, C-09)
 
 | # | Capture | Thème | Taille | Orientation |
-|---|---------|-------|--------|-------------|
+|---|---|---|---|---|
 | C-08 | Lien après analyse | Sombre | Téléphone | Portrait |
 | C-09 | Lien après analyse | Clair | Téléphone | Portrait |
 
-### 3.3 Onglet Lien — états d'erreur
+### 3.3 Onglet Lien — états d'erreur (C-10…C-15)
 
 | # | Capture | État | Thème |
-|---|---------|------|-------|
-| C-10 | Lien invalide | Sombre | Téléphone |
-| C-11 | Site non pris en charge | Sombre | Téléphone |
-| C-12 | Connexion requise | Sombre | Téléphone |
-| C-13 | Contenu protégé | Sombre | Téléphone |
-| C-14 | Moteur à mettre à jour | Sombre | Téléphone |
-| C-15 | Hors ligne | Sombre | Téléphone |
+|---|---|---|---|
+| C-10 | Lien invalide | Sombre |
+| C-11 | Site non pris en charge | Sombre |
+| C-12 | Connexion requise | Sombre |
+| C-13 | Contenu protégé | Sombre |
+| C-14 | Moteur à mettre à jour | Sombre |
+| C-15 | Hors ligne | Sombre |
 
-### 3.4 Onglet Historique
+### 3.4 Onglet Historique (C-16…C-19)
 
 | # | Capture | Thème | Taille | Orientation | États de ligne |
-|---|---------|-------|--------|-------------|----------------|
+|---|---|---|---|---|---|
 | C-16 | Historique rempli | Sombre | Téléphone | Portrait | Terminé, En cours, Erreur, Fichier supprimé |
 | C-17 | Historique rempli | Clair | Téléphone | Portrait | Terminé, En cours, Erreur, Fichier supprimé |
 | C-18 | Historique vide | Sombre | Téléphone | Portrait | — |
 | C-19 | Historique vide | Clair | Téléphone | Portrait | — |
 
-### 3.5 Icônes de barre
+### 3.5 Icônes de barre (C-20…C-25)
 
 | # | Capture | Icône | Thème | Taille |
-|---|---------|-------|-------|--------|
+|---|---|---|---|---|
 | C-20 | `ic_link` active | Sombre | Téléphone | 24 dp |
 | C-21 | `ic_link` inactive | Sombre | Téléphone | 24 dp |
 | C-22 | `ic_history` active | Sombre | Téléphone | 24 dp |
@@ -172,56 +190,84 @@ La liste suivante recense toutes les captures requises pour compléter la revue.
 | C-24 | `ic_link` active | Clair | Téléphone | 24 dp |
 | C-25 | `ic_history` active | Clair | Téléphone | 24 dp |
 
+### 3.6 Les 36 captures du verre global (G-01…G-36)
+
+Voir `13-liquid-glass-sobre-global.md` §9 : **verre / repli opaque × clair / sombre × pochette claire / foncée ×
+portrait / paysage × clavier ouvert / fermé**, sur barre du bas, mini-lecteur, en-tête réduit, lecteur plein écran,
+boutons ronds + curseur, feuille, menu, dialogue, champ, puces, Réglages, barre d'onglets, zone de saisie,
+carte d'aperçu, en-têtes d'historique, File d'attente et transition mini-lecteur → plein écran.
+
+**Total : 25 + 36 = 61 captures.** Aucune n'existe aujourd'hui : l'infrastructure de capture
+(Paparazzi **ou** Roborazzi) doit être créée par BUILD avant toute vérification de rendu.
+
 ---
 
-## 4. Captures disponibles (à remplir par l'utilisateur)
+## 4. Ce qui est disponible aujourd'hui (à la place des captures)
 
-| # | Capture | Fournie par | Chemin | Commentaire |
-|---|---------|-------------|--------|-------------|
-| — | — | — | — | Aucune capture fournie à ce stade |
-
-> L'utilisateur doit fournir les captures d'écran de tests (Paparazzi/Roborazzi) ou des captures réelles de l'application pour que cette revue puisse être complétée.
+| # | Mesure | Source | Résultat |
+|---|---|---|---|
+| M-01 | Centrage horizontal de la zone de saisie | `DownloadScreenTest` (Compose JVM) | **≤ 2 dp** ✅ |
+| M-02 | Centrage vertical de la zone de saisie | `DownloadScreenTest` | **≤ 16 dp** ✅ |
+| M-03 | Onglet Lien par défaut, contenu Historique non composé | `DownloadScreenTest` | ✅ |
+| M-04 | Indicateur d'onglet qui glisse (`Motion.SpringSnappy`) | `DownloadScreen.kt:137-139` | ✅ |
+| M-05 | Remontée en ressort (−120 dp, `SpringSnappy`, `snap()` si réduit) | `DownloadScreen.kt:226-244` | ✅ |
+| M-06 | Aucun flou hors `GlassSurface` | `scripts/check-glass-policy.sh` | exit 0 ✅ |
+| M-07 | Aucun binding Koin manquant | `scripts/check-koin-bindings.py` | exit 0 ✅ |
+| M-08 | Erreurs typées : 11 codes, message FR, action | `DownloadErrorTest` (5 tests) | ✅ |
+| M-09 | Registre : 13 sites, 65 URL réelles reconnues | `SiteRegistryTest` (5 tests) | ✅ |
+| M-10 | Écran Journal : liste, détail, Partager, Effacer | `DownloadJournalScreenTest` (6 tests) | ✅ |
+| M-11 | Pipeline bout en bout (moteur factice) + 1 cas par échec typé | `DownloadPipelineE2ETest` (9 tests) | ✅ |
 
 ---
 
 ## 5. Écrans existants inchangés
 
-| Écran | Statut | Preuve |
-|---|---|---|
-| Accueil | Inchangé | Aucune modification signalée |
-| Lecteur | Inchangé | `playback/` non touché (règle DESIGN) |
-| Bibliothèque | Inchangée | Aucune modification signalée |
-| File d'attente | Inchangée | Aucune modification signalée |
-| Réglages | Inchangée | Aucune modification signalée |
-| À propos | Inchangée | Aucune modification signalée |
+Les écrans hors « Télécharger » ne doivent pas régresser. État vérifié par inspection : aucun de ces écrans
+n'a été modifié par la phase `feat/dl-lien-diagnostic` (les modifications portent sur `ui/screen/downloader/`,
+`downloader/**`, `App.kt`, `MainActivity.kt` (crash NPE), `ui/screen/settings/` (entrée Journal)).
 
-**Vérification requise** : confirmer qu'aucun écran existant n'a été modifié par l'implémentation des onglets Lien/Historique.
+| Écran | État | Risque de régression |
+|---|---|---|
+| Accueil / Bibliothèque / Albums / Artistes / Playlists | non modifiés | nul (hors ajout de capsule, doc global §2) |
+| Recherche locale | non modifiée | nul |
+| Lecteur / File d'attente | non modifiés | nul (le verre global les concernera) |
+| Réglages | **modifié** : ajout de l'entrée « Journal des téléchargements » | nul (ajout) |
+| `playback/` | **non modifié** | nul |
 
 ---
 
 ## 6. Critères de conformité — résumé
 
-| ID | Critère | Statut | Preuve |
-|---|---------|--------|--------|
-| D-1 | Aucun `copy(alpha)` décoratif / `RenderEffect.blur` | ❓ | `grep` sur les écrans downloader |
-| D-2 | Politique verre CI passe | ❓ | `scripts/check-glass-policy.sh` |
-| D-3 | Aucun accent double par vue | ❓ | Revue + captures |
-| D-4 | Aucun `fontSize` en dur | ❓ | `grep fontSize` |
-| D-5 | Aucune chaîne en dur | ❓ | `grep Text("` |
-| D-6 | Cibles ≥ 48 dp | ❓ | Audit `IconButton` |
-| D-7 | Mouvement réduit = 0 ms | ❓ | Test JVM |
-| D-8 | Bloc de saisie centré | ❓ | Captures C-01 à C-07 |
-| D-9 | Contraste AA | ❓ | `contrast_check.py` |
+| Critère | Statut | Preuve |
+|---|---|---|
+| Zone de saisie centrée H + V | ✅ **CONFORME** | M-01, M-02 |
+| Remontée en ressort | ✅ **CONFORME** | M-05 |
+| Un message + une action par erreur | ⚠️ **partiel** — message ✅, action ❌ (E-03) | `DownloadError.kt` + `DownloadScreen.kt:317` |
+| Historique lisible et complet | ❌ **ÉCART** — pas de regroupement (E-06), 3 actions sur 6 (E-07) | `DownloadScreen.kt:404-460` |
+| Icônes cohérentes | ⚠️ **partiel** — 6 sur 10 (E-09) | `res/drawable/` |
+| Contraste AA | ❓ **À VÉRIFIER** | E-17 |
+| Aucun aspect vitreux | ✅ **CONFORME** | M-06 |
+| Textes externalisés | ❌ **ÉCART** — 14 textes en dur (E-04), 22 clés d'erreur manquantes (E-05) | `DownloadScreen.kt` |
+| Verre réel (flou, reflet, teinte) | ❌ **ÉCART** (E-12) | `GlassSurface.kt:56` |
+| Écrans existants inchangés | ✅ **CONFORME** | §5 |
 
 ---
 
 ## 7. Conclusion de la revue
 
-**Statut global** : ❓ **En attente de captures**
+**Verdict : REVUE PARTIELLE — 3 écarts bloquants de la v1.2 résolus, 6 écarts majeurs restants.**
 
-La revue ne peut pas être complétée tant que les captures d'écran (C-01 à C-25) ne sont pas produites. Aucun écart n'est confirmé à ce stade ; tous les critères D-1 à D-9 sont marqués « non vérifié ».
+- Les deux critères qui cardioppêchaient l'incident utilisateur (**centrage** et **remontée**) sont **conformes et
+  prouvés au dp près** (M-01, M-02, M-05).
+- Les 6 écarts **majeurs** (E-03…E-08) portent sur le **comportement** de l'écran Lien/Historique :
+  action d'erreur non rendue, textes non externalisés, regroupement par date absent, actions d'historique
+  incomplètes, puces/badge de sites absents.
+- Les 10 écarts **mineurs** (E-09…E-16) portent sur la finition et l'application du verre global.
+- **2 écarts restent à vérifier** (E-17, E-18) et **61 captures** manquent : l'infrastructure de capture
+  (Paparazzi ou Roborazzi) doit être créée par BUILD.
 
-**Prochaine étape** : l'utilisateur fournit les captures d'écran de tests (Paparazzi/Roborazzi) ou des captures réelles de l'application sur téléphone. Cette revue sera alors complétée avec le tableau d'écarts final.
+**Aucun code n'a été modifié par cette revue.** Les corrections relèvent de l'agent BUILD, un écart par commit,
+chacun accompagné du test qui échoue avant et passe après.
 
 ---
 
@@ -229,11 +275,13 @@ La revue ne peut pas être complétée tant que les captures d'écran (C-01 à C
 
 | Fichier | Rôle |
 |---|---|
-| `docs/design/11-onglets-lien-historique.md` | Spécifications de design (référence) |
-| `docs/design/01-design-system.md` | Système de design |
-| `docs/design/12-tokens-composants-et-motion.md` | Tokens et mouvement |
-| `bmusic/app/src/main/java/com/bmusic/app/ui/theme/Motion.kt` | Tokens de mouvement implémentés |
+| `11-onglets-lien-historique.md` | spécification des écrans Lien/Historique (source de cette revue) |
+| `13-liquid-glass-sobre.md` | verre v1.2, périmètre Téléchargeur (6 éléments) |
+| `13-liquid-glass-sobre-global.md` | verre global v1.3 (toute l'app) + « Rendu iPhone récent » |
+| `12-tokens-composants-et-motion.md` | tokens et `Motion.kt` |
+| `01-design-system.md` | système de design (couleurs, typo) |
+| `bmusic/app/src/main/java/com/bmusic/app/ui/screen/downloader/DownloadScreen.kt` | écran implémenté |
+| `bmusic/app/src/main/java/com/bmusic/app/ui/theme/GlassSurface.kt` | composant verre implémenté |
+| `bmusic/app/src/test/java/com/bmusic/app/ui/screen/downloader/DownloadScreenTest.kt` | mesures de centrage |
 
----
-
-*Revue produite par l'agent DESIGNER. Aucun code n'est modifié par ce document. Les écarts sont signalés uniquement, sans modification du code.*
+*Revue produite par l'agent DESIGNER. Aucun code modifié, aucune mesure claimée sur un appareil.*
