@@ -7,6 +7,8 @@ import com.bmusic.app.downloader.engine.MediaStream
 import com.bmusic.app.downloader.engine.StreamKind
 import com.bmusic.app.downloader.error.DownloadError
 import com.bmusic.app.downloader.manager.DownloaderHttpClient
+import com.bmusic.app.downloader.registry.SiteRegistry
+import com.bmusic.app.downloader.registry.SiteStatus
 import com.bmusic.app.downloader.security.UrlPolicy
 import com.bmusic.app.downloader.trace.LinkReduction
 import com.bmusic.app.downloader.trace.TraceSession
@@ -63,14 +65,25 @@ class NewPipeExtractorEngine(
             throw error
         }
         trace?.ok(TraceStep.VALIDATION, domain)
+
+        // Registre des sites : le statut est honnête et connu AVANT d'appeler
+        // le moteur. Un site sans moteur ne doit jamais produire une erreur
+        // générique « moteur à mettre à jour ».
+        val site = SiteRegistry.lookup(url)
+        if (site == null || site.status == SiteStatus.NON_PRIS_EN_CHARGE) {
+            val error = ExtractorError.Unsupported(site?.id ?: "unknown-site")
+            trace?.fail(TraceStep.SITE_RECONNU, DownloadError.fromExtractor(error))
+            throw error
+        }
+
         ensureInit()
         trace?.ok(TraceStep.MOTEUR_INITIALISE)
 
         val service = try {
             NewPipe.getServiceByUrl(url)
         } catch (e: ExtractionException) {
-            // Domaine sans moteur (TikTok, Instagram, X, ...) : message honnête.
-            val error = ExtractorError.Unsupported(domain ?: "unknown")
+            // Domaine connu mais forme d'URL refusée par NewPipe.
+            val error = ExtractorError.Unsupported(site.id)
             trace?.fail(TraceStep.SITE_RECONNU, DownloadError.fromExtractor(error))
             throw error
         }
