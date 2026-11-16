@@ -367,6 +367,8 @@ dependencies {
     // (onglet par défaut, centrage de la zone de saisie mesuré au dp).
     testImplementation(platform(libs.compose.bom))
     testImplementation("androidx.compose.ui:ui-test-junit4")
+    // Test bout en bout du pipeline « Lien » (moteur factice + coroutines pilotées).
+    testImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:runner:1.7.0")
     androidTestImplementation("androidx.test:rules:1.7.0")
