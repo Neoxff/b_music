@@ -172,6 +172,23 @@
             </intent-filter>
         </service>
 
+        <!--
+          WorkManager — service au premier plan des téléchargements.
+
+          Android 14+ (API 34) EXIGE que le type « dataSync » soit déclaré pour
+          le service qui fait tourner le worker : sans cet attribut, le premier
+          `setForeground(ForegroundInfo(..., FOREGROUND_SERVICE_TYPE_DATA_SYNC))`
+          lève MissingForegroundServiceTypeException et fait crasher
+          l'application (constaté sur Android 15, build release).
+
+          `tools:node="merge"` : WorkManager déclare déjà ce service dans son
+          propre manifeste, on ne fait que compléter l'attribut manquant.
+        -->
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:foregroundServiceType="dataSync"
+            tools:node="merge" />
+
         <receiver
             android:name=".core.appwidgets.WidgetActionReceiver"
             android:exported="false" />
