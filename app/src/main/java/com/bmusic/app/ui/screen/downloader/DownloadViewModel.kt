@@ -13,6 +13,7 @@ import com.bmusic.app.downloader.error.DownloadErrorCode
 import com.bmusic.app.downloader.error.ErrorAction
 import com.bmusic.app.downloader.manager.DownloadManager
 import com.bmusic.app.downloader.data.DownloadDao
+import com.bmusic.app.downloader.security.UrlValidator
 import com.bmusic.app.downloader.trace.DownloadTrace
 import com.bmusic.app.downloader.trace.TraceStep
 import com.bmusic.app.util.Preferences
@@ -88,10 +89,35 @@ class DownloadViewModel(
         // retrouve dans l'écran « Journal » et qu'il partage.
         val session = DownloadTrace.startSession(url)
         currentSessionId = session.id
-        _link.value = _link.value.copy(busy = true, error = null, errorCode = null, errorAction = null)
+
+        // VALIDATION : **toute** entrée (champ, presse-papiers, partage,
+        // retéléchargement depuis l'historique) passe par le validateur avant
+        // d'atteindre le moteur. Une URL malformée n'est jamais requêtée.
+        val validation = UrlValidator.validate(url)
+        val cleanUrl = when (validation) {
+            is UrlValidator.Validation.Invalid -> {
+                val typed = DownloadError(DownloadErrorCode.LIEN_INVALIDE, validation.reason.name)
+                session.fail(TraceStep.VALIDATION, typed)
+                _link.value = _link.value.copy(
+                    busy = false,
+                    error = typed.userMessage,
+                    errorCode = typed.code,
+                    errorAction = typed.action,
+                )
+                return
+            }
+            is UrlValidator.Validation.Valid -> validation.normalized
+        }
+        _link.value = _link.value.copy(
+            url = cleanUrl,
+            busy = true,
+            error = null,
+            errorCode = null,
+            errorAction = null,
+        )
         viewModelScope.launch {
             try {
-                val info = engine.resolve(url, session)
+                val info = engine.resolve(cleanUrl, session)
                 session.ok(TraceStep.APERCU, info.title)
                 val audio = info.streams.filter { it.kind == StreamKind.AUDIO }
                 val video = info.streams.filter { it.kind == StreamKind.VIDEO }

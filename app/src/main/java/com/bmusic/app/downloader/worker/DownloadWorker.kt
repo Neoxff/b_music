@@ -26,6 +26,7 @@ import com.bmusic.app.downloader.trace.DownloadTrace
 import com.bmusic.app.downloader.trace.TraceStep
 import com.bmusic.app.downloader.transfer.DownloadTransferEngine
 import com.bmusic.app.downloader.storage.MediaStoreDownloadWriter
+import com.bmusic.app.util.Preferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
@@ -69,6 +70,16 @@ class DownloadWorker(
         val entity = dao.getById(id) ?: return@withContext Result.failure()
         if (entity.state == DownloadState.CANCELED) return@withContext Result.success()
         if (entity.state == DownloadState.PAUSED) return@withContext Result.success()
+
+        // Flag désactivé entre-temps : AUCUNE requête réseau, AUCUN fichier
+        // écrit. Le téléchargement est annulé proprement.
+        if (!Preferences.downloaderEnabled) {
+            dao.updateState(
+                id, DownloadState.CANCELED,
+                System.currentTimeMillis(), "downloader disabled",
+            )
+            return@withContext Result.success()
+        }
 
         setForeground(createForeground())
         session.ok(TraceStep.TELECHARGEMENT, "démarré")

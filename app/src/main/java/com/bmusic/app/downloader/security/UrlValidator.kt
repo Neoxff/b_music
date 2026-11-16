@@ -62,8 +62,6 @@ object UrlValidator {
         if ('@' in authority) return Validation.Invalid(Reason.HAS_USER_INFO)
         if (authority.isEmpty()) return Validation.Invalid(Reason.MISSING_HOST)
 
-        if ('#' in trimmed) return Validation.Invalid(Reason.HAS_FRAGMENT)
-
         // Hôte/port : supporter `[ipv6]:port` et `host:port`.
         val hostPort: String
         val portPart: String?
@@ -96,14 +94,52 @@ object UrlValidator {
 
         if (!isValidHostSyntax(hostPort)) return Validation.Invalid(Reason.BAD_HOST)
 
-        // Normalisation : lowercase schéma+hôte, port défaut retiré.
+        val rest = if (authorityEnd < 0) "" else afterScheme.substring(authorityEnd)
+
+        // Fragment : RETIRÉ, pas refusé. Un lien partagé « …#t=30 » est
+        // légitime et le fragment n'est jamais transmis au serveur. (Le refus
+        // rendait les liens de partage inutilisables — cause possible du bug
+        // « tout lien non-YouTube est refusé ».)
+        val withoutFragment = rest.substringBefore('#')
+        val path = withoutFragment.substringBefore('?')
+        val query = withoutFragment.substringAfter('?', "")
+        val cleanedQuery = cleanTrackingParams(query)
+        val cleanRest = when {
+            cleanedQuery.isEmpty() -> path
+            path.isEmpty() -> "?$cleanedQuery"
+            else -> "$path?$cleanedQuery"
+        }
+
+        // Normalisation : lowercase schéma+hôte, port défaut retiré,
+        // fragment retiré, paramètres de suivi retirés.
         val defaultPort = if (scheme == "http") 80 else 443
         val normalizedHost =
             if (hostPort.contains(':')) "[$hostPort]" else hostPort.lowercase()
         val normalizedPort = if (portPart != null && port != defaultPort) ":$portPart" else ""
-        val rest = if (authorityEnd < 0) "" else afterScheme.substring(authorityEnd)
-        val normalized = "$scheme://$normalizedHost$normalizedPort$rest"
+        val normalized = "$scheme://$normalizedHost$normalizedPort$cleanRest"
         return Validation.Valid(normalized)
+    }
+
+    /**
+     * Paramètres de suivi retirés : ils portent l'identifiant de campagne
+     * (et parfois une donnée personnelle d'attribution). Les paramètres
+     * fonctionnels (`v`, `list`, `t`, `start`, `i`, …) sont conservés.
+     */
+    private val TRACKING_PARAMS = setOf(
+        "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id",
+        "fbclid", "gclid", "gbraid", "wbraid", "msclkid", "dclid", "yclid",
+        "ttclid", "twclid", "igshid", "igsh", "mc_cid", "mc_eid",
+        "si", "feature", "_hsenc", "_hsmi", "ref_src", "ref_url", "share_token", "spm",
+    )
+
+    private fun cleanTrackingParams(query: String): String {
+        if (query.isEmpty()) return ""
+        return query.split('&')
+            .filter { part ->
+                val name = part.substringBefore('=').trim().lowercase()
+                name.isNotEmpty() && name !in TRACKING_PARAMS
+            }
+            .joinToString("&")
     }
 
     fun isValid(raw: String?): Boolean = validate(raw) is Validation.Valid

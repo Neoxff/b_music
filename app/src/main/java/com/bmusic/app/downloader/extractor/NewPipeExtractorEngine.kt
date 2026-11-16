@@ -10,6 +10,7 @@ import com.bmusic.app.downloader.manager.DownloaderHttpClient
 import com.bmusic.app.downloader.registry.SiteRegistry
 import com.bmusic.app.downloader.registry.SiteStatus
 import com.bmusic.app.downloader.security.UrlPolicy
+import com.bmusic.app.downloader.security.UrlValidator
 import com.bmusic.app.downloader.trace.LinkReduction
 import com.bmusic.app.downloader.trace.TraceSession
 import com.bmusic.app.downloader.trace.TraceStep
@@ -58,29 +59,37 @@ class NewPipeExtractorEngine(
     }
 
     override suspend fun resolve(url: String, trace: TraceSession?): MediaInfo = withContext(Dispatchers.IO) {
-        val domain = LinkReduction.domain(url)
-        if (!UrlPolicy.isSupportedScheme(url)) {
+        // Défense en profondeur : le validateur s'applique ici aussi, même si
+        // l'appelant (ViewModel) a déjà validé. Aucune URL non conforme
+        // n'atteint le moteur.
+        val validated = UrlValidator.validate(url)
+        val cleanUrl = when (validated) {
+            is UrlValidator.Validation.Invalid -> {
+                val error = ExtractorError.UrlInvalid(validated.reason.name)
+                trace?.fail(TraceStep.VALIDATION, DownloadError.fromExtractor(error))
+                throw error
+            }
+            is UrlValidator.Validation.Valid -> validated.normalized
+        }
+        val domain = LinkReduction.domain(cleanUrl)
+        if (!UrlPolicy.isSupportedScheme(cleanUrl)) {
             val error = ExtractorError.UrlInvalid(domain ?: "schema")
             trace?.fail(TraceStep.VALIDATION, DownloadError.fromExtractor(error))
             throw error
         }
         trace?.ok(TraceStep.VALIDATION, domain)
+        ensureInit()
+        trace?.ok(TraceStep.MOTEUR_INITIALISE)
 
-        // Registre des sites : le statut est honnête et connu AVANT d'appeler
-        // le moteur. Un site sans moteur ne doit jamais produire une erreur
-        // générique « moteur à mettre à jour ».
-        val site = SiteRegistry.lookup(url)
+        val site = SiteRegistry.lookup(cleanUrl)
         if (site == null || site.status == SiteStatus.NON_PRIS_EN_CHARGE) {
             val error = ExtractorError.Unsupported(site?.id ?: "unknown-site")
             trace?.fail(TraceStep.SITE_RECONNU, DownloadError.fromExtractor(error))
             throw error
         }
 
-        ensureInit()
-        trace?.ok(TraceStep.MOTEUR_INITIALISE)
-
         val service = try {
-            NewPipe.getServiceByUrl(url)
+            NewPipe.getServiceByUrl(cleanUrl)
         } catch (e: ExtractionException) {
             // Domaine connu mais forme d'URL refusée par NewPipe.
             val error = ExtractorError.Unsupported(site.id)
@@ -91,7 +100,7 @@ class NewPipeExtractorEngine(
         trace?.ok(TraceStep.SITE_RECONNU, service.javaClass.simpleName)
 
         val info = try {
-            StreamInfo.getInfo(service, url)
+            StreamInfo.getInfo(service, cleanUrl)
         } catch (e: ContentNotAvailableException) {
             // Private, deleted, region-locked or otherwise protected content.
             val error = ExtractorError.ProtectedContent()

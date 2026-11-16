@@ -29,7 +29,11 @@ class SecurityModuleTest {
 
     @Test fun url_userinfo_refused() = assertInvalid("https://user:pass@example.com/x")
     @Test fun url_userOnly_refused() = assertInvalid("https://user@example.com/x")
-    @Test fun url_fragment_refused() = assertInvalid("https://example.com/x#frag")
+    @Test fun url_fragment_removedNotRefused() {
+        val v = UrlValidator.validate("https://example.com/x#frag")
+        assertTrue("le fragment doit etre retire, pas refuse", v is UrlValidator.Validation.Valid)
+        assertEquals("https://example.com/x", (v as UrlValidator.Validation.Valid).normalized)
+    }
     @Test fun url_tooLong_refused() = assertInvalid("https://example.com/" + "a".repeat(2048))
     @Test fun url_blank_refused() = assertInvalid("   ")
     @Test fun url_nullByte_refused() = assertInvalid("https://example.com/a\u0000b")
