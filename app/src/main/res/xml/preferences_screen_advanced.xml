@@ -27,4 +27,17 @@
         app:widgetLayout="@layout/preference_switch"
         app:key="enable_rotation_lock"/>
 
+    <!--
+      Journal des téléchargements : diagnostic des tentatives (build debug ET
+      release). Sans adb, c'est le seul moyen d'obtenir la cause exacte d'un
+      échec : le journal exporte via « Partager ».
+    -->
+    <Preference
+        app:icon="@drawable/ic_history_24dp"
+        app:title="@string/downloader_journal_title"
+        app:summary="@string/downloader_journal_summary"
+        app:persistent="false"
+        app:layout="@layout/list_item_view"
+        app:key="downloader_journal" />
+
 </PreferenceScreen>

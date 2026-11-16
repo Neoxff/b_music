@@ -3,6 +3,7 @@ package com.bmusic.app.downloader.worker
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.util.Log
 import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
@@ -143,8 +144,10 @@ class DownloadWorker(
     private fun cleanupOrphanParts() {
         try {
             MediaStoreDownloadWriter.cleanupOrphans(applicationContext, dao)
-        } catch (_: Exception) {
-            // Best-effort : ne jamais faire échouer le worker pour un nettoyage.
+        } catch (e: Exception) {
+            // Best-effort : ne jamais faire échouer le worker pour un nettoyage,
+            // mais l'échec est tracé (jamais avalé en silence).
+            Log.w(TAG, "orphan cleanup failed: ${e.message}")
         }
     }
 
@@ -182,6 +185,7 @@ class DownloadWorker(
     }
 
     companion object {
+        const val TAG = "DownloadWorker"
         const val ARG_ID = "download_id"
         const val ARG_TRACE_SESSION = "trace_session"
         const val CHANNEL_ID = "downloads_channel"

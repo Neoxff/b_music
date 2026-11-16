@@ -57,6 +57,7 @@ import com.bmusic.app.ui.component.compose.languageEntries
 import com.bmusic.app.ui.component.preferences.ProgressIndicatorPreference
 import com.bmusic.app.ui.component.preferences.SwitchWithButtonPreference
 import com.bmusic.app.ui.component.preferences.ThemePreference
+import com.bmusic.app.ui.screen.downloader.DownloadJournalDialog
 import com.bmusic.app.ui.component.preferences.dialog.ActionOnCoverPreferenceDialog
 import com.bmusic.app.ui.component.preferences.dialog.CategoriesPreferenceDialog
 import com.bmusic.app.ui.component.preferences.dialog.ClearQueueActionPreferenceDialog
@@ -305,6 +306,12 @@ open class PreferenceScreenFragment : PreferenceFragmentCompat(),
 
         findPreference<Preference>("backup_and_restore")?.setOnPreferenceClickListener {
             startActivity(Intent(requireContext(), BackupActivity::class.java))
+            true
+        }
+
+        // Journal des téléchargements : diagnostic sans adb (debug ET release).
+        findPreference<Preference>("downloader_journal")?.setOnPreferenceClickListener {
+            DownloadJournalDialog().show(parentFragmentManager, DownloadJournalDialog.TAG)
             true
         }
 

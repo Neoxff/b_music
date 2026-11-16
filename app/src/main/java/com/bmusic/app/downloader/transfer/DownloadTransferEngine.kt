@@ -50,9 +50,13 @@ class DownloadTransferEngine(
         if (validated !is UrlValidator.Validation.Valid) {
             throw IOException("invalid stream url")
         }
+        // Garde anti-SSRF : résolution DNS explicite. Un échec n'est JAMAIS
+        // avalé : il remonte en erreur typée (HORS_LIGNE côté worker).
         try {
             SsrfGuard.resolveAndValidate(validated.normalized)
-        } catch (_: Exception) {}
+        } catch (e: Exception) {
+            throw IOException("host not verifiable: ${e::class.java.simpleName}")
+        }
 
         val displayName = FileNameSanitizer.sanitize(
             networkProvided = entity.title,

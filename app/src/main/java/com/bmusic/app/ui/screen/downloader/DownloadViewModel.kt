@@ -1,5 +1,6 @@
 package com.bmusic.app.ui.screen.downloader
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bmusic.app.downloader.data.DownloadEntity
@@ -161,7 +162,11 @@ class DownloadViewModel(
         viewModelScope.launch {
             _downloads.value = try {
                 dao.recent(50)
-            } catch (_: Exception) { emptyList() }
+            } catch (e: Exception) {
+                // Erreur de lecture de l'historique : tracée, pas avalée.
+                Log.w("DownloadViewModel", "history refresh failed: ${e.message}")
+                emptyList()
+            }
         }
     }
 

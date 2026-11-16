@@ -1047,4 +1047,17 @@
     <string name="permission_notifications_summary">Cette autorisation permet à B Music d\'afficher les commandes de lecture dans votre volet de notifications et sur l\'écran de verrouillage.</string>
     <string name="detect_instrumental_tracks_title">Détecter les morceaux instrumentaux à partir du titre</string>
     <string name="detect_instrumental_tracks_summary">Identifier automatiquement les morceaux instrumentaux en fonction de leur titre.</string>
+
+    <!-- Journal des téléchargements (diagnostic sans adb) -->
+    <string name="downloader_journal_title">Journal des téléchargements</string>
+    <string name="downloader_journal_summary">Diagnostic des dernières tentatives de téléchargement. Aucune donnée personnelle n\'est conservée : les liens sont réduits à leur domaine et à un hash.</string>
+    <string name="downloader_journal_share">Partager le rapport</string>
+    <string name="downloader_journal_clear">Effacer</string>
+    <string name="downloader_journal_close">Fermer</string>
+    <string name="downloader_journal_empty">Aucune tentative enregistrée pour l\'instant.</string>
+    <string name="downloader_journal_unknown_domain">(domaine inconnu)</string>
+    <string name="downloader_journal_hash">Hash du lien : %1$s</string>
+    <string name="downloader_journal_session_summary">Hash du lien : %1$s · %2$d étapes</string>
+    <string name="downloader_journal_ok">OK</string>
+    <string name="downloader_journal_failed">ÉCHEC</string>
 </resources>

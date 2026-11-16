@@ -100,7 +100,11 @@ object MediaStoreDownloadWriter {
         } catch (e: Exception) {
             Log.w(TAG, "insert failed: ${e.message}")
             if (uri != null) {
-                try { resolver.delete(uri, null, null) } catch (_: Exception) {}
+                try {
+                    resolver.delete(uri, null, null)
+                } catch (e: Exception) {
+                    Log.w(TAG, "cleanup pending item failed: ${e.message}")
+                }
             }
             null
         }
@@ -124,7 +128,9 @@ object MediaStoreDownloadWriter {
                     }
                 }
             }
-        } catch (_: Exception) {}
+        } catch (e: Exception) {
+            Log.w(TAG, "orphan .part cleanup failed: ${e.message}")
+        }
 
         // 2) Entrées IS_PENDING orphelines : suppression par requête
         //    MediaStore (IS_PENDING=1 + RELATIVE_PATH du downloader).
