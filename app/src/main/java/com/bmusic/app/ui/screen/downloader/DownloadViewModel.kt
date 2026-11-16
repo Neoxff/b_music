@@ -4,12 +4,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bmusic.app.downloader.data.DownloadEntity
 import com.bmusic.app.downloader.data.DownloadState
-import com.bmusic.app.downloader.engine.ExtractorError
 import com.bmusic.app.downloader.engine.MediaExtractorEngine
 import com.bmusic.app.downloader.engine.MediaInfo
 import com.bmusic.app.downloader.engine.StreamKind
+import com.bmusic.app.downloader.error.DownloadError
+import com.bmusic.app.downloader.error.DownloadErrorCode
+import com.bmusic.app.downloader.error.ErrorAction
 import com.bmusic.app.downloader.manager.DownloadManager
 import com.bmusic.app.downloader.data.DownloadDao
+import com.bmusic.app.downloader.trace.DownloadTrace
+import com.bmusic.app.downloader.trace.TraceStep
 import com.bmusic.app.util.Preferences
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,6 +35,10 @@ class DownloadViewModel(
     data class LinkState(
         val url: String = "",
         val error: String? = null,
+        /** Code typé de la dernière erreur (jamais null si [error] est non null). */
+        val errorCode: DownloadErrorCode? = null,
+        /** Action proposée à l'utilisateur pour cette erreur. */
+        val errorAction: ErrorAction? = null,
         val info: MediaInfo? = null,
         val audioVideo: StreamKind = StreamKind.AUDIO,
         val quality: String? = null,
@@ -47,6 +55,9 @@ class DownloadViewModel(
 
     private val _tab = MutableStateFlow(0) // 0 = Lien (défaut), 1 = Historique
     val tab: StateFlow<Int> = _tab.asStateFlow()
+
+    /** Session de journal courante (résolution → aperçu → téléchargement). */
+    private var currentSessionId: String? = null
 
     val isEnabled: Boolean get() = prefs.downloaderEnabled
 
@@ -72,10 +83,15 @@ class DownloadViewModel(
     fun resolveLink() {
         val url = _link.value.url.trim()
         if (!prefs.downloaderEnabled) return
-        _link.value = _link.value.copy(busy = true, error = null)
+        // Une session de journal par tentative : c'est elle que l'utilisateur
+        // retrouve dans l'écran « Journal » et qu'il partage.
+        val session = DownloadTrace.startSession(url)
+        currentSessionId = session.id
+        _link.value = _link.value.copy(busy = true, error = null, errorCode = null, errorAction = null)
         viewModelScope.launch {
             try {
-                val info = engine.resolve(url)
+                val info = engine.resolve(url, session)
+                session.ok(TraceStep.APERCU, info.title)
                 val audio = info.streams.filter { it.kind == StreamKind.AUDIO }
                 val video = info.streams.filter { it.kind == StreamKind.VIDEO }
                 val preferred = if (_link.value.audioVideo == StreamKind.AUDIO) {
@@ -83,6 +99,7 @@ class DownloadViewModel(
                 } else {
                     video.maxByOrNull { it.bitrateKbps ?: 0 }
                 }
+                session.ok(TraceStep.FORMAT_CHOISI, preferred?.format)
                 _link.value = _link.value.copy(
                     info = info,
                     busy = false,
@@ -91,18 +108,17 @@ class DownloadViewModel(
                 )
             } catch (e: CancellationException) {
                 throw e
-            } catch (e: ExtractorError.UrlInvalid) {
-                _link.value = _link.value.copy(busy = false, error = "Lien invalide")
-            } catch (e: ExtractorError.Unsupported) {
-                _link.value = _link.value.copy(busy = false, error = "Source non prise en charge")
-            } catch (e: ExtractorError.ProtectedContent) {
-                _link.value = _link.value.copy(busy = false, error = "Contenu protégé ou privé")
-            } catch (e: ExtractorError.SourceUnavailable) {
-                _link.value = _link.value.copy(busy = false, error = "Source temporairement indisponible, moteur à mettre à jour")
-            } catch (e: ExtractorError.Network) {
-                _link.value = _link.value.copy(busy = false, error = "Hors ligne")
             } catch (e: Exception) {
-                _link.value = _link.value.copy(busy = false, error = "Erreur moteur")
+                // Une seule conversion typée : aucune exception ne se perd,
+                // aucun message n'est affiché sous un autre nom.
+                val typed = DownloadError.fromExtractor(e)
+                session.fail(TraceStep.EXTRACTION, typed)
+                _link.value = _link.value.copy(
+                    busy = false,
+                    error = typed.userMessage,
+                    errorCode = typed.code,
+                    errorAction = typed.action,
+                )
             }
         }
     }
@@ -134,6 +150,7 @@ class DownloadViewModel(
                 format = stream.format.substringBefore(' ').take(10),
                 isVideo = kind == StreamKind.VIDEO,
                 wifiOnly = false,
+                traceSessionId = currentSessionId,
             )
             _link.value = _link.value.copy(queuedId = entity?.id, duplicate = (entity != null))
             refreshDownloads()

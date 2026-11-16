@@ -48,6 +48,7 @@ class DownloadManager(
         isVideo: Boolean = false,
         wifiOnly: Boolean = false,
         maxConcurrent: Int = DownloadWorker.DEFAULT_MAX_CONCURRENT,
+        traceSessionId: String? = null,
     ): DownloadEntity? = withContext(Dispatchers.IO) {
         if (!prefs.downloaderEnabled) return@withContext null
         val dedup = dedupHash(platformId, format)
@@ -68,7 +69,7 @@ class DownloadManager(
         )
         val id = dao.insert(entity)
         val stored = dao.getById(id) ?: entity
-        DownloadWorker.enqueue(appContext, stored, wifiOnly, maxConcurrent)
+        DownloadWorker.enqueue(appContext, stored, wifiOnly, maxConcurrent, traceSessionId)
         stored
     }
 

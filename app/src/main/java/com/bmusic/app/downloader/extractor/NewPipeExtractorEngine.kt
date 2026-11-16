@@ -5,8 +5,12 @@ import com.bmusic.app.downloader.engine.MediaExtractorEngine
 import com.bmusic.app.downloader.engine.MediaInfo
 import com.bmusic.app.downloader.engine.MediaStream
 import com.bmusic.app.downloader.engine.StreamKind
+import com.bmusic.app.downloader.error.DownloadError
 import com.bmusic.app.downloader.manager.DownloaderHttpClient
 import com.bmusic.app.downloader.security.UrlPolicy
+import com.bmusic.app.downloader.trace.LinkReduction
+import com.bmusic.app.downloader.trace.TraceSession
+import com.bmusic.app.downloader.trace.TraceStep
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -51,38 +55,53 @@ class NewPipeExtractorEngine(
         }
     }
 
-    override suspend fun resolve(url: String): MediaInfo = withContext(Dispatchers.IO) {
+    override suspend fun resolve(url: String, trace: TraceSession?): MediaInfo = withContext(Dispatchers.IO) {
+        val domain = LinkReduction.domain(url)
         if (!UrlPolicy.isSupportedScheme(url)) {
-            throw ExtractorError.UrlInvalid(url)
+            val error = ExtractorError.UrlInvalid(domain ?: "schema")
+            trace?.fail(TraceStep.VALIDATION, DownloadError.fromExtractor(error))
+            throw error
         }
+        trace?.ok(TraceStep.VALIDATION, domain)
         ensureInit()
+        trace?.ok(TraceStep.MOTEUR_INITIALISE)
 
         val service = try {
             NewPipe.getServiceByUrl(url)
         } catch (e: ExtractionException) {
-            throw ExtractorError.Unsupported(url)
+            // Domaine sans moteur (TikTok, Instagram, X, ...) : message honnête.
+            val error = ExtractorError.Unsupported(domain ?: "unknown")
+            trace?.fail(TraceStep.SITE_RECONNU, DownloadError.fromExtractor(error))
+            throw error
         }
+        // Nom du moteur retenu : lisible dans le journal (« YoutubeService »…).
+        trace?.ok(TraceStep.SITE_RECONNU, service.javaClass.simpleName)
 
         val info = try {
             StreamInfo.getInfo(service, url)
         } catch (e: ContentNotAvailableException) {
             // Private, deleted, region-locked or otherwise protected content.
-            throw ExtractorError.ProtectedContent()
+            val error = ExtractorError.ProtectedContent()
+            trace?.fail(TraceStep.EXTRACTION, DownloadError.fromExtractor(error))
+            throw error
         } catch (e: ReCaptchaException) {
-            throw ExtractorError.SourceUnavailable(
-                "source temporarily unavailable, the engine may need an update"
-            )
+            val error = ExtractorError.SourceUnavailable("captcha")
+            trace?.fail(TraceStep.EXTRACTION, DownloadError.fromExtractor(error))
+            throw error
         } catch (e: StreamInfo.StreamExtractException) {
-            throw ExtractorError.SourceUnavailable(
-                "source temporarily unavailable, the engine may need an update"
-            )
+            val error = ExtractorError.SourceUnavailable("site changed")
+            trace?.fail(TraceStep.EXTRACTION, DownloadError.fromExtractor(error))
+            throw error
         } catch (e: ExtractionException) {
-            throw ExtractorError.SourceUnavailable(
-                "source temporarily unavailable, the engine may need an update"
-            )
+            val error = ExtractorError.SourceUnavailable("extraction failed")
+            trace?.fail(TraceStep.EXTRACTION, DownloadError.fromExtractor(error))
+            throw error
         } catch (e: IOException) {
-            throw ExtractorError.Network(e.message ?: "I/O error")
+            val error = ExtractorError.Network(e.message ?: "io")
+            trace?.fail(TraceStep.EXTRACTION, DownloadError.fromExtractor(error))
+            throw error
         }
+        trace?.ok(TraceStep.EXTRACTION, info.name)
 
         val audioStreams = info.audioStreams.mapNotNull { stream ->
             val streamUrl = stream.url ?: stream.content ?: return@mapNotNull null
@@ -106,8 +125,11 @@ class NewPipeExtractorEngine(
 
         val streams = audioStreams + videoStreams
         if (streams.isEmpty()) {
-            throw ExtractorError.SourceUnavailable("no downloadable streams found")
+            val error = ExtractorError.SourceUnavailable("no downloadable streams found")
+            trace?.fail(TraceStep.FLUX_OUVERT, DownloadError.fromExtractor(error))
+            throw error
         }
+        trace?.ok(TraceStep.FLUX_OUVERT, "${streams.size} flux")
 
         MediaInfo(
             title = info.name ?: "Unknown title",

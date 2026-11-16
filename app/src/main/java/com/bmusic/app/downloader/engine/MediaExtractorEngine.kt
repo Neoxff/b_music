@@ -1,5 +1,7 @@
 package com.bmusic.app.downloader.engine
 
+import com.bmusic.app.downloader.trace.TraceSession
+
 /**
  * Step 1 (isolated groundwork): extraction-engine contract for the media
  * downloader (v1.1). The real engine (NewPipeExtractor) lands in step 2
@@ -10,10 +12,14 @@ package com.bmusic.app.downloader.engine
 interface MediaExtractorEngine {
     /**
      * Resolves a user-provided URL into metadata and downloadable streams.
+     *
+     * @param trace journal d'étapes de la tentative en cours (optionnel) : le
+     *        moteur y consigne MOTEUR_INITIALISE, SITE_RECONNU, EXTRACTION et
+     *        FLUX_OUVERT. Sans session, aucun comportement ne change.
      * @throws ExtractorError on any failure (invalid URL, unsupported source,
-     * protected/private content, source unavailable, network).
+     *        protected/private content, source unavailable, network).
      */
-    suspend fun resolve(url: String): MediaInfo
+    suspend fun resolve(url: String, trace: TraceSession? = null): MediaInfo
 
     /**
      * YouTube search (étape 6). Default stub throws Unsupported on engines

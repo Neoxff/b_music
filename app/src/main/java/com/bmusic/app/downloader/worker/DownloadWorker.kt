@@ -18,7 +18,11 @@ import androidx.work.ExistingWorkPolicy
 import com.bmusic.app.downloader.data.DownloadDao
 import com.bmusic.app.downloader.data.DownloadEntity
 import com.bmusic.app.downloader.data.DownloadState
+import com.bmusic.app.downloader.error.DownloadError
+import com.bmusic.app.downloader.error.DownloadErrorCode
 import com.bmusic.app.downloader.manager.DownloadManager
+import com.bmusic.app.downloader.trace.DownloadTrace
+import com.bmusic.app.downloader.trace.TraceStep
 import com.bmusic.app.downloader.transfer.DownloadTransferEngine
 import com.bmusic.app.downloader.storage.MediaStoreDownloadWriter
 import kotlinx.coroutines.Dispatchers
@@ -52,6 +56,12 @@ class DownloadWorker(
         val id = inputData.getLong(ARG_ID, -1L)
         if (id < 0) return@withContext Result.failure()
 
+        // Session de journal : celle ouverte à la résolution du lien, sinon
+        // une nouvelle (l'utilisateur voit alors une tentative isolée).
+        val sessionId = inputData.getString(ARG_TRACE_SESSION)
+        val session = sessionId?.let { DownloadTrace.session(it) }
+            ?: DownloadTrace.startSession("download-$id")
+
         // Cleanup au démarrage du worker uniquement.
         cleanupOrphanParts()
 
@@ -60,6 +70,7 @@ class DownloadWorker(
         if (entity.state == DownloadState.PAUSED) return@withContext Result.success()
 
         setForeground(createForeground())
+        session.ok(TraceStep.TELECHARGEMENT, "démarré")
         dao.updateState(id, DownloadState.DOWNLOADING, System.currentTimeMillis(), null)
 
         return@withContext try {
@@ -67,36 +78,54 @@ class DownloadWorker(
                 dao.updateProgress(id, done, total, System.currentTimeMillis())
                 setForeground(createForeground(progressPct(done, total)))
             })
+            session.ok(TraceStep.ENREGISTREMENT_MEDIASTORE, finalUri?.toString())
             // Vérification finale : le transfert retourne une URI seulement
             // si le fichier est complet et vérifié (IS_PENDING=0 en interne).
             val storedPath = finalUri?.toString() ?: entity.finalPath
             if (storedPath != null) {
                 dao.markCompleted(id, storedPath, System.currentTimeMillis())
+                session.ok(TraceStep.VISIBLE_EN_BIBLIOTHEQUE, storedPath)
             } else {
+                val typed = DownloadError(
+                    DownloadErrorCode.STOCKAGE_INDISPONIBLE,
+                    "final file missing",
+                )
+                session.fail(TraceStep.ENREGISTREMENT_MEDIASTORE, typed)
                 dao.updateState(
                     id, DownloadState.FAILED,
-                    System.currentTimeMillis(), "final file missing"
+                    System.currentTimeMillis(), typed.technicalMessage
                 )
                 return@withContext Result.failure()
             }
             Result.success()
         } catch (e: DownloadTransferEngine.TransferPaused) {
+            session.fail(
+                TraceStep.TELECHARGEMENT,
+                DownloadError(DownloadErrorCode.TELECHARGEMENT_ECHEC, "paused"),
+            )
             dao.updateState(id, DownloadState.PAUSED, System.currentTimeMillis(), null)
             Result.success()
         } catch (e: DownloadTransferEngine.TransferCanceled) {
+            session.fail(
+                TraceStep.TELECHARGEMENT,
+                DownloadError(DownloadErrorCode.TELECHARGEMENT_ECHEC, "cancelled"),
+            )
             dao.updateState(id, DownloadState.CANCELED, System.currentTimeMillis(), null)
             Result.success()
         } catch (e: Exception) {
             // Reprise sur coupure : `Result.retry()` avec backoff si
-            // transitoire, sinon FAILED.
+            // transitoire, sinon FAILED. L'erreur est TOUJOURS typée et
+            // tracée : aucune exception ne disparaît.
+            val typed = DownloadError.fromTransfer(e)
+            session.fail(TraceStep.TELECHARGEMENT, typed)
             val retryCount = runAttemptCount
             if (e is java.io.IOException && retryCount < 3) {
-                dao.updateState(id, DownloadState.QUEUED, System.currentTimeMillis(), e.message)
+                dao.updateState(id, DownloadState.QUEUED, System.currentTimeMillis(), typed.technicalMessage)
                 Result.retry()
             } else {
                 dao.updateState(
                     id, DownloadState.FAILED,
-                    System.currentTimeMillis(), e.message ?: "download failed"
+                    System.currentTimeMillis(), typed.technicalMessage ?: typed.code.name
                 )
                 Result.failure()
             }
@@ -154,6 +183,7 @@ class DownloadWorker(
 
     companion object {
         const val ARG_ID = "download_id"
+        const val ARG_TRACE_SESSION = "trace_session"
         const val CHANNEL_ID = "downloads_channel"
         const val NOTIF_ID = 4201
         const val WORK_NAME_PREFIX = "download-"
@@ -166,6 +196,7 @@ class DownloadWorker(
             entity: DownloadEntity,
             wifiOnly: Boolean,
             maxConcurrent: Int = DEFAULT_MAX_CONCURRENT,
+            traceSessionId: String? = null,
         ) {
             val capped = maxConcurrent.coerceIn(MIN_CONCURRENT, MAX_CONCURRENT)
             val constraints = Constraints.Builder()
@@ -177,7 +208,12 @@ class DownloadWorker(
                 .setConstraints(constraints)
                 .setBackoffCriteria(BackoffPolicy.EXPONENTIAL, 30, TimeUnit.SECONDS)
                 .addTag("downloader")
-                .setInputData(Data.Builder().putLong(ARG_ID, entity.id).build())
+                .setInputData(
+                    Data.Builder()
+                        .putLong(ARG_ID, entity.id)
+                        .apply { traceSessionId?.let { putString(ARG_TRACE_SESSION, it) } }
+                        .build(),
+                )
                 .setInitialDelay(0, TimeUnit.SECONDS)
                 .build()
             // FIFO séquentiel : quelques que maxConcurrent (1 par défaut),
