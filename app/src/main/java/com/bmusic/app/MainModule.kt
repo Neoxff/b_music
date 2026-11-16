@@ -83,6 +83,7 @@ import com.bmusic.app.ui.screen.player.PlayerViewModel
 import com.bmusic.app.ui.screen.sleeptimer.SleepTimerViewModel
 import com.bmusic.app.ui.screen.tageditor.TagEditorViewModel
 import com.bmusic.app.ui.screen.update.UpdateViewModel
+import com.bmusic.app.util.Preferences
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.module.dsl.viewModel
@@ -107,6 +108,13 @@ private val mainModule = module {
     }
     single {
         PreferenceManager.getDefaultSharedPreferences(androidContext())
+    }
+    // `Preferences` est un objet Kotlin : il doit être lié explicitement car
+    // les ViewModels le reçoivent PAR CONSTRUCTEUR (`prefs = get()`).
+    // Sans ce binding : NoDefinitionFoundException au premier accès à l'onglet
+    // Télécharger (2e cause du crash, après `DownloadDao`).
+    single {
+        Preferences
     }
     single {
         SleepTimer()
