@@ -70,10 +70,10 @@ sealed class Version(
         }
 }
 
-// Version 1.4.4 — versionCode 1_430_402 = 1*MAJOR + 4*MINOR + 4*PATCH + 0*VARIANT + 302
-// (schéma de `Version.code`). Strictement supérieur à 1_430_301 (tag v1.4.3),
-// dont l'APK crasait au tap sur l'onglet « Télécharger » (bindings Koin manquants).
-val currentVersionName = "1.4.4"
+// Version 1.4.5 — versionCode 1_430_403 = 1*MAJOR + 4*MINOR + 5*PATCH + 0*VARIANT + 303
+// (schéma de `Version.code`). Strictement supérieur à 1_430_302 (v1.4.4),
+// dont l'APK ne contenait pas le durcissement sécurité (validateurs, SSRF).
+val currentVersionName = "1.4.5"
 
 android {
     compileSdk = 37
@@ -87,7 +87,7 @@ android {
         targetSdk = 36
 
         applicationId = namespace
-        versionCode = 1_430_402
+        versionCode = 1_430_403
         versionName = currentVersionName
     }
 
