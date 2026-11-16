@@ -1060,4 +1060,11 @@
     <string name="downloader_journal_session_summary">Hash du lien : %1$s · %2$d étapes</string>
     <string name="downloader_journal_ok">OK</string>
     <string name="downloader_journal_failed">ÉCHEC</string>
+
+    <!-- Rapport de crash (diagnostic sans adb) -->
+    <string name="crash_report_title">L\'app s\'est arrêtée</string>
+    <string name="crash_report_message">Le rapport du dernier plantage est disponible. Partagez-le pour connaître la cause. Aucune donnée personnelle n\'y figure.</string>
+    <string name="crash_report_share">Partager le rapport</string>
+    <string name="crash_report_clear">Supprimer</string>
+    <string name="crash_report_close">Fermer</string>
 </resources>

@@ -80,6 +80,17 @@ class MainActivity : AbsSlidingMusicPanelActivity(), MediaController.Listener {
         shortcutManager?.removeDynamicShortcuts(OLD_SHORTCUT_IDS)
 
         prepareUpdateViewModel()
+
+        // Rapport de crash en attente : proposé au lancement suivant un crash
+        // (diagnostic sans adb). Posté pour ne pas transactionner pendant
+        // le onCreate.
+        if (CrashReporter.hasPendingReport(this)) {
+            window.decorView.post {
+                if (!isFinishing && !supportFragmentManager.isStateSaved) {
+                    CrashReportDialog().show(supportFragmentManager, CrashReportDialog.TAG)
+                }
+            }
+        }
     }
 
     override fun onConnected(controller: MediaController) {

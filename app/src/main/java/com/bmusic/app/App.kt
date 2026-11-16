@@ -96,6 +96,10 @@ class App : Application(), SingletonImageLoader.Factory {
         // diagnostic survive à un redémarrage (cas du crash).
         DownloadTraceStore.load(this)
 
+        // Filet de crash : le rapport est écrit sur disque au moment du crash
+        // et proposé au prochain lancement (seul moyen de diagnostic sans adb).
+        CrashReporter.install(this)
+
         // ... et persisté quand l'application passe en arrière-plan
         // (`Application` n'expose pas onStop : c'est le callback d'activité
         // qui matérialise la mise en arrière-plan).

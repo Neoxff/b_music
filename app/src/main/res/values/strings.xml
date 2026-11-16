@@ -1097,4 +1097,11 @@
     <string name="downloader_journal_session_summary">Link hash: %1$s · %2$d steps</string>
     <string name="downloader_journal_ok">OK</string>
     <string name="downloader_journal_failed">FAILED</string>
+
+    <!-- Crash report (diagnostic without adb) -->
+    <string name="crash_report_title">The app stopped</string>
+    <string name="crash_report_message">The crash report of the last session is available. Share it to find the cause. No personal data is included.</string>
+    <string name="crash_report_share">Share report</string>
+    <string name="crash_report_clear">Delete</string>
+    <string name="crash_report_close">Close</string>
 </resources>
