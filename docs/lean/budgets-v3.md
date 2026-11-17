@@ -1,10 +1,12 @@
 # B Music v1.2 — Budgets de performance post-retrait-recherche
 
-> Agent Lean B Music. Date : 15 novembre 2026.
+> Agent Lean B Music. Date : 15 novembre 2026, **recalé le 17 novembre 2026 sur l'APK release v1.4.5 livré**.
 > Portée : toute modification (Designer, Build, Lean) est **refusée** si elle dépasse un budget.
 > Cible device de référence : milieu de gamme 2023 (6 Go RAM, écran 60 Hz), mesurée aussi sur 120 Hz.
 > Base : budgets v1.0 (`docs/lean/03-budgets-performance.md`), révisés après retrait de la recherche YouTube.
 > **Toutes les valeurs de ce document sont mesurées** (apkanalyzer / zip sur APK release, ou à relever sur device via la fiche §fiche-mesure-v3.md). Aucune n'est estimée.
+> **Source des mesures APK ci-dessous** : `bmusic/app/build/outputs/apk/github/release/BMusic-1.4.5-github-arm64-v8a.apk`,
+> `com.bmusic.app` versionCode `1430403`, outil `apkanalyzer` du SDK (`cmdline-tools/latest/bin/apkanalyzer`).
 
 ---
 
@@ -16,7 +18,7 @@ La recherche YouTube (`search()` de `MediaExtractorEngine`, `SearchTab`/`SearchV
 
 ### 0.1 Mesure de l'effet du retrait de la recherche (apkanalyzer)
 
-| Mesure | Avec recherche (`feat/dl-etape-6`) | Sans recherche (variante mesurée) | Delta |
+| Mesure | Avec recherche (`feat/dl-etape-6`, variante 15 nov.) | Sans recherche (variante 15 nov.) | Delta |
 |---|---|---|---|
 | APK arm64 release, taille ZIP | 15 403 770 o (14,69 MiB / 15,40 Mo) | 15 403 770 o (14,69 MiB / 15,40 Mo) | **0 o** |
 | APK arm64 release, empreinte SHA-256 | `e95652110f31c07b…` | `2d76acd84584c398…` | contenu différent |
@@ -24,7 +26,21 @@ La recherche YouTube (`search()` de `MediaExtractorEngine`, `SearchTab`/`SearchV
 | Classes dans le dex | 13 116 | 13 089 | −29 / +2 |
 | Sources supprimées | — | 5 fichiers, 23 515 o | — |
 
-**Conclusion mesurée** : le retrait de la recherche réduit le **dex de 17,4 Ko** mais **pas la taille de l'APK** — l'alignement ZIP absorbe la différence. La réduction de l'APK doit donc être recherchée **ailleurs** (voir §1.3), et non dans le retrait de la recherche.
+> Ces deux variantes ont été construites **hors dépôt** le 15 novembre pour isoler l'effet du retrait ; elles ne sont plus disponibles. Les mesures ci-dessous portent sur l'**APK réellement livré** et sont reproductibles avec `apkanalyzer`.
+
+### 0.2 Mesure de l'APK livré v1.4.5 (reproductible)
+
+| Mesure | Commande | Valeur |
+|---|---|---|
+| Taille fichier | `stat -c %s` | **15 447 335 o** = 14,73 MiB = **15,45 Mo** |
+| Taille déclarée | `apkanalyzer apk file-size` | 15 447 335 o |
+| Taille de téléchargement estimée | `apkanalyzer apk download-size` | 10 429 727 o = 9,95 MiB |
+| Dex total (décompressé) | `apkanalyzer dex packages … \| grep TOTAL` | **10 274 632 o** = 9,80 MiB |
+| Application / version | `apkanalyzer apk summary` | `com.bmusic.app` · 1430403 · 1.4.5 |
+
+**Delta de contenu v1.4.3 → v1.4.5** (`apkanalyzer apk compare --different-only`) : **+58 812 o** au total, soit `classes2.dex` +64 888, `classes.dex` +15 168, `resources.arsc` +9 600, `assets/` +3 032, `res/` +204 — c'est le coût mesuré de l'ajout de l'écran Journal, de l'onglet Historique complet et du garde-fou Koin, **après** retrait de la recherche. Ce delta est amplement absorbé par la marge du budget §1.1.
+
+**Conclusion mesurée** : le retrait de la recherche réduit le **dex de 17,4 Ko** mais **pas la taille de l'APK** (alignement ZIP). L'APK livré v1.4.5 est à **15,45 Mo**, sous le budget de 16,5 Mo. La réduction de taille doit être recherchée **ailleurs** (voir §1.3 et le document simplifications), pas dans le retrait de la recherche.
 
 ---
 
@@ -39,29 +55,39 @@ La recherche YouTube (`search()` de `MediaExtractorEngine`, `SearchTab`/`SearchV
 | APK universelle | **non produite** | splits ABI uniquement |
 | Taille du dex (décompressé) | ≤ 10,5 Mo | `apkanalyzer dex packages` (somme de la colonne taille) |
 
-**Justification du budget** : l'APK arm64 mesure **15,40 Mo** avec le moteur NewPipe et l'UI à deux onglets partielle. La marge de **1,1 Mo** couvre ce qui reste à livrer : écran Journal, onglet Historique complet (liste groupée, filtres, actions), table `DownloadEntity`, libellés FR/EN et écran Diagnostics (debug uniquement, donc absent de la release). Le budget est **recalé sur la mesure**, pas sur une estimation.
+**Justification du budget** : l'APK arm64 **livré v1.4.5 mesure 15,45 Mo** (§0.2), écran Journal et onglet Historique complet inclus. La marge de **1,05 Mo** sous le plafond de 16,5 Mo couvre les évolutions restantes sans dépassement. Le coût mesuré de l'ajout Journal + Historique (v1.4.3 → v1.4.5) n'est que de **+58 812 o** (§0.2). Le budget est **recalé sur la mesure**, pas sur une estimation.
 
 ### 1.2 Répartition mesurée de l'APK arm64 (variante sans recherche)
 
-| Catégorie | Décompressé | Compressé | Part |
+| Catégorie | Décompressé | Compressé | Part du ZIP |
 |---|---|---|---|
-| `classes*.dex` | 12,10 MiB | 5,70 MiB | 40 % |
-| `resources.arsc` | 3,88 MiB | 3,88 MiB | 27 % |
-| `res/` | 3,09 MiB | 1,66 MiB | 12 % |
-| `lib/` (natif) | 2,60 MiB | 2,60 MiB | 18 % |
-| `assets/` | 0,75 MiB | 0,45 MiB | 3 % |
-| **Total** | **22,71 MiB** | **14,38 MiB** | 100 % |
+| `classes.dex` + `classes2.dex` | 12 745 372 o (12,16 MiB) | 6 003 755 o (5,73 MiB) | 39,7 % |
+| `resources.arsc` | 4 079 688 o (3,89 MiB) | 4 079 688 o (3,89 MiB) | 27,0 % |
+| `lib/` (3 `.so` arm64) | 2 726 672 o (2,60 MiB) | 2 726 672 o (2,60 MiB) | 18,0 % |
+| `res/` | 3 241 201 o (3,09 MiB) | 1 740 044 o (1,66 MiB) | 11,5 % |
+| `assets/` | 785 971 o (0,75 MiB) | 473 505 o (0,45 MiB) | 3,1 % |
+| `google/`, `org/`, `kotlin/`, manifeste, `META-INF` | 279 601 o | 89 187 o | 0,6 % |
+| **Total fichiers** | **23 858 505 o** | **15 118 834 o** | 100 % |
 
-### 1.3 Postes de réduction identifiés (chiffrés, apkanalyzer)
+> En-têtes ZIP hors total fichiers : l'APK fait 15 447 335 o (écart ≈ 328 Ko d'index et d'alignement).
+> Mesure : script `zipfile` sur l'APK v1.4.5 ; cohérent avec `apkanalyzer apk file-size`.
 
-| Poste | Taille dex | Remarque |
+### 1.3 Postes de réduction identifiés (chiffrés, apkanalyzer sur v1.4.5)
+
+| Poste | Taille dex (v1.4.5) | Remarque |
 |---|---|---|
-| Moteur NewPipe complet | 356 962 o | dont YouTube 140 412 o, `timeago` 37 412 o, PeerTube 24 088 o, Bandcamp 23 633 o, SoundCloud 21 088 o, mediaCCC 16 047 o, `jsextractor` 15 064 o |
-| `coil3` (images) | 41 858 o | dont `coil3.network.ktor3` 3 746 o + `coil3.network.okhttp` 2 083 o (**deux piles HTTP**) |
-| Package `com.bmusic.app.downloader` | 19 014 o | cœur métier du téléchargeur |
-| UI `com.bmusic.app.ui.screen.downloader` | 16 271 o | onglets Lien + Recherche |
+| Moteur NewPipe `org.schabi.newpipe` | **357 161 o** | dont `services` 225 323 o, YouTube 140 459 o, `timeago` 37 412 o, PeerTube 24 088 o, Bandcamp 23 633 o, SoundCloud 21 096 o, mediaCCC 16 047 o, `jsextractor` 15 064 o |
+| `coil3` (images) | **41 858 o** | dont `coil3.network` 13 089 o — **deux piles HTTP** (`ktor3` + `okhttp`) présentes dans le dex |
+| `androidx.work` | **33 909 o** | WorkManager, nécessaire au téléchargement en arrière-plan |
+| `kotlinx.coroutines` | **60 620 o** | dont `flow` 33 224 o, `channels` 14 776 o |
+| Package `com.bmusic.app.downloader` | **22 315 o** | cœur métier (hors UI) — était 19 014 o avant Journal/Historique |
+| UI `com.bmusic.app.ui.screen.downloader` | **9 917 o** | **onglets Lien + Historique uniquement** — la recherche a été retirée (était 16 271 o avec recherche) |
+| `com.bmusic.app.ui.screen.library.search` | **6 326 o** | recherche **bibliothèque locale**, à conserver (pas la recherche YouTube) |
 | `libffmpegJNI.so` (natif) | 1 427,9 Ko | `SongRepository`, `AlacWorkaroundCodecSelector` — **hors périmètre** (lecture) |
 | `libtaglib.so` (natif) | 1 225,0 Ko | `MetadataReader/Writer`, `AudioCoverFetcher`, `TagEditorViewModel` — **hors périmètre** (métadonnées) |
+| `libandroidx.graphics.path.so` (natif) | — | dépendance Graphics Path — **hors périmètre** |
+
+> **Preuve du retrait de la recherche** : `apkanalyzer dex packages` sur v1.4.5 → **0 occurrence** de `com.bmusic.app.downloader.search`, `SearchTab`, `SearchViewModel` ou `SearchHistoryEntity` dans le dex. Le seul `search` restant dans le module downloader est `org.schabi.newpipe.extractor.search` (37 références), code interne du moteur non appelé par l'app. Les 6 326 o de `ui.screen.library.search` concernent la recherche **locale de la bibliothèque**, fonctionnalité distincte conservée.
 
 ---
 

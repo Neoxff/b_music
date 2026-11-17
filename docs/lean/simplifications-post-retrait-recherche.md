@@ -1,8 +1,8 @@
 # B Music v1.2 — Simplifications après le retrait de la recherche
 
-> Agent Lean B Music. Date : 15 novembre 2026.
+> Agent Lean B Music. Date : 15 novembre 2026, **recalé le 17 novembre 2026 sur l'APK release v1.4.5 livré**.
 > Objet : ce qui reste de **superflu** une fois la recherche YouTube retirée, et les 5 simplifications les plus rentables.
-> Méthode : mesures `apkanalyzer` + `zipfile` sur l'APK release arm64 de `feat/dl-etape-6` (variante de référence) et sur une **variante mesurée sans recherche** construite hors dépôt.
+> Méthode : mesures `apkanalyzer` + `zipfile` reproductibles sur `bmusic/app/build/outputs/apk/github/release/BMusic-1.4.5-github-arm64-v8a.apk` (`com.bmusic.app`, versionCode `1430403`). La comparaison « avec / sans recherche » du 15 novembre portait sur des variantes construites hors dépôt, aujourd'hui indisponibles ; elle est conservée à titre historique au §0.
 > **Contrainte** : aucune simplification ne touche l'onglet **Lien** ni l'onglet **Historique**.
 > Chiffres : mesurés. Aucune estimation.
 
@@ -18,7 +18,19 @@
 | Delta de **dex** | **−17 821 o (−17,4 Ko)** — 29 classes retirées, 2 ajoutées |
 | Empreinte SHA-256 (avec / sans recherche) | `e95652110f31c07b…` / `2d76acd84584c398…` (contenus différents) |
 
-**Lecture** : le retrait de la recherche ne fait **pas** baisser la taille de l'APK. Il faut aller chercher le poids ailleurs — c'est l'objet des 5 simplifications ci-dessous.
+### 0.1 Reconfirmation sur l'APK livré v1.4.5 (reproductible)
+
+| Mesure | Valeur sur v1.4.5 | Commande |
+|---|---|---|
+| Taille APK arm64 livré | **15 447 335 o = 14,73 MiB = 15,45 Mo** | `stat` / `apkanalyzer apk file-size` |
+| Dex total | 10 274 632 o | `apkanalyzer dex packages … \| grep TOTAL` |
+| Assets orphelins `sonivox` + `mardous.png` | **350 348 o compressés = 0,334 MiB** (sonivox 212 912 + mardous 137 436) | `zipfile` |
+| Sous-paquets NewPipe strippables (S-2) | **95 293 o** de dex (timeago 37 412 + peertube 24 088 + media_ccc 16 047 + comments 4 494 + playlist 3 894 + channel 3 629 + kiosk 1 857 + subscription 1 754 + search 1 231 + feed 481 + suggestion 406) | `apkanalyzer dex packages` |
+| `coil3` / `coil3.network` | 41 858 o / 13 089 o — **2 piles HTTP** (`ktor3` + `okhttp`) présentes | `apkanalyzer dex packages` |
+| UI `ui.screen.downloader` | **9 917 o** (Lien + Historique ; était 16 271 o avec la recherche) | `apkanalyzer dex packages` |
+| Recherche YouTube dans le downloader | **0 occurrence** (`downloader.search`, `SearchTab`, `SearchViewModel`, `SearchHistoryEntity` absents du dex) | `apkanalyzer dex packages` |
+
+**Lecture** : le retrait de la recherche ne fait **pas** baisser la taille de l'APK (alignement ZIP). L'APK livré est à **15,45 Mo**, sous le budget de 16,5 Mo. Les chiffres des simplifications ci-dessous sont **reconfirmés à l'octet près sur v1.4.5** et reproductibles.
 
 ---
 
