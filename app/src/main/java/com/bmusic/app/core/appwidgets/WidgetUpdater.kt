@@ -101,7 +101,7 @@ object WidgetUpdater {
     }
 
     suspend fun pushProgress(context: Context, positionMs: Long, durationMs: Long) =
-        publish(context, requires = WidgetData.Progress) {
+        publish(context, requires = WidgetData.Progress, progressOnly = true) {
             it.copy(positionMs = positionMs, durationMs = durationMs)
         }
 
@@ -112,21 +112,31 @@ object WidgetUpdater {
     private suspend fun publish(
         context: Context,
         requires: WidgetData? = null,
+        progressOnly: Boolean = false,
         transform: suspend (PlaybackState) -> PlaybackState
     ) = withContext(Dispatchers.IO) {
-        publishTo(context, placed(context).filter { requires == null || requires in it.needs }, transform)
+        publishTo(context, placed(context).filter { requires == null || requires in it.needs }, progressOnly, transform)
     }
 
     private suspend fun publishTo(
         context: Context,
         targets: List<Placed>,
+        progressOnly: Boolean = false,
         transform: suspend (PlaybackState) -> PlaybackState
     ) {
         if (targets.isEmpty()) return
         try {
             var changed = false
             PlaybackStateDefinition.getDataStore(context, "").updateData { persisted ->
-                transform(persisted).also { changed = it != persisted }
+                val next = transform(persisted)
+                // A full snapshot repaints only when a visible field changes; a progress
+                // push is the sole case where the timeline itself is the payload.
+                changed = if (progressOnly) {
+                    persisted.positionMs != next.positionMs || persisted.durationMs != next.durationMs
+                } else {
+                    WidgetGlassPolicy.needsRepaint(persisted, next)
+                }
+                next
             }
             if (!changed) return
             for (target in targets) {
