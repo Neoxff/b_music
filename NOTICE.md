@@ -6,6 +6,7 @@ itself a fork of **Retro Music Player** (https://github.com/RetroMusicPlayer/Ret
 - Licence d'origine : **GNU General Public License v3.0** (voir `LICENSE.txt` — conservé intégralement).
 - Copyright original : © Retro Music Player contributors et © Booming Music contributors.
 - Copyright dérivé : © B Music contributors (dérivation publiée sous GPL-3.0, mêmes conditions).
+- Contributeur (outillage) : **opencode** — assistant de développement ayant contribué au code et à la documentation de B Music.
 - Moteur audio : AndroidX Media3 / ExoPlayer (Apache-2.0, © The Android Open Source Project).
 - Toute la base conserve la licence GPL-3.0 et les mentions attribution ci-dessus ; aucune fonctionnalité propriétaire n'est ajoutée.
 - Les marques « Booming Music » et « Retro Music Player » ne sont pas utilisées pour promouvoir B Music au-delà de l'attribution légale.
