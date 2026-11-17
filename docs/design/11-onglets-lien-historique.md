@@ -3,7 +3,7 @@
 > Agent DESIGNER — SPECIFICATION DE DESIGN (lecture seule, aucun code modifié).
 > Date : 14 novembre 2026.
 > Sources : `01-design-system.md` (système), `10-navigation-et-icones.md` (navigation), `12-tokens-composants-et-motion.md` (tokens), `Motion.kt` (durées/springs).
-> Contraintes : pas de Liquid Glass, pas de blur, pas de verre, pas de dégradé, pas d'ombre portée. Élévation = changement de ton uniquement. Un seul accent visible par vue. Animation uniquement via `Motion.kt`. Jamais d'animation du rayon de flou.
+> Contraintes : animations uniquement via `Motion.kt`, jamais d'animation du rayon de flou. Pas de dégradé, pas d'ombre portée. Élévation = changement de ton uniquement. Un seul accent visible par vue. Le verre (via `GlassSurface`) s'applique aux **zones de contrôle** (zone de saisie, carte d'aperçu, en-têtes de date) ; les **lignes de contenu** restent opaques, conformément à `13-liquid-glass-sobre-global.md` §2.
 
 ---
 
