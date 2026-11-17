@@ -180,7 +180,7 @@ En tant que **Léa**, je veux que B Music reconnaisse un lien Bandcamp.
 - **Étant donné** je colle `https://artist.bandcamp.com/track/titre`
 - **Quand** l'analyse est déclenchée
 - **Alors** l'entrée porte l'étiquette « Bandcamp »
-- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+- **Et** le statut affiché est **« Pris en charge »** (statut `SiteRegistry` actuel)
 
 ### DS-9 — Vimeo (P2 · M · REL · test JVM)
 
@@ -189,7 +189,8 @@ En tant que **Léa**, je veux que B Music reconnaisse un lien Vimeo.
 - **Étant donné** je colle `https://vimeo.com/123456789`
 - **Quand** l'analyse est déclenchée
 - **Alors** l'entrée porte l'étiquette « Vimeo »
-- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+- **Et** le statut affiché est **« Site non pris en charge »** (statut `SiteRegistry` actuel), sans fetch du moteur
+- **Et** l'action « Voir les sites » est proposée
 
 ### DS-10 — Dailymotion (P2 · M · REL · test JVM)
 
@@ -198,7 +199,8 @@ En tant que **Léa**, je veux que B Music reconnaisse un lien Dailymotion.
 - **Étant donné** je colle `https://www.dailymotion.com/video/x8abcde`
 - **Quand** l'analyse est déclenchée
 - **Alors** l'entrée porte l'étiquette « Dailymotion »
-- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+- **Et** le statut affiché est **« Site non pris en charge »** (statut `SiteRegistry` actuel), sans fetch du moteur
+- **Et** l'action « Voir les sites » est proposée
 
 ### DS-11 — Reddit (P2 · M · REL · test JVM)
 
@@ -207,7 +209,8 @@ En tant que **Léa**, je veux que B Music reconnaisse un lien Reddit.
 - **Étant donné** je colle `https://www.reddit.com/r/videos/comments/abc123/titre/`
 - **Quand** l'analyse est déclenchée
 - **Alors** l'entrée porte l'étiquette « Reddit »
-- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+- **Et** le statut affiché est **« Site non pris en charge »** (statut `SiteRegistry` actuel), sans fetch du moteur
+- **Et** l'action « Voir les sites » est proposée
 
 ### DS-12 — Twitch (P2 · M · REL · test JVM)
 
@@ -216,7 +219,10 @@ En tant que **Léa**, je veux que B Music reconnaisse un lien Twitch.
 - **Étant donné** je colle `https://www.twitch.tv/videos/123456789`
 - **Quand** l'analyse est déclenchée
 - **Alors** l'entrée porte l'étiquette « Twitch »
-- **Et** le statut du site indique un support pris en charge ou partiel selon le moteur
+- **Et** le statut affiché est **« Site non pris en charge »** (statut `SiteRegistry` actuel), sans fetch du moteur
+- **Et** l'action « Voir les sites » est proposée
+
+> **Règle de vérité** : à ce jour, `SiteRegistry` (décision D-2) ne déclare **pris en charge** que YouTube, SoundCloud, Bandcamp et PeerTube. Les 9 autres sites de la liste sont reconnus (étiquette + puce) mais **non pris en charge** : aucun téléchargement n'est promis, aucun fetch moteur n'est lancé. Le passage au statut « pris en charge » exige une décision produit explicite et un test qui échoue avant / passe après.
 
 ---
 
@@ -268,7 +274,7 @@ En tant que **Léa**, je veux une limite raisonnable sur le nombre de liens extr
 
 ---
 
-## 5. États d'erreur et refus (9 stories)
+## 5. Refus, cas limites et régressions (9 stories)
 
 ### ER-1 — Lien invalide (P0 · S · SEC · test JVM)
 
@@ -280,14 +286,17 @@ En tant que **Léa**, je veux qu'un lien invalide soit refusé avec un message c
 - **Et** un bouton « Réessayer » est présent
 - **Et** aucune requête réseau n'est émise
 
-### ER-2 — Lien avec fragment (P1 · S · SEC · test JVM)
+### ER-2 — Lien avec fragment : retiré, non refusé (P1 · S · SEC · test JVM)
 
-En tant que **Léa**, je veux qu'un lien contenant un fragment (`#`) soit refusé.
+En tant que **Léa**, je veux qu'un lien partagé contenant un fragment (`#t=60`) soit accepté, car le fragment est légitime dans un lien partagé.
 
 - **Étant donné** je colle `https://www.youtube.com/watch?v=dQw4w9WgXcQ#t=60`
 - **Quand** l'analyse est déclenchée
-- **Alors** l'entrée est marquée « Lien non valide »
-- **Et** aucune requête réseau n'est émise
+- **Alors** l'entrée est acceptée et porte l'étiquette « YouTube »
+- **Et** l'URL normalisée utilisée pour l'analyse est `https://www.youtube.com/watch?v=dQw4w9WgXcQ` (fragment retiré)
+- **Et** aucune requête réseau n'est émise pour le fragment lui-même
+
+> **Régression explicitement couverte** : refuser le fragment était la cause identifiée du bug « l'onglet Lien ne fonctionne pas » (validateur trop strict). Ces critères sont la preuve que le correctif tient. Référence : `UrlValidatorAcceptanceTest` (« le fragment de partage est retiré et non refusé ») et finding F-016 corrigé.
 
 ### ER-3 — Site non pris en charge (P0 · M · REL · test JVM)
 
@@ -453,13 +462,13 @@ Deux métriques sont distinguées : les **critères** (lignes Étant donné / Qu
 |------|---------|----------|------------|-------------------------|
 | Zone de saisie — centrage | ZS-1 → ZS-5 (5) | 23 | 13 | capture |
 | Coller / effacer | CP-1 → CP-4 (4) | 16 | 8 | test JVM |
-| Détection de site | DS-1 → DS-12 (12) | 42 | 18 | test JVM |
+| Détection de site | DS-1 → DS-12 (12) | 46 | 22 | test JVM |
 | Formats de lien | LP-1 → LP-5 (5) | 19 | 9 | test JVM |
-| États d'erreur | ER-1 → ER-9 (9) | 41 | 23 | test JVM / vérification manuelle |
+| Refus, cas limites et régressions | ER-1 → ER-9 (9) | 42 | 24 | test JVM / vérification manuelle |
 | Journal d'étapes | JE-1 → JE-4 (4) | 16 | 8 | journal exporté / test JVM |
 | Partage | SH-1 → SH-3 (3) | 12 | 6 | vérification manuelle / test JVM |
 | Bout en bout release | E2E-1 (1) | 7 | 5 | journal exporté |
-| **Total** | **43 stories** | **176 critères** | **90 observables** | — |
+| **Total** | **43 stories** | **181 critères** | **95 observables** | — |
 
 > Compteurs recalculés automatiquement depuis le corps du document (chaque ligne `### XX-n` et chaque puce `**Étant donné** / **Quand** / **Alors** / **Et**`). Les 12 sites de la liste ont chacun une story dédiée (DS-1 → DS-12).
 
