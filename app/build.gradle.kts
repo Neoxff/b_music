@@ -70,10 +70,10 @@ sealed class Version(
         }
 }
 
-// Version 1.4.6 — versionCode 1_430_404 = 1*MAJOR + 4*MINOR + 6*PATCH + 0*VARIANT + 304
-// (schéma de `Version.code`). Strictement supérieur à 1_430_403 (v1.4.5),
-// publiée avec le correctif de repaint des widgets (feat/widgets-glass).
-val currentVersionName = "1.4.6"
+// Version 1.4.7 — versionCode 1_430_405 = 1*MAJOR + 4*MINOR + 7*PATCH + 0*VARIANT + 305
+// (schéma de `Version.code`). Strictement supérieur à 1_430_404 (v1.4.6),
+// publiée avec le modèle de progression lissée (feat/dl-progression).
+val currentVersionName = "1.4.7"
 
 android {
     compileSdk = 37
@@ -87,7 +87,7 @@ android {
         targetSdk = 36
 
         applicationId = namespace
-        versionCode = 1_430_404
+        versionCode = 1_430_405
         versionName = currentVersionName
     }
 
